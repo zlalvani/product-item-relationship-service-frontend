@@ -1,7 +1,7 @@
 import React from "react";
 
-import { IOSSwitch } from "../../../components/IOSSwitch";
-import { useTranslation } from "../../../lib";
+import { IOSSwitch } from "../../../../../components/IOSSwitch";
+import { useTranslation } from "../../../../../lib";
 
 export const AutoRefreshSwitch: React.FC<{ onChange: (value: boolean) => void }> = ({ onChange }) => {
   const { t } = useTranslation();

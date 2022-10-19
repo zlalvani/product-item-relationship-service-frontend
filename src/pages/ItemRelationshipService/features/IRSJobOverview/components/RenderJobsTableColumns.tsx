@@ -1,8 +1,8 @@
 import { GridColDef } from "@mui/x-data-grid";
 
-import { IconButton } from "../../../components/cx-portal-shared-components/components/basic/IconButton";
-import { ArrowForwardIcon, useTranslation } from "../../../lib";
-import { Job } from "../../../types/jobs";
+import { IconButton } from "../../../../../components/cx-portal-shared-components/components/basic/IconButton";
+import { ArrowForwardIcon, useTranslation } from "../../../../../lib";
+import { Job } from "../../../../../types/jobs";
 
 // Columns definitions of Digital Twin page Data Grid
 export const renderJobsTableColumns = (visualize: (id: string) => void): Array<GridColDef> => {
