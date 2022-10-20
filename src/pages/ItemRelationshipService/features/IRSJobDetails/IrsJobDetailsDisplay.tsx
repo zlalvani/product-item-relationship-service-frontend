@@ -1,26 +1,9 @@
 import { Box, Divider, Grid } from "@mui/material";
 import dayjs from "dayjs";
 import { useTranslation } from "react-i18next";
-import { DetailGrid } from "../../../components/DetailGrid";
-import { BeautifulJson } from "../../../lib/react-syntax-highlighter";
-import { useFetchJobById } from "../../../services/queries/jobs";
-import { Job } from "../../../types/jobs";
-
-export const IrsJobDetails: React.FC<{ jobId: string }> = ({ jobId }) => {
-  const { data: job, isError, isLoading } = useFetchJobById(jobId);
-  if (isLoading) {
-    //TODO: Handle Loading State
-    console.warn("implement job loading");
-    return null;
-  }
-  if (isError) {
-    //TODO: handle Error state
-    console.error("implement job error");
-    return null;
-  }
-
-  return <IrsJobDetailsDisplay job={job.job} />;
-};
+import { DetailGrid } from "../../../../components/DetailGrid";
+import { BeautifulJson } from "../../../../lib/react-syntax-highlighter";
+import { Job } from "../../../../types/jobs";
 
 export const IrsJobDetailsDisplay: React.FC<{ job?: Job }> = ({ job }) => {
   const { t } = useTranslation();
@@ -82,8 +65,8 @@ export const IrsJobDetailsDisplay: React.FC<{ job?: Job }> = ({ job }) => {
           )}
 
           {/* <Highlight className="irs-job-details-content-code">
-              {JSON.stringify(job, null, 2)}
-            </Highlight> */}
+                {JSON.stringify(job, null, 2)}
+              </Highlight> */}
         </Box>
       </Box>
     </section>

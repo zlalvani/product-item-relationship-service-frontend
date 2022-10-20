@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { IrsJobDetails } from "./features/IrsJobDetails";
+import { IrsJobDetails } from "./features/IRSJobDetails/IrsJobDetails";
 import { IRSJobOverview } from "./features/IRSJobOverview/IRSJobOverview";
 import { IRSJobAddForm } from "./form/IRSJobAddForm";
 
