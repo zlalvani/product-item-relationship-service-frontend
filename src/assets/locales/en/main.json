@@ -21,7 +21,6 @@
     "organization": "My Organization",
     "notifications": "Notifications",
     "usermanagement": "User Management",
-    "idpmanagement": "Identity Provider (IDP)",
     "technicalsetup": "Technical Integration",
     "applicationrequests": "Application Requests",
     "admin": "Administration",
@@ -42,7 +41,7 @@
     "appusermanagement": "App User Management",
     "userdetails": "User Details",
     "technicaluser": "Technical User Management",
-    "techuserdetails": "Technical User Details"
+    "itemrelationshipservice": "Item Relationship Service"
   },
   "overlays": {
     "invite": "Invite new Business Partner",
@@ -58,6 +57,8 @@
     "admin": {
       "registration-requests": {
         "columns": {
+          "request": "Request",
+          "requestDescription": "ID of user request",
           "date": "Date",
           "companyinfo": "Company Application Info",
           "documents": "Documents",
@@ -74,7 +75,7 @@
         "cellconfirmed": "confirmed",
         "celldeclined": "declined",
         "overlay": {
-          "title": "Company Data",
+          "title": "Company Detail",
           "companydatatitle": "Company Data",
           "taxid": "Tax ID"
         },
@@ -127,8 +128,7 @@
           "circulareconomy": "Circular Economy",
           "quality&demandmanagement": "Demand & Quality Management",
           "demandandcapacitymanagement": "Demand & Capacity Management",
-          "traceability": "Traceability",
-          "manufacturingasaservice": "Manufacturing as a Service"
+          "traceability": "Traceability"
         }
       }
     },
@@ -145,7 +145,6 @@
       },
       "table": {
         "title": "Semantic Data Models",
-        "searchfielddefaulttext": "Search by name",
         "filter": {
           "namespaceLabel": "Namespace",
           "namespacePlaceholder": "Enter a namespace to filter",
@@ -211,7 +210,6 @@
     "digitaltwin": {
       "table": {
         "title": "Overview Digital Twins",
-        "searchfielddefaulttext": "Search by Name/Identifier",
         "columns": {
           "idShort": "Name",
           "sm_count": "Submodel Count",
@@ -234,18 +232,63 @@
         "protocol_endpoint": "Aspect Endpoint:"
       }
     },
-    "organization": {
-      "company": {
-        "title": "Company Details",
-        "error": "error - no data found",
-        "name": "Company Name: ",
-        "address": "Address: ",
-        "city": "City: ",
-        "bpn": "BPN: "
+    "irs": {
+      "jobsTable": {
+        "title": "Item Relationship Service Job Store ",
+        "jobID": "Id",
+        "status": "Status",
+        "visualize": "Visualization",
+        "toggleAutoRefresh": "Auto Refresh every 5 seconds"
       },
-      "subscriptions": {
-        "title": "App Subscriptions",
-        "error": "error - no data found"
+      "jobDetails": {
+        "title": "Item Relationship Service Job Details",
+        "globalAssetId": "Global Asset ID",
+        "exception": "Exception",
+        "createdOn": "Job created on",
+        "startedOn": "Job started on",
+        "lastModifiedOn": "Job last modified on",
+        "jobCompleted": "Job completed on",
+        "owner": "Job owner",
+        "summary": "Job summary",
+        "jobParameter": "Job parameter"
+      },
+      "visualization": {
+        "title": "Visualization of IRS Result"
+      },
+      "dialog": {
+        "title": "Node Details",
+        "submodelTombstones": {
+          "title": "Submodel Tombstones",
+          "lastAttempt": "Timestamp",
+          "errorDetail": "Error Details"
+        },
+        "submodelPayload": {
+          "title": "Submodel Payload",
+          "payload": "Payload"
+        },
+        "edge": {
+          "catenaXId": "Catena-X ID",
+          "childCatenaXId": "Child Catena-X ID",
+          "assembledOn": "Assembled on",
+          "lastModifiedOn": "Last modified on",
+          "lifecycleContext": "Lifecycle context",
+          "measurementUnit": {
+            "datatypeURI": "URI data type",
+            "lexicalValue": "Lexical value"
+          },
+          "quantityNumber": "Quantity"
+        }
+      },
+      "form": {
+        "title": "Build a new Data Chain",
+        "requestBodyValues": {
+          "label": "JSON Body Data Chain Parameters",
+          "helperText": "Input does is not a valid JSON format"
+        },
+        "environment": {
+          "label": "Choose Environment"
+        },
+        "sendButton": "Build Data Chain"
       }
     },
     "datamanagement": {
@@ -258,20 +301,7 @@
       "message": "Contents of Developer Hub"
     },
     "appoverview": {
-      "headerTitle": "My Apps",
-      "title": "App Overview",
-      "inputPlaceholder": "Search for Apps",
-      "recently": {
-        "header": "Recently changed",
-        "subheader": "Below you can find your recently changed apps. By clicking on the app, you can open up the deatils/proceed on the app release process. The sub-menu added to each app card will help you to do changes on active apps. Below the recent changed apps, a list of all by your company provided apps can get found. Please scroll down to get more details."
-      },
-      "filter": {
-        "all": "All",
-        "active": "Active",
-        "inactive": "Inactive",
-        "wip": "WIP"
-      },
-      "addbtn": "Create new App"
+      "message": "App Overview Message"
     },
     "appreleaseprocess": {
       "message": "App Release Process Message"
@@ -332,10 +362,8 @@
         "country": "Country",
         "street": "Street",
         "zipcode": "Zip Code",
-        "city": "PLZ/City",
-        "cxparticipant": "CX Member",
-        "address": "Address",
-        "identifiers": "Identifiers"
+        "city": "City",
+        "cxparticipant": "CX Member"
       },
       "filters": {
         "germany": "Germany",
@@ -343,11 +371,11 @@
       },
       "message": "Contents of Partner Network",
       "loadmore": "Load More",
+      "bpnsearchplaceholder": "Please type BPN number of company",
+      "bpnsearchlabel": "BPN Number",
+      "companynamesearchplaceholder": "Please type company name",
+      "companynamesearchlabel": "Company Name",
       "searchbuttonlabel": "Search",
-      "searchfielddefaulttext": "Search by name or BPN",
-      "searchfielderrormessage": "Invalid Data",
-      "membershipnotificationtitle": "Membership flag cannot be fetched.",
-      "membershipnotificationdescription": "Please note that the membership information might be incorrect.",
       "overlay": {
         "title": "Company Detail",
         "companydatatitle": "Company Data",
@@ -422,7 +450,6 @@
         }
       },
       "technicalUser": {
-        "serviceaccount": "Service Account",
         "create": "Create technical user",
         "delete": "Delete this technical User",
         "headline": "Technical user management {{company}}",
@@ -431,32 +458,16 @@
         "tableHeader": "Technical User List",
         "detailsHeader": "Technical User: USER_NAME",
         "detailsPage": {
-          "userDetails": "Technical User Details",
+          "userDetails": "User Details",
           "description": "Description",
           "spoc": "SPOC",
           "permission": "Permission"
         },
-        "confirmDeleteUser": "Are you sure you want to delete technical user {{ user }}?",
-        "noteDeleteUser": "Note: The deletion will be permanently. It is not possible the reactive the user again.",
+        "confirmDeleteUser": "Are you sure you want to delete OBJECT_NAME ?",
+        "noteDeleteUser": "Note: add any note information here - e.g. if the deletion is getting confirmed, the user wont be able to reactivate the OBJECT_NAME",
         "confirmDeleteNotificationTitle": "User deletion was successful.",
         "confirmDeleteNotificationDescription": "The action can not be reversed. Please create a new user in case it's needed"
       }
-    },
-    "idpmanagement": {
-      "create": "Create OIDC Identity Provider"
-    },
-    "idpdetail": {
-      "title": "Identity Provider Details",
-      "alias": "Alias",
-      "status": "Status",
-      "displayName": "Display Name",
-      "authType": "IDP Typ",
-      "authorizationUrl": "Authorization URL",
-      "metadataUrl": "Metadata URL",
-      "clientId": "Client ID",
-      "secret": "Secret",
-      "signatureAlgorithm": "Signature algorithm",
-      "clientAuthMethod": "Authentication Method"
     },
     "addUser": {
       "headline": "Add User Account",
@@ -469,7 +480,7 @@
       "technicalUserSubheadline": "Create a technical user by adding the relevant information requested below. Please note that the description is used for your own reference only. In case you have a number of technical users it will help you to differenciate between the technical user accounts.",
       "technicalUserSubheadlineSuccess": "Congratulations, the technical user got successfully created. Below you can find all the relevant details needed to apply the technical user for your service connection. Please ensure that you keep this secrets confidential.",
       "chooseUserRole": "Select CX Portal User Role",
-      "helperText": "Please enter all required information before proceeding.",
+      "helperText": "Bitte geben Sie alle erforderlichen Informationen ein, bevor Sie fortfahren.",
       "technicalUser": {
         "addOverlay": {
           "service": "Service",
@@ -522,7 +533,7 @@
       "resetPswrdUnsuccessfulError": "The password reset was unsuccessful. An issue occurred. Please try It later again",
       "resetPswrdPermissionsError": "Reset of the password was unsuccessful due to missing permissions.",
       "appPermissionTable": {
-        "title": "App Permissions",
+        "title": "App User Permissions",
         "appName": "App Name",
         "appProvider": "App Provider"
       }
@@ -535,9 +546,6 @@
     },
     "notfound": {
       "message": "The content could not be found. This can happen because of various reasons - either",
-      "title": "Something went wrong.",
-      "description": "You don't have access to this page or the page doesn't exist. Please contact your admin.",
-      "button": "HomePage",
       "reason": {
         "nopermission": "you have no permission to view this content or",
         "notexisting": "the page doesn't exist in the Catena-X portal or",
@@ -582,11 +590,11 @@
       "marketplaceExplanation": "Expalanation of the requirement",
       "stepper": {
         "appMarketCard": "App Market Card",
-        "appPage": "App Page",
         "contractAndConsent": "Contract & Consent",
         "technicalIntegration": "Technical Integration",
         "betaTest": "Beta Test",
-        "validateAndPublish": "Validate & Publish"
+        "validateAndPublish": "Validate & Publish",
+        "verifyYourCompanyData": "Verify your company data"
       },
       "appMarketCard": {
         "headerTitle": "Create App",
@@ -594,155 +602,21 @@
         "defaultCardAppImageAlt": "Part Chain",
         "defaultCardAppProvider": "Catena-X",
         "defaultCardAppTitle": "Digital Twin Aspect Debugger",
-        "defaultCardShortDescriptionEN": "[short description EN] Lorem ipsum sapientem ne neque dolor erat",
-        "appTitle": "App title",
-        "appTitlePlaceholder": "name@domain.com",
-        "appProvider": "App provider",
-        "appProviderPlaceholder": "prefill: [company name]",
-        "shortDescriptionEN": "Short Description - EN",
-        "shortDescriptionDE": "Short Description - DE",
-        "useCaseCategory": "Use Case /Category",
-        "useCaseCategoryPlaceholder": "Choose the relevant Use Case",
-        "appLanguage": "App Language",
-        "appLanguagePlaceholder": "Choose App Language",
-        "pricingInformation": "Pricing Information",
-        "pricingInformationPlaceholder": "Please select a pricing type"
-      },
-      "appPage": {
-        "headerTitle": "App Details",
-        "headerDescription": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard .Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard .",
-        "longDescriptionEN": "Long Description - EN",
-        "longDescriptionDE": "Long Description - DE",
-        "images": "Images",
-        "note": "Note:",
-        "maxThreeImages": "Max.3 Images",
-        "connectData": "Connect Data",
-        "dataSecurityInformation": "Data Security Information",
-        "uploadDataPrerequisits": "Upload “Data Prerequisits”",
-        "uploadTechnicalGuide": "Upload “Technical Guide”",
-        "uploadDataContract": "Upload “Data Contract”",
-        "uploadAppContract": "Upload “App Contract”",
-        "providerDetails": "Provider Details",
-        "providerHomePage": "Provider Homepage",
-        "providerContactEmail": "Customer Contact E-Mail",
-        "providerPhoneContact": "Provider Phone Contact",
-        "providerPhoneContactPlaceholder": "e.g. +XX (XXX) XXXXXXXXXX or +XX XXXXXXXXXX or +XXXXXXXXXXXX",
-        "pleaseEnterValidEmail": "Please enter a valid Customer Contact E-Mail",
-        "pleaseEnterValidContact": "Please enter a valid Provider Phone Contact in the format +XX (XXX) XXXXXXXXXX or +XX XXXXXXXXXX or +XXXXXXXXXXXX"
-      },
-      "contractAndConsent": {
-        "headerTitle": "Consent & Contract",
-        "headerDescription": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard .Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard .",
-        "allAgreementsMandatory": "All agreements are mandatory"
-      },
-      "technicalIntegration": {
-        "headerTitle": "Technical Integration",
-        "headerDescription": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard .Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard .",
-        "step1Header": "1. Single Sign On integration between CX Network and Provider App",
-        "step1HeaderDescription": "[copy] Lorem ipsum sapientem ne neque dolor erat,eros solet invidunt duo Quisque aliquid leo. Pretium patrioque sociis eu nihil Cum enim ad, ipsum alii vidisse justo id. Option porttitor diam voluptua. Cu Eam augue dolor dolores quis,",
-        "clientID": "Client ID",
-        "URL": "URL",
-        "pleaseEnterValidURL": "Please enter a valid URL",
-        "URLPlaceholder": "http://www.loremipsum.de",
-        "clientCreated": "Client created",
-        "step2Header": "2. Upload App Roles",
-        "rolesPreview": "Preview of roles contained in the uploaded files:",
-        "createThoseForYourApp": "Create those for your App",
-        "step3Header": "3. Enable your Identity Management Solution",
-        "step3HeaderDescription": "[copy] How-To-Text -> Lorem ipsum sapientem ne neque dolor erat,eros solet invidunt duo Quisque aliquid leo. Pretium patrioque sociis eu nihil Cum enim ad, ipsum alii vidisse justo id. Option porttitor diam voluptua. Cu Eam augue dolor dolores quis,",
-        "step4Header": "4. Get Test Users to Test Integration",
-        "step4HeaderDescription": "[copy] Lorem ipsum sapientem ne neque dolor erat,eros solet invidunt duo Quisque aliquid leo. Pretium patrioque sociis eu nihil Cum enim ad, ipsum alii vidisse justo id. Option porttitor diam voluptua. Cu Eam augue dolor dolores quis, ",
-        "createClient": "Create Client",
-        "createTestUser": "Create Test User",
-        "clickToOpenDialogBox": "Click here to open the Explorer dialogue box",
-        "password": "Password",
-        "username": "Username"
-      },
-      "betaTest": {
-        "headerTitle": "Beta Test",
-        "headerDescription": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard .Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard ."
-      },
-      "validateAndPublish": {
-        "headerTitle": "Verify your app data for submit",
-        "headerDescription": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard .Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard .",
-        "appCardDetails": "App Card Details"
-      },
-      "submitApp": {
-        "headerTitle": "Thank you for submitting the app!",
-        "headerDescription": "After a review by a Catena-X administrator, you will receive",
-        "headerDescriptionComplete": "further information on app release",
-        "yourCatenaXTeam": "Your Catena-X team",
-        "myAppsOverview": "My apps overview"
-      },
-      "appReleaseForm": {
-        "headerTitle": "Create App",
-        "addMore": "Add More",
-        "noItemsSelected": "No Items Selected",
+        "defaultCardShortDescriptionEN": "[short description EN] Lorem ipsum sapientem ne neque dolor erat,eros solet invidunt duo Quisque aliquid leo.",
+        "appTitle": "App title*",
+        "appProvider": "App provider*",
+        "shortDescriptionEN": "Short Description - EN*",
+        "shortDescriptionDE": "Short Description - DE*",
+        "useCaseCategory": "Use Case /Category*",
+        "appLanguage": "App Language*",
+        "pricingInformation": "Pricing Information*",
+        "uploadTitle": "Drag & drop your files here",
+        "uploadSubTitle": "or browse files on your computer.",
         "note": "Note:",
         "OnlyOneFileAllowed": "Only one file for upload allowed",
-        "max3Images": "Max. 3 Images",
-        "minimum": "Minimum",
-        "charactersRequired": " characters required",
-        "maximum": "Maximum",
-        "charactersAllowed": " characters allowed",
-        "validCharactersIncludes": "Valid characters includes: ",
-        "isMandatory": " is mandatory",
-        "fileUploadIsMandatory": "File upload is mandatory",
-        "error": {
-          "title": "Error - something went wrong.",
-          "message": "Please try it again"
-        }
-      },
-      "footerButtons": {
         "help": "Help",
-        "saveAndProceed": "Save & proceed",
-        "save": "Save",
-        "submit": "Submit"
-      }
-    },
-    "serviceMarketplace": {
-      "headline": "Purchase Service Request",
-      "description": "Dear user, you have requested service {serviceName}. Please find below the Terms and Conditions. Please check the terms and conditions carefully before proceeding. As soon as the terms & conditions are approved, the services provider will start to build up the service.",
-      "noDataMessage": "No data available",
-      "subscriptionHeading": ">> there are already active subscriptions for the service {serviceName}",
-      "subscribeSuccessMsg": "Subscribed Successfully"
-    },
-    "irs": {
-      "form": {
-        "title": "Form title. need update Translate(EN). line 712",
-        "requestBodyValues": {
-          "label": "content.irs.form.requestBodyValues.label Line 714. Translate(EN)"
-        },
-        "environment": {
-          "label": "content.irs.form.environment.label Translate(EN) line 717 "
-        },
-        "sendButton": "content.irs.form.sendButton Translate(EN) Line 719"
-      },
-      "jobsTable": {
-        "toggleAutoRefresh": "toggleAutoRefresh Translate(EN) Line 722",
-        "title": "content.irs.jobsTable.title Translate(EN) Line 723",
-        "jobID": "content.irs.jobsTable.jobID Translate(EN) Line 724",
-        "status": "content.irs.jobsTable.status Translate(EN) Line 725",
-        "visualize": "content.irs.jobsTable.visualize Translate(EN) Line 726"
-      },
-      "jobDetails": {
-        "title": "content.irs.jobDetails.title Translate(EN) Line 729",
-        "globalAssetId": "content.irs.jobDetails.globalAssetId Translate(EN) Line 730",
-        "exception": "content.irs.jobDetails.exception Translate(EN) Line 731",
-        "createdOn": "content.irs.jobDetails.createdOn Translate(EN) Line 732",
-        "startedOn": "content.irs.jobDetails.startedOn Translate(EN)",
-        "lastModifiedOn": "content.irs.jobDetails.lastModifiedOn Translate(EN)",
-        "jobCompleted": "content.irs.jobDetails.jobCompleted Translate(EN)",
-        "owner": "content.irs.jobDetails.owner Translate(EN)",
-        "summary": "content.irs.jobDetails.summary Translate(EN)",
-        "jobParameter": "content.irs.jobDetails.jobParameter Translate(EN)"
-      },
-      "dialog": {
-        "submodelTombstones": {
-          "title": "content.irs.dialog.submodelTombstones.title Translate(EN)",
-          "lastAttempt": "content.irs.dialog.submodelTombstones.lastAttempt: Translate(EN)",
-          "errorDetail": "content.irs.dialog.submodelTombstones.errorDetail: Translate(EN)"
-        }
+        "saveAndProceed": "save & proceed",
+        "save": "Save"
       }
     }
   },
@@ -767,10 +641,7 @@
       "details": "Details",
       "userName": "Username",
       "clientId": "Client ID",
-      "authType": "Auth Type",
-      "description": "Description",
-      "secret": "Secret",
-      "permission": "Permission"
+      "authType": "Auth Type"
     },
     "actions": {
       "cancel": "Cancel",
@@ -779,23 +650,11 @@
       "loadmore": "Load more",
       "details": "Details",
       "close": "Close",
-      "save": "Save",
       "back": "Back",
       "delete": "Delete",
       "pleaseSelect": "Please select",
       "reload": "Reload Page",
-      "homepage": "Homepage",
-      "confirmDelete": "Are you sure you want to delete {{ object }} {{ name }}?",
-      "noteDelete": "Note: The deletion will be permanently. It is not possible the reactive the {{ object }} again."
-    },
-    "state": {
-      "enabled": "enabled",
-      "disabled": "disabled"
-    },
-    "objects": {
-      "app": "app",
-      "user": "user",
-      "techuser": "technical user"
+      "homepage": "Homepage"
     },
     "search": {
       "less": "show less",
@@ -828,21 +687,17 @@
       "yesterday": "yesterday",
       "today": "today",
       "tomorrow": "tomorrow"
-    },
-    "table": {
-      "search": "Enter email to search",
-      "searchName": "Enter name to search"
     }
   },
   "servicemarketplace": {
-    "title": "Service Provider Marketplace"
+    "title": "Service Marketplace",
+    "message": "Service Marketplace Description"
   },
   "dataspacemarketplace": {
     "title": "Dataspace Marketplace",
     "message": "Dataspace Marketplace Description"
   },
   "hints": {
-    "coming_soon": "Coming soon",
-    "new": "New"
+    "coming_soon": "coming soon"
   }
 }

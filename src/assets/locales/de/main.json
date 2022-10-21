@@ -21,7 +21,6 @@
     "organization": "Meine Organisation",
     "notifications": "Benachrichtigungen",
     "usermanagement": "Benutzerverwaltung",
-    "idpmanagement": "Identitätsprovider (IDP)",
     "technicalsetup": "Technische Integration",
     "applicationrequests": "Beitrittsanträge",
     "admin": "Verwaltung",
@@ -37,12 +36,12 @@
     "logout": "Abmelden",
     "notfound": "Seite nicht gefunden",
     "appmanagement": "App Management",
-    "appoverview": "App-Übersicht",
+    "appoverview": "App Overview",
     "appreleaseprocess": "App Release Process",
     "appusermanagement": "App Benutzer Verwaltung",
     "userdetails": "Benutzer Details",
     "technicaluser": "Technische Benutzer Verwaltung",
-    "techuserdetails": "Technischer Benutzer Details"
+    "itemrelationshipservice": "Item Relationship Service"
   },
   "overlays": {
     "invite": "Neuen Geschäftspartner einladen",
@@ -58,6 +57,8 @@
     "admin": {
       "registration-requests": {
         "columns": {
+          "request": "Anfrage",
+          "requestDescription": "ID der Benutzeranfrage",
           "date": "Datum",
           "companyinfo": "Bewerbungsinformationen des Unternehmens",
           "documents": "Unterlagen",
@@ -74,7 +75,7 @@
         "cellconfirmed": "bestätigt",
         "celldeclined": "abgelehnt",
         "overlay": {
-          "title": "Firmendaten",
+          "title": "Firmendetails",
           "companydatatitle": "Firmendaten",
           "taxid": "Steuernummer"
         },
@@ -127,8 +128,7 @@
           "circulareconomy": "Kreislaufwirtschaft",
           "quality&demandmanagement": "Bedarfs- & Qualitätsmanagement",
           "demandandcapacitymanagement": "Bedarfs- & Kapazitätsmanagement",
-          "traceability": "Rückverfolgbarkeit",
-          "manufacturingasaservice": "Produzieren als Dienst"
+          "traceability": "Rückverfolgbarkeit"
         }
       }
     },
@@ -145,7 +145,6 @@
       },
       "table": {
         "title": "Semantische Datenmodelle",
-        "searchfielddefaulttext": "Suche mit Name",
         "filter": {
           "namespaceLabel": "Namespace",
           "namespacePlaceholder": "Filtern der Modelle nach Namespace",
@@ -211,7 +210,6 @@
     "digitaltwin": {
       "table": {
         "title": "Übersicht Digitale Zwillinge",
-        "searchfielddefaulttext": "Suche nach Name/Kennung",
         "columns": {
           "idShort": "Name",
           "sm_count": "Anzahl Submodelle",
@@ -234,18 +232,63 @@
         "protocol_endpoint": "Aspekt Endpunkt:"
       }
     },
-    "organization": {
-      "company": {
-        "title": "Firmendetails",
-        "error": "Fehler - keine Daten gefunden",
-        "name": "Name der Firma: ",
-        "address": "Adresse: ",
-        "city": "Stadt: ",
-        "bpn": "BPN: "
+    "irs": {
+      "jobsTable": {
+        "title": "Item Relationship Service Job Store",
+        "jobID": "Id",
+        "status": "Status",
+        "visualize": "Visualisierung",
+        "toggleAutoRefresh": "Auto-Update alle 5 Sekunden"
       },
-      "subscriptions": {
-        "title": "App-Abonnements",
-        "error": "Fehler - keine Daten gefunden"
+      "jobDetails": {
+        "title": "Item Relationship Service Job Details",
+        "globalAssetId": "Global Asset ID",
+        "exception": "Exception",
+        "createdOn": "Job erstellt am",
+        "startedOn": "Job gestartet am",
+        "lastModifiedOn": "Job zuletzt gändert am",
+        "jobCompleted": "Job beendet am",
+        "owner": "Job Besitzer",
+        "summary": "Job Zusammenfassung",
+        "jobParameter": "Job Parameter"
+      },
+      "visualization": {
+        "title": "IRS-Ergebniss Visualisierung"
+      },
+      "dialog": {
+        "title": "Details",
+        "submodelTombstones": {
+          "title": "Sub-Modell Fehlermeldungen",
+          "lastAttempt": "Zeitstempel",
+          "errorDetail": "Error-Details"
+        },
+        "submodelPayload": {
+          "title": "Sub-Modell Payload",
+          "payload": "Payload"
+        },
+        "edge": {
+          "catenaXId": "Catena-X ID",
+          "childCatenaXId": "Child Catena-X ID",
+          "assembledOn": "Verbauzeitpunkt",
+          "lastModifiedOn": "Zuletzt geändert",
+          "lifecycleContext": "Kontext zum Lebenszyklus",
+          "measurementUnit": {
+            "datatypeURI": "URI Bezeichnung",
+            "lexicalValue": "Lexika-Bezeichnung"
+          },
+          "quantityNumber": "Qantität"
+        }
+      },
+      "form": {
+        "title": "Erstelle eine neue Data Chain",
+        "requestBodyValues": {
+          "label": "JSON Body Data Chain Parameter",
+          "helperText": "Eingabe enspricht nicht einem korrekten JSON-Format"
+        },
+        "environment": {
+          "label": "Wähle eine Umgebung"
+        },
+        "sendButton": "Build Data Chain"
       }
     },
     "datamanagement": {
@@ -258,20 +301,7 @@
       "message": "Inhalte vom Entwickler Hub"
     },
     "appoverview": {
-      "headerTitle": "Meine Applikationen",
-      "title": "App-Übersicht",
-      "inputPlaceholder": "Suchen Sie nach Apps",
-      "recently": {
-        "header": "Kürzlich gewechselt",
-        "subheader": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard .Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard ."
-      },
-      "filter": {
-        "all": "Alle",
-        "active": "Aktiv",
-        "inactive": "Inaktiv",
-        "wip": "In Arbeit"
-      },
-      "addbtn": "Neue App erstellen"
+      "message": "App Overview Message"
     },
     "appreleaseprocess": {
       "message": "App Release Process Message"
@@ -332,10 +362,8 @@
         "country": "Land",
         "street": "Straße",
         "zipcode": "PLZ",
-        "city": "PLZ/Stadt",
-        "cxparticipant": "CX Zertifiziert",
-        "address": "Anschrift",
-        "identifiers": "Identifiers"
+        "city": "Stadt",
+        "cxparticipant": "CX Zertifiziert"
       },
       "filters": {
         "germany": "Deutschland",
@@ -343,10 +371,10 @@
       },
       "message": "Inhalte vom Partner Netzwerk",
       "loadmore": "Mehr Laden",
-      "searchfielddefaulttext": "Suchen Sie nach Firmennamen oder BPN",
-      "searchfielderrormessage": "ungültige Daten",
-      "membershipnotificationtitle": "Das Mitgliedschafts-Flag kann nicht abgerufen werden.",
-      "membershipnotificationdescription": "Bitte beachten Sie, dass die Mitgliedsinformationen möglicherweise falsch sind.",
+      "bpnsearchplaceholder": "Bitte geben Sie die BPN-Nummer des Unternehmens ein",
+      "bpnsearchlabel": "BPN Nummer",
+      "companynamesearchplaceholder": "Bitte geben Sie den Firmennamen ein",
+      "companynamesearchlabel": "Name der Firma",
       "searchbuttonlabel": "Suche",
       "overlay": {
         "title": "Firmendetails",
@@ -422,7 +450,6 @@
         }
       },
       "technicalUser": {
-        "serviceaccount": "Technischer Benutzer",
         "create": "Technischen Nutzer anlegen",
         "delete": "Technischen Nutzer entfernen",
         "headline": "Technical user management COMPANY_NAME",
@@ -431,33 +458,16 @@
         "tableHeader": "Technischen Benutzerlist",
         "detailsHeader": "Technischer Benutzer: USER_NAME",
         "detailsPage": {
-          "userDetails": "Technischer Benutzer Details",
+          "userDetails": "Benutzer Details",
           "description": "Beschreibung",
           "spoc": "SPOC",
           "permission": "Berechtigungen"
         },
-        "confirmDeleteUser": "Sind Sie sicher, dass Sie user {{ user }} löschen möchten?",
-        "noteDeleteUser": "Diese Aktion kann nicht rückgängig gemacht werden.",
+        "confirmDeleteUser": "Sind Sie sicher, dass Sie OBJECT_NAME löschen möchten?",
+        "noteDeleteUser": "Hinweis: Fügen Sie hier beliebige Notizen hinzu!",
         "confirmDeleteNotificationTitle": "Das Löschen des Benutzers war erfolgreich.",
         "confirmDeleteNotificationDescription": "Die Aktion kann nicht rückgängig gemacht werden. Bitte erstellen Sie einen neuen Benutzer, falls dies erforderlich ist"
       }
-    },
-    "idpmanagement": {
-      "create": "OIDC Identitätsprovider anlegen"
-    },
-    "idpdetail": {
-      "title": "Identitätsprovider Details",
-      "alias": "Alias",
-      "status": "Status",
-      "displayName": "Anzeigename",
-      "authType": "IDP Typ",
-      "authorizationUrl": "Authentisierungs URL",
-      "metadataUrl": "Metadaten URL",
-      "clientId": "Client ID",
-      "secret": "Secret",
-      "signatureAlgorithm": "Signatur Algorithmus",
-      "clientAuthMethod": "Authentisierungsart",
-      "mappers": "Mapper"
     },
     "addUser": {
       "headline": "Erstelle einen neuen User",
@@ -470,7 +480,7 @@
       "technicalUserSubheadline": "Bitte geben Sie die erforderlichen Informationen ein:",
       "technicalUserSubheadlineSuccess": "Der technische Benutzer wurde mit den folgenden Daten angelegt:",
       "chooseUserRole": "Benutzer-Rolle für den Portalzugriff auswählen",
-      "helperText": "Bitte geben Sie alle erforderlichen Informationen ein, bevor Sie fortfahren.",
+      "helperText": "Please enter all required information before proceeding.",
       "technicalUser": {
         "addOverlay": {
           "service": "Dienst",
@@ -562,7 +572,7 @@
       "resetPswrdUnsuccessfulError": "The password reset was unsuccessful. An issue occurred. Please try It later again",
       "resetPswrdPermissionsError": "Reset of the password was unsuccessful due to missing permissions.",
       "appPermissionTable": {
-        "title": "Applikation Berechtigungen",
+        "title": "Nutzerbrechtigungen pro Applikation",
         "appName": "App Name",
         "appProvider": "App Anbieter"
       }
@@ -574,9 +584,6 @@
       "message": "Wir melden Sie nun ab... Wir freuen uns Sie bald wieder hier zu sehen!"
     },
     "notfound": {
-      "title": "Etwas ist schief gelaufen.",
-      "description": "Sie haben keinen Zugriff auf diese Seite oder die Seite existiert nicht. Bitte wenden Sie sich an Ihren Administrator.",
-      "button": "Startseite",
       "message": "Der Inhalt wurde nicht gefunden. Dies kann verschiedene Ursachen haben - entweder",
       "reason": {
         "nopermission": "Sie haben keine Berechtigung diesen Inhalt zu sehen oder",
@@ -622,11 +629,11 @@
       "marketplaceExplanation": "Expalanation of the requirement",
       "stepper": {
         "appMarketCard": "App Market Card",
-        "appPage": "App Page",
         "contractAndConsent": "Contract & Consent",
         "technicalIntegration": "Technical Integration",
         "betaTest": "Beta Test",
-        "validateAndPublish": "Validate & Publish"
+        "validateAndPublish": "Validate & Publish",
+        "verifyYourCompanyData": "Verify your company data"
       },
       "appMarketCard": {
         "headerTitle": "Create App",
@@ -634,155 +641,21 @@
         "defaultCardAppImageAlt": "Part Chain",
         "defaultCardAppProvider": "Catena-X",
         "defaultCardAppTitle": "Digital Twin Aspect Debugger",
-        "defaultCardShortDescriptionEN": "[short description EN] Lorem ipsum sapientem ne neque dolor erat",
-        "appTitle": "App title",
-        "appTitlePlaceholder": "name@domain.com",
-        "appProvider": "App provider",
-        "appProviderPlaceholder": "prefill: [company name]",
-        "shortDescriptionEN": "Short Description - EN",
-        "shortDescriptionDE": "Short Description - DE",
-        "useCaseCategory": "Use Case /Category",
-        "useCaseCategoryPlaceholder": "Choose the relevant Use Case",
-        "appLanguage": "App Language",
-        "appLanguagePlaceholder": "Choose App Language",
-        "pricingInformation": "Pricing Information",
-        "pricingInformationPlaceholder": "Please select a pricing type"
-      },
-      "appPage": {
-        "headerTitle": "App Details",
-        "headerDescription": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard .Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard .",
-        "longDescriptionEN": "Long Description - EN",
-        "longDescriptionDE": "Long Description - DE",
-        "images": "Images",
-        "note": "Note:",
-        "maxThreeImages": "Max.3 Images",
-        "connectData": "Connect Data",
-        "dataSecurityInformation": "Data Security Information",
-        "uploadDataPrerequisits": "Upload “Data Prerequisits”",
-        "uploadTechnicalGuide": "Upload “Technical Guide”",
-        "uploadDataContract": "Upload “Data Contract”",
-        "uploadAppContract": "Upload “App Contract”",
-        "providerDetails": "Provider Details",
-        "providerHomePage": "Provider Homepage",
-        "providerContactEmail": "Customer Contact E-Mail",
-        "providerPhoneContact": "Provider Phone Contact",
-        "providerPhoneContactPlaceholder": "e.g. +XX (XXX) XXXXXXXXXX or +XX XXXXXXXXXX or +XXXXXXXXXXXX",
-        "pleaseEnterValidEmail": "Please enter a valid Customer Contact E-Mail",
-        "pleaseEnterValidContact": "Please enter a valid Provider Phone Contact in the format +XX (XXX) XXXXXXXXXX or +XX XXXXXXXXXX or +XXXXXXXXXXXX"
-      },
-      "contractAndConsent": {
-        "headerTitle": "Consent & Contract",
-        "headerDescription": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard .Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard .",
-        "allAgreementsMandatory": "All agreements are mandatory"
-      },
-      "technicalIntegration": {
-        "headerTitle": "Technical Integration",
-        "headerDescription": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard .Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard .",
-        "step1Header": "1. Single Sign On integration between CX Network and Provider App",
-        "step1HeaderDescription": "[copy] Lorem ipsum sapientem ne neque dolor erat,eros solet invidunt duo Quisque aliquid leo. Pretium patrioque sociis eu nihil Cum enim ad, ipsum alii vidisse justo id. Option porttitor diam voluptua. Cu Eam augue dolor dolores quis,",
-        "clientID": "Client ID",
-        "URL": "URL",
-        "pleaseEnterValidURL": "Please enter a valid URL",
-        "URLPlaceholder": "http://www.loremipsum.de",
-        "clientCreated": "Client created",
-        "step2Header": "2. Upload App Roles",
-        "rolesPreview": "Preview of roles contained in the uploaded files:",
-        "createThoseForYourApp": "Create those for your App",
-        "step3Header": "3. Enable your Identity Management Solution",
-        "step3HeaderDescription": "[copy] How-To-Text -> Lorem ipsum sapientem ne neque dolor erat,eros solet invidunt duo Quisque aliquid leo. Pretium patrioque sociis eu nihil Cum enim ad, ipsum alii vidisse justo id. Option porttitor diam voluptua. Cu Eam augue dolor dolores quis,",
-        "step4Header": "4. Get Test Users to Test Integration",
-        "step4HeaderDescription": "[copy] Lorem ipsum sapientem ne neque dolor erat,eros solet invidunt duo Quisque aliquid leo. Pretium patrioque sociis eu nihil Cum enim ad, ipsum alii vidisse justo id. Option porttitor diam voluptua. Cu Eam augue dolor dolores quis, ",
-        "createClient": "Create Client",
-        "createTestUser": "Create Test User",
-        "clickToOpenDialogBox": "Click here to open the Explorer dialogue box",
-        "password": "Password",
-        "username": "Username"
-      },
-      "betaTest": {
-        "headerTitle": "Beta Test",
-        "headerDescription": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard .Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard ."
-      },
-      "validateAndPublish": {
-        "headerTitle": "Verify your app data for submit",
-        "headerDescription": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard .Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard .",
-        "appCardDetails": "App Card Details"
-      },
-      "submitApp": {
-        "headerTitle": "Thank you for submitting the app!",
-        "headerDescription": "After a review by a Catena-X administrator, you will receive",
-        "headerDescriptionComplete": "further information on app release",
-        "yourCatenaXTeam": "Your Catena-X team",
-        "myAppsOverview": "My apps overview"
-      },
-      "appReleaseForm": {
-        "headerTitle": "Create App",
-        "addMore": "Add More",
-        "noItemsSelected": "No Items Selected",
+        "defaultCardShortDescriptionEN": "[short description EN] Lorem ipsum sapientem ne neque dolor erat,eros solet invidunt duo Quisque aliquid leo.",
+        "appTitle": "App title*",
+        "appProvider": "App provider*",
+        "shortDescriptionEN": "Short Description - EN*",
+        "shortDescriptionDE": "Short Description - DE*",
+        "useCaseCategory": "Use Case /Category*",
+        "appLanguage": "App Language*",
+        "pricingInformation": "Pricing Information*",
+        "uploadTitle": "Drag & drop your files here",
+        "uploadSubTitle": "or browse files on your computer.",
         "note": "Note:",
         "OnlyOneFileAllowed": "Only one file for upload allowed",
-        "max3Images": "Max. 3 Images",
-        "minimum": "Minimum",
-        "charactersRequired": " characters required",
-        "maximum": "Maximum",
-        "charactersAllowed": " characters allowed",
-        "validCharactersIncludes": "Valid characters includes: ",
-        "isMandatory": " is mandatory",
-        "fileUploadIsMandatory": "File upload is mandatory",
-        "error": {
-          "title": "Error - something went wrong.",
-          "message": "Please try it again"
-        }
-      },
-      "footerButtons": {
         "help": "Help",
-        "saveAndProceed": "Save & proceed",
-        "save": "Save",
-        "submit": "Submit"
-      }
-    },
-    "serviceMarketplace": {
-      "headline": "Purchase Service Request",
-      "description": "Dear user, you have requested service {serviceName}. Please find below the Terms and Conditions. Please check the terms and conditions carefully before proceeding. As soon as the terms & conditions are approved, the services provider will start to build up the service.",
-      "noDataMessage": "No data available",
-      "subscriptionHeading": ">> there are already active subscriptions for the service {serviceName}",
-      "subscribeSuccessMsg": "Subscribed Successfully"
-    },
-    "irs": {
-      "form": {
-        "title": "Form title. need update Translate(DE) Line 752",
-        "requestBodyValues": {
-          "label": "content.irs.form.requestBodyValues.label Line 754. Translate(DE)"
-        },
-        "environment": {
-          "label": "content.irs.form.environment.label Translate(DE) line 757 "
-        },
-        "sendButton": "content.irs.form.sendButton Translate(DE) Line 759"
-      },
-      "jobsTable": {
-        "toggleAutoRefresh": "toggleAutoRefresh Translate(DE) Line 762",
-        "title": "content.irs.jobsTable.title Translate(DE) Line 763",
-        "jobID": "content.irs.jobsTable.jobID Translate(DE) Line 764",
-        "status": "content.irs.jobsTable.status Translate(DE) Line 765",
-        "visualize": "content.irs.jobsTable.visualize Translate(DE) Line 766"
-      },
-      "jobDetails": {
-        "title": "content.irs.jobDetails.title Translate(DE) Line 769",
-        "globalAssetId": "content.irs.jobDetails.globalAssetId Translate(DE) Line 770",
-        "exception": "content.irs.jobDetails.exception Translate(DE) Line 771",
-        "createdOn": "content.irs.jobDetails.createdOn Translate(DE) Line 772",
-        "startedOn": "content.irs.jobDetails.startedOn Translate(DE)",
-        "lastModifiedOn": "content.irs.jobDetails.lastModifiedOn Translate(DE)",
-        "jobCompleted": "content.irs.jobDetails.jobCompleted Translate(DE)",
-        "owner": "content.irs.jobDetails.owner Translate(DE)",
-        "summary": "content.irs.jobDetails.summary Translate(DE)",
-        "jobParameter": "content.irs.jobDetails.jobParameter Translate(DE)"
-      },
-      "dialog": {
-        "submodelTombstones": {
-          "title": "content.irs.dialog.submodelTombstones.title Translate(DE)",
-          "lastAttempt": "content.irs.dialog.submodelTombstones.lastAttempt: Translate(DE)",
-          "errorDetail": "content.irs.dialog.submodelTombstones.errorDetail: Translate(DE)"
-        }
+        "saveAndProceed": "save & proceed",
+        "save": "Save"
       }
     }
   },
@@ -807,10 +680,7 @@
       "details": "Details",
       "userName": "Benutzername",
       "clientId": "Client ID",
-      "authType": "Auth Type",
-      "description": "Beschreibung",
-      "secret": "Secret",
-      "permission": "Berechtigung"
+      "authType": "Auth Type"
     },
     "actions": {
       "cancel": "Abbrechen",
@@ -819,24 +689,11 @@
       "loadmore": "Mehr laden",
       "details": "Details",
       "close": "Schließen",
-      "save": "Speichern",
       "back": "Zurück",
       "delete": "Löschen",
       "pleaseSelect": "Bitte auswählen",
       "reload": "Seite neuladen",
-      "homepage": "Startseite",
-      "deleteTitle": "Löschen von {{ object }} {{ name }}",
-      "confirmDelete": "Sind Sie sicher, dass Sie den {{ object }} {{ name }} löschen möchten?",
-      "noteDelete": "Anmerkung: das Löschen ist dauerhaft. Es ist nicht möglich den {{ object }} wieder zu aktivieren."
-    },
-    "state": {
-      "enabled": "aktiv",
-      "disabled": "inaktiv"
-    },
-    "objects": {
-      "app": "App",
-      "user": "Benutzer",
-      "techuser": "Technischer Account"
+      "homepage": "Startseite"
     },
     "search": {
       "less": "weniger anzeigen",
@@ -869,21 +726,17 @@
       "yesterday": "gestern",
       "today": "heute",
       "tomorrow": "morgen"
-    },
-    "table": {
-      "search": "Enter email to search",
-      "searchName": "Enter name to search"
     }
   },
   "servicemarketplace": {
-    "title": "Service Provider Marketplace"
+    "title": "Service Marketplace",
+    "message": "Service Marketplace Description"
   },
   "dataspacemarketplace": {
     "title": "Dataspace Marketplace",
     "message": "Dataspace Marketplace Description"
   },
   "hints": {
-    "coming_soon": "Coming soon",
-    "new": "New"
+    "coming_soon": "coming soon"
   }
 }
