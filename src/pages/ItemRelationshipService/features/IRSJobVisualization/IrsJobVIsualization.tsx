@@ -1,8 +1,8 @@
 import { Box } from "@mui/material";
 import { uniqueId } from "lodash";
 
+import { IconButton } from "cx-portal-shared-components";
 import { EdgeData, NodeData } from "reaflow";
-import { IconButton } from "../../../../components/cx-portal-shared-components/components/basic/IconButton";
 import { FullScreen, useFullScreenHandle } from "../../../../components/FullScreenHandler";
 import { FullscreenExitIcon, FullscreenIcon, useTranslation } from "../../../../lib";
 import { Canvas, CanvasPosition, Edge, Node } from "../../../../lib/reaflow";

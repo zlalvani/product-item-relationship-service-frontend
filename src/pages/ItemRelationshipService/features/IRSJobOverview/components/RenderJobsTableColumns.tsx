@@ -1,6 +1,6 @@
 import { GridColDef } from "@mui/x-data-grid";
 
-import { IconButton } from "../../../../../components/cx-portal-shared-components/components/basic/IconButton";
+import { IconButton } from "cx-portal-shared-components";
 import { ArrowForwardIcon, useTranslation } from "../../../../../lib";
 import { defaultDateFormat } from "../../../../../lib/dayjs";
 import { Job } from "../../../../../types/jobs";

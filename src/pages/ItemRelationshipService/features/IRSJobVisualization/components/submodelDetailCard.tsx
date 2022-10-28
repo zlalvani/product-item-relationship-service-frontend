@@ -23,7 +23,7 @@ import { Box } from "@mui/material";
 
 import { SubmodelDescriptors } from "features/irs/types";
 import uniqueId from "lodash/uniqueId";
-import { Button } from "../../../../../components/cx-portal-shared-components/components/basic/Button";
+import { Button } from "cx-portal-shared-components";
 
 interface props {
   submodel: SubmodelDescriptors;
