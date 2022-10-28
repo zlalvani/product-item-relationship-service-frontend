@@ -17,33 +17,32 @@
  *
  * SPDX-License-Identifier: Apache-2.0
  ********************************************************************************/
-import { Box, useTheme } from '@mui/material'
-import { SubmodelDetailCard } from './submodelDetailCard'
-import { SubmodelDescriptors } from 'features/digitalTwins/types'
-import { NodeData } from 'reaflow'
-import uniqueId from 'lodash/uniqueId'
+import { Box, useTheme } from "@mui/material";
+
+import uniqueId from "lodash/uniqueId";
+import { NodeData } from "reaflow";
+import { Shell, SubmodelDescriptor } from "../../../../../types/jobs";
+import { SubmodelDetailCard } from "./submodelDetailCard";
 
 interface props {
-  shell: NodeDataEx
+  shell: NodeDataEx;
 }
 
-interface NodeDataEx extends NodeData {
-  [propName: string]: any
-}
+interface NodeDataEx extends NodeData, Shell {}
 
 export const NodeTemplate = ({ shell }: props) => {
-  const { spacing } = useTheme()
+  const { spacing } = useTheme();
 
-  function compare(a: any, b: any) {
+  function compare(a: SubmodelDescriptor, b: SubmodelDescriptor) {
     if (a.idShort < b.idShort) {
-      return -1
+      return -1;
     }
     if (a.idShort > b.idShort) {
-      return 1
+      return 1;
     }
-    return 0
+    return 0;
   }
-  const sortedSubmodelDescriptors = [...shell.submodelDescriptors].sort(compare)
+  const sortedSubmodelDescriptors = [...shell.submodelDescriptors].sort(compare);
 
   return (
     <>
@@ -53,25 +52,19 @@ export const NodeTemplate = ({ shell }: props) => {
       </div>
       <Box
         sx={{
-          display: 'grid',
+          display: "grid",
           gap: spacing(1, 3),
           gridTemplateColumns: `repeat(1, 1fr)`,
           marginLeft: 0.5,
         }}
       >
-        <div style={{ textAlign: 'left', margin: 5 }}>Aspects:</div>
+        <div style={{ textAlign: "left", margin: 5 }}>Aspects:</div>
 
-        {sortedSubmodelDescriptors.map((n: SubmodelDescriptors) => {
+        {sortedSubmodelDescriptors.map((n: SubmodelDescriptor) => {
           //Todo: Check for errors and add them to the object
-          return (
-            <SubmodelDetailCard
-              key={uniqueId(n.identification)}
-              submodel={n}
-              aasId={shell.id}
-            ></SubmodelDetailCard>
-          )
+          return <SubmodelDetailCard key={uniqueId(n.identification)} submodel={n} aasId={shell.id} />;
         })}
       </Box>
     </>
-  )
-}
+  );
+};
