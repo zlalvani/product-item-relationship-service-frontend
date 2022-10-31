@@ -1,4 +1,4 @@
-import { Job, JobResponse } from "../../types/jobs";
+import { JobResponse, JobStatusResult } from "../../types/jobs";
 import { JobsDemoDataSuccess } from "./__test__/jobs.exampleData";
 
 export const fetchJobById = async (jobId: string): Promise<JobResponse> => {
@@ -6,7 +6,7 @@ export const fetchJobById = async (jobId: string): Promise<JobResponse> => {
   return JobsDemoDataSuccess;
 };
 
-export const fetchJobs = async (): Promise<Job[]> => {
+export const fetchJobs = async (): Promise<JobStatusResult[]> => {
   console.warn("Using demo data for fetchJobs");
-  return [JobsDemoDataSuccess.job];
+  return [{ jobId: JobsDemoDataSuccess.job.jobId, status: JobsDemoDataSuccess.job.jobState }];
 };

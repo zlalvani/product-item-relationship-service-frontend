@@ -10,7 +10,7 @@ export const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    path: "/jobs/:jobId",
+    path: "/jobs/:env/:jobId",
     element: <JobDetail />,
   },
 ]);
