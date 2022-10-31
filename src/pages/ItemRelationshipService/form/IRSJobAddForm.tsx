@@ -1,10 +1,9 @@
 import { Box } from "@mui/material";
 
+import { Button } from "cx-portal-shared-components";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
-import { Button } from "cx-portal-shared-components";
-import { IRSJobAddFormSelectField } from "./IRSJobAddFormSelectField";
-import { IRSJobAddFormTextfield } from "./IRSJobAddFormTextfield";
+import { IRSJobAddFormTextfield } from "./components/IRSJobAddFormTextfield";
 
 type DefaultFormFieldValuesType = {
   RequestBodyValues: string;
@@ -96,20 +95,7 @@ export const IRSJobAddForm = () => {
                 label: t("content.irs.form.requestBodyValues.label"),
                 helperText: t("content.irs.form.requestBodyValues.helperText"),
               }}
-            ></IRSJobAddFormTextfield>
-            <IRSJobAddFormSelectField
-              {...{
-                control,
-                errors,
-                trigger,
-                name: "Environment",
-                rules: {
-                  required: true,
-                  validate: (value: string) => value !== "none",
-                },
-                label: t("content.irs.form.environment.label"),
-              }}
-            ></IRSJobAddFormSelectField>
+            />
           </form>
           <Button
             style={{ marginTop: 20 }}
