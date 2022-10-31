@@ -1,6 +1,6 @@
 import React from "react";
 import { IRSJobOverview } from "./features/IRSJobOverview/IRSJobOverview";
-import { IRSJobAddFormSelectField } from "./features/SelectEnvironment/IRSJobAddFormSelectField";
+import { IRSSelectServerEnv } from "./features/SelectEnvironment/IRSSelectServerEnv";
 import { IRSJobAddForm } from "./form/IRSJobAddForm";
 
 import "./irs.scss";
@@ -8,7 +8,7 @@ import "./irs.scss";
 export const ItemRelationshipService: React.FC = () => {
   return (
     <main className="main">
-      <IRSJobAddFormSelectField />
+      <IRSSelectServerEnv />
       <IRSJobAddForm />
       <IRSJobOverview />
     </main>

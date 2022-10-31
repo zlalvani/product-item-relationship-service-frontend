@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 import { AvailableServerEnvironments, setServerEnv } from "../../../../store/serverEnvironment";
 import { useAppDispatch, useAppSelector } from "../../../../store/store";
 
-export const IRSJobAddFormSelectField = () => {
+export const IRSSelectServerEnv = () => {
   const { t } = useTranslation();
   const { serverEnv } = useAppSelector((store) => store.serverEnvReducer);
   const dispatch = useAppDispatch();
