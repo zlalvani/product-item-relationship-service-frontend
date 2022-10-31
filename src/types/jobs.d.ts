@@ -1,3 +1,10 @@
+type JobStates = "UNSAVED" | "INITIAL" | "RUNNING" | "TRANSFERS_FINISHED" | "COMPLETED" | "CANCELED" | "ERROR";
+
+export interface JobStatusResult {
+  jobId: string;
+  status: JobStatus;
+}
+
 export interface JobErrorResponse {
   errors: string[];
   message: string;
@@ -40,7 +47,7 @@ export interface Job {
   jobCompleted: Date | string;
   jobId: string;
   jobParameter: JobParameter;
-  jobState: string;
+  jobState: JobStates;
   lastModifiedOn: Date | string;
   owner: string;
   startedOn: Date | string;
