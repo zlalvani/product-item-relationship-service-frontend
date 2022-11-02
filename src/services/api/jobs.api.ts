@@ -10,3 +10,7 @@ export const fetchJobs = async (): Promise<JobStatusResult[]> => {
   console.warn("Using demo data for fetchJobs");
   return [{ jobId: JobsDemoDataSuccess.job.jobId, status: JobsDemoDataSuccess.job.jobState }];
 };
+
+export const cancelJob = async (jobId: string) => {
+  console.error("implement cancel Job endpoint", { jobId });
+};

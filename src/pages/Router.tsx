@@ -3,7 +3,7 @@ import ErrorPage from "./ErrorPage";
 import { ItemRelationshipService } from "./ItemRelationshipService/ItemRelationshipService";
 import { JobDetail } from "./JobDetail/JobDetail";
 
-export const router = createBrowserRouter([
+export const routeConfig = [
   {
     path: "/",
     element: <ItemRelationshipService />,
@@ -13,4 +13,6 @@ export const router = createBrowserRouter([
     path: "/jobs/:env/:jobId",
     element: <JobDetail />,
   },
-]);
+];
+
+export const router = createBrowserRouter(routeConfig);

@@ -11,4 +11,5 @@ module.exports = {
       statements: 1,
     },
   },
+  setupFiles: ['./src/testing/setupTests.js']
 };

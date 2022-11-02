@@ -3,21 +3,26 @@ import { Link } from "react-router-dom";
 import { ArrowForwardIcon } from "../../../../../lib";
 import { useAppSelector } from "../../../../../store/store";
 import { JobStatusResult } from "../../../../../types/jobs";
+import { IRSCancelJobButton } from "./IRSCancelJobButton";
+
+export const IRSNavigateToJobDetails: React.FC<{ jobId: string }> = ({ jobId }) => {
+  const { serverEnv } = useAppSelector((store) => store.serverEnvReducer);
+
+  return (
+    <Link to={`/jobs/${serverEnv}/${jobId}`}>
+      <IconButton color="secondary" size="small" style={{ alignSelf: "center" }}>
+        <ArrowForwardIcon />
+      </IconButton>
+    </Link>
+  );
+};
 
 export const IRSTableActionButton: React.FC<{ row: JobStatusResult }> = ({ row }) => {
-  const { serverEnv } = useAppSelector((store) => store.serverEnvReducer);
   if (row.status === "RUNNING") {
-    // TODO: create a cancel job button
-    return null;
+    return <IRSCancelJobButton jobId={row.jobId} />;
   }
   if (row.status === "COMPLETED") {
-    return (
-      <Link to={`/jobs/${serverEnv}/${row.jobId}`}>
-        <IconButton color="secondary" size="small" style={{ alignSelf: "center" }}>
-          <ArrowForwardIcon />
-        </IconButton>
-      </Link>
-    );
+    return <IRSNavigateToJobDetails jobId={row.jobId} />;
   }
 
   return null;
