@@ -6,13 +6,7 @@ export const IRSCancelJobButton: React.FC<{ jobId: string }> = ({ jobId }) => {
   const { mutate: cancelJob } = useCancelJobs();
 
   return (
-    <IconButton
-      onClick={() => cancelJob(jobId)}
-      color="secondary"
-      variant="outlined"
-      size="small"
-      style={{ alignSelf: "center" }}
-    >
+    <IconButton onClick={() => cancelJob(jobId)} color="secondary" size="small" style={{ alignSelf: "center" }}>
       <CancelIcon />
     </IconButton>
   );

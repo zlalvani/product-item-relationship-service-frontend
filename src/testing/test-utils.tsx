@@ -7,6 +7,7 @@ import { serverEnvReducer } from "../store/serverEnvironment";
 import { AppStore, RootState } from "../store/store";
 
 import { I18nextProvider } from "react-i18next";
+import { ReactQueryClientProvider } from "../lib";
 import i18n from "./i18n-testconfig";
 
 interface ExtendedRenderOptions extends Omit<RenderOptions, "queries"> {
@@ -26,7 +27,9 @@ export function renderWithProviders(
   const Wrapper: FC<{ children: React.ReactNode }> = ({ children }) => {
     return (
       <I18nextProvider i18n={i18n}>
-        <Provider store={store}>{children}</Provider>
+        <ReactQueryClientProvider>
+          <Provider store={store}>{children}</Provider>
+        </ReactQueryClientProvider>
       </I18nextProvider>
     );
   };
