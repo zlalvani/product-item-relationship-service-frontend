@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the tombstone information 1`] = `
+<div>
+  <section>
+    <div
+      class="irs-tombstones-details MuiBox-root css-0"
+    >
+      <div
+        class="irs-tombstones-details-header MuiBox-root css-0"
+      >
+        <div
+          class="MuiBox-root css-0"
+          style="display: inline-block; color: rgb(239, 83, 80); margin-top: 20px;"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+            data-testid="ErrorOutlineIcon"
+            focusable="false"
+            style="font-size: 50px; float: left; vertical-align: middle; margin-top: 10px;"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M11 15h2v2h-2zm0-8h2v6h-2zm.99-5C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
+            />
+          </svg>
+          <h2
+            style="float: left; margin-left: 10px;"
+          >
+            content.irs.dialog.submodelTombstones.title
+          </h2>
+        </div>
+      </div>
+      <div
+        class="irs-tombstones-details-content MuiBox-root css-0"
+      >
+        <div
+          class="MuiBox-root css-0"
+        >
+          <hr
+            class="MuiDivider-root MuiDivider-fullWidth css-1pdy5v-MuiDivider-root"
+          />
+          <div
+            class="MuiGrid-root MuiGrid-container css-15v7om4-MuiGrid-root"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 css-1osj8n2-MuiGrid-root"
+            >
+              content.irs.dialog.submodelTombstones.lastAttempt:
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 css-vgqnfl-MuiGrid-root"
+            >
+              2022-02-03 15:48:54
+            </div>
+          </div>
+          <hr
+            class="MuiDivider-root MuiDivider-fullWidth css-1pdy5v-MuiDivider-root"
+          />
+          <div
+            class="MuiGrid-root MuiGrid-container css-15v7om4-MuiGrid-root"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 css-1osj8n2-MuiGrid-root"
+            >
+              content.irs.dialog.submodelTombstones.errorDetail:
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 css-vgqnfl-MuiGrid-root"
+            >
+              Details to reason of Failure
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+`;

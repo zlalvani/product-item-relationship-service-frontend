@@ -3,9 +3,9 @@ import dayjs from "dayjs";
 import uniqueId from "lodash/uniqueId";
 import { DetailGrid } from "../../../components/DetailGrid";
 import { ErrorOutlineIcon, useTranslation } from "../../../lib";
-import { JobResponse } from "../../../types/jobs";
+import { Tombstone } from "../../../types/jobs";
 
-export const IRSJobTombstones: React.FC<{ job: JobResponse }> = ({ job }) => {
+export const IRSJobTombstones: React.FC<{ tombstones: Tombstone[] }> = ({ tombstones }) => {
   const { t } = useTranslation();
   const theme = useTheme();
 
@@ -32,7 +32,7 @@ export const IRSJobTombstones: React.FC<{ job: JobResponse }> = ({ job }) => {
           </Box>
         </Box>
         <Box className="irs-tombstones-details-content">
-          {job.tombstones.map((stone) => {
+          {tombstones.map((stone) => {
             return (
               <Box key={`${uniqueId(stone.catenaXId)}`}>
                 <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />

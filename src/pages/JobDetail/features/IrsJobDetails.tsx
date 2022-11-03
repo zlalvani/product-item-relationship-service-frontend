@@ -1,11 +1,11 @@
 import { Box, Divider, Grid } from "@mui/material";
 import dayjs from "dayjs";
 import { useTranslation } from "react-i18next";
-import { DetailGrid } from "../../../../components/DetailGrid";
-import { BeautifulJson } from "../../../../lib/react-syntax-highlighter";
-import { Job } from "../../../../types/jobs";
+import { DetailGrid } from "../../../components/DetailGrid";
+import { BeautifulJson } from "../../../lib/react-syntax-highlighter";
+import { Job } from "../../../types/jobs";
 
-export const IrsJobDetailsDisplay: React.FC<{ job: Job }> = ({ job }) => {
+export const IrsJobDetails: React.FC<{ job: Job }> = ({ job }) => {
   const { t } = useTranslation();
 
   return (

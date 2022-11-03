@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useFetchJobById } from "../../services/queries/jobs";
-import { IrsJobDetailsDisplay } from "./features/IRSJobDetails/IrsJobDetailsDisplay";
+import { IrsJobDetails } from "./features/IrsJobDetails";
 import { IRSJobTombstones } from "./features/IRSJobTombstones";
 import { IrsJobVisualization } from "./features/IRSJobVisualization/IrsJobVIsualization";
 
@@ -21,8 +21,8 @@ export const JobDetail: React.FC = () => {
   return (
     <>
       <IrsJobVisualization job={job} />
-      <IrsJobDetailsDisplay job={job.job} />
-      <IRSJobTombstones job={job} />
+      <IrsJobDetails job={job.job} />
+      <IRSJobTombstones tombstones={job.tombstones} />
     </>
   );
 };
