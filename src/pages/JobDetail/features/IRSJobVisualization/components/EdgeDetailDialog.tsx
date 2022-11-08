@@ -18,29 +18,22 @@
  * SPDX-License-Identifier: Apache-2.0
  ********************************************************************************/
 
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-} from 'cx-portal-shared-components'
-import { useSelector } from 'react-redux'
-import { edgeDialogSelector } from 'features/irs/slice'
-import { EdgeDetails } from './EdgeDetails'
+import { Dialog, DialogContent, DialogHeader } from "cx-portal-shared-components";
+import { Relationship } from "../../../../../types/jobs";
+import { EdgeDetails } from "./EdgeDetails";
 
 interface EdgeDialogProps {
-  show: boolean
-  onClose: () => void
+  edge: Relationship;
+  onClose: () => void;
 }
 
-export const EdgeDetailDialog = ({ show, onClose }: EdgeDialogProps) => {
-  const edgeDialoge = useSelector(edgeDialogSelector)
-
+export const EdgeDetailDialog = ({ edge, onClose }: EdgeDialogProps) => {
   return (
-    <Dialog open={show}>
-      <DialogHeader title={''} closeWithIcon onCloseWithIcon={onClose} />
+    <Dialog open={edge !== undefined}>
+      <DialogHeader title={""} closeWithIcon onCloseWithIcon={onClose} />
       <DialogContent>
-        <EdgeDetails edge={edgeDialoge.edgeId} />
+        <EdgeDetails edge={edge} />
       </DialogContent>
     </Dialog>
-  )
-}
+  );
+};

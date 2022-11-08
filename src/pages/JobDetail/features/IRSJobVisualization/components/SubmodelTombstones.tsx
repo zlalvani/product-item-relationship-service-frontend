@@ -18,67 +18,62 @@
  * SPDX-License-Identifier: Apache-2.0
  ********************************************************************************/
 
-import { Box, Divider } from '@mui/material'
-import { SubmodelDescriptors } from 'features/irs/types'
-import { DetailGrid } from '../helper/DetailGrid'
-import { Tombstones } from 'features/irs/types'
-import { useSelector } from 'react-redux'
-import {
-  getTombstonesByEndpointAdress,
-  getSubmodelPaloadBySubmodelId,
-} from 'features/irs/slice'
-import SyntaxHighlighter from 'react-syntax-highlighter'
-import { googlecode } from 'react-syntax-highlighter/dist/esm/styles/hljs'
-import { useTranslation } from 'react-i18next'
-import dayjs from 'dayjs'
-import { useTheme } from '@mui/material'
-import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline'
-import SourceIcon from '@mui/icons-material/Source'
-import uniqueId from 'lodash/uniqueId'
+import { Box, Divider } from "@mui/material";
+
+import { DetailGrid } from "../../../../../../baseCode/ItemRelationshipService/helper/DetailGrid";
+
+import { useSelector } from "react-redux";
+
+import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
+import SourceIcon from "@mui/icons-material/Source";
+import { useTheme } from "@mui/material";
+import dayjs from "dayjs";
+import uniqueId from "lodash/uniqueId";
+import { useTranslation } from "react-i18next";
+import SyntaxHighlighter from "react-syntax-highlighter";
+import { googlecode } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import { SubmodelDescriptor, Tombstone } from "../../../../../types/jobs";
 
 interface props {
-  subModel: SubmodelDescriptors
+  subModel: SubmodelDescriptor;
   // hasTombstones?: (x:boolean) => void
   // setPayload?: (x:boolean) => void
 }
 
 export const SubmodelTobmstones = ({ subModel }: props) => {
-  const { t } = useTranslation()
-  const theme = useTheme()
+  const { t } = useTranslation();
+  const theme = useTheme();
 
-  const tombstones: Tombstones[] | [] = useSelector((state) => {
+  const tombstones: Tombstone[] | [] = useSelector((state) => {
     if (subModel != null) {
-      return getTombstonesByEndpointAdress(
-        state,
-        subModel.endpoints[0].protocolInformation.endpointAddress
-      )
+      return getTombstonesByEndpointAdress(state, subModel.endpoints[0].protocolInformation.endpointAddress);
     } else {
-      return []
+      return [];
     }
-  })
+  });
 
-  let hasTombstoness = tombstones.length > 0 ? true : false
+  const hasTombstoness = tombstones.length > 0 ? true : false;
 
   // hasTombstones(hasTombstoness)
 
-  const submodelId = subModel.identification
+  const submodelId = subModel.identification;
   const submodelPayload = useSelector((state) => {
     if (submodelId) {
-      return getSubmodelPaloadBySubmodelId(state, submodelId)
+      return getSubmodelPaloadBySubmodelId(state, submodelId);
     } else {
-      return []
+      return [];
     }
-  })
+  });
 
-  const hasPayload = () => (submodelPayload.length > 0 ? true : false)
+  const hasPayload = () => (submodelPayload.length > 0 ? true : false);
 
   return (
     <>
       {hasTombstoness && (
-        <Box key={'tombstones'}>
+        <Box key={"tombstones"}>
           <Box
             style={{
-              display: 'inline-block',
+              display: "inline-block",
               color: theme.palette.error.light,
               marginTop: 20,
             }}
@@ -86,30 +81,13 @@ export const SubmodelTobmstones = ({ subModel }: props) => {
             <ErrorOutlineIcon
               style={{
                 fontSize: 50,
-                float: 'left',
-                verticalAlign: 'middle',
+                float: "left",
+                verticalAlign: "middle",
                 marginTop: 10,
               }}
             ></ErrorOutlineIcon>
-            <h2 style={{ float: 'left', marginLeft: 10 }}>
-              {t('content.irs.dialog.submodelTombstones.title')}
-            </h2>
+            <h2 style={{ float: "left", marginLeft: 10 }}>{t("content.irs.dialog.submodelTombstones.title")}</h2>
           </Box>
-
-          {/* <Grid
-            container
-            sx={{
-              width: `calc(100% + ${theme.spacing(4)})`,
-              m: `0 -${theme.spacing(2)}`,
-              p: 2,
-              typography: 'label3',
-              bgcolor: theme.palette.error.light,
-            }}
-          >
-            <Grid item xs={12}>
-              <ErrorOutlineIcon style={{paddingTop:5}}></ErrorOutlineIcon> {t('content.irs.dialog.submodelTombstones.title')}
-            </Grid>
-          </Grid> */}
 
           {tombstones.map((stone) => {
             // console.log(JSON.parse('{'+stone.processingError.errorDetail.toString()+'}'))
@@ -117,14 +95,12 @@ export const SubmodelTobmstones = ({ subModel }: props) => {
               <Box key={`${uniqueId(stone.catenaXId)}`}>
                 <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
                 <DetailGrid
-                  topic={t('content.irs.dialog.submodelTombstones.lastAttempt')}
-                  content={dayjs(stone.processingError.lastAttempt).format(
-                    'YYYY-MM-DD HH:mm:ss'
-                  )}
+                  topic={t("content.irs.dialog.submodelTombstones.lastAttempt")}
+                  content={dayjs(stone.processingError.lastAttempt).format("YYYY-MM-DD HH:mm:ss")}
                 />
                 <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
                 <DetailGrid
-                  topic={t('content.irs.dialog.submodelTombstones.errorDetail')}
+                  topic={t("content.irs.dialog.submodelTombstones.errorDetail")}
                   content={
                     stone.processingError.errorDetail
                     // <SyntaxHighlighter style={googlecode}>
@@ -135,7 +111,7 @@ export const SubmodelTobmstones = ({ subModel }: props) => {
                   }
                 />
               </Box>
-            )
+            );
           })}
         </Box>
       )}
@@ -144,7 +120,7 @@ export const SubmodelTobmstones = ({ subModel }: props) => {
         <>
           <Box
             style={{
-              display: 'inline-block',
+              display: "inline-block",
               color: theme.palette.success.main,
               marginTop: 20,
             }}
@@ -152,14 +128,12 @@ export const SubmodelTobmstones = ({ subModel }: props) => {
             <SourceIcon
               style={{
                 fontSize: 50,
-                float: 'left',
-                verticalAlign: 'middle',
+                float: "left",
+                verticalAlign: "middle",
                 marginTop: 10,
               }}
             ></SourceIcon>
-            <h2 style={{ float: 'left', marginLeft: 10 }}>
-              {t('content.irs.dialog.submodelPayload.title')}
-            </h2>
+            <h2 style={{ float: "left", marginLeft: 10 }}>{t("content.irs.dialog.submodelPayload.title")}</h2>
           </Box>
 
           {/* <h2 style={{ color: theme.palette.success.main }}>{t('content.irs.dialog.submodelPayload.title')}</h2> */}
@@ -170,7 +144,7 @@ export const SubmodelTobmstones = ({ subModel }: props) => {
                 <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
 
                 <DetailGrid
-                  topic={t('content.irs.dialog.submodelPayload.payload')}
+                  topic={t("content.irs.dialog.submodelPayload.payload")}
                   content={
                     <SyntaxHighlighter
                       key={`payload_${payload.identification}_${payload.aspectType}_syntax`}
@@ -182,10 +156,10 @@ export const SubmodelTobmstones = ({ subModel }: props) => {
                   }
                 />
               </Box>
-            )
+            );
           })}
         </>
       )}
     </>
-  )
-}
+  );
+};
