@@ -1,8 +1,8 @@
 /** @type {import('ts-jest').JestConfigWithTsJest} */
 
 module.exports = {
-  testEnvironment: 'jsdom',
-  collectCoverageFrom: ['src/**/*.{ts,tsx}'],
+  testEnvironment: "jsdom",
+  collectCoverageFrom: ["src/**/*.{ts,tsx}"],
   coverageThreshold: {
     global: {
       branches: 1,
@@ -11,6 +11,7 @@ module.exports = {
       statements: 1,
     },
   },
-  setupFiles: ['./src/testing/setupTests.js'],
+  setupFiles: ["./src/testing/setupTests.js"],
   transformIgnorePatterns: [`/node_modules/(?!react-syntax-highlighter)`],
+  globalSetup: "./src/testing/global-setup.js",
 };

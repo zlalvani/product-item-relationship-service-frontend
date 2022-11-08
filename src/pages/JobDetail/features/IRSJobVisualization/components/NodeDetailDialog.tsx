@@ -17,23 +17,28 @@
  *
  * SPDX-License-Identifier: Apache-2.0
  ********************************************************************************/
-import { Grid } from '@mui/material'
-import { Link } from 'react-router-dom'
 
-interface DetailGridProps {
-  topic: string
-  content: string | number | any
-  link?: any
+import { Dialog, DialogContent, DialogHeader } from "cx-portal-shared-components";
+import uniqueId from "lodash/uniqueId";
+
+import { useTranslation } from "react-i18next";
+import { Shell } from "../../../../../types/jobs";
+import { NodeDetailsTwo } from "./NodeDetailsTwo";
+
+interface NodeDialogProps {
+  showId: string;
+  shellList: Shell[];
+  onClose: () => void;
 }
-export const DetailGrid = ({ topic, content, link }: DetailGridProps) => {
+
+export const NodeDetailDialog = ({ showId, onClose, shellList }: NodeDialogProps) => {
+  const { t } = useTranslation();
+
+  const twin = shellList.find((x: Shell) => x.globalAssetId.value[0] === showId);
   return (
-    <Grid container sx={{ mb: 2, typography: 'body3' }}>
-      <Grid item xs={6}>
-        {topic}
-      </Grid>
-      <Grid item xs={6} sx={{ overflowWrap: 'anywhere' }}>
-        {link ? <Link to={link}>{content}</Link> : content}
-      </Grid>
-    </Grid>
-  )
-}
+    <Dialog open={showId !== ""}>
+      <DialogHeader title={t("content.irs.dialog.title")} closeWithIcon onCloseWithIcon={onClose} />
+      <DialogContent key={uniqueId()}>{twin && <NodeDetailsTwo twin={twin} />}</DialogContent>
+    </Dialog>
+  );
+};
