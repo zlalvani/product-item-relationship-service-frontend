@@ -16,4 +16,7 @@ module.exports = {
   setupFiles: ["./src/testing/setupTests.js"],
   transformIgnorePatterns: [`/node_modules/(?!${libs})`],
   globalSetup: "./src/testing/global-setup.js",
+  moduleNameMapper: {
+    '\\.(css|scss)$': 'identity-obj-proxy',
+  },
 };
