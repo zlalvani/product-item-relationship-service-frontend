@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { useFetchJobById } from "../../services/queries/jobs";
 import { IrsJobDetails } from "./features/IrsJobDetails";
 import { IRSJobTombstones } from "./features/IRSJobTombstones";
-import { IrsJobVisualization } from "./features/IRSJobVisualization/IrsJobVisualization";
+import { IrsJobVisualization } from "./features/IRSJobVisualization/IrsJobVIsualization";
 
 export const JobDetail: React.FC = () => {
   const { jobId = "" } = useParams();
