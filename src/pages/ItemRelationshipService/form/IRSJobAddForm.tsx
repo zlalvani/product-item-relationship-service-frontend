@@ -80,7 +80,6 @@ export const IRSJobAddForm = () => {
           className="irs-job-form-content"
           style={{
             margin: "20px",
-            d,
           }}
         >
           <form onSubmit={handleSubmit(onFormSubmit)}>
