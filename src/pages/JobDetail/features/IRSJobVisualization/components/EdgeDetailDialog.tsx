@@ -23,7 +23,7 @@ import { Relationship } from "../../../../../types/jobs";
 import { EdgeDetails } from "./EdgeDetails";
 
 interface EdgeDialogProps {
-  edge: Relationship;
+  edge?: Relationship;
   onClose: () => void;
 }
 
@@ -31,9 +31,7 @@ export const EdgeDetailDialog = ({ edge, onClose }: EdgeDialogProps) => {
   return (
     <Dialog open={edge !== undefined}>
       <DialogHeader title={""} closeWithIcon onCloseWithIcon={onClose} />
-      <DialogContent>
-        <EdgeDetails edge={edge} />
-      </DialogContent>
+      <DialogContent>{edge && <EdgeDetails edge={edge} />}</DialogContent>
     </Dialog>
   );
 };
