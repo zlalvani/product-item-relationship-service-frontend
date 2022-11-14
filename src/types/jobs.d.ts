@@ -2,7 +2,9 @@ type JobStates = "UNSAVED" | "INITIAL" | "RUNNING" | "TRANSFERS_FINISHED" | "COM
 
 export interface JobStatusResult {
   jobId: string;
-  status: JobStatus;
+  jobState: JobStatus;
+  startedOn: string;
+  jobCompleted: string;
 }
 
 export interface JobErrorResponse {

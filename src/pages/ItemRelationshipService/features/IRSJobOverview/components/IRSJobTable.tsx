@@ -1,6 +1,7 @@
 import { Table } from "cx-portal-shared-components";
+import React from "react";
 import { useTranslation } from "../../../../../lib";
-// import { defaultDateFormat } from "../../../../../lib/dayjs";
+import { defaultDateFormat } from "../../../../../lib/dayjs";
 import { JobStatusResult } from "../../../../../types/jobs";
 import { IRSCancelJobButton } from "./IRSCancelJobButton";
 import { IRSNavigateToJobDetails } from "./IRSNavigateToJobDetails";
@@ -17,27 +18,27 @@ export const IRSJobTable: React.FC<{
       flex: 1,
       filterable: false,
     },
-    // TODO: When backend adds data structure to data
-    // {
-    //   field: "start",
-    //   headerName: t("content.irs.jobsTable.startDate"),
-    //   width: 150,
-    //   filterable: false,
-    //   valueGetter: ({ row }: { row: JobStatusResult }) => defaultDateFormat(row.startedOn),
-    // },
-    // {
-    //   field: "end",
-    //   headerName: t("content.irs.jobsTable.endDate"),
-    //   width: 150,
-    //   filterable: false,
-    //   valueGetter: ({ row }: { row: JobStatusResult }) => defaultDateFormat(row.jobCompleted),
-    // },
+
+    {
+      field: "startedOn",
+      headerName: t("content.irs.jobsTable.startDate"),
+      width: 150,
+      filterable: false,
+      valueGetter: ({ row }: { row: JobStatusResult }) => defaultDateFormat(row.startedOn),
+    },
+    {
+      field: "jobCompleted",
+      headerName: t("content.irs.jobsTable.endDate"),
+      width: 150,
+      filterable: false,
+      valueGetter: ({ row }: { row: JobStatusResult }) => defaultDateFormat(row.jobCompleted),
+    },
     {
       field: "status",
       headerName: t("content.irs.jobsTable.status"),
 
       filterable: false,
-      valueGetter: ({ row }: { row: JobStatusResult }) => row.status,
+      valueGetter: ({ row }: { row: JobStatusResult }) => row.jobState,
     },
     {
       field: "visualize",
@@ -47,10 +48,10 @@ export const IRSJobTable: React.FC<{
       filterable: false,
       width: 150,
       renderCell: ({ row }: { row: JobStatusResult }) => {
-        if (row.status === "RUNNING") {
+        if (row.jobState === "RUNNING") {
           return <IRSCancelJobButton jobId={row.jobId} />;
         }
-        if (row.status === "COMPLETED") {
+        if (row.jobState === "COMPLETED") {
           return <IRSNavigateToJobDetails jobId={row.jobId} />;
         }
 
