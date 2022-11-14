@@ -1,15 +1,12 @@
 import { JobResponse, JobStatusResult } from "../../types/jobs";
-import { JobsDemoDataSuccess } from "./__test__/jobs.exampleData";
-import { JobStatusResultSuccess } from "./__test__/jobStatusResult.example";
+import { HttpClient } from "../auth/HttpClient";
 
 export const fetchJobById = async (jobId: string): Promise<JobResponse> => {
-  console.warn("implement actual fetch ", jobId);
-  return JobsDemoDataSuccess;
+  return await HttpClient.get(`jobs/${jobId}?returnUncompletedJob=true`);
 };
 
 export const fetchJobs = async (): Promise<JobStatusResult[]> => {
-  console.warn("Using demo data for fetchJobs");
-  return JobStatusResultSuccess;
+  return await HttpClient.get("jobs");
 };
 
 export const cancelJob = async (jobId: string) => {
