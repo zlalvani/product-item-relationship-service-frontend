@@ -12,6 +12,7 @@ export const useFetchJobById = (id: string, refetchInterval: false | number = fa
 
 export const useFetchJobs = (refetchInterval: false | number = false) => {
   const { serverEnv } = useAppSelector((state) => state.serverEnvReducer);
+  console.log("serverEnv", serverEnv);
   return useQuery(["jobs", serverEnv], () => fetchJobs(), { refetchInterval });
 };
 

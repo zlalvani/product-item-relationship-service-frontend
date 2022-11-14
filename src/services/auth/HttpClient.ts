@@ -30,19 +30,19 @@ export class HttpClient {
     }
   }
 
-  static get<T, D = Record<string, unknown>>(path: string, params: D = {} as D): Promise<T> {
+  static async get<T, D = Record<string, unknown>>(path: string, params: D = {} as D): Promise<T> {
     return HttpClient.request(path, { params, method: "GET" });
   }
 
-  static post<T, D = Record<string, unknown>>(path: string, data: D = {} as D): Promise<T> {
+  static async post<T, D = Record<string, unknown>>(path: string, data: D = {} as D): Promise<T> {
     return HttpClient.request<T, D>(path, { data, method: "POST" });
   }
 
-  static put<T, D = Record<string, unknown>>(path: string, data: D = {} as D): Promise<T> {
+  static async put<T, D = Record<string, unknown>>(path: string, data: D = {} as D): Promise<T> {
     return HttpClient.request<T, D>(path, { data, method: "PUT" });
   }
 
-  static delete<T, D = Record<string, unknown>>(path: string, params: D = {} as D): Promise<T> {
+  static async delete<T, D = Record<string, unknown>>(path: string, params: D = {} as D): Promise<T> {
     return HttpClient.request(path, { params, method: "DELETE" });
   }
 }
