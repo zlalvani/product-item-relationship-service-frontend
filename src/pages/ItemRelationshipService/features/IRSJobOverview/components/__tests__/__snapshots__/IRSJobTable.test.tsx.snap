@@ -6,7 +6,7 @@ exports[`renders a empty job table 1`] = `
     class="MuiBox-root css-b7ealj"
   >
     <div
-      aria-colcount="3"
+      aria-colcount="5"
       aria-multiselectable="false"
       aria-rowcount="1"
       class="irs-table MuiDataGrid-root MuiDataGrid-autoHeight MuiDataGrid-root--densityStandard css-13itlwa-MuiDataGrid-root"
@@ -141,9 +141,9 @@ exports[`renders a empty job table 1`] = `
               aria-colindex="2"
               aria-sort="none"
               class="MuiDataGrid-columnHeader MuiDataGrid-columnHeader--sortable"
-              data-field="status"
+              data-field="startedOn"
               role="columnheader"
-              style="width: 100px; min-width: 100px; max-width: 100px;"
+              style="width: 150px; min-width: 150px; max-width: 150px;"
               tabindex="-1"
             >
               <div
@@ -161,7 +161,7 @@ exports[`renders a empty job table 1`] = `
                       class="MuiDataGrid-columnHeaderTitle css-1jbbcbn-MuiDataGrid-columnHeaderTitle"
                       data-mui-internal-clone-element="true"
                     >
-                      content.irs.jobsTable.status
+                      content.irs.jobsTable.startDate
                     </div>
                   </div>
                   <div
@@ -212,8 +212,8 @@ exports[`renders a empty job table 1`] = `
             <div
               aria-colindex="3"
               aria-sort="none"
-              class="MuiDataGrid-columnHeader"
-              data-field="visualize"
+              class="MuiDataGrid-columnHeader MuiDataGrid-columnHeader--sortable"
+              data-field="jobCompleted"
               role="columnheader"
               style="width: 150px; min-width: 150px; max-width: 150px;"
               tabindex="-1"
@@ -233,8 +233,34 @@ exports[`renders a empty job table 1`] = `
                       class="MuiDataGrid-columnHeaderTitle css-1jbbcbn-MuiDataGrid-columnHeaderTitle"
                       data-mui-internal-clone-element="true"
                     >
-                      content.irs.jobsTable.visualize
+                      content.irs.jobsTable.endDate
                     </div>
+                  </div>
+                  <div
+                    class="MuiDataGrid-iconButtonContainer css-ltf0zy-MuiDataGrid-iconButtonContainer"
+                  >
+                    <button
+                      aria-label="Sort"
+                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-1pe4mpk-MuiButtonBase-root-MuiIconButton-root"
+                      tabindex="-1"
+                      title="Sort"
+                      type="button"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall MuiDataGrid-sortIcon css-ptiqhd-MuiSvgIcon-root"
+                        data-testid="ArrowUpwardIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"
+                        />
+                      </svg>
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </button>
                   </div>
                 </div>
               </div>
@@ -301,7 +327,7 @@ exports[`renders a with job variants 1`] = `
     class="MuiBox-root css-b7ealj"
   >
     <div
-      aria-colcount="3"
+      aria-colcount="5"
       aria-multiselectable="false"
       aria-rowcount="5"
       class="irs-table MuiDataGrid-root MuiDataGrid-autoHeight MuiDataGrid-root--densityStandard css-13itlwa-MuiDataGrid-root"
@@ -427,9 +453,9 @@ exports[`renders a with job variants 1`] = `
               aria-colindex="2"
               aria-sort="none"
               class="MuiDataGrid-columnHeader MuiDataGrid-columnHeader--sortable"
-              data-field="status"
+              data-field="startedOn"
               role="columnheader"
-              style="width: 100px; min-width: 100px; max-width: 100px;"
+              style="width: 150px; min-width: 150px; max-width: 150px;"
               tabindex="-1"
             >
               <div
@@ -447,7 +473,7 @@ exports[`renders a with job variants 1`] = `
                       class="MuiDataGrid-columnHeaderTitle css-1jbbcbn-MuiDataGrid-columnHeaderTitle"
                       data-mui-internal-clone-element="true"
                     >
-                      content.irs.jobsTable.status
+                      content.irs.jobsTable.startDate
                     </div>
                   </div>
                   <div
@@ -498,8 +524,8 @@ exports[`renders a with job variants 1`] = `
             <div
               aria-colindex="3"
               aria-sort="none"
-              class="MuiDataGrid-columnHeader"
-              data-field="visualize"
+              class="MuiDataGrid-columnHeader MuiDataGrid-columnHeader--sortable"
+              data-field="jobCompleted"
               role="columnheader"
               style="width: 150px; min-width: 150px; max-width: 150px;"
               tabindex="-1"
@@ -519,8 +545,34 @@ exports[`renders a with job variants 1`] = `
                       class="MuiDataGrid-columnHeaderTitle css-1jbbcbn-MuiDataGrid-columnHeaderTitle"
                       data-mui-internal-clone-element="true"
                     >
-                      content.irs.jobsTable.visualize
+                      content.irs.jobsTable.endDate
                     </div>
+                  </div>
+                  <div
+                    class="MuiDataGrid-iconButtonContainer css-ltf0zy-MuiDataGrid-iconButtonContainer"
+                  >
+                    <button
+                      aria-label="Sort"
+                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall css-1pe4mpk-MuiButtonBase-root-MuiIconButton-root"
+                      tabindex="-1"
+                      title="Sort"
+                      type="button"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall MuiDataGrid-sortIcon css-ptiqhd-MuiSvgIcon-root"
+                        data-testid="ArrowUpwardIcon"
+                        focusable="false"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"
+                        />
+                      </svg>
+                      <span
+                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                      />
+                    </button>
                   </div>
                 </div>
               </div>
@@ -588,30 +640,32 @@ exports[`renders a with job variants 1`] = `
                     aria-colspan="1"
                     class="MuiDataGrid-cell MuiDataGrid-cell--textLeft"
                     data-colindex="1"
-                    data-field="status"
-                    role="cell"
-                    style="min-width: 100px; max-width: 100px; min-height: 57px; max-height: 57px;"
-                    tabindex="-1"
-                  >
-                    <div
-                      class="MuiDataGrid-cellContent"
-                    >
-                      INITIAL
-                    </div>
-                  </div>
-                  <div
-                    aria-colindex="3"
-                    aria-colspan="1"
-                    class="MuiDataGrid-cell--withRenderer MuiDataGrid-cell MuiDataGrid-cell--textLeft"
-                    data-colindex="2"
-                    data-field="visualize"
+                    data-field="startedOn"
                     role="cell"
                     style="min-width: 150px; max-width: 150px; min-height: 57px; max-height: 57px;"
                     tabindex="-1"
                   >
                     <div
                       class="MuiDataGrid-cellContent"
-                    />
+                    >
+                      2022-11-14 09:46:51
+                    </div>
+                  </div>
+                  <div
+                    aria-colindex="3"
+                    aria-colspan="1"
+                    class="MuiDataGrid-cell MuiDataGrid-cell--textLeft"
+                    data-colindex="2"
+                    data-field="jobCompleted"
+                    role="cell"
+                    style="min-width: 150px; max-width: 150px; min-height: 57px; max-height: 57px;"
+                    tabindex="-1"
+                  >
+                    <div
+                      class="MuiDataGrid-cellContent"
+                    >
+                      2022-11-14 09:50:16
+                    </div>
                   </div>
                 </div>
                 <div
@@ -644,48 +698,32 @@ exports[`renders a with job variants 1`] = `
                     aria-colspan="1"
                     class="MuiDataGrid-cell MuiDataGrid-cell--textLeft"
                     data-colindex="1"
-                    data-field="status"
+                    data-field="startedOn"
                     role="cell"
-                    style="min-width: 100px; max-width: 100px; min-height: 57px; max-height: 57px;"
+                    style="min-width: 150px; max-width: 150px; min-height: 57px; max-height: 57px;"
                     tabindex="-1"
                   >
                     <div
                       class="MuiDataGrid-cellContent"
                     >
-                      RUNNING
+                      2022-11-14 09:46:51
                     </div>
                   </div>
                   <div
                     aria-colindex="3"
                     aria-colspan="1"
-                    class="MuiDataGrid-cell--withRenderer MuiDataGrid-cell MuiDataGrid-cell--textLeft"
+                    class="MuiDataGrid-cell MuiDataGrid-cell--textLeft"
                     data-colindex="2"
-                    data-field="visualize"
+                    data-field="jobCompleted"
                     role="cell"
                     style="min-width: 150px; max-width: 150px; min-height: 57px; max-height: 57px;"
                     tabindex="-1"
                   >
-                    <button
-                      class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorSecondary MuiIconButton-sizeSmall css-1hxb263-MuiButtonBase-root-MuiIconButton-root"
-                      style="align-self: center;"
-                      tabindex="0"
-                      type="button"
+                    <div
+                      class="MuiDataGrid-cellContent"
                     >
-                      <svg
-                        aria-hidden="true"
-                        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                        data-testid="CancelIcon"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z"
-                        />
-                      </svg>
-                      <span
-                        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                      />
-                    </button>
+                      2022-11-14 09:50:16
+                    </div>
                   </div>
                 </div>
                 <div
@@ -718,52 +756,32 @@ exports[`renders a with job variants 1`] = `
                     aria-colspan="1"
                     class="MuiDataGrid-cell MuiDataGrid-cell--textLeft"
                     data-colindex="1"
-                    data-field="status"
+                    data-field="startedOn"
                     role="cell"
-                    style="min-width: 100px; max-width: 100px; min-height: 57px; max-height: 57px;"
+                    style="min-width: 150px; max-width: 150px; min-height: 57px; max-height: 57px;"
                     tabindex="-1"
                   >
                     <div
                       class="MuiDataGrid-cellContent"
                     >
-                      COMPLETED
+                      2022-11-14 09:46:51
                     </div>
                   </div>
                   <div
                     aria-colindex="3"
                     aria-colspan="1"
-                    class="MuiDataGrid-cell--withRenderer MuiDataGrid-cell MuiDataGrid-cell--textLeft"
+                    class="MuiDataGrid-cell MuiDataGrid-cell--textLeft"
                     data-colindex="2"
-                    data-field="visualize"
+                    data-field="jobCompleted"
                     role="cell"
                     style="min-width: 150px; max-width: 150px; min-height: 57px; max-height: 57px;"
                     tabindex="-1"
                   >
-                    <a
-                      href="/jobs/DEV/demo-completed"
+                    <div
+                      class="MuiDataGrid-cellContent"
                     >
-                      <button
-                        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorSecondary MuiIconButton-sizeSmall css-1hxb263-MuiButtonBase-root-MuiIconButton-root"
-                        style="align-self: center;"
-                        tabindex="0"
-                        type="button"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                          data-testid="ArrowForwardIcon"
-                          focusable="false"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
-                          />
-                        </svg>
-                        <span
-                          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                        />
-                      </button>
-                    </a>
+                      2022-11-14 09:50:16
+                    </div>
                   </div>
                 </div>
                 <div
@@ -796,30 +814,32 @@ exports[`renders a with job variants 1`] = `
                     aria-colspan="1"
                     class="MuiDataGrid-cell MuiDataGrid-cell--textLeft"
                     data-colindex="1"
-                    data-field="status"
-                    role="cell"
-                    style="min-width: 100px; max-width: 100px; min-height: 57px; max-height: 57px;"
-                    tabindex="-1"
-                  >
-                    <div
-                      class="MuiDataGrid-cellContent"
-                    >
-                      CANCELED
-                    </div>
-                  </div>
-                  <div
-                    aria-colindex="3"
-                    aria-colspan="1"
-                    class="MuiDataGrid-cell--withRenderer MuiDataGrid-cell MuiDataGrid-cell--textLeft"
-                    data-colindex="2"
-                    data-field="visualize"
+                    data-field="startedOn"
                     role="cell"
                     style="min-width: 150px; max-width: 150px; min-height: 57px; max-height: 57px;"
                     tabindex="-1"
                   >
                     <div
                       class="MuiDataGrid-cellContent"
-                    />
+                    >
+                      2022-11-14 09:46:51
+                    </div>
+                  </div>
+                  <div
+                    aria-colindex="3"
+                    aria-colspan="1"
+                    class="MuiDataGrid-cell MuiDataGrid-cell--textLeft"
+                    data-colindex="2"
+                    data-field="jobCompleted"
+                    role="cell"
+                    style="min-width: 150px; max-width: 150px; min-height: 57px; max-height: 57px;"
+                    tabindex="-1"
+                  >
+                    <div
+                      class="MuiDataGrid-cellContent"
+                    >
+                      2022-11-14 09:50:16
+                    </div>
                   </div>
                 </div>
               </div>
