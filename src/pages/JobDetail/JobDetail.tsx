@@ -14,7 +14,7 @@ export const JobDetail: React.FC = () => {
     return null;
   }
   if (isError) {
-    return <ErrorDisplay error={error} />;
+    return <ErrorDisplay error={error as Error} />;
   }
 
   return (

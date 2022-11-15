@@ -1,9 +1,9 @@
 import { Box } from "@mui/system";
-import { Button } from "cx-portal-shared-components";
-import { Link } from "react-router-dom";
-import { useTranslation } from "react-i18next";
+// import { Button } from "cx-portal-shared-components";
+// import { Link } from "react-router-dom";
+import { useTranslation } from "../../src/lib/index";
 
-export const ErrorDisplay: React.FC<{ error: unknown }> = ({ error }) => {
+export const ErrorDisplay: React.FC<{ error: Error }> = ({ error }) => {
   const { t } = useTranslation();
   return (
     <section>
@@ -14,13 +14,8 @@ export const ErrorDisplay: React.FC<{ error: unknown }> = ({ error }) => {
         <Box className="error-page-body">
           <p>{t("global.errors.description")}</p>
           <p>
-            <i>{(error as Error).message}</i>
+            <i>{error.message}</i>
           </p>
-          <Link to="/">
-            <Button style={{ margin: 20 }} variant="contained" color="secondary">
-              {t("global.actions.homepage")}
-            </Button>
-          </Link>
         </Box>
       </Box>
     </section>
