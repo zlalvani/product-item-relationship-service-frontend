@@ -1,3 +1,23 @@
+/********************************************************************************
+ * Copyright (c) 2021,2022 BMW Group AG
+ * Copyright (c) 2021,2022 Contributors to the CatenaX (ng) GitHub Organisation.
+ *
+ * See the NOTICE file(s) distributed with this work for additional
+ * information regarding copyright ownership.
+ *
+ * This program and the accompanying materials are made available under the
+ * terms of the Apache License, Version 2.0 which is available at
+ * https://www.apache.org/licenses/LICENSE-2.0.
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ ********************************************************************************/
+
 import Keycloak from "keycloak-js";
 
 import { getCentralIdp, getClientId, getClientIdDigitalTwin, getClientIdSemantic } from "./EnvironmentService";
@@ -75,32 +95,38 @@ const keycloakConfigDigitalTwin: Keycloak.KeycloakConfig = {
 /* eslint @typescript-eslint/no-explicit-any: "off" */
 const KC = new (Keycloak as any)(keycloakConfig);
 
+const update = () => {
+  //info(`${getUsername()} updating token`)
+  KC.updateToken(50)
+    .then((refreshed: boolean) => {
+      refreshed && info(`${getUsername()} token refreshed ${refreshed}`);
+      // store.dispatch(setLoggedUser(getLoggedUser()));
+    })
+    .catch(() => {
+      error(`${getUsername()} token refresh failed`);
+    });
+};
+
 const init = (onAuthenticatedCallback: (loggedUser: IUser) => any) => {
   KC.init({
     onLoad: "login-required",
-    silentCheckSsoRedirectUri: window.location.origin + "/silent-check-sso.html",
     pkceMethod: "S256",
   }).then((authenticated: boolean) => {
     if (authenticated) {
       info(`${getUsername()} authenticated`);
       // AccessService.init();
       onAuthenticatedCallback(getLoggedUser());
+      // store.dispatch(setLoggedUser(getLoggedUser()));
+      setInterval(update, 50000);
     } else {
-      doLogin();
+      error(`${getUsername()} authentication failed`);
     }
   });
 };
 
 KC.onTokenExpired = () => {
-  KC.updateToken(50)
-    .then((refreshed: boolean) => {
-      info(`${getUsername()} refreshed ${refreshed}`);
-      //TODO: update token in redux store
-      //store.dispatch(setLoggedUser(getLoggedUser()))
-    })
-    .catch(() => {
-      error(`${getUsername()} refresh failed`);
-    });
+  info(`${getUsername()} token expired`);
+  update();
 };
 
 const doLogin = KC.login;
@@ -111,9 +137,7 @@ const getToken = () => KC.token;
 
 const getParsedToken = () => KC.tokenParsed;
 
-const updateToken = () => KC.updateToken(5).catch(doLogin);
-
-const getUsername = () => KC.tokenParsed.preferred_username;
+const getUsername = () => KC.tokenParsed?.preferred_username;
 
 const getName = () => KC.tokenParsed?.name;
 
@@ -164,7 +188,6 @@ const UserService = {
   init,
   isAdmin,
   isLoggedIn,
-  updateToken,
 };
 
 export default UserService;
