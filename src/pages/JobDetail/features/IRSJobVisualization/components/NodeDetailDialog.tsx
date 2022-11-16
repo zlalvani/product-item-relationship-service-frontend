@@ -33,11 +33,12 @@ interface NodeDialogProps {
 
 export const NodeDetailDialog = ({ showId, onClose, job }: NodeDialogProps) => {
   const { t } = useTranslation();
+  const title = `${t("content.irs.dialog.title")}`;
 
   const twin = job.shells.find((x: Shell) => x.globalAssetId.value[0] === showId);
   return (
     <Dialog open={showId !== ""}>
-      <DialogHeader title={t("content.irs.dialog.title")} closeWithIcon onCloseWithIcon={onClose} />
+      <DialogHeader title={title} closeWithIcon onCloseWithIcon={onClose} />
       <DialogContent key={uniqueId()}>{twin && <NodeDetailsTwo twin={twin} job={job} />}</DialogContent>
     </Dialog>
   );

@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import { createElement, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 export interface FullScreenHandle {
   active: boolean;
@@ -13,7 +13,7 @@ export interface FullScreenProps {
   onChange?: (state: boolean, handle: FullScreenHandle) => void;
   className?: string;
 }
-const stylesFullScreen = {
+const stylesFullScreen: React.CSSProperties = {
   position: "fixed",
   zIndex: 1000,
   right: 0,
@@ -70,13 +70,9 @@ export const FullScreen = (el: FullScreenProps) => {
     }
   });
 
-  return createElement(
-    Box,
-    {
-      className: classNames.join(" "),
-      ref: handle.node,
-      style: handle.active ? stylesFullScreen : undefined,
-    },
-    children,
+  return (
+    <Box className={classNames.join(" ")} ref={handle.node} style={handle.active ? stylesFullScreen : undefined}>
+      {children}
+    </Box>
   );
 };
