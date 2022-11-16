@@ -23,13 +23,14 @@ import { Typography } from "cx-portal-shared-components";
 import uniqueId from "lodash/uniqueId";
 import { useTranslation } from "react-i18next";
 import { DetailGrid } from "../../../../../components/DetailGrid";
-import { Shell, SubmodelDescriptor } from "../../../../../types/jobs";
+import { JobResponse, Shell, SubmodelDescriptor } from "../../../../../types/jobs";
+import { SubmodelTombstones } from "./SubmodelTombstones";
 
-export const NodeDetailsTwo: React.FC<{ twin: Shell }> = ({ twin }) => {
+export const NodeDetailsTwo: React.FC<{ twin: Shell; job: JobResponse }> = ({ twin, job }) => {
   const theme = useTheme();
   const { t } = useTranslation();
 
-  const getDesciption = (elem: Shell | SubmodelDescriptor) => (
+  const getDescription = (elem: Shell | SubmodelDescriptor) => (
     <Typography sx={{ mb: 3, typography: "body3" }}>
       {elem.description[0] ? elem.description[0].text : t("content.digitaltwin.detail.no_description")}
     </Typography>
@@ -41,7 +42,7 @@ export const NodeDetailsTwo: React.FC<{ twin: Shell }> = ({ twin }) => {
     <div key={uniqueId()}>
       <h1 style={{ marginTop: "100px" }}>{subModel.idShort} aspect</h1>
       <h3>Submodel Descriptor</h3>
-      {getDesciption(subModel)}
+      {getDescription(subModel)}
       <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
       <DetailGrid
         topic={t("content.digitaltwin.detail.semanticid")}
@@ -88,14 +89,14 @@ export const NodeDetailsTwo: React.FC<{ twin: Shell }> = ({ twin }) => {
         </Box>
       ))}
 
-      {/* <SubmodelTobmstones subModel={subModel}></SubmodelTobmstones> */}
+      <SubmodelTombstones subModel={subModel} job={job} />
     </div>
   );
 
   return (
     <>
       <h1>Shell</h1>
-      {getDesciption(twin)}
+      {getDescription(twin)}
       {hasSubmodels() && (
         <>
           <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />

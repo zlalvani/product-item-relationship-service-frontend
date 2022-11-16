@@ -94,7 +94,7 @@ export const IrsJobVisualization: React.FC<{ job: JobResponse }> = ({ job }) => 
                 {(nodeChild) => (
                   <foreignObject height={290} width={290} x={0} y={0}>
                     <Box>
-                      <NodeTemplate shell={nodeChild.node} onClick={setShowNodeDialog} />
+                      <NodeTemplate shell={nodeChild.node} job={job} onClick={setShowNodeDialog} />
                     </Box>
                   </foreignObject>
                 )}
@@ -111,7 +111,7 @@ export const IrsJobVisualization: React.FC<{ job: JobResponse }> = ({ job }) => 
           />
         </FullScreen>
       </Box>
-      <NodeDetailDialog showId={showNodeDialog} onClose={() => setShowNodeDialog("")} shellList={job.shells} />
+      <NodeDetailDialog showId={showNodeDialog} onClose={() => setShowNodeDialog("")} job={job} />
       <EdgeDetailDialog edge={showEdgeDialog} onClose={() => setShowEdgeDialog(undefined)} />
     </section>
   );

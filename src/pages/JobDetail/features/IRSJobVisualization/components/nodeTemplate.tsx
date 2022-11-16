@@ -21,12 +21,16 @@ import { Box, useTheme } from "@mui/material";
 
 import uniqueId from "lodash/uniqueId";
 import { NodeData } from "reaflow";
-import { Shell, SubmodelDescriptor } from "../../../../../types/jobs";
+import { JobResponse, Shell, SubmodelDescriptor } from "../../../../../types/jobs";
 import { SubmodelDetailCard } from "./submodelDetailCard";
 
 interface NodeDataEx extends NodeData, Shell {}
 
-export const NodeTemplate: React.FC<{ shell: NodeDataEx; onClick: (id: string) => void }> = ({ shell, onClick }) => {
+export const NodeTemplate: React.FC<{ shell: NodeDataEx; onClick: (id: string) => void; job: JobResponse }> = ({
+  job,
+  shell,
+  onClick,
+}) => {
   const { spacing } = useTheme();
 
   function compare(a: SubmodelDescriptor, b: SubmodelDescriptor) {
@@ -59,7 +63,13 @@ export const NodeTemplate: React.FC<{ shell: NodeDataEx; onClick: (id: string) =
         {sortedSubmodelDescriptors.map((n: SubmodelDescriptor) => {
           //Todo: Check for errors and add them to the object
           return (
-            <SubmodelDetailCard key={uniqueId(n.identification)} submodel={n} aasId={shell.id} onClick={onClick} />
+            <SubmodelDetailCard
+              key={uniqueId(n.identification)}
+              submodel={n}
+              aasId={shell.id}
+              onClick={onClick}
+              job={job}
+            />
           );
         })}
       </Box>

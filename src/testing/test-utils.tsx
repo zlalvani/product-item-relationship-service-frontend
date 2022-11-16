@@ -41,8 +41,11 @@ export function renderWithProviders(
 }
 
 export function renderCustomHook<Props, Result>(fn: (props: Props) => Result) {
+  const store = configureStore({ reducer: { serverEnvReducer }, preloadedState: {} });
   const wrapper: FC<{ children: React.ReactNode }> = ({ children }) => (
-    <ReactQueryTestClientProvider>{children}</ReactQueryTestClientProvider>
+    <ReactQueryTestClientProvider>
+      <Provider store={store}>{children}</Provider>
+    </ReactQueryTestClientProvider>
   );
   return renderHook(fn, { wrapper });
 }

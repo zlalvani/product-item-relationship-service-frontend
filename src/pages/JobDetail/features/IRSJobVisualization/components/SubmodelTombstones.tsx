@@ -20,10 +20,6 @@
 
 import { Box, Divider } from "@mui/material";
 
-import { DetailGrid } from "../../../../../../baseCode/ItemRelationshipService/helper/DetailGrid";
-
-import { useSelector } from "react-redux";
-
 import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
 import SourceIcon from "@mui/icons-material/Source";
 import { useTheme } from "@mui/material";
@@ -32,44 +28,41 @@ import uniqueId from "lodash/uniqueId";
 import { useTranslation } from "react-i18next";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { googlecode } from "react-syntax-highlighter/dist/esm/styles/hljs";
-import { SubmodelDescriptor, Tombstone } from "../../../../../types/jobs";
+import { DetailGrid } from "../../../../../components/DetailGrid";
+import { JobResponse, Submodel, SubmodelDescriptor, Tombstone } from "../../../../../types/jobs";
 
-interface props {
+interface Props {
+  job: JobResponse;
   subModel: SubmodelDescriptor;
   // hasTombstones?: (x:boolean) => void
   // setPayload?: (x:boolean) => void
 }
 
-export const SubmodelTobmstones = ({ subModel }: props) => {
+export const getTombstones = (subModel: SubmodelDescriptor, job: JobResponse): Tombstone[] => {
+  const endpointAddress = subModel.endpoints[0].protocolInformation.endpointAddress;
+  const tombstones = job.tombstones;
+  return tombstones.filter((x) => x.endpointURL === endpointAddress);
+};
+
+export const getSubModelPayload = (subModelId: string, job: JobResponse): Submodel[] => {
+  return job.submodels.filter((x) => x.identification === subModelId);
+};
+
+export const SubmodelTombstones: React.FC<Props> = ({ subModel, job }) => {
   const { t } = useTranslation();
   const theme = useTheme();
 
-  const tombstones: Tombstone[] | [] = useSelector((state) => {
-    if (subModel != null) {
-      return getTombstonesByEndpointAdress(state, subModel.endpoints[0].protocolInformation.endpointAddress);
-    } else {
-      return [];
-    }
-  });
+  const tombstones: Tombstone[] = getTombstones(subModel, job);
 
-  const hasTombstoness = tombstones.length > 0 ? true : false;
+  const hasTombstones = tombstones.length > 0;
 
-  // hasTombstones(hasTombstoness)
-
-  const submodelId = subModel.identification;
-  const submodelPayload = useSelector((state) => {
-    if (submodelId) {
-      return getSubmodelPaloadBySubmodelId(state, submodelId);
-    } else {
-      return [];
-    }
-  });
+  const submodelPayload = getSubModelPayload(subModel.identification, job);
 
   const hasPayload = () => (submodelPayload.length > 0 ? true : false);
 
   return (
     <>
-      {hasTombstoness && (
+      {hasTombstones && (
         <Box key={"tombstones"}>
           <Box
             style={{
@@ -101,14 +94,7 @@ export const SubmodelTobmstones = ({ subModel }: props) => {
                 <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
                 <DetailGrid
                   topic={t("content.irs.dialog.submodelTombstones.errorDetail")}
-                  content={
-                    stone.processingError.errorDetail
-                    // <SyntaxHighlighter style={googlecode}>
-                    //   {
-                    //   // JSON.stringify(JSON.parse(stone.processingError.errorDetail), null, 2)
-                    //   }
-                    // </SyntaxHighlighter>
-                  }
+                  content={stone.processingError.errorDetail}
                 />
               </Box>
             );
@@ -136,9 +122,7 @@ export const SubmodelTobmstones = ({ subModel }: props) => {
             <h2 style={{ float: "left", marginLeft: 10 }}>{t("content.irs.dialog.submodelPayload.title")}</h2>
           </Box>
 
-          {/* <h2 style={{ color: theme.palette.success.main }}>{t('content.irs.dialog.submodelPayload.title')}</h2> */}
           {submodelPayload.map((payload) => {
-            // console.log(payload.payload)
             return (
               <Box key={`${uniqueId(payload.identification)}`}>
                 <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
@@ -151,7 +135,7 @@ export const SubmodelTobmstones = ({ subModel }: props) => {
                       style={googlecode}
                       language="json"
                     >
-                      {JSON.stringify(JSON.parse(payload.payload), null, 2)}
+                      {JSON.stringify(JSON.parse(payload.payload.toString()), null, 2)}
                     </SyntaxHighlighter>
                   }
                 />

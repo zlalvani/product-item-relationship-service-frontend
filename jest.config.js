@@ -4,7 +4,8 @@ const libs = ["react-syntax-highlighter", "p-cancelable", "d3-shape", "d3-path"]
 
 module.exports = {
   testEnvironment: "jsdom",
-  collectCoverageFrom: ["src/**/*.{ts,tsx}"],
+  collectCoverageFrom: ["src/!(assets)/**/*.{ts,tsx}"],
+  
   coverageThreshold: {
     global: {
       branches: 1,
