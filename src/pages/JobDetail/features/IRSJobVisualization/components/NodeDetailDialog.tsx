@@ -22,23 +22,23 @@ import { Dialog, DialogContent, DialogHeader } from "cx-portal-shared-components
 import uniqueId from "lodash/uniqueId";
 
 import { useTranslation } from "react-i18next";
-import { Shell } from "../../../../../types/jobs";
+import { JobResponse, Shell } from "../../../../../types/jobs";
 import { NodeDetailsTwo } from "./NodeDetailsTwo";
 
 interface NodeDialogProps {
   showId: string;
-  shellList: Shell[];
+  job: JobResponse;
   onClose: () => void;
 }
 
-export const NodeDetailDialog = ({ showId, onClose, shellList }: NodeDialogProps) => {
+export const NodeDetailDialog = ({ showId, onClose, job }: NodeDialogProps) => {
   const { t } = useTranslation();
 
-  const twin = shellList.find((x: Shell) => x.globalAssetId.value[0] === showId);
+  const twin = job.shells.find((x: Shell) => x.globalAssetId.value[0] === showId);
   return (
     <Dialog open={showId !== ""}>
       <DialogHeader title={t("content.irs.dialog.title")} closeWithIcon onCloseWithIcon={onClose} />
-      <DialogContent key={uniqueId()}>{twin && <NodeDetailsTwo twin={twin} />}</DialogContent>
+      <DialogContent key={uniqueId()}>{twin && <NodeDetailsTwo twin={twin} job={job} />}</DialogContent>
     </Dialog>
   );
 };
