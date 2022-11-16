@@ -1,7 +1,7 @@
 import { Box } from "@mui/system";
 // import { Button } from "cx-portal-shared-components";
 // import { Link } from "react-router-dom";
-import { useTranslation } from "../../src/lib/index";
+import { useTranslation } from "../lib/index";
 
 export const ErrorDisplay: React.FC<{ error: Error }> = ({ error }) => {
   const { t } = useTranslation();

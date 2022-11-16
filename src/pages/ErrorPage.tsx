@@ -1,8 +1,7 @@
-import { useRouteError } from "react-router-dom";
-import { ErrorDisplay } from "./ErrorDisplay";
 import { Button } from "cx-portal-shared-components";
-import { Link } from "react-router-dom";
+import { Link, useRouteError } from "react-router-dom";
 import { useTranslation } from "../../src/lib/index";
+import { ErrorDisplay } from "../components/ErrorDisplay";
 //TODO: Create Better Layout
 
 export default function ErrorPage() {

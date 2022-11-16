@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
+import { ErrorDisplay } from "../../components/ErrorDisplay";
 import { useFetchJobById } from "../../services/queries/jobs";
-import { ErrorDisplay } from "../ErrorDisplay";
 import { IrsJobDetails } from "./features/IrsJobDetails";
 import { IRSJobTombstones } from "./features/IRSJobTombstones";
 import { IrsJobVisualization } from "./features/IRSJobVisualization/IrsJobVIsualization";
