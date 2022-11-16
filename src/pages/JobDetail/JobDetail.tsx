@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom";
+import { ErrorDisplay } from "../../components/ErrorDisplay";
 import { useFetchJobById } from "../../services/queries/jobs";
 import { IrsJobDetails } from "./features/IrsJobDetails";
 import { IRSJobTombstones } from "./features/IRSJobTombstones";
@@ -6,16 +7,14 @@ import { IrsJobVisualization } from "./features/IRSJobVisualization/IrsJobVIsual
 
 export const JobDetail: React.FC = () => {
   const { jobId = "", env = "DEMO" } = useParams();
-  const { data: job, isError, isLoading } = useFetchJobById({ id: jobId, serverEnv: env });
+  const { data: job, isError, isLoading, error } = useFetchJobById({ id: jobId, serverEnv: env });
   if (isLoading) {
     //TODO: Handle Loading State
     console.warn("implement job loading");
     return null;
   }
   if (isError) {
-    //TODO: handle Error state
-    console.error("implement job error");
-    return null;
+    return <ErrorDisplay error={error as Error} />;
   }
 
   return (
