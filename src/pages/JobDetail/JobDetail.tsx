@@ -5,8 +5,8 @@ import { IRSJobTombstones } from "./features/IRSJobTombstones";
 import { IrsJobVisualization } from "./features/IRSJobVisualization/IrsJobVIsualization";
 
 export const JobDetail: React.FC = () => {
-  const { jobId = "" } = useParams();
-  const { data: job, isError, isLoading } = useFetchJobById(jobId);
+  const { jobId = "", env = "DEMO" } = useParams();
+  const { data: job, isError, isLoading } = useFetchJobById({ id: jobId, serverEnv: env });
   if (isLoading) {
     //TODO: Handle Loading State
     console.warn("implement job loading");

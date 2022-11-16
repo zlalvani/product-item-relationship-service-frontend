@@ -1,10 +1,13 @@
 import { useMutation } from "@tanstack/react-query";
 import { useQuery } from "../../lib/react-query";
+import { AvailableServerEnvironments } from "../../store/serverEnvironment";
 import { useAppSelector } from "../../store/store";
 import { cancelJob, fetchJobById, fetchJobs } from "../api/jobs.api";
 
-export const useFetchJobById = (id: string, refetchInterval: false | number = false) => {
-  const { serverEnv } = useAppSelector((state) => state.serverEnvReducer);
+export const useFetchJobById = (
+  { id, serverEnv }: { id: string; serverEnv: AvailableServerEnvironments },
+  refetchInterval: false | number = false,
+) => {
   return useQuery(["jobs", serverEnv, id], () => fetchJobById(id, serverEnv), {
     refetchInterval,
   });

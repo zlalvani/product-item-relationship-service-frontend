@@ -24,33 +24,19 @@ import { Box } from "@mui/material";
 import { Button } from "cx-portal-shared-components";
 
 import uniqueId from "lodash/uniqueId";
-import { SubmodelDescriptor } from "../../../../../types/jobs";
+import { JobResponse, SubmodelDescriptor } from "../../../../../types/jobs";
+import { getSubModelPayload, getTombstones } from "./SubmodelTombstones";
 
-interface props {
+interface Props {
   submodel: SubmodelDescriptor;
   aasId: string;
+  job: JobResponse;
   onClick: (id: string) => void;
 }
 
-export const SubmodelDetailCard = ({ submodel, aasId, onClick }: props) => {
-  // const dispatch = useDispatch()
-
-  const endpointAddress = submodel.endpoints[0].protocolInformation.endpointAddress;
-  // var tombstones:Tombstones[] | null = null
-
-  // const tombstones: Tombstones[] | [] = useSelector((state) => {
-  //   if (endpointAddress != null) {
-  //     return getTombstonesByEndpointAdress(state, endpointAddress);
-  //   } else {
-  //     return [];
-  //   }
-  // });
-
-  const tombstones = [];
-
-  const submodelId = submodel.identification;
-  // const submodelPayload = useSelector((state) => (submodelId ? getSubmodelPaloadBySubmodelId(state, submodelId) : []));
-  const submodelPayload = [];
+export const SubmodelDetailCard: React.FC<Props> = ({ submodel, aasId, onClick, job }) => {
+  const tombstones = getTombstones(submodel, job);
+  const submodelPayload = getSubModelPayload(submodel.identification, job);
 
   if (!tombstones || !submodelPayload) {
     return null;
