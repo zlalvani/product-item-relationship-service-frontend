@@ -1,8 +1,8 @@
 import axios, { AxiosRequestConfig } from "axios";
-import { serverConfig } from "../../constants/serverConfig";
-import { AvailableServerEnvironments } from "../../store/serverEnvironment";
-import { store } from "../../store/store";
-import UserService from "./UserService";
+import UserService from "../assets/auth/UserService";
+import { serverConfig } from "../constants/serverConfig";
+import { AvailableServerEnvironments } from "../store/serverEnvironment";
+import { store } from "../store/store";
 
 const getBaseURL = (serverEnv: AvailableServerEnvironments = store.getState().serverEnvReducer.serverEnv) => {
   return serverConfig[serverEnv].value;

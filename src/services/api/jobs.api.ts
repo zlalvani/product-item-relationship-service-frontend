@@ -1,6 +1,6 @@
 import { AvailableServerEnvironments } from "../../store/serverEnvironment";
 import { JobResponse, JobStatusResult } from "../../types/jobs";
-import { HttpClient } from "../auth/HttpClient";
+import { HttpClient } from "../../utils/HttpClient";
 import { JobsDemoDataSuccess } from "./__test__/jobs.exampleData";
 import { JobStatusResultSuccess } from "./__test__/jobStatusResult.example";
 
