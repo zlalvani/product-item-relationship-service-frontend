@@ -5,15 +5,14 @@ import { cancelJob, fetchJobById, fetchJobs } from "../api/jobs.api";
 
 export const useFetchJobById = (id: string, refetchInterval: false | number = false) => {
   const { serverEnv } = useAppSelector((state) => state.serverEnvReducer);
-  return useQuery(["jobs", serverEnv, id], () => fetchJobById(id), {
+  return useQuery(["jobs", serverEnv, id], () => fetchJobById(id, serverEnv), {
     refetchInterval,
   });
 };
 
 export const useFetchJobs = (refetchInterval: false | number = false) => {
   const { serverEnv } = useAppSelector((state) => state.serverEnvReducer);
-  console.log("serverEnv", serverEnv);
-  return useQuery(["jobs", serverEnv], () => fetchJobs(), { refetchInterval });
+  return useQuery(["jobs", serverEnv], () => fetchJobs(serverEnv), { refetchInterval });
 };
 
 export const useCancelJobs = () => {

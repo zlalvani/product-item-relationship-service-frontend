@@ -3,6 +3,7 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import { useTranslation } from "react-i18next";
+import { serverConfig } from "../../../../constants/serverConfig";
 import { AvailableServerEnvironments, setServerEnv } from "../../../../store/serverEnvironment";
 import { useAppDispatch, useAppSelector } from "../../../../store/store";
 
@@ -25,7 +26,7 @@ export const IRSSelectServerEnv = () => {
         <MenuItem disabled value="none">
           {t("global.actions.pleaseSelect")}
         </MenuItem>
-        {["DEV", "INT"].map((env) => (
+        {Object.keys(serverConfig).map((env) => (
           <MenuItem key={env} value={env}>
             {env}
           </MenuItem>
