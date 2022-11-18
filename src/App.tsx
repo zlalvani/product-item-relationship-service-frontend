@@ -5,11 +5,9 @@ import { store } from "./store/store";
 
 function App() {
   return (
-    <div className="App">
-      <Provider store={store}>
-        <RouterProvider router={router} />
-      </Provider>
-    </div>
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   );
 }
 
