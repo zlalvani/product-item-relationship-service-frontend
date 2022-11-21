@@ -3,21 +3,31 @@ import { uniqueId } from "lodash";
 
 import { IconButton } from "cx-portal-shared-components";
 import { useState } from "react";
+import { TransformComponent, TransformWrapper } from "react-zoom-pan-pinch";
 import { EdgeData, NodeData } from "reaflow";
 import { FullScreen, useFullScreenHandle } from "../../../../components/FullScreenHandler";
 import { FullscreenExitIcon, FullscreenIcon, useTranslation } from "../../../../lib";
 import { Canvas, CanvasPosition, Edge, Node } from "../../../../lib/reaflow";
+
 import { JobResponse, Shell } from "../../../../types/jobs";
 import { EdgeDetailDialog } from "./components/EdgeDetailDialog";
 import { NodeDetailDialog } from "./components/NodeDetailDialog";
 import { NodeTemplate } from "./components/nodeTemplate";
+
+const getNodeBoxHeight = (shell: Shell): number => {
+  const INFO_BOX_HEIGHT = 80;
+  const ASPECTS_TITLE_HEIGHT = 50;
+  const ASPECTS_BUTTON_HEIGHT = 50;
+  const TOTAL_BUTTON_HEIGHT = shell.submodelDescriptors.length * ASPECTS_BUTTON_HEIGHT;
+  return INFO_BOX_HEIGHT + ASPECTS_TITLE_HEIGHT + TOTAL_BUTTON_HEIGHT;
+};
 
 const getNodes = (job: JobResponse): NodeData<Shell>[] => {
   return job.shells.map((el: Shell): NodeData<Shell> => {
     return {
       id: el.globalAssetId.value[0],
       // text: el.globalAssetId.value[0],
-      height: 300,
+      height: getNodeBoxHeight(el),
       width: 300,
       ...el, //TODO: Evaluate if this should move to the data attribute
     };
@@ -81,34 +91,37 @@ export const IrsJobVisualization: React.FC<{ job: JobResponse }> = ({ job }) => 
               </IconButton>
             )}
           </Box>
-          <Canvas
-            className="canvas"
-            zoom={0.4}
-            height={canvasHeight()}
-            nodes={nodes}
-            edges={edges}
-            defaultPosition={CanvasPosition.TOP}
-            // fit={true}
-            node={
-              <Node>
-                {(nodeChild) => (
-                  <foreignObject height={290} width={290} x={0} y={0}>
-                    <Box>
-                      <NodeTemplate shell={nodeChild.node} job={job} onClick={setShowNodeDialog} />
-                    </Box>
-                  </foreignObject>
-                )}
-              </Node>
-            }
-            edge={
-              <Edge
-                onClick={(event, edge) => {
-                  console.log("Selecting Edge", event, edge);
-                  setShowEdgeDialog(edge);
-                }}
+          <TransformWrapper maxScale={4} limitToBounds={false}>
+            <TransformComponent>
+              <Canvas
+                zoomable={false}
+                height={canvasHeight()}
+                maxHeight={canvasHeight()}
+                nodes={nodes}
+                edges={edges}
+                fit={true}
+                node={
+                  <Node>
+                    {(nodeChild) => (
+                      <foreignObject height={getNodeBoxHeight(nodeChild.node)} width={290} x={0} y={0}>
+                        <Box>
+                          <NodeTemplate shell={nodeChild.node} job={job} onClick={setShowNodeDialog} />
+                        </Box>
+                      </foreignObject>
+                    )}
+                  </Node>
+                }
+                edge={
+                  <Edge
+                    onClick={(event, edge) => {
+                      console.log("Selecting Edge", event, edge);
+                      setShowEdgeDialog(edge);
+                    }}
+                  />
+                }
               />
-            }
-          />
+            </TransformComponent>
+          </TransformWrapper>
         </FullScreen>
       </Box>
       <NodeDetailDialog showId={showNodeDialog} onClose={() => setShowNodeDialog("")} job={job} />
