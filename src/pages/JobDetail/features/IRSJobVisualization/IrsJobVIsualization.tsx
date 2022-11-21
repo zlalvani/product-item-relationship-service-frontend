@@ -7,7 +7,7 @@ import { TransformComponent, TransformWrapper } from "react-zoom-pan-pinch";
 import { EdgeData, NodeData } from "reaflow";
 import { FullScreen, useFullScreenHandle } from "../../../../components/FullScreenHandler";
 import { FullscreenExitIcon, FullscreenIcon, useTranslation } from "../../../../lib";
-import { Canvas, CanvasPosition, Edge, Node } from "../../../../lib/reaflow";
+import { Canvas, Edge, Node } from "../../../../lib/reaflow";
 
 import { JobResponse, Shell } from "../../../../types/jobs";
 import { EdgeDetailDialog } from "./components/EdgeDetailDialog";
@@ -91,37 +91,39 @@ export const IrsJobVisualization: React.FC<{ job: JobResponse }> = ({ job }) => 
               </IconButton>
             )}
           </Box>
-          <TransformWrapper maxScale={4} limitToBounds={false}>
-            <TransformComponent>
-              <Canvas
-                zoomable={false}
-                height={canvasHeight()}
-                maxHeight={canvasHeight()}
-                nodes={nodes}
-                edges={edges}
-                fit={true}
-                node={
-                  <Node>
-                    {(nodeChild) => (
-                      <foreignObject height={getNodeBoxHeight(nodeChild.node)} width={290} x={0} y={0}>
-                        <Box>
-                          <NodeTemplate shell={nodeChild.node} job={job} onClick={setShowNodeDialog} />
-                        </Box>
-                      </foreignObject>
-                    )}
-                  </Node>
-                }
-                edge={
-                  <Edge
-                    onClick={(event, edge) => {
-                      console.log("Selecting Edge", event, edge);
-                      setShowEdgeDialog(edge);
-                    }}
-                  />
-                }
-              />
-            </TransformComponent>
-          </TransformWrapper>
+          <div className="canvas">
+            <TransformWrapper maxScale={4} limitToBounds={false}>
+              <TransformComponent>
+                <Canvas
+                  zoomable={false}
+                  height={canvasHeight()}
+                  maxHeight={canvasHeight()}
+                  nodes={nodes}
+                  edges={edges}
+                  fit={true}
+                  node={
+                    <Node>
+                      {(nodeChild) => (
+                        <foreignObject height={getNodeBoxHeight(nodeChild.node)} width={290} x={0} y={0}>
+                          <Box>
+                            <NodeTemplate shell={nodeChild.node} job={job} onClick={setShowNodeDialog} />
+                          </Box>
+                        </foreignObject>
+                      )}
+                    </Node>
+                  }
+                  edge={
+                    <Edge
+                      onClick={(event, edge) => {
+                        console.log("Selecting Edge", event, edge);
+                        setShowEdgeDialog(edge);
+                      }}
+                    />
+                  }
+                />
+              </TransformComponent>
+            </TransformWrapper>
+          </div>
         </FullScreen>
       </Box>
       <NodeDetailDialog showId={showNodeDialog} onClose={() => setShowNodeDialog("")} job={job} />
