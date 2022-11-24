@@ -21,16 +21,16 @@ import { Box, useTheme } from "@mui/material";
 
 import uniqueId from "lodash/uniqueId";
 import { NodeData } from "reaflow";
-import { JobResponse, Shell, SubmodelDescriptor } from "../../../../../types/jobs";
+import { Shell, SubmodelDescriptor } from "../../../../../types/jobs";
 import { SubmodelDetailCard } from "./submodelDetailCard";
 
 interface NodeDataEx extends NodeData, Shell {}
 
-export const NodeTemplate: React.FC<{ shell: NodeDataEx; onClick: (id: string) => void; job: JobResponse }> = ({
-  job,
-  shell,
-  onClick,
-}) => {
+export const NodeTemplate: React.FC<{
+  shell: NodeDataEx;
+  onClick: (x: { nodeId: string; aspectId: string }) => void;
+  job: JobResponse;
+}> = ({ job, shell, onClick }) => {
   const { spacing } = useTheme();
 
   function compare(a: SubmodelDescriptor, b: SubmodelDescriptor) {

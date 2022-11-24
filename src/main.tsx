@@ -14,9 +14,7 @@ UserService.init((user) => {
     <React.StrictMode>
       <SharedCssBaseline />
       <ReactQueryClientProvider>
-        <SharedThemeProvider>
-          <App />
-        </SharedThemeProvider>
+        <SharedThemeProvider children={<App />} />
       </ReactQueryClientProvider>
     </React.StrictMode>,
   );

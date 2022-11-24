@@ -49,12 +49,12 @@ exports[`renders a data success state 1`] = `
             >
               <div
                 class="Canvas-module_container__22cN4 Canvas-module_pannable__1d7xd"
-                style="height: 800px; width: 100%;"
+                style="height: 100%; width: 100%;"
               >
                 <svg
                   height="800"
                   id="ref-1"
-                  width="2000"
+                  width="800"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <defs>

@@ -2,9 +2,9 @@ import { Box } from "@mui/material";
 import { uniqueId } from "lodash";
 
 import { IconButton } from "cx-portal-shared-components";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { TransformComponent, TransformWrapper } from "react-zoom-pan-pinch";
-import { EdgeData, NodeData } from "reaflow";
+import { CanvasPosition, EdgeData, NodeData } from "reaflow";
 import { FullScreen, useFullScreenHandle } from "../../../../components/FullScreenHandler";
 import { FullscreenExitIcon, FullscreenIcon, useTranslation } from "../../../../lib";
 import { Canvas, Edge, Node } from "../../../../lib/reaflow";
@@ -13,6 +13,8 @@ import { JobResponse, Shell } from "../../../../types/jobs";
 import { EdgeDetailDialog } from "./components/EdgeDetailDialog";
 import { NodeDetailDialog } from "./components/NodeDetailDialog";
 import { NodeTemplate } from "./components/nodeTemplate";
+
+const NODE_WIDTH = 300;
 
 const getNodeBoxHeight = (shell: Shell): number => {
   const INFO_BOX_HEIGHT = 80;
@@ -28,7 +30,7 @@ const getNodes = (job: JobResponse): NodeData<Shell>[] => {
       id: el.globalAssetId.value[0],
       // text: el.globalAssetId.value[0],
       height: getNodeBoxHeight(el),
-      width: 300,
+      width: NODE_WIDTH,
       ...el, //TODO: Evaluate if this should move to the data attribute
     };
   });
@@ -58,19 +60,39 @@ const getEdges = (job: JobResponse): EdgeData<undefined>[] => {
 export const IrsJobVisualization: React.FC<{ job: JobResponse }> = ({ job }) => {
   const { t } = useTranslation();
   const handle = useFullScreenHandle();
+
   const nodes = getNodes(job);
   const edges = getEdges(job);
 
-  const [showNodeDialog, setShowNodeDialog] = useState("");
+  const zoomCanvasRef = useRef<typeof TransformWrapper | null>(null);
+  const canvasRef = useRef<typeof Canvas | null>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+
+  const [showNodeDialog, setShowNodeDialog] = useState<{ nodeId: string; aspectId: string } | undefined>();
   const [showEdgeDialog, setShowEdgeDialog] = useState(undefined);
 
-  const canvasHeight = () => {
-    if (handle.active) {
-      return window.innerHeight;
-    } else {
-      return 800;
-    }
+  const centerOnNode = (nodeId: string) => {
+    const containerWidth = containerRef.current.clientWidth;
+    const containerHeight = containerRef.current.clientHeight;
+    const containerX = containerWidth / 2;
+    const containerY = containerHeight / 2;
+    const element = document.getElementById(nodeId);
+
+    const offsetX = element?.offsetWidth; // 238
+    const offsetY = element?.offsetHeight;
+
+    const x = containerX - offsetX - NODE_WIDTH / 2;
+    const y = containerY - offsetY;
+
+    zoomCanvasRef.current.setTransform(x, y);
   };
+
+  useEffect(() => {
+    console.log("asdf");
+    if ((containerRef.current, zoomCanvasRef.current)) {
+      centerOnNode(nodes[0].id);
+    }
+  }, []);
 
   return (
     <section>
@@ -91,22 +113,38 @@ export const IrsJobVisualization: React.FC<{ job: JobResponse }> = ({ job }) => 
               </IconButton>
             )}
           </Box>
-          <div className="canvas">
-            <TransformWrapper maxScale={4} limitToBounds={false}>
+          <div className="canvas" ref={containerRef}>
+            <TransformWrapper maxScale={4} limitToBounds={false} ref={zoomCanvasRef}>
               <TransformComponent>
                 <Canvas
+                  ref={canvasRef}
                   zoomable={false}
-                  height={canvasHeight()}
-                  maxHeight={canvasHeight()}
+                  maxWidth={800}
+                  maxHeight={800}
                   nodes={nodes}
                   edges={edges}
                   fit={true}
+                  defaultPosition={CanvasPosition.TOP}
                   node={
-                    <Node>
+                    <Node
+                      onClick={(e) => {
+                        console.log("node: ", e);
+                      }}
+                    >
                       {(nodeChild) => (
-                        <foreignObject height={getNodeBoxHeight(nodeChild.node)} width={290} x={0} y={0}>
+                        <foreignObject
+                          height={getNodeBoxHeight(nodeChild.node)}
+                          width={290}
+                          x={0}
+                          y={0}
+                          onClick={() => {
+                            centerOnNode(nodeChild.node.id);
+                          }}
+                        >
                           <Box>
-                            <NodeTemplate shell={nodeChild.node} job={job} onClick={setShowNodeDialog} />
+                            <div id={nodeChild.node.id}>
+                              <NodeTemplate shell={nodeChild.node} job={job} onClick={setShowNodeDialog} />
+                            </div>
                           </Box>
                         </foreignObject>
                       )}
@@ -126,7 +164,7 @@ export const IrsJobVisualization: React.FC<{ job: JobResponse }> = ({ job }) => 
           </div>
         </FullScreen>
       </Box>
-      <NodeDetailDialog showId={showNodeDialog} onClose={() => setShowNodeDialog("")} job={job} />
+      <NodeDetailDialog showInfo={showNodeDialog} onClose={() => setShowNodeDialog(undefined)} job={job} />
       <EdgeDetailDialog edge={showEdgeDialog} onClose={() => setShowEdgeDialog(undefined)} />
     </section>
   );
