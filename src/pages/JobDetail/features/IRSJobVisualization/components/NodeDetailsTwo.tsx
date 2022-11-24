@@ -37,6 +37,7 @@ export const NodeDetailsTwo: React.FC<{ twin: Shell; job: JobResponse; aspectId?
   const { t } = useTranslation();
 
   useEffect(() => {
+    console.log(aspectId);
     if (aspectId) {
       document.getElementById(aspectId)?.scrollIntoView();
     }
@@ -106,7 +107,7 @@ export const NodeDetailsTwo: React.FC<{ twin: Shell; job: JobResponse; aspectId?
   );
 
   return (
-    <>
+    <ScrollableDiv>
       <h1>Shell</h1>
       {getDescription(twin)}
 
@@ -139,18 +140,17 @@ export const NodeDetailsTwo: React.FC<{ twin: Shell; job: JobResponse; aspectId?
               {index + 1 !== twin.specificAssetIds.length && <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />}
             </Box>
           ))}
-          <ScrollableDiv>
-            {twin.submodelDescriptors.map((subModel, indexSubmodel) => {
-              return secondaryContent(subModel, subModel.semanticId.value[0], `${subModel.idShort}_${indexSubmodel}`);
-            })}
-          </ScrollableDiv>
+
+          {twin.submodelDescriptors.map((subModel, indexSubmodel) => {
+            return secondaryContent(subModel, subModel.semanticId.value[0], `${subModel.idShort}_${indexSubmodel}`);
+          })}
         </>
       )}
-    </>
+    </ScrollableDiv>
   );
 };
 
 const ScrollableDiv = styled.div`
   overflow-y: auto;
-  height: 50vh;
+  height: 70vh;
 `;

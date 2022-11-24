@@ -17,18 +17,19 @@
  *
  * SPDX-License-Identifier: Apache-2.0
  ********************************************************************************/
+import styled from "@emotion/styled";
 import { Box, useTheme } from "@mui/material";
 
 import uniqueId from "lodash/uniqueId";
 import { NodeData } from "reaflow";
-import { Shell, SubmodelDescriptor } from "../../../../../types/jobs";
+import { JobResponse, Shell, SubmodelDescriptor } from "../../../../../types/jobs";
 import { SubmodelDetailCard } from "./submodelDetailCard";
 
 interface NodeDataEx extends NodeData, Shell {}
 
 export const NodeTemplate: React.FC<{
   shell: NodeDataEx;
-  onClick: (x: { nodeId: string; aspectId: string }) => void;
+  onClick: (x: { nodeId: string; aspectId?: string }) => void;
   job: JobResponse;
 }> = ({ job, shell, onClick }) => {
   const { spacing } = useTheme();
@@ -46,10 +47,10 @@ export const NodeTemplate: React.FC<{
 
   return (
     <>
-      <div className="node-header">
+      <ClickableDiv className="node-header" onClick={() => onClick({ nodeId: shell.id })}>
         <p>{shell.idShort}</p>
         <p>{shell.id}</p>
-      </div>
+      </ClickableDiv>
       <Box
         sx={{
           display: "grid",
@@ -76,3 +77,7 @@ export const NodeTemplate: React.FC<{
     </>
   );
 };
+
+const ClickableDiv = styled.div`
+  cursor: pointer;
+`;

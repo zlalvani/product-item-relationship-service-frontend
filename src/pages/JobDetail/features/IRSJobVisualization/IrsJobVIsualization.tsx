@@ -2,7 +2,7 @@ import { Box } from "@mui/material";
 import { uniqueId } from "lodash";
 
 import { IconButton } from "cx-portal-shared-components";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { TransformComponent, TransformWrapper } from "react-zoom-pan-pinch";
 import { CanvasPosition, EdgeData, NodeData } from "reaflow";
 import { FullScreen, useFullScreenHandle } from "../../../../components/FullScreenHandler";
@@ -68,7 +68,7 @@ export const IrsJobVisualization: React.FC<{ job: JobResponse }> = ({ job }) => 
   const canvasRef = useRef<typeof Canvas | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
 
-  const [showNodeDialog, setShowNodeDialog] = useState<{ nodeId: string; aspectId: string } | undefined>();
+  const [showNodeDialog, setShowNodeDialog] = useState<{ nodeId: string; aspectId?: string } | undefined>();
   const [showEdgeDialog, setShowEdgeDialog] = useState(undefined);
 
   const centerOnNode = (nodeId: string) => {
@@ -86,13 +86,6 @@ export const IrsJobVisualization: React.FC<{ job: JobResponse }> = ({ job }) => 
 
     zoomCanvasRef.current.setTransform(x, y);
   };
-
-  useEffect(() => {
-    console.log("asdf");
-    if ((containerRef.current, zoomCanvasRef.current)) {
-      centerOnNode(nodes[0].id);
-    }
-  }, []);
 
   return (
     <section>
@@ -126,28 +119,24 @@ export const IrsJobVisualization: React.FC<{ job: JobResponse }> = ({ job }) => 
                   fit={true}
                   defaultPosition={CanvasPosition.TOP}
                   node={
-                    <Node
-                      onClick={(e) => {
-                        console.log("node: ", e);
+                    <Node>
+                      {(nodeChild) => {
+                        const initId = nodes[0].id;
+
+                        if (nodeChild.node.id === initId) {
+                          centerOnNode(initId);
+                        }
+
+                        return (
+                          <foreignObject height={getNodeBoxHeight(nodeChild.node)} width={290} x={0} y={0}>
+                            <Box>
+                              <div id={nodeChild.node.id}>
+                                <NodeTemplate shell={nodeChild.node} job={job} onClick={setShowNodeDialog} />
+                              </div>
+                            </Box>
+                          </foreignObject>
+                        );
                       }}
-                    >
-                      {(nodeChild) => (
-                        <foreignObject
-                          height={getNodeBoxHeight(nodeChild.node)}
-                          width={290}
-                          x={0}
-                          y={0}
-                          onClick={() => {
-                            centerOnNode(nodeChild.node.id);
-                          }}
-                        >
-                          <Box>
-                            <div id={nodeChild.node.id}>
-                              <NodeTemplate shell={nodeChild.node} job={job} onClick={setShowNodeDialog} />
-                            </div>
-                          </Box>
-                        </foreignObject>
-                      )}
                     </Node>
                   }
                   edge={
