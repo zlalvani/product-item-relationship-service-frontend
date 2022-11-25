@@ -57,6 +57,27 @@ const getEdges = (job: JobResponse): EdgeData<undefined>[] => {
   return ret;
 };
 
+const SearchNode: React.FC<{ nodes: NodeData<Shell>[]; action: (nodeId: string) => void }> = ({ nodes, action }) => {
+  const [nodeId, setNodeId] = useState("");
+  const nodeIds = nodes.map((node) => node.id);
+  return (
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+        action(nodeId);
+      }}
+    >
+      <input list="nodes" name="selectedNode" value={nodeId} onChange={(e) => setNodeId(e.currentTarget.value)} />
+      <datalist id="nodes">
+        {nodes.map((node) => (
+          <option value={node.id} key={node.id} />
+        ))}
+      </datalist>
+      <input type="submit" disabled={!nodeIds.includes(nodeId)} />
+    </form>
+  );
+};
+
 export const IrsJobVisualization: React.FC<{ job: JobResponse }> = ({ job }) => {
   const { t } = useTranslation();
   const handle = useFullScreenHandle();
@@ -84,11 +105,12 @@ export const IrsJobVisualization: React.FC<{ job: JobResponse }> = ({ job }) => 
     const x = containerX - offsetX - NODE_WIDTH / 2;
     const y = containerY - offsetY;
 
-    zoomCanvasRef.current.setTransform(x, y);
+    zoomCanvasRef.current.setTransform(x, y, 1);
   };
 
   return (
     <section>
+      <SearchNode nodes={nodes} action={centerOnNode} />
       <Box className="irs-visualization" sx={{ textAlign: "center" }}>
         <FullScreen handle={handle}>
           <Box className="irs-visualization-header">
@@ -107,7 +129,7 @@ export const IrsJobVisualization: React.FC<{ job: JobResponse }> = ({ job }) => 
             )}
           </Box>
           <div className="canvas" ref={containerRef}>
-            <TransformWrapper maxScale={4} limitToBounds={false} ref={zoomCanvasRef}>
+            <TransformWrapper minScale={0.1} maxScale={4} limitToBounds={false} ref={zoomCanvasRef}>
               <TransformComponent>
                 <Canvas
                   ref={canvasRef}
