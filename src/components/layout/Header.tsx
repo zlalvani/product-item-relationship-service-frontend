@@ -2,6 +2,7 @@ import { MainNavigation } from "cx-portal-shared-components";
 import { useTranslation } from "react-i18next";
 import { NavLink } from "react-router-dom";
 import { Logo } from "./Logo/Logo";
+import { LogOutButton } from "./LogOutButton";
 
 type LinkItem = Partial<Record<"href" | "to", string>>;
 
@@ -34,6 +35,7 @@ export const Header: React.FC<{ menuItems: Tree[] }> = ({ menuItems }) => {
     <header>
       <Logo />
       <MainNavigation items={menu} component={NavLink} />
+      <LogOutButton />
     </header>
   );
 };
