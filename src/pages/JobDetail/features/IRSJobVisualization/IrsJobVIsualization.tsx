@@ -19,7 +19,7 @@ const NODE_WIDTH = 300;
 const getNodeBoxHeight = (shell: Shell): number => {
   const INFO_BOX_HEIGHT = 80;
   const ASPECTS_TITLE_HEIGHT = 50;
-  const ASPECTS_BUTTON_HEIGHT = 50;
+  const ASPECTS_BUTTON_HEIGHT = 50 + 5;
   const TOTAL_BUTTON_HEIGHT = shell.submodelDescriptors.length * ASPECTS_BUTTON_HEIGHT;
   return INFO_BOX_HEIGHT + ASPECTS_TITLE_HEIGHT + TOTAL_BUTTON_HEIGHT;
 };
@@ -55,6 +55,23 @@ const getEdges = (job: JobResponse): EdgeData<undefined>[] => {
   });
 
   return ret;
+};
+
+const calculateTotalWidth = (edges: EdgeData<undefined>[]) => {
+  const mapValues = {};
+  edges.forEach((edge) => {
+    if (edge.from) {
+      if (mapValues[edge.from]) {
+        mapValues[edge.from] += 1;
+      } else {
+        mapValues[edge.from] = 1;
+      }
+    }
+  });
+  const countElements = Math.max(...Object.values(mapValues));
+
+  const NODE_PADDING = 10;
+  return countElements * (NODE_WIDTH + NODE_PADDING);
 };
 
 const SearchNode: React.FC<{ nodes: NodeData<Shell>[]; action: (nodeId: string) => void }> = ({ nodes, action }) => {
@@ -98,7 +115,8 @@ export const IrsJobVisualization: React.FC<{ job: JobResponse }> = ({ job }) => 
     const containerX = containerWidth / 2;
     const containerY = containerHeight / 2;
     const element = document.getElementById(nodeId);
-
+    console.log(nodeId, `document.getElementById(${nodeId})`);
+    console.log(element);
     const offsetX = element?.offsetWidth; // 238
     const offsetY = element?.offsetHeight;
 
@@ -134,11 +152,10 @@ export const IrsJobVisualization: React.FC<{ job: JobResponse }> = ({ job }) => 
                 <Canvas
                   ref={canvasRef}
                   zoomable={false}
-                  maxWidth={800}
-                  maxHeight={800}
                   nodes={nodes}
                   edges={edges}
                   fit={true}
+                  maxWidth={calculateTotalWidth(edges)}
                   defaultPosition={CanvasPosition.TOP}
                   node={
                     <Node>

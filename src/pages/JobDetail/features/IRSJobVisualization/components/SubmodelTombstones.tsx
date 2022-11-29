@@ -135,7 +135,7 @@ export const SubmodelTombstones: React.FC<Props> = ({ subModel, job }) => {
                       style={googlecode}
                       language="json"
                     >
-                      {JSON.stringify(JSON.parse(payload.payload.toString()), null, 2)}
+                      {JSON.stringify(payload.payload, null, 2)}
                     </SyntaxHighlighter>
                   }
                 />
