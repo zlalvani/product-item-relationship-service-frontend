@@ -1,6 +1,7 @@
+import styled from "@emotion/styled";
 import { useKeycloak } from "@react-keycloak/web";
 import { Outlet, useNavigate } from "react-router-dom";
-import { Header } from "../components/layout/Header";
+import { Header } from "../../components/layout/Header";
 
 /**
  * This is used by React Router as Root element for publicly accessible Routes
@@ -32,15 +33,27 @@ export const PublicRoot: React.FC = () => {
 export const PrivateRoot: React.FC = () => {
   const { keycloak } = useKeycloak();
   const navigate = useNavigate();
-  // Note: This is needed as keycloak.authenticated could be undefined
+  if (keycloak.authenticated === undefined) {
+    // This is used so first render will not display elements of the dashboard and will not trigger network requests.
+    return null;
+  }
+
   if (keycloak.authenticated === false) {
     navigate("/");
   }
 
   return (
     <>
-      <Header menuItems={[{ name: "IRS Visualization" }]} />
-      <Outlet />
+      <Header />
+      <CenterLayout>
+        <Outlet />
+      </CenterLayout>
     </>
   );
 };
+
+const CenterLayout = styled.div`
+  max-width: 1200px;
+  margin: auto;
+  padding: 50px 20px;
+`;

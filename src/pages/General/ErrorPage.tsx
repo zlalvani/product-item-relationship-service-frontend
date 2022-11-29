@@ -1,7 +1,7 @@
 import { Button } from "cx-portal-shared-components";
 import { Link, useRouteError } from "react-router-dom";
-import { useTranslation } from "../../src/lib/index";
-import { ErrorDisplay } from "../components/ErrorDisplay";
+import { ErrorDisplay } from "../../components/ErrorDisplay";
+import { useTranslation } from "../../lib/index";
 //TODO: Create Better Layout
 
 export default function ErrorPage() {

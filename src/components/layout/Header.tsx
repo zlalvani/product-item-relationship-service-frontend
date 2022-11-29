@@ -1,7 +1,7 @@
-import { MainNavigation } from "cx-portal-shared-components";
+import { Box } from "@mui/material";
+import { Button, MainNavigation } from "cx-portal-shared-components";
+import React from "react";
 import { useTranslation } from "react-i18next";
-import { NavLink } from "react-router-dom";
-import { Logo } from "./Logo/Logo";
 import { LogOutButton } from "./LogOutButton";
 
 type LinkItem = Partial<Record<"href" | "to", string>>;
@@ -17,25 +17,68 @@ export interface MenuItem extends LinkItem, Tree {
   children?: MenuItem[];
 }
 
-export const Header: React.FC<{ menuItems: Tree[] }> = ({ menuItems }) => {
-  const { t } = useTranslation();
-  const addTitle = (items: Tree[] | undefined) =>
-    items?.map(
-      (item: Tree): MenuItem => ({
-        ...item,
-        to: `/${item.name}`,
-        title: t(`pages.${item.name}`),
-        hint: item.hint ? t(`hints.${item.hint}`) : "",
-        children: addTitle(item.children),
-      }),
-    );
-
-  const menu = addTitle(menuItems) || [];
+export const Header: React.FC = () => {
   return (
-    <header>
-      <Logo />
-      <MainNavigation items={menu} component={NavLink} />
-      <LogOutButton />
-    </header>
+    <MainNavigation
+      items={[
+        {
+          href: "/dashboard",
+          title: "Home",
+        },
+      ]}
+    >
+      <Box
+        component="img"
+        src="img/cx-logo-text.svg"
+        sx={{
+          display: "inline-block",
+          height: "40px",
+          width: "170px",
+        }}
+      />
+      <Box>
+        <Button
+          color="secondary"
+          size="small"
+          sx={{
+            backgroundColor: "white",
+            marginRight: "16px",
+          }}
+          variant="contained"
+        >
+          Help
+        </Button>
+        <LogOutButton />
+      </Box>
+    </MainNavigation>
+  );
+};
+
+export const PublicHeader: React.FC = () => {
+  return (
+    <MainNavigation items={[]}>
+      <Box
+        component="img"
+        src="img/cx-logo-text.svg"
+        sx={{
+          display: "inline-block",
+          height: "40px",
+          width: "170px",
+        }}
+      />
+      <Box>
+        <Button
+          color="secondary"
+          size="small"
+          sx={{
+            backgroundColor: "white",
+            marginRight: "16px",
+          }}
+          variant="contained"
+        >
+          Help
+        </Button>
+      </Box>
+    </MainNavigation>
   );
 };

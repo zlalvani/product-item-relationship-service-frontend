@@ -1,5 +1,5 @@
 import { renderWithRouter } from "../../testing/test-utils";
-import ErrorPage from "../ErrorPage";
+import ErrorPage from "../General/ErrorPage";
 
 const testString = "test Error";
 
