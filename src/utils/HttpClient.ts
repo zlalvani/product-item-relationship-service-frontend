@@ -1,6 +1,6 @@
 import axios, { AxiosRequestConfig } from "axios";
-import UserService from "../assets/auth/UserService";
 import { serverConfig } from "../constants/serverConfig";
+import { keycloak } from "../lib/keycloak";
 import { AvailableServerEnvironments } from "../store/serverEnvironment";
 import { store } from "../store/store";
 
@@ -9,7 +9,7 @@ const getBaseURL = (serverEnv: AvailableServerEnvironments = store.getState().se
 };
 
 export const getHeaders = () => ({
-  authorization: `Bearer ${UserService.getToken()}`,
+  authorization: `Bearer ${keycloak.token}`,
 });
 
 export class HttpClient {

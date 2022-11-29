@@ -3,6 +3,24 @@
 exports[`renders a data success state 1`] = `
 <div>
   <section>
+    <form>
+      <input
+        list="nodes"
+        name="selectedNode"
+        value=""
+      />
+      <datalist
+        id="nodes"
+      >
+        <option
+          value="urn:uuid:a45a2246-f6e1-42da-b47d-5c3b58ed62e9"
+        />
+      </datalist>
+      <input
+        disabled=""
+        type="submit"
+      />
+    </form>
     <div
       class="irs-visualization MuiBox-root css-xi606m"
     >
@@ -38,37 +56,50 @@ exports[`renders a data success state 1`] = `
           </button>
         </div>
         <div
-          class="Canvas-module_container__22cN4 canvas Canvas-module_pannable__1d7xd"
-          style="height: 800px; width: 100%;"
+          class="canvas"
         >
-          <svg
-            height="2000"
-            id="ref-1"
-            width="2000"
-            xmlns="http://www.w3.org/2000/svg"
+          <div
+            class="react-transform-wrapper transform-component-module_wrapper__1_Fgj "
           >
-            <defs>
-              <marker
-                id="end-arrow"
-                markerHeight="8"
-                markerWidth="8"
-                orient="auto"
-                refX="8"
-                viewBox="0 -4 8 8"
+            <div
+              class="react-transform-component transform-component-module_content__2jYgh "
+              style="transform: translate3d(0px, 0px, 0) scale(1);"
+            >
+              <div
+                class="Canvas-module_container__22cN4 Canvas-module_pannable__1d7xd"
+                style="height: 100%; width: 100%;"
               >
-                <path
-                  class="Arrow-module_arrow__aEgOT"
-                  d="M0,-4L8,0L0,4"
-                  transform="translate(0, 0) rotate(0)"
-                />
-              </marker>
-            </defs>
-            <g
-              opacity="0"
-              style="transform: scale(0); transform-origin: 0px 0px;"
-              transform-origin="0px 0px"
-            />
-          </svg>
+                <svg
+                  height="2000"
+                  id="ref-1"
+                  width="-Infinity"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <defs>
+                    <marker
+                      id="end-arrow"
+                      markerHeight="8"
+                      markerWidth="8"
+                      orient="auto"
+                      refX="8"
+                      viewBox="0 -4 8 8"
+                    >
+                      <path
+                        class="Arrow-module_arrow__aEgOT"
+                        d="M0,-4L8,0L0,4"
+                        transform="translate(0, 0) rotate(0)"
+                      />
+                    </marker>
+                  </defs>
+                  <g
+                    opacity="0"
+                    style="transform: scale(0); transform-origin: 0px 0px;"
+                    transform-origin="0px 0px"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

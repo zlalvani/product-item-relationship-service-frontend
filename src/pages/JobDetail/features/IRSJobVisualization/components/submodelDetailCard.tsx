@@ -31,7 +31,7 @@ interface Props {
   submodel: SubmodelDescriptor;
   aasId: string;
   job: JobResponse;
-  onClick: (id: string) => void;
+  onClick: (x: { nodeId: string; aspectId: string }) => void;
 }
 
 export const SubmodelDetailCard: React.FC<Props> = ({ submodel, aasId, onClick, job }) => {
@@ -52,8 +52,8 @@ export const SubmodelDetailCard: React.FC<Props> = ({ submodel, aasId, onClick, 
           variant="contained"
           onClick={(event) => {
             event.preventDefault();
-
-            onClick(aasId);
+            console.log(submodel.idShort);
+            onClick({ nodeId: aasId, aspectId: submodel.idShort });
           }}
         >
           {submodel.idShort}

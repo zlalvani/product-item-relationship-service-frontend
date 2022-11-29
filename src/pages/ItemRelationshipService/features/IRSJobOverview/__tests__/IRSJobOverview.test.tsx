@@ -21,6 +21,7 @@ it("renders a error state", () => {
     data: undefined,
     isError: true,
     isLoading: false,
+    error: new Error("test Error"),
   };
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   //@ts-ignore

@@ -1,16 +1,16 @@
 import { useState } from "react";
+import { ErrorDisplay } from "../../../../components/ErrorDisplay";
+import { PaddedSection } from "../../../../components/layout/PaddedSection";
 import { useFetchJobs } from "../../../../services/queries/jobs";
 import { AutoRefreshSwitch } from "./components/AutoRefreshSwitch";
 import { IRSJobTable } from "./components/IRSJobTable";
-import { PaddedSection } from "../../../../components/layout/PaddedSection";
 
 export const IRSJobOverview: React.FC = () => {
   const [isAutoRefreshEnabled, setIsAutoRefreshEnabled] = useState(false);
-  const { isLoading, isError, data: jobs = [] } = useFetchJobs(isAutoRefreshEnabled ? 5000 : false);
+  const { isLoading, isError, data: jobs = [], error } = useFetchJobs(isAutoRefreshEnabled ? 5000 : false);
 
   if (isError) {
-    // TODO: Implement error handling
-    return null;
+    return <ErrorDisplay error={error as Error} />;
   }
 
   return (

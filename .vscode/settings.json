@@ -1,3 +1,4 @@
 {
-  "conventionalCommits.scopes": ["dps"]
+  "conventionalCommits.scopes": ["dps"],
+  "cSpell.words": ["keycloak"]
 }

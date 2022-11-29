@@ -18,17 +18,30 @@
  * SPDX-License-Identifier: Apache-2.0
  ********************************************************************************/
 
+import styled from "@emotion/styled";
 import { Box, Divider, Grid, useTheme } from "@mui/material";
 import { Typography } from "cx-portal-shared-components";
 import uniqueId from "lodash/uniqueId";
+import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { DetailGrid } from "../../../../../components/DetailGrid";
 import { JobResponse, Shell, SubmodelDescriptor } from "../../../../../types/jobs";
 import { SubmodelTombstones } from "./SubmodelTombstones";
 
-export const NodeDetailsTwo: React.FC<{ twin: Shell; job: JobResponse }> = ({ twin, job }) => {
+export const NodeDetailsTwo: React.FC<{ twin: Shell; job: JobResponse; aspectId?: string }> = ({
+  twin,
+  job,
+  aspectId,
+}) => {
   const theme = useTheme();
   const { t } = useTranslation();
+
+  useEffect(() => {
+    console.log(aspectId);
+    if (aspectId) {
+      document.getElementById(aspectId)?.scrollIntoView();
+    }
+  });
 
   const getDescription = (elem: Shell | SubmodelDescriptor) => (
     <Typography sx={{ mb: 3, typography: "body3" }}>
@@ -39,7 +52,7 @@ export const NodeDetailsTwo: React.FC<{ twin: Shell; job: JobResponse }> = ({ tw
   const hasSubmodels = () => twin.submodelDescriptors.length > 0;
 
   const secondaryContent = (subModel: SubmodelDescriptor, semId: string, idKey: string) => (
-    <div key={uniqueId()}>
+    <div key={uniqueId()} id={subModel.idShort}>
       <h1 style={{ marginTop: "100px" }}>{subModel.idShort} aspect</h1>
       <h3>Submodel Descriptor</h3>
       {getDescription(subModel)}
@@ -94,9 +107,10 @@ export const NodeDetailsTwo: React.FC<{ twin: Shell; job: JobResponse }> = ({ tw
   );
 
   return (
-    <>
+    <ScrollableDiv>
       <h1>Shell</h1>
       {getDescription(twin)}
+
       {hasSubmodels() && (
         <>
           <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
@@ -108,6 +122,7 @@ export const NodeDetailsTwo: React.FC<{ twin: Shell; job: JobResponse }> = ({ tw
             />
           )}
           <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
+
           {twin.specificAssetIds.map((saId, index) => (
             <Box key={saId.key}>
               <DetailGrid topic={t("content.digitaltwin.detail.key")} content={saId.key} />
@@ -131,6 +146,11 @@ export const NodeDetailsTwo: React.FC<{ twin: Shell; job: JobResponse }> = ({ tw
           })}
         </>
       )}
-    </>
+    </ScrollableDiv>
   );
 };
+
+const ScrollableDiv = styled.div`
+  overflow-y: auto;
+  height: 70vh;
+`;

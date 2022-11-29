@@ -3,6 +3,7 @@ import { Box } from "@mui/material";
 import { Button } from "cx-portal-shared-components";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
+import { PaddedSection } from "../../../components/layout/PaddedSection";
 import { serverConfig } from "../../../constants/serverConfig";
 import { useAppSelector } from "../../../store/store";
 import { IRSJobAddFormTextfield } from "./components/IRSJobAddFormTextfield";
@@ -71,7 +72,7 @@ export const IRSJobAddForm = () => {
   };
 
   return (
-    <section>
+    <PaddedSection>
       <Box className="irs-job-form">
         <Box className="irs-job-form-header">
           <h5>{t("content.irs.form.title")}</h5>
@@ -116,6 +117,6 @@ export const IRSJobAddForm = () => {
           </Button>
         </Box>
       </Box>
-    </section>
+    </PaddedSection>
   );
 };

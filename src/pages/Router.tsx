@@ -1,17 +1,36 @@
 import { createBrowserRouter } from "react-router-dom";
-import ErrorPage from "./ErrorPage";
+import ErrorPage from "./General/ErrorPage";
+import { PrivateRoot, PublicRoot } from "./General/Root";
 import { ItemRelationshipService } from "./ItemRelationshipService/ItemRelationshipService";
 import { JobDetail } from "./JobDetail/JobDetail";
+import { WelcomePage } from "./WelcomePage/WelcomePage";
 
 export const routeConfig = [
   {
     path: "/",
-    element: <ItemRelationshipService />,
+    element: <PublicRoot />,
     errorElement: <ErrorPage />,
+
+    children: [
+      {
+        path: "/",
+        element: <WelcomePage />,
+      },
+    ],
   },
   {
-    path: "/jobs/:env/:jobId",
-    element: <JobDetail />,
+    path: "/",
+    element: <PrivateRoot />,
+    children: [
+      {
+        path: "/dashboard",
+        element: <ItemRelationshipService />,
+      },
+      {
+        path: "/jobs/:env/:jobId",
+        element: <JobDetail />,
+      },
+    ],
   },
 ];
 
