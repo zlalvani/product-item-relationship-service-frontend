@@ -9,7 +9,7 @@ import { FullScreen, useFullScreenHandle } from "../../../../components/FullScre
 import { FullscreenExitIcon, FullscreenIcon, useTranslation } from "../../../../lib";
 import { Canvas, Edge, Node } from "../../../../lib/reaflow";
 
-import { JobResponse, Shell } from "../../../../types/jobs";
+import { JobResponse, Relationship, Shell } from "../../../../types/jobs";
 import { EdgeDetailDialog } from "./components/EdgeDetailDialog";
 import { NodeDetailDialog } from "./components/NodeDetailDialog";
 import { NodeTemplate } from "./components/nodeTemplate";
@@ -107,7 +107,7 @@ export const IrsJobVisualization: React.FC<{ job: JobResponse }> = ({ job }) => 
   const containerRef = useRef<HTMLDivElement | null>(null);
 
   const [showNodeDialog, setShowNodeDialog] = useState<{ nodeId: string; aspectId?: string } | undefined>();
-  const [showEdgeDialog, setShowEdgeDialog] = useState(undefined);
+  const [showEdgeDialog, setShowEdgeDialog] = useState<Relationship | undefined>(undefined);
 
   const centerOnNode = (nodeId: string) => {
     const containerWidth = containerRef.current.clientWidth;
@@ -128,7 +128,6 @@ export const IrsJobVisualization: React.FC<{ job: JobResponse }> = ({ job }) => 
 
   return (
     <section>
-      <SearchNode nodes={nodes} action={centerOnNode} />
       <Box className="irs-visualization" sx={{ textAlign: "center" }}>
         <FullScreen handle={handle}>
           <Box className="irs-visualization-header">
@@ -146,6 +145,7 @@ export const IrsJobVisualization: React.FC<{ job: JobResponse }> = ({ job }) => 
               </IconButton>
             )}
           </Box>
+          <SearchNode nodes={nodes} action={centerOnNode} />
           <div className="canvas" ref={containerRef}>
             <TransformWrapper minScale={0.1} maxScale={4} limitToBounds={false} ref={zoomCanvasRef}>
               <TransformComponent>
@@ -181,8 +181,12 @@ export const IrsJobVisualization: React.FC<{ job: JobResponse }> = ({ job }) => 
                   edge={
                     <Edge
                       onClick={(event, edge) => {
-                        console.log("Selecting Edge", event, edge);
-                        setShowEdgeDialog(edge);
+                        const relationship = job.relationships.find(
+                          (val) => val.catenaXId === edge.from && val.linkedItem.childCatenaXId === edge.to,
+                        );
+                        if (relationship !== undefined) {
+                          setShowEdgeDialog(relationship);
+                        }
                       }}
                     />
                   }
