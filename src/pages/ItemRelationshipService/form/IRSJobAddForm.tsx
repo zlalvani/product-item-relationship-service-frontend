@@ -5,7 +5,9 @@ import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { PaddedSection } from "../../../components/layout/PaddedSection";
 import { serverConfig } from "../../../constants/serverConfig";
+import { useCreateJob } from "../../../services/queries/jobs";
 import { useAppSelector } from "../../../store/store";
+import { IRSRequestBody } from "../../../types/jobs";
 import { IRSJobAddFormTextfield } from "./components/IRSJobAddFormTextfield";
 
 type DefaultFormFieldValuesType = {
@@ -21,6 +23,7 @@ const useGetCurrentServerUrl = () => {
 export const IRSJobAddForm = () => {
   const { t } = useTranslation();
   const serverUrl = useGetCurrentServerUrl();
+  const { mutate: createJob } = useCreateJob();
 
   const testJob = {
     aspects: ["AssemblyPartRelationship", "SerialPartTypization"],
@@ -48,11 +51,9 @@ export const IRSJobAddForm = () => {
   });
 
   const handleConfirm = async (formValues: DefaultFormFieldValuesType) => {
-    console.log("Form data:", formValues);
     try {
-      // TODO: Do Action Write to DB
-      // dispatch(postJob(JSON.parse(formValues.RequestBodyValues)));
-      console.log();
+      const formData = JSON.parse(formValues.RequestBodyValues) as IRSRequestBody;
+      createJob(formData);
     } catch (error) {
       console.log(error);
     }
