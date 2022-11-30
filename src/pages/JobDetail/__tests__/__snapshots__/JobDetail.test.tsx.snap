@@ -3,24 +3,6 @@
 exports[`renders a data success state 1`] = `
 <div>
   <section>
-    <form>
-      <input
-        list="nodes"
-        name="selectedNode"
-        value=""
-      />
-      <datalist
-        id="nodes"
-      >
-        <option
-          value="urn:uuid:a45a2246-f6e1-42da-b47d-5c3b58ed62e9"
-        />
-      </datalist>
-      <input
-        disabled=""
-        type="submit"
-      />
-    </form>
     <div
       class="irs-visualization MuiBox-root css-xi606m"
     >
@@ -55,6 +37,24 @@ exports[`renders a data success state 1`] = `
             />
           </button>
         </div>
+        <form>
+          <input
+            list="nodes"
+            name="selectedNode"
+            value=""
+          />
+          <datalist
+            id="nodes"
+          >
+            <option
+              value="urn:uuid:a45a2246-f6e1-42da-b47d-5c3b58ed62e9"
+            />
+          </datalist>
+          <input
+            disabled=""
+            type="submit"
+          />
+        </form>
         <div
           class="canvas"
         >
