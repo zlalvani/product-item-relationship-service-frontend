@@ -60,38 +60,37 @@ This chapter gives you an overview about the goals of the service, in which cont
 The IRS-DV is a:
 
 - Functional federated component
-
 - API endpoint to retrieve the tree structures in a recursive way, which data assets are distributed throughout the Catena-X network
-
 - Reference implementation
-
 - Data chain provider
+- Catch and find errors
 
 ### Substantial Features
 
-provide a top-down BoM asBuilt tree structure along the submodel "AssemblyPartRelationship"
-
-usage of EDC consumer for communicating with the Catena-X network
-
-functionality of IRS provider will be handled by providers submodel servers
-
-federated IRS service
-
-'asBuild' BoM of serialized components
-
-provides endpoints for submodel-descriptors
+- provide a top-down BoM asBuilt tree structure along the submodel "AssemblyPartRelationship"
+- usage of EDC consumer for communicating with the Catena-X network
+- functionality of IRS provider will be handled by providers submodel servers
+- federated IRS service
+- 'asBuild' BoM of serialized components
+- provides endpoints for submodel-descriptors
 
 ## Quality goals
 
-The following table entries define overall IRS quality goals. The order of the topics do not resolve in a priority of the quality goals.
+The following table entries define overall IRS-DV quality goals. The order of the topics do not resolve in a priority of the quality goals.
 
-| Quality goal                     | Motivation and description                                                                                                                                                                                                               |
-| -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| running reference application    | The IRS is built to traverse a distributed data chain across the automotive Industry. The goal for the IRS release 1 scope is to build a running solution to test the functionality of building a BoM as built of serialized components. |
-| multiple async job orchestration | The IRS is built to access multiple endpoints parallel. Since the for the Endpoint it is not clear yet how long a request will take to respond. The Service is built to handle multiple asynchronous requests.                           |
-| cloud agnostic solution          | The IRS is built as reference architecture and able to run on different cloud solutions. It uses helm charts, terraform and a abstracts the storage, so that it can easily be integrated on different systems.                           |
-| base security measures           | The IRS is built with a base set of security features.                                                                                                                                                                                   |
-| application reliability          | The IRS architecture is set up so that the costumers can rely on reliable data chains                                                                                                                                                    |
+| Quality goal                     | Motivation and description                                                                                                                                                                                        |
+| -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| running reference application    | The IRS-DV is built to traverse a distributed data chain across the automotive Industry. The IRS-DV release scope aims to build a running solution to find errors in the whole chain by a given request.          |
+| multiple async job orchestration | The IRS-DV is built to access multiple endpoints parallel. Since the for the Endpoint it is not clear yet how long a request will take to respond. The Service is built to handle multiple asynchronous requests. |
+| cloud agnostic solution          | The IRS-DV is built as reference architecture and able to run on different cloud solutions. It uses helm charts, terraform and a abstracts the storage, so that it can easily be integrated on different systems. |
+| base security measures           | The IRS-DV is built with a base set of security features.                                                                                                                                                         |
+| application reliability          | The IRS-DV architecture is set up so that the costumers can rely on reliable data chains                                                                                                                          |
+
+## Stakeholders
+
+| Role/name | Contact                            | Expectations |
+| --------- | ---------------------------------- | ------------ |
+| BMW       | Zahn Johannes johannes.zahn@bmw.de |
 
 <br>
 <br>
@@ -214,23 +213,21 @@ The integrated Restful client named Submodel Client in the IRS is responsible fo
 
 ## Introduction
 
-| Quality goal                     | Matching approaches in the solution                                                                                                                                                                                    |
-| -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| application reliability          | <ul><li>only data source is the Catena-X network, data is fetched directly from the data owner</li><li>IRS can be hosted decentralized by every participant by being an open source reference implementation</li></ul> |
-| base security measures           | <ul><li>API protection using OAuth2.0/OIDC</li><li>automatic static and dynamic code analysis tools as part of the pipeline</li></ul>                                                                                  |
-| cloud agnostic solution          | <ul><li>IRS is provided as a Docker image</li><li>Helm charts assist in deploying the application in any Kubernetes environment</li></ul>                                                                              |
-| multiple async job orchestration | <ul><li>Separate job executor decouples data requests from the job status API</li><li>Multiple jobs with multiple transfer requests each can be handled in parallel, depending on the deployment resources</li></ul>   |
-| running reference application    | <ul><li>Working application can be used as reference by anyone due to open source publishing </li></ul>                                                                                                                |
+| Quality goal                     | Matching approaches in the solution                                                                                                                                                                                       |
+| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| application reliability          | <ul><li>only data source is the Catena-X network, data is fetched directly from the data owner</li><li>IRS-DV can be hosted decentralized by every participant by being an open source reference implementation</li></ul> |
+| base security measures           | <ul><li>API protection using OAuth2.0/OIDC</li><li>automatic static and dynamic code analysis tools as part of the pipeline</li></ul>                                                                                     |
+| cloud agnostic solution          | <ul><li>IRS-DV is provided as a Docker image</li><li>Helm charts assist in deploying the application in any Kubernetes environment</li></ul>                                                                              |
+| multiple async job orchestration | <ul><li>Separate job executor decouples data requests from the job status API</li><li>Multiple jobs with multiple transfer requests each can be handled in parallel, depending on the deployment resources</li></ul>      |
+| running reference application    | <ul><li>Working application can be used as reference by anyone due to open source publishing </li></ul>                                                                                                                   |
 
 ## Technology
 
-The IRS is developed using Java and the Spring Boot framework. This choice was made due to the technical knowledge of the team and the widespread support of the framework.
+The IRS-DV is developed using React framework. This choice was made due to the technical knowledge of the team and the widespread support of the framework.
 
 Hosting the application is done using Docker and Kubernetes, which is widely used and vendor-independent regarding the hosting provider (e.g. AWS, Google Cloud, Azure, …​).
 
 Inter-service communication is done using HTTP REST. This is the standard method in the Catena-X landscape and makes the IRS API easy to use for any third party client.
-
-For persistence, blob storage was chosen as the payloads retrieved for each job vary for every aspect and the format can be unknown to the application, as it’s just being tunneled through to the client.
 
 ## Structure
 
@@ -257,7 +254,7 @@ The job processing engine handles execution of the data requests for each job. I
 
 ## Whitebox overall system
 
-The interfaces show how the components interact with each other and which interfaces the IRS is providing.
+The interfaces show how the components interact with each other and which interfaces the IRS-DV is providing.
 
 ### Component diagram
 
@@ -732,7 +729,9 @@ Other profiles should be avoided. Instead, any value that might need to change i
 ### Administration
 
 <br>
+
 ### Configuration
+
 The IRS can be configured using two mechanisms:
 
 ### application.yml
@@ -824,6 +823,7 @@ This section will be filled soon™.
 | BoM                                 | Bill of Materials                                                                                                                                                                                                                                                                    |
 | Edge                                | see Traversal Aspect                                                                                                                                                                                                                                                                 |
 | IRS                                 | Item Relationship Service                                                                                                                                                                                                                                                            |
+| IRS-DV                              | Item Relationship service Debugging view                                                                                                                                                                                                                                             |
 | Item Graph                          | The result returned via the IRS. This corresponds to a tree structure in which each node represents a part of a virtual asset.                                                                                                                                                       |
 | MTPDC                               | Formerly known Service Name: Multi Tier Parts Data Chain                                                                                                                                                                                                                             |
 | PRS                                 | Formerly known Service Name: Parts Relationship Name                                                                                                                                                                                                                                 |
