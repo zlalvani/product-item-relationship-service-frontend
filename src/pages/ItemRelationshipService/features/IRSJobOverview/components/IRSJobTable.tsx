@@ -71,8 +71,12 @@ export const IRSJobTable: React.FC<{
       loading={isLoading}
       disableColumnSelector={true}
       disableDensitySelector={true}
-      hideFooter={true}
+      hideFooter={false}
       disableColumnMenu={true}
+      pagination={true}
+      pageSize={50}
+      hideFooterPagination={false}
+      paginationMode={"client"}
     />
   );
 };
