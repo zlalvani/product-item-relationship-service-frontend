@@ -45,7 +45,7 @@ exports[`renders the App  1`] = `
       </div>
     </header>
     <div
-      class="MuiBox-root css-19x6net"
+      class="MuiBox-root css-5kk6ic"
     >
       <div
         class="MuiBox-root css-1ybz6by"
@@ -63,12 +63,12 @@ exports[`renders the App  1`] = `
         <h2
           class="MuiTypography-root MuiTypography-h2 css-19hh24g-MuiTypography-root"
         >
-          Welcome to IRS Debugging
+          IRS Debugging View
         </h2>
         <h2
           class="MuiTypography-root MuiTypography-h2 css-rixte6-MuiTypography-root"
         >
-          Lorem Ipsum
+          Insights into decentral stored Data Chains
         </h2>
         <div
           class="children-header"
@@ -78,6 +78,7 @@ exports[`renders the App  1`] = `
           >
             <button
               class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-sghohy-MuiButtonBase-root-MuiButton-root"
+              style="margin-top: 75px;"
               tabindex="0"
               type="button"
             >
