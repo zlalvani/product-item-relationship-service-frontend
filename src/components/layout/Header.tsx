@@ -2,6 +2,8 @@ import styled from "@emotion/styled";
 import { Box } from "@mui/material";
 import { Button, MainNavigation } from "cx-portal-shared-components";
 import React from "react";
+import { serverConfig } from "../../constants/serverConfig";
+import { useAppSelector } from "../../store/store";
 import { LogOutButton } from "./LogOutButton";
 
 type LinkItem = Partial<Record<"href" | "to", string>>;
@@ -18,12 +20,14 @@ export interface MenuItem extends LinkItem, Tree {
 }
 
 export const Header: React.FC = () => {
+  const { serverEnv } = useAppSelector((state) => state.serverEnvReducer);
+
   return (
     <MainNavigation
       items={[
         {
           href: "/dashboard",
-          title: "Home",
+          title: `${serverConfig[serverEnv].label} - Home`,
         },
       ]}
     >
@@ -36,6 +40,7 @@ export const Header: React.FC = () => {
           width: "170px",
         }}
       />
+
       <Box>
         <Button
           color="secondary"
