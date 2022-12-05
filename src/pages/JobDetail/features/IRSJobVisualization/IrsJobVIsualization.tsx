@@ -9,7 +9,7 @@ import { FullScreen, useFullScreenHandle } from "../../../../components/FullScre
 import { FullscreenExitIcon, FullscreenIcon, useTranslation } from "../../../../lib";
 import { Canvas, Edge, Node } from "../../../../lib/reaflow";
 
-import { JobResponse, Shell } from "../../../../types/jobs";
+import { JobResponse, Relationship, Shell } from "../../../../types/jobs";
 import { EdgeDetailDialog } from "./components/EdgeDetailDialog";
 import { NodeDetailDialog } from "./components/NodeDetailDialog";
 import { NodeTemplate } from "./components/nodeTemplate";
@@ -58,7 +58,7 @@ const getEdges = (job: JobResponse): EdgeData<undefined>[] => {
 };
 
 const calculateTotalWidth = (edges: EdgeData<undefined>[]) => {
-  const mapValues = {};
+  const mapValues: Record<string, number> = {};
   edges.forEach((edge) => {
     if (edge.from) {
       if (mapValues[edge.from]) {
@@ -82,6 +82,7 @@ const SearchNode: React.FC<{ nodes: NodeData<Shell>[]; action: (nodeId: string) 
       onSubmit={(e) => {
         e.preventDefault();
         action(nodeId);
+        setNodeId("");
       }}
     >
       <input list="nodes" name="selectedNode" value={nodeId} onChange={(e) => setNodeId(e.currentTarget.value)} />
@@ -93,6 +94,16 @@ const SearchNode: React.FC<{ nodes: NodeData<Shell>[]; action: (nodeId: string) 
       <input type="submit" disabled={!nodeIds.includes(nodeId)} />
     </form>
   );
+};
+
+const readTransformXYFromCSS = (element: HTMLElement) => {
+  let transformInfo = window.getComputedStyle(element).transform;
+  transformInfo = transformInfo.replace("matrix(", "");
+  transformInfo = transformInfo.replace(")", "");
+  const transformValues = transformInfo.split(", ");
+  const transformX = parseInt(transformValues[4], 10);
+  const transformY = parseInt(transformValues[5], 10);
+  return { transformX, transformY };
 };
 
 export const IrsJobVisualization: React.FC<{ job: JobResponse }> = ({ job }) => {
@@ -107,28 +118,35 @@ export const IrsJobVisualization: React.FC<{ job: JobResponse }> = ({ job }) => 
   const containerRef = useRef<HTMLDivElement | null>(null);
 
   const [showNodeDialog, setShowNodeDialog] = useState<{ nodeId: string; aspectId?: string } | undefined>();
-  const [showEdgeDialog, setShowEdgeDialog] = useState(undefined);
+  const [showEdgeDialog, setShowEdgeDialog] = useState<Relationship | undefined>(undefined);
 
   const centerOnNode = (nodeId: string) => {
+    // Base Position in container
     const containerWidth = containerRef.current.clientWidth;
     const containerHeight = containerRef.current.clientHeight;
     const containerX = containerWidth / 2;
     const containerY = containerHeight / 2;
+
     const element = document.getElementById(nodeId);
-    console.log(nodeId, `document.getElementById(${nodeId})`);
-    console.log(element);
-    const offsetX = element?.offsetWidth; // 238
-    const offsetY = element?.offsetHeight;
+    const parentElement = element?.parentElement?.parentElement?.parentElement;
 
-    const x = containerX - offsetX - NODE_WIDTH / 2;
-    const y = containerY - offsetY;
+    if (parentElement) {
+      const { transformX, transformY } = readTransformXYFromCSS(parentElement);
 
-    zoomCanvasRef.current.setTransform(x, y, 1);
+      const x = containerX - transformX + NODE_WIDTH / 6;
+      const y = containerY - transformY - element?.clientHeight;
+
+      zoomCanvasRef.current.setTransform(x, y, 1);
+    }
   };
+
+  if (nodes.length === 0) {
+    //TODO: Better Error Handling
+    return <p>No nodes to render</p>;
+  }
 
   return (
     <section>
-      <SearchNode nodes={nodes} action={centerOnNode} />
       <Box className="irs-visualization" sx={{ textAlign: "center" }}>
         <FullScreen handle={handle}>
           <Box className="irs-visualization-header">
@@ -146,6 +164,7 @@ export const IrsJobVisualization: React.FC<{ job: JobResponse }> = ({ job }) => 
               </IconButton>
             )}
           </Box>
+          <SearchNode nodes={nodes} action={centerOnNode} />
           <div className="canvas" ref={containerRef}>
             <TransformWrapper minScale={0.1} maxScale={4} limitToBounds={false} ref={zoomCanvasRef}>
               <TransformComponent>
@@ -181,8 +200,12 @@ export const IrsJobVisualization: React.FC<{ job: JobResponse }> = ({ job }) => 
                   edge={
                     <Edge
                       onClick={(event, edge) => {
-                        console.log("Selecting Edge", event, edge);
-                        setShowEdgeDialog(edge);
+                        const relationship = job.relationships.find(
+                          (val) => val.catenaXId === edge.from && val.linkedItem.childCatenaXId === edge.to,
+                        );
+                        if (relationship !== undefined) {
+                          setShowEdgeDialog(relationship);
+                        }
                       }}
                     />
                   }

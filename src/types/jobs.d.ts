@@ -179,3 +179,12 @@ export interface JobResponse {
   submodels: Submodel[];
   tombstones: Tombstone[];
 }
+
+export interface IRSRequestBody {
+  aspects: string[];
+  bomLifecycle: string;
+  direction?: string;
+  collectAspects?: boolean;
+  depth?: number;
+  globalAssetId: string;
+}
