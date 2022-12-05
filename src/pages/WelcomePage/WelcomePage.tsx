@@ -16,9 +16,10 @@ export const WelcomePage: React.FC = () => {
     <div>
       <PublicHeader />
       <MainHeader
-        title="Welcome to IRS Debugging"
-        subTitle="Lorem Ipsum"
+        title="IRS Debugging View"
+        subTitle="Insights into decentral stored Data Chains"
         background="LinearGradient1"
+        headerHeight={window.innerHeight}
         imagePath="./img/home-stage-desktop.png"
       >
         <IRSSelectServerEnv />
@@ -27,6 +28,7 @@ export const WelcomePage: React.FC = () => {
             navigate("/dashboard");
             await keycloak.login();
           }}
+          style={{ marginTop: "75px" }}
         >
           {"Login"}
         </Button>
