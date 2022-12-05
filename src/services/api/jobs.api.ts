@@ -1,5 +1,5 @@
 import { AvailableServerEnvironments } from "../../store/serverEnvironment";
-import { JobResponse, JobStatusResult } from "../../types/jobs";
+import { IRSRequestBody, JobResponse, JobStatusResult } from "../../types/jobs";
 import { HttpClient } from "../../utils/HttpClient";
 import { JobsDemoDataSuccess } from "./__test__/jobs.exampleData";
 import { JobStatusResultSuccess } from "./__test__/jobStatusResult.example";
@@ -22,4 +22,8 @@ export const fetchJobs = async (serverEnv?: AvailableServerEnvironments): Promis
 
 export const cancelJob = async (jobId: string) => {
   console.error("implement cancel Job endpoint", { jobId });
+};
+
+export const createJob = async (data: IRSRequestBody, serverEnv?: AvailableServerEnvironments) => {
+  return await HttpClient.post(`jobs`, data, serverEnv);
 };

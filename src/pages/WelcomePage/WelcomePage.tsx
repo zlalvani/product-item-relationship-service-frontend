@@ -1,7 +1,6 @@
-import { Margin } from "@mui/icons-material";
 import { useKeycloak } from "@react-keycloak/web";
 import { Button, MainHeader } from "cx-portal-shared-components";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { PublicHeader } from "../../components/layout/Header";
 import { IRSSelectServerEnv } from "../ItemRelationshipService/features/SelectEnvironment/IRSSelectServerEnv";
 
@@ -11,6 +10,7 @@ import { IRSSelectServerEnv } from "../ItemRelationshipService/features/SelectEn
  */
 export const WelcomePage: React.FC = () => {
   const { keycloak } = useKeycloak();
+  const navigate = useNavigate();
 
   return (
     <div>
@@ -22,16 +22,16 @@ export const WelcomePage: React.FC = () => {
         headerHeight={window.innerHeight}
         imagePath="./img/home-stage-desktop.png"
       >
-        <Link to="/dashboard">
-          <Button
-            onClick={async () => {
-              await keycloak.login();
-            }}
-            style={{ marginTop: "75px" }}
-          >
-            {"Login"}
-          </Button>
-        </Link>
+        <IRSSelectServerEnv />
+        <Button
+          onClick={async () => {
+            navigate("/dashboard");
+            await keycloak.login();
+          }}
+          style={{ marginTop: "75px" }}
+        >
+          {"Login"}
+        </Button>
       </MainHeader>
     </div>
   );

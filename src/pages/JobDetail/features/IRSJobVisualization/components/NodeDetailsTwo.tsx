@@ -152,5 +152,6 @@ export const NodeDetailsTwo: React.FC<{ twin: Shell; job: JobResponse; aspectId?
 
 const ScrollableDiv = styled.div`
   overflow-y: auto;
+  overflow-x: hidden;
   height: 70vh;
 `;

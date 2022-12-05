@@ -73,21 +73,56 @@ exports[`renders the App  1`] = `
         <div
           class="children-header"
         >
-          <a
-            href="/dashboard"
+          <section
+            class="css-jlkg07"
           >
-            <button
-              class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-sghohy-MuiButtonBase-root-MuiButton-root"
-              style="margin-top: 75px;"
-              tabindex="0"
-              type="button"
+            <label
+              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated css-y7y8hp-MuiFormLabel-root-MuiInputLabel-root"
             >
-              Login
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+              content.irs.form.environment.label
+            </label>
+            <div
+              class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-fullWidth  css-12005ah-MuiInputBase-root-MuiFilledInput-root-MuiSelect-root"
+            >
+              <div
+                aria-expanded="false"
+                aria-haspopup="listbox"
+                class="MuiSelect-select MuiSelect-filled MuiInputBase-input MuiFilledInput-input css-d9oaum-MuiSelect-select-MuiInputBase-input-MuiFilledInput-input"
+                role="button"
+                tabindex="0"
+              >
+                DEV
+              </div>
+              <input
+                aria-hidden="true"
+                class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
+                tabindex="-1"
+                value="DEV"
               />
-            </button>
-          </a>
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconFilled css-hfutr2-MuiSvgIcon-root-MuiSelect-icon"
+                data-testid="ArrowDropDownIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M7 10l5 5 5-5z"
+                />
+              </svg>
+            </div>
+          </section>
+          <button
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-sghohy-MuiButtonBase-root-MuiButton-root"
+            style="margin-top: 75px;"
+            tabindex="0"
+            type="button"
+          >
+            Login
+            <span
+              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+            />
+          </button>
         </div>
       </div>
     </div>

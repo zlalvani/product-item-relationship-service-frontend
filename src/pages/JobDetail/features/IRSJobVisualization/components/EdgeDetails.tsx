@@ -28,7 +28,7 @@ import { Relationship } from "../../../../../types/jobs";
 export const EdgeDetails = ({ edge }: { edge: Relationship }) => {
   const theme = useTheme();
   const { t } = useTranslation();
-
+  console.log(edge);
   return (
     <>
       <Divider sx={{ mr: -2, ml: -2 }} />

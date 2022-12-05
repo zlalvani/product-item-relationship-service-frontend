@@ -2,7 +2,8 @@ import { useMutation } from "@tanstack/react-query";
 import { useQuery } from "../../lib/react-query";
 import { AvailableServerEnvironments } from "../../store/serverEnvironment";
 import { useAppSelector } from "../../store/store";
-import { cancelJob, fetchJobById, fetchJobs } from "../api/jobs.api";
+import { IRSRequestBody } from "../../types/jobs";
+import { cancelJob, createJob, fetchJobById, fetchJobs } from "../api/jobs.api";
 
 export const useFetchJobById = (
   { id, serverEnv }: { id: string; serverEnv: AvailableServerEnvironments },
@@ -20,4 +21,13 @@ export const useFetchJobs = (refetchInterval: false | number = false) => {
 
 export const useCancelJobs = () => {
   return useMutation(cancelJob);
+};
+
+export const useCreateJob = () => {
+  const { serverEnv } = useAppSelector((state) => state.serverEnvReducer);
+  return useMutation({
+    mutationFn: (data: IRSRequestBody) => {
+      return createJob(data, serverEnv);
+    },
+  });
 };

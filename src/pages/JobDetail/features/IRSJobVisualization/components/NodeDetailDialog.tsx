@@ -34,7 +34,7 @@ interface NodeDialogProps {
 export const NodeDetailDialog = ({ showInfo, onClose, job }: NodeDialogProps) => {
   const { t } = useTranslation();
   const title = `${t("content.irs.dialog.title")}`;
-  console.log(showInfo);
+
   if (!showInfo) {
     return null;
   }
