@@ -22,21 +22,21 @@ export const IRSJobTable: React.FC<{
     {
       field: "startedOn",
       headerName: t("content.irs.jobsTable.startDate"),
-      width: 150,
+      width: 230,
       filterable: false,
       valueGetter: ({ row }: { row: JobStatusResult }) => defaultDateFormat(row.startedOn),
     },
     {
       field: "jobCompleted",
       headerName: t("content.irs.jobsTable.endDate"),
-      width: 150,
+      width: 230,
       filterable: false,
       valueGetter: ({ row }: { row: JobStatusResult }) => defaultDateFormat(row.jobCompleted),
     },
     {
       field: "status",
       headerName: t("content.irs.jobsTable.status"),
-
+      width: 170,
       filterable: false,
       valueGetter: ({ row }: { row: JobStatusResult }) => row.jobState,
     },
