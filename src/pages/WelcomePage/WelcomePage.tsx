@@ -1,5 +1,7 @@
+import styled from "@emotion/styled";
+import { Box } from "@mui/material";
 import { useKeycloak } from "@react-keycloak/web";
-import { Button, MainHeader } from "cx-portal-shared-components";
+import { Button, MainHeader, Typography } from "cx-portal-shared-components";
 import { useNavigate } from "react-router-dom";
 import { PublicHeader } from "../../components/layout/Header";
 import { IRSSelectServerEnv } from "../ItemRelationshipService/features/SelectEnvironment/IRSSelectServerEnv";
@@ -16,13 +18,26 @@ export const WelcomePage: React.FC = () => {
     <div>
       <PublicHeader />
       <MainHeader
-        title="IRS Debugging View"
-        subTitle="Insights into decentral stored Data Chains"
         background="LinearGradient1"
         headerHeight={window.innerHeight}
         imagePath="./img/home-stage-desktop.png"
       >
+        <PaddingBottom>
+          <Box
+            component="img"
+            src="/img/IRS_FE_Logo_long.png"
+            sx={{
+              display: "inline-block",
+            }}
+          />
+        </PaddingBottom>
+
+        <PaddingBottom>
+          <Typography variant="body1">Insights into decentral stored Data Chains</Typography>
+        </PaddingBottom>
+
         <IRSSelectServerEnv />
+
         <Button
           onClick={async () => {
             navigate("/dashboard");
@@ -36,3 +51,7 @@ export const WelcomePage: React.FC = () => {
     </div>
   );
 };
+
+const PaddingBottom = styled.div`
+  margin-bottom: 1.5rem;
+`;

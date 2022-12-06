@@ -33,11 +33,10 @@ export const Header: React.FC = () => {
     >
       <Box
         component="img"
-        src="/img/cx-logo-text.svg"
+        src="/img/IRS_FE_Logo_long.png"
         sx={{
           display: "inline-block",
           height: "40px",
-          width: "170px",
         }}
       />
 
