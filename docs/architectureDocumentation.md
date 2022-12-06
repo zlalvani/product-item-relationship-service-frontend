@@ -2,25 +2,30 @@
 
     // TODO: Table of contents need to be done. Please mark [X] in front of topic when its done. After every topic is done, we can remove "checkbox"
 
+  [ o ] - need overview <br>
+  [ x ] - done
+
+
 ## Table of Contents
 
-- [ ] [Introduction and goals](#introduction-and-goals)
-  - [ ] [Requirements overview](#requirements-overview)
-  - [ ] [Quality goals](#quality-goals)
-- [ ] [Architecture constraints](#architecture-constraints)
+- [ o ] [Introduction and goals](#introduction-and-goals)
+  - [ o ] [Requirements overview](#requirements-overview)
+  - [ o ] [Quality goals](#quality-goals)
+  - [ o ] [Stakeholders](#stakeholders)
+- [ - ] [Architecture constraints](#architecture-constraints)
   - [ ] [Technical Constraints](#technical-constraints)
   - [ ] [Organizational Constraints](#organizational-constraints)
   - [ ] [Political constraints](#political-constraints)
   - [ ] [Development conventions](#development-conventions)
-- [ ] [System scope and context](#system-scope-and-context)
-  - [ ] [Business context](#business-context)
-  - [ ] [Technical context](#technical-context)
+- [ - ] [System scope and context](#system-scope-and-context)
+  - [ - ] [Business context](#business-context)
+  - [ - ] [Technical context](#technical-context)
 - [ ] [Solution strategy](#solution-strategy)
   - [ ] [Introduction](#introduction)
   - [ ] [Technology](#technology)
   - [ ] [Structure](#structure)
-- [ ] [Building block view](#building-block-view)
-  - [ ] [Whitebox overall system](#whitebox-overall-system)
+- [ o ] [Building block view](#building-block-view)
+  - [ o ] [Whitebox overall system](#whitebox-overall-system)
   - [ ] [Level 1](#level-1)
   - [ ] [Level 2](#level-2)
   - [ ] [IRS API](#irs-api)
@@ -78,19 +83,22 @@ The IRS-DV is a:
 
 The following table entries define overall IRS-DV quality goals. The order of the topics do not resolve in a priority of the quality goals.
 
-| Quality goal                     | Motivation and description                                                                                                                                                                                        |
-| -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| running reference application    | The IRS-DV is built to traverse a distributed data chain across the automotive Industry. The IRS-DV release scope aims to build a running solution to find errors in the whole chain by a given request.          |
-| multiple async job orchestration | The IRS-DV is built to access multiple endpoints parallel. Since the for the Endpoint it is not clear yet how long a request will take to respond. The Service is built to handle multiple asynchronous requests. |
-| cloud agnostic solution          | The IRS-DV is built as reference architecture and able to run on different cloud solutions. It uses helm charts, terraform and a abstracts the storage, so that it can easily be integrated on different systems. |
-| base security measures           | The IRS-DV is built with a base set of security features.                                                                                                                                                         |
-| application reliability          | The IRS-DV architecture is set up so that the costumers can rely on reliable data chains                                                                                                                          |
+| Quality goal                  | Motivation and description                                                                                                                                                                                        |
+| ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| running reference application | The IRS-DV is built to traverse a distributed data chain across the automotive Industry. The IRS-DV release scope aims to build a running solution to find errors in the whole chain by a given request.          |
+| multiple async job            | The IRS-DV is built to access multiple endpoints parallel. Since the for the Endpoint it is not clear yet how long a request will take to respond. The Service is built to handle multiple asynchronous requests. |
+| cloud agnostic solution       | The IRS-DV is built as reference architecture and able to run on different cloud solutions. It uses helm charts, terraform and a abstracts the storage, so that it can easily be integrated on different systems. |
+| base security measures        | The IRS-DV is built with a base set of security features. The program can only be used by logging in via Keyclock                                                                                                 |
+| application reliability       | The IRS-DV architecture is set up so that the costumers can rely on reliable data chains                                                                                                                          |
 
 ## Stakeholders
 
-| Role/name | Contact                            | Expectations |
-| --------- | ---------------------------------- | ------------ |
-| BMW       | Zahn Johannes johannes.zahn@bmw.de |
+| Role/name           | Contact                                                  | Expectations                                              |
+| ------------------- | -------------------------------------------------------- | --------------------------------------------------------- |
+| Product Owner       | Zahn Johannes johannes.zahn@bmw.de                       |                                                           |
+| Back-end team       |                                                          |                                                           |
+| Software Architects |                                                          | reuse things (e.g. format, notation) in their daily work  |
+| Developers          | Neal Buerger <br> Stephan Bauer <br> Giedrius Pacevicius | accept responsibility for architectural tasks in the team |
 
 <br>
 <br>
@@ -262,16 +270,19 @@ whitebox overview (IMAGE)
 
 ### Component description
 
-| Components      | Description                                                                                                                                                                                                                               |
-| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| IRSApiConsumer  | Proxy for any consumer of the IRS api.                                                                                                                                                                                                    |
-| IRS             | The IRS consumes relationship information across the CX-Network and builds the graph view. Within this Documentation, the focus lies on the IRS                                                                                           |
-| AAS Wrapper     | The AAS Wrapper is a System, which simplifies the communication with the EDC and wraps the communication.                                                                                                                                 |
-| AAS Proxy       | The AAS Proxy is a System, which enables the consumer to simplify the communication with other CX Partners.                                                                                                                               |
-| EDC Consumer    | The EDC Consumer Component is there to fulfill the GAIA-X and IDSA-data sovereignty principles. The EDC Consumer consists out of a control plane and a data plane.                                                                        |
-| EDC Provider    | The EDC Provider Component connects with EDC Consumer component and forms the end point for the actual exchange of data. It handles automatic contract negotiation and the subsequent exchange of data assets for connected applications. |
-| Submodel Server | The Submodel Server offers endpoints for requesting the Submodel aspects.                                                                                                                                                                 |
-| IAM/DAPS        | DAPS as central Identity Provider                                                                                                                                                                                                         |
+| Components          | Description                                                                                      |
+| ------------------- | ------------------------------------------------------------------------------------------------ |
+| IRSSelectServerEnv  | Select server environmental between given servers                                                |
+| IRSJobAddForm       | In this component, you can select settings according to which globalAssetId you are looking for. |
+| IRSJobOverview      | IRS-DV history by search parameters                                                                 |
+| IRSJobVisualization | IRS-DV visualization based on search parameters. We show all related nodes.                         |
+|IRSJobTombstones | IRS-DV cached errors |
+|IRSJobTable| Show all grid for filtered history|
+|ErrorPage| Catch errors(router error and ... ) and show error page|
+
+ 
+
+
 
 ## Level 1
 
@@ -285,14 +296,9 @@ level 1 (IMAGE)
 | ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | IRS                      | The IRS builds a digital representation of a product (digital twin) and the relationships of items the product consists of in a hierarchical structure.<br><br>The result is an item graph in which each node represents a digital item of the product - this graph is called "Item Graph".                                                                                                                                                                                                                                                                             |
 | IRS API                  | The IRS API is the Interface over which the Data Consumer is communicating.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| IrsController            | The IrsController provides an REST Interface for retrieving IRS processed data and job details of the current item graph retrieval process.                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| IrsItemGraphQueryService | The IrsItemGraphQueryService implements the REST Interface of the IrsController.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| JobOrchestrator          | The JobOrchestrator is a component which manages (start, end, cancel, resume) the jobs which execute the item graph retrieval process.                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| RecursiveJobHandler      | The RecursiveJobHandler handles the job execution recursively until a given abort criteria is reached or the complete item graph is build.                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| TransferProcessManager   | The TransferProcessManager handles the outgoing requests to the AASProxy.<br><ul><li>Initiation of the job and preparation of the stream of DataRequests</li><li>RecursiveJobHandler requesting for AAS via the Digital Twin registry.</li><li>Analyzing the structure of the AAS response by collecting the AssemblyPartRelationship Aspects</li><li>Requesting for SubmodelEndpoints for given AssemblyPartRelationship children</li><li>Recursively iteration over step 2-4 until an abort criterion is reached.</li><li>Assembles the complete item graph</li></ul> |
-| BlobStore                | The BlobStore is the database where the relationships and tombstones are stored for a requested item.                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| IRSJobOverview          | The JobOrchestrator is a component which manages (start, end, cancel, resume) the jobs which execute the item graph retrieval process.                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | JobStore                 | The JobStore is the database where the jobs with the information about the requested item are stored.                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| AASProxy                 | The AASProxy is the interface to the EDC Network. It provides an interface for the Asset Administration Shells and for the Submodels.                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+
 
 ## Level 2
 
@@ -308,11 +314,7 @@ level 2 controller (IMAGE)
 
 | Components               | Description                                                                                        |
 | ------------------------ | -------------------------------------------------------------------------------------------------- |
-| IrsController            | Application REST controller.                                                                       |
-| IrsItemGraphQueryService | Service for retrieving item graph.                                                                 |
-| JobOrchestrator          | Orchestrator service for recursive MultiTransferJobs that potentially comprise multiple transfers. |
-| JobStore                 | Spring configuration for job-related beans.                                                        |
-| BlobstorePersistence     | Interface for storing data blobs.                                                                  |
+
 
 ### RecursiveJobHandler
 
@@ -550,11 +552,10 @@ A job can be in one of the following states:
 
 | State              | Description                                                                     |
 | ------------------ | ------------------------------------------------------------------------------- |
-| UNSAVED            | The job was created, but not yet stored by the system.                          |
 | INITIAL            | The job was stored by the system and is now queued for processing.              |
-| IN_PROGRESS        | The job is currently being processed.                                           |
-| TRANSFERS_FINISHED | All transfers for the job have been finished, and it is now being finalized.    |
+| RUNNING        | The job is currently being processed.                                           |
 | COMPLETED          | The job has completed. See the job response for details on the data.            |
+| CANCELED | The job could not be processed, user canceled request |
 | ERROR              | The job could not be processed correctly by the IRS due to a technical problem. |
 
 job state machine (IMAGE)
@@ -805,7 +806,7 @@ The quality scenarios in this section depict the fundamental quality goals as we
 
 ## List of requirements
 
-This section will be filled soon™.
+This section will be filled soon.
 <br>
 <br>
 
