@@ -12,7 +12,7 @@ import { Canvas, Edge, Node } from "../../../../lib/reaflow";
 import { JobResponse, Relationship, Shell } from "../../../../types/jobs";
 import { EdgeDetailDialog } from "./components/EdgeDetailDialog";
 import { NodeDetailDialog } from "./components/NodeDetailDialog";
-import { NodeTemplate } from "./components/nodeTemplate";
+import { NodeTemplate } from "./components/reaflow/nodeTemplate";
 
 const NODE_WIDTH = 300;
 
@@ -26,6 +26,7 @@ const getNodeBoxHeight = (shell: Shell): number => {
 
 const getNodes = (job: JobResponse): NodeData<Shell>[] => {
   return job.shells.map((el: Shell): NodeData<Shell> => {
+    console.log("val", el.globalAssetId.value[0]);
     return {
       id: el.globalAssetId.value[0],
       // text: el.globalAssetId.value[0],
@@ -147,6 +148,7 @@ export const IrsJobVisualization: React.FC<{ job: JobResponse }> = ({ job }) => 
 
   return (
     <section>
+      <GraphDisplay2 job={job} showNodeDialog={setShowNodeDialog} />
       <Box className="irs-visualization" sx={{ textAlign: "center" }}>
         <FullScreen handle={handle}>
           <Box className="irs-visualization-header">
@@ -165,6 +167,7 @@ export const IrsJobVisualization: React.FC<{ job: JobResponse }> = ({ job }) => 
             )}
           </Box>
           <SearchNode nodes={nodes} action={centerOnNode} />
+
           <div className="canvas" ref={containerRef}>
             <TransformWrapper minScale={0.1} maxScale={4} limitToBounds={false} ref={zoomCanvasRef}>
               <TransformComponent>
@@ -220,3 +223,5 @@ export const IrsJobVisualization: React.FC<{ job: JobResponse }> = ({ job }) => 
     </section>
   );
 };
+
+import { GraphDisplay2 } from "./components/react-flow/GraphDisplay2";

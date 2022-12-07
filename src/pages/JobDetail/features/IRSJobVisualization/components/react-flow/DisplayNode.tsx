@@ -1,0 +1,72 @@
+import styled from "@emotion/styled";
+import { Box, useTheme } from "@mui/material";
+import { uniqueId } from "lodash";
+import { JobResponse, Shell, SubmodelDescriptor } from "../../../../../../types/jobs";
+import { SubmodelDetailCard } from "../submodelDetailCard";
+
+const getSortedSubModelDescriptions = (shell: Shell) => {
+  function compare(a: SubmodelDescriptor, b: SubmodelDescriptor) {
+    if (a.idShort < b.idShort) {
+      return -1;
+    }
+    if (a.idShort > b.idShort) {
+      return 1;
+    }
+    return 0;
+  }
+  return [...shell.submodelDescriptors].sort(compare);
+};
+
+export const DisplayNode: React.FC<{
+  data: NodeProps<Shell>;
+  job: JobResponse;
+  onClick: (x: { nodeId: string; aspectId?: string }) => void;
+}> = ({ data, onClick, job }) => {
+  const { spacing } = useTheme();
+  const shell = data.data;
+
+  return (
+    <>
+      <NodeStyles>
+        <ClickableDiv className="node-header" onClick={() => onClick({ nodeId: shell.id })}>
+          <p>{data.idShort}</p>
+          <p>{data.id}</p>
+        </ClickableDiv>
+        <Box
+          sx={{
+            display: "grid",
+            gap: spacing(1, 3),
+            gridTemplateColumns: `repeat(1, 1fr)`,
+            marginLeft: 0.5,
+          }}
+        >
+          <div style={{ textAlign: "left", margin: 5 }}>Aspects:</div>
+          {getSortedSubModelDescriptions(shell).map((n: SubmodelDescriptor) => {
+            //Todo: Check for errors and add them to the object
+            return (
+              <SubmodelDetailCard
+                key={uniqueId(n.identification)}
+                submodel={n}
+                aasId={shell.id}
+                onClick={onClick}
+                job={job}
+              />
+            );
+          })}
+        </Box>
+      </NodeStyles>
+    </>
+  );
+};
+
+const NodeStyles = styled.div`
+  fill: white;
+  border: 1px solid black;
+  background-color: white;
+  padding: 0.5rem;
+  width: 300px;
+`;
+
+const ClickableDiv = styled.div`
+  cursor: pointer;
+`;

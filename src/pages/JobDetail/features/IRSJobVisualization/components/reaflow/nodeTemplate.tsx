@@ -22,8 +22,8 @@ import { Box, useTheme } from "@mui/material";
 
 import uniqueId from "lodash/uniqueId";
 import { NodeData } from "reaflow";
-import { JobResponse, Shell, SubmodelDescriptor } from "../../../../../types/jobs";
-import { SubmodelDetailCard } from "./submodelDetailCard";
+import { JobResponse, Shell, SubmodelDescriptor } from "../../../../../../types/jobs";
+import { SubmodelDetailCard } from "../submodelDetailCard";
 
 interface NodeDataEx extends NodeData, Shell {}
 
