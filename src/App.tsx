@@ -7,13 +7,13 @@ import { persistor, store } from "./store/store";
 
 function App() {
   return (
-    <KeyCloakProvider>
-      <Provider store={store}>
+    <Provider store={store}>
+      <KeyCloakProvider>
         <PersistGate loading={null} persistor={persistor}>
           <RouterProvider router={router} />
         </PersistGate>
-      </Provider>
-    </KeyCloakProvider>
+      </KeyCloakProvider>
+    </Provider>
   );
 }
 
