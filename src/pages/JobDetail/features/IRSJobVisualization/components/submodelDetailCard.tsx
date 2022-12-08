@@ -52,7 +52,6 @@ export const SubmodelDetailCard: React.FC<Props> = ({ submodel, aasId, onClick, 
           variant="contained"
           onClick={(event) => {
             event.preventDefault();
-            console.log(submodel.idShort);
             onClick({ nodeId: aasId, aspectId: submodel.idShort });
           }}
         >

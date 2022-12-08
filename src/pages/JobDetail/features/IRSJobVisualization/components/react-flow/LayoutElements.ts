@@ -3,14 +3,11 @@ import dagre from "dagre";
 const dagreGraph = new dagre.graphlib.Graph();
 dagreGraph.setDefaultEdgeLabel(() => ({}));
 
-const nodeWidth = 300;
-const nodeHeight = 36;
-
 export const getLayoutedElements = (nodes, edges, direction = "TB") => {
   dagreGraph.setGraph({ rankdir: direction });
 
   nodes.forEach((node) => {
-    dagreGraph.setNode(node.id, { width: nodeWidth, height: nodeHeight });
+    dagreGraph.setNode(node.id, { width: node.width, height: node.height });
   });
 
   edges.forEach((edge) => {
@@ -27,8 +24,8 @@ export const getLayoutedElements = (nodes, edges, direction = "TB") => {
     // We are shifting the dagre node position (anchor=center center) to the top left
     // so it matches the React Flow node anchor point (top left).
     node.position = {
-      x: nodeWithPosition.x - nodeWidth / 2,
-      y: nodeWithPosition.y - nodeHeight / 2,
+      x: nodeWithPosition.x - node.width / 2,
+      y: nodeWithPosition.y - node.height / 2,
     };
 
     return node;

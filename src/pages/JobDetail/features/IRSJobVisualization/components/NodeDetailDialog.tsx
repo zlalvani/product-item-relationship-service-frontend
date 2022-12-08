@@ -26,7 +26,7 @@ import { JobResponse, Shell } from "../../../../../types/jobs";
 import { NodeDetailsTwo } from "./NodeDetailsTwo";
 
 interface NodeDialogProps {
-  showInfo: { nodeId: string; aspectId?: string } | undefined;
+  showInfo: { shell: Shell; aspectId?: string } | undefined;
   job: JobResponse;
   onClose: () => void;
 }
@@ -35,16 +35,15 @@ export const NodeDetailDialog = ({ showInfo, onClose, job }: NodeDialogProps) =>
   const { t } = useTranslation();
   const title = `${t("content.irs.dialog.title")}`;
 
-  if (!showInfo) {
+  if (showInfo?.shell === undefined) {
     return null;
   }
 
-  const twin = job.shells.find((x: Shell) => x.globalAssetId.value[0] === showInfo.nodeId);
   return (
     <Dialog open={showInfo !== undefined}>
       <DialogHeader title={title} closeWithIcon onCloseWithIcon={onClose} />
       <DialogContent key={uniqueId()}>
-        {twin && <NodeDetailsTwo twin={twin} job={job} aspectId={showInfo.aspectId} />}
+        <NodeDetailsTwo twin={showInfo.shell} job={job} aspectId={showInfo.aspectId} />
       </DialogContent>
     </Dialog>
   );
