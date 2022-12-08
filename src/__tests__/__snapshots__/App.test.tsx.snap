@@ -60,19 +60,26 @@ exports[`renders the App  1`] = `
       <div
         class="MuiBox-root css-xownll"
       >
-        <h2
-          class="MuiTypography-root MuiTypography-h2 css-19hh24g-MuiTypography-root"
-        >
-          IRS Debugging View
-        </h2>
-        <h2
-          class="MuiTypography-root MuiTypography-h2 css-rixte6-MuiTypography-root"
-        >
-          Insights into decentral stored Data Chains
-        </h2>
         <div
           class="children-header"
         >
+          <div
+            class="css-180vpgq"
+          >
+            <img
+              class="MuiBox-root css-1baulvz"
+              src="/img/IRS_FE_Logo_long.png"
+            />
+          </div>
+          <div
+            class="css-180vpgq"
+          >
+            <p
+              class="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
+            >
+              Insights into decentral stored Data Chains
+            </p>
+          </div>
           <section
             class="css-jlkg07"
           >
