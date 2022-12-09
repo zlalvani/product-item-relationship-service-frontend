@@ -1,8 +1,15 @@
 type JobStates = "UNSAVED" | "INITIAL" | "RUNNING" | "TRANSFERS_FINISHED" | "COMPLETED" | "CANCELED" | "ERROR";
 
+export interface JobListResponse {
+  content: JobStatusResult[];
+  pageCount: number;
+  pageNumber: number;
+  pageSize: number;
+  totalElements: number;
+}
 export interface JobStatusResult {
-  jobId: string;
-  jobState: JobStatus;
+  id: string;
+  state: JobStatus;
   startedOn: string;
   jobCompleted: string;
 }

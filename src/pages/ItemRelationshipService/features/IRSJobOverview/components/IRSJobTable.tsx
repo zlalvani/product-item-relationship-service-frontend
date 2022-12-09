@@ -10,10 +10,11 @@ export const IRSJobTable: React.FC<{
   isLoading: boolean;
   jobs: JobStatusResult[];
 }> = ({ isLoading, jobs }) => {
+  console.log(jobs);
   const { t } = useTranslation();
   const columns = [
     {
-      field: "jobId",
+      field: "id",
       headerName: t("content.irs.jobsTable.jobID"),
       flex: 1,
       filterable: false,
@@ -48,11 +49,11 @@ export const IRSJobTable: React.FC<{
       filterable: false,
       width: 150,
       renderCell: ({ row }: { row: JobStatusResult }) => {
-        if (row.jobState === "RUNNING") {
-          return <IRSCancelJobButton jobId={row.jobId} />;
+        if (row.state === "RUNNING") {
+          return <IRSCancelJobButton jobId={row.id} />;
         }
-        if (row.jobState === "COMPLETED") {
-          return <IRSNavigateToJobDetails jobId={row.jobId} />;
+        if (row.state === "COMPLETED") {
+          return <IRSNavigateToJobDetails jobId={row.id} />;
         }
 
         return null;
@@ -65,9 +66,6 @@ export const IRSJobTable: React.FC<{
       className="irs-table"
       columns={columns}
       rows={jobs}
-      getRowId={(row: JobStatusResult) => {
-        return row.jobId;
-      }}
       loading={isLoading}
       disableColumnSelector={true}
       disableDensitySelector={true}

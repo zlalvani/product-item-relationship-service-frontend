@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import ReactFlow, { ReactFlowProvider, Background, Controls, MiniMap } from "reactflow";
+import ReactFlow, { Background, Controls, MiniMap, ReactFlowProvider } from "reactflow";
 import "reactflow/dist/style.css";
 import { JobResponse, Shell } from "../../../../../../types/jobs";
 import { DisplayNode } from "./DisplayNode";
@@ -54,7 +54,7 @@ const getEdges = (job: JobResponse) => {
 
 export const GraphDisplay2: React.FC<{
   job: JobResponse;
-  showNodeDialog: (x: { nodeId: string; aspectId?: string }) => void;
+  showNodeDialog: (x: { shell: Shell; aspectId?: string }) => void;
   fullscreen: boolean;
 }> = ({ job, showNodeDialog, fullscreen }) => {
   const jobNodes = getNodes(job);
@@ -72,6 +72,9 @@ export const GraphDisplay2: React.FC<{
         <ReactFlow
           nodeTypes={nodeTypes}
           fitView={true}
+          fitViewOptions={{
+            maxZoom: 1,
+          }}
           nodes={nodes}
           edges={edges}
           proOptions={{ hideAttribution: true }}

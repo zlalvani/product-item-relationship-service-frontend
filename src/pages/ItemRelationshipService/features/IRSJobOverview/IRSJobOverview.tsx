@@ -7,7 +7,7 @@ import { IRSJobTable } from "./components/IRSJobTable";
 
 export const IRSJobOverview: React.FC = () => {
   const [isAutoRefreshEnabled, setIsAutoRefreshEnabled] = useState(false);
-  const { isLoading, isError, data: jobs = [], error } = useFetchJobs(isAutoRefreshEnabled ? 5000 : false);
+  const { isLoading, isError, data: jobs, error } = useFetchJobs(isAutoRefreshEnabled ? 5000 : false);
 
   if (isError) {
     return <ErrorDisplay error={error as Error} />;
@@ -16,7 +16,7 @@ export const IRSJobOverview: React.FC = () => {
   return (
     <PaddedSection>
       <AutoRefreshSwitch onChange={setIsAutoRefreshEnabled} />
-      <IRSJobTable isLoading={isLoading} jobs={jobs} />
+      <IRSJobTable isLoading={isLoading} jobs={jobs?.content ?? []} />
     </PaddedSection>
   );
 };

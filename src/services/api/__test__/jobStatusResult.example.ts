@@ -1,4 +1,4 @@
-import { JobStatusResult } from "../../../types/jobs";
+import { JobListResponse, JobStatusResult } from "../../../types/jobs";
 
 export const JobStatusResultSuccess: JobStatusResult[] = [
   {
@@ -26,3 +26,11 @@ export const JobStatusResultSuccess: JobStatusResult[] = [
     startedOn: "2022-11-14T09:46:51.998075687Z",
   },
 ] as JobStatusResult[];
+
+export const JobListResponseSuccess: JobListResponse = {
+  content: JobStatusResultSuccess,
+  pageCount: 1,
+  pageNumber: 0,
+  pageSize: 20,
+  totalElements: JobStatusResultSuccess.length,
+};
