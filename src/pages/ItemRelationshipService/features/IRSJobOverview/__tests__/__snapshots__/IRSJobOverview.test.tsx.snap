@@ -83,7 +83,7 @@ exports[`renders a data state 1`] = `
                 aria-colindex="1"
                 aria-sort="none"
                 class="MuiDataGrid-columnHeader MuiDataGrid-columnHeader--sortable"
-                data-field="jobId"
+                data-field="id"
                 role="columnheader"
                 style="width: 0px; min-width: 0; max-width: 0;"
                 tabindex="0"
@@ -157,7 +157,7 @@ exports[`renders a data state 1`] = `
                 class="MuiDataGrid-columnHeader MuiDataGrid-columnHeader--sortable"
                 data-field="startedOn"
                 role="columnheader"
-                style="width: 150px; min-width: 150px; max-width: 150px;"
+                style="width: 230px; min-width: 230px; max-width: 230px;"
                 tabindex="-1"
               >
                 <div
@@ -229,7 +229,7 @@ exports[`renders a data state 1`] = `
                 class="MuiDataGrid-columnHeader MuiDataGrid-columnHeader--sortable"
                 data-field="jobCompleted"
                 role="columnheader"
-                style="width: 150px; min-width: 150px; max-width: 150px;"
+                style="width: 230px; min-width: 230px; max-width: 230px;"
                 tabindex="-1"
               >
                 <div
@@ -326,7 +326,7 @@ exports[`renders a data state 1`] = `
                       aria-colspan="1"
                       class="MuiDataGrid-cell MuiDataGrid-cell--textLeft"
                       data-colindex="0"
-                      data-field="jobId"
+                      data-field="id"
                       role="cell"
                       style="min-width: 0; max-width: 0; min-height: 57px; max-height: 57px;"
                       tabindex="-1"
@@ -344,7 +344,7 @@ exports[`renders a data state 1`] = `
                       data-colindex="1"
                       data-field="startedOn"
                       role="cell"
-                      style="min-width: 150px; max-width: 150px; min-height: 57px; max-height: 57px;"
+                      style="min-width: 230px; max-width: 230px; min-height: 57px; max-height: 57px;"
                       tabindex="-1"
                     >
                       <div
@@ -360,7 +360,7 @@ exports[`renders a data state 1`] = `
                       data-colindex="2"
                       data-field="jobCompleted"
                       role="cell"
-                      style="min-width: 150px; max-width: 150px; min-height: 57px; max-height: 57px;"
+                      style="min-width: 230px; max-width: 230px; min-height: 57px; max-height: 57px;"
                       tabindex="-1"
                     >
                       <div
@@ -384,7 +384,7 @@ exports[`renders a data state 1`] = `
                       aria-colspan="1"
                       class="MuiDataGrid-cell MuiDataGrid-cell--textLeft"
                       data-colindex="0"
-                      data-field="jobId"
+                      data-field="id"
                       role="cell"
                       style="min-width: 0; max-width: 0; min-height: 57px; max-height: 57px;"
                       tabindex="-1"
@@ -402,7 +402,7 @@ exports[`renders a data state 1`] = `
                       data-colindex="1"
                       data-field="startedOn"
                       role="cell"
-                      style="min-width: 150px; max-width: 150px; min-height: 57px; max-height: 57px;"
+                      style="min-width: 230px; max-width: 230px; min-height: 57px; max-height: 57px;"
                       tabindex="-1"
                     >
                       <div
@@ -418,7 +418,7 @@ exports[`renders a data state 1`] = `
                       data-colindex="2"
                       data-field="jobCompleted"
                       role="cell"
-                      style="min-width: 150px; max-width: 150px; min-height: 57px; max-height: 57px;"
+                      style="min-width: 230px; max-width: 230px; min-height: 57px; max-height: 57px;"
                       tabindex="-1"
                     >
                       <div
@@ -442,7 +442,7 @@ exports[`renders a data state 1`] = `
                       aria-colspan="1"
                       class="MuiDataGrid-cell MuiDataGrid-cell--textLeft"
                       data-colindex="0"
-                      data-field="jobId"
+                      data-field="id"
                       role="cell"
                       style="min-width: 0; max-width: 0; min-height: 57px; max-height: 57px;"
                       tabindex="-1"
@@ -460,7 +460,7 @@ exports[`renders a data state 1`] = `
                       data-colindex="1"
                       data-field="startedOn"
                       role="cell"
-                      style="min-width: 150px; max-width: 150px; min-height: 57px; max-height: 57px;"
+                      style="min-width: 230px; max-width: 230px; min-height: 57px; max-height: 57px;"
                       tabindex="-1"
                     >
                       <div
@@ -476,7 +476,7 @@ exports[`renders a data state 1`] = `
                       data-colindex="2"
                       data-field="jobCompleted"
                       role="cell"
-                      style="min-width: 150px; max-width: 150px; min-height: 57px; max-height: 57px;"
+                      style="min-width: 230px; max-width: 230px; min-height: 57px; max-height: 57px;"
                       tabindex="-1"
                     >
                       <div
@@ -500,7 +500,7 @@ exports[`renders a data state 1`] = `
                       aria-colspan="1"
                       class="MuiDataGrid-cell MuiDataGrid-cell--textLeft"
                       data-colindex="0"
-                      data-field="jobId"
+                      data-field="id"
                       role="cell"
                       style="min-width: 0; max-width: 0; min-height: 57px; max-height: 57px;"
                       tabindex="-1"
@@ -518,7 +518,7 @@ exports[`renders a data state 1`] = `
                       data-colindex="1"
                       data-field="startedOn"
                       role="cell"
-                      style="min-width: 150px; max-width: 150px; min-height: 57px; max-height: 57px;"
+                      style="min-width: 230px; max-width: 230px; min-height: 57px; max-height: 57px;"
                       tabindex="-1"
                     >
                       <div
@@ -534,7 +534,7 @@ exports[`renders a data state 1`] = `
                       data-colindex="2"
                       data-field="jobCompleted"
                       role="cell"
-                      style="min-width: 150px; max-width: 150px; min-height: 57px; max-height: 57px;"
+                      style="min-width: 230px; max-width: 230px; min-height: 57px; max-height: 57px;"
                       tabindex="-1"
                     >
                       <div
@@ -814,7 +814,7 @@ exports[`renders a loading state 1`] = `
                 aria-colindex="1"
                 aria-sort="none"
                 class="MuiDataGrid-columnHeader MuiDataGrid-columnHeader--sortable"
-                data-field="jobId"
+                data-field="id"
                 role="columnheader"
                 style="width: 0px; min-width: 0; max-width: 0;"
                 tabindex="0"
@@ -888,7 +888,7 @@ exports[`renders a loading state 1`] = `
                 class="MuiDataGrid-columnHeader MuiDataGrid-columnHeader--sortable"
                 data-field="startedOn"
                 role="columnheader"
-                style="width: 150px; min-width: 150px; max-width: 150px;"
+                style="width: 230px; min-width: 230px; max-width: 230px;"
                 tabindex="-1"
               >
                 <div
@@ -960,7 +960,7 @@ exports[`renders a loading state 1`] = `
                 class="MuiDataGrid-columnHeader MuiDataGrid-columnHeader--sortable"
                 data-field="jobCompleted"
                 role="columnheader"
-                style="width: 150px; min-width: 150px; max-width: 150px;"
+                style="width: 230px; min-width: 230px; max-width: 230px;"
                 tabindex="-1"
               >
                 <div

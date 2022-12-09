@@ -1,10 +1,17 @@
 type JobStates = "UNSAVED" | "INITIAL" | "RUNNING" | "TRANSFERS_FINISHED" | "COMPLETED" | "CANCELED" | "ERROR";
 
+export interface JobListResponse {
+  content: JobStatusResult[];
+  pageCount: number;
+  pageNumber: number;
+  pageSize: number;
+  totalElements: number;
+}
 export interface JobStatusResult {
-  jobId: string;
-  jobState: JobStatus;
+  id: string;
+  state: JobStatus;
   startedOn: string;
-  jobCompleted: string;
+  completedOn: string;
 }
 
 export interface JobErrorResponse {
@@ -91,6 +98,8 @@ export interface GlobalAssetId {
 export interface SpecificAssetId {
   key: string;
   value: string;
+  semanticId?: { value: string[] } | null;
+  subjectId?: string | null;
 }
 
 export interface Description2 {

@@ -18,11 +18,9 @@
  * SPDX-License-Identifier: Apache-2.0
  ********************************************************************************/
 
-import { Box, Divider } from "@mui/material";
-
 import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
 import SourceIcon from "@mui/icons-material/Source";
-import { useTheme } from "@mui/material";
+import { Box, Divider, useTheme } from "@mui/material";
 import dayjs from "dayjs";
 import uniqueId from "lodash/uniqueId";
 import { useTranslation } from "react-i18next";

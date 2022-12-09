@@ -14,7 +14,7 @@ it("opens the node detail dialog", () => {
   const closeFn = jest.fn();
   renderWithRouter(
     <NodeDetailDialog
-      showInfo={{ nodeId: shellId, aspectId: undefined }}
+      showInfo={{ shell: JobsDemoDataSuccess.shells[0], aspectId: undefined }}
       job={JobsDemoDataSuccess}
       onClose={closeFn}
     />,

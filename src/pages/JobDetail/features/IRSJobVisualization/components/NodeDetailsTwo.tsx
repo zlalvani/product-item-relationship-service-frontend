@@ -37,7 +37,6 @@ export const NodeDetailsTwo: React.FC<{ twin: Shell; job: JobResponse; aspectId?
   const { t } = useTranslation();
 
   useEffect(() => {
-    console.log(aspectId);
     if (aspectId) {
       document.getElementById(aspectId)?.scrollIntoView();
     }

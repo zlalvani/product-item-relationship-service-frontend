@@ -13,7 +13,7 @@ export const IRSJobTable: React.FC<{
   const { t } = useTranslation();
   const columns = [
     {
-      field: "jobId",
+      field: "id",
       headerName: t("content.irs.jobsTable.jobID"),
       flex: 1,
       filterable: false,
@@ -22,23 +22,23 @@ export const IRSJobTable: React.FC<{
     {
       field: "startedOn",
       headerName: t("content.irs.jobsTable.startDate"),
-      width: 150,
+      width: 230,
       filterable: false,
       valueGetter: ({ row }: { row: JobStatusResult }) => defaultDateFormat(row.startedOn),
     },
     {
       field: "jobCompleted",
       headerName: t("content.irs.jobsTable.endDate"),
-      width: 150,
+      width: 230,
       filterable: false,
-      valueGetter: ({ row }: { row: JobStatusResult }) => defaultDateFormat(row.jobCompleted),
+      valueGetter: ({ row }: { row: JobStatusResult }) => defaultDateFormat(row.completedOn),
     },
     {
       field: "status",
       headerName: t("content.irs.jobsTable.status"),
-
+      width: 170,
       filterable: false,
-      valueGetter: ({ row }: { row: JobStatusResult }) => row.jobState,
+      valueGetter: ({ row }: { row: JobStatusResult }) => row.state,
     },
     {
       field: "visualize",
@@ -48,11 +48,11 @@ export const IRSJobTable: React.FC<{
       filterable: false,
       width: 150,
       renderCell: ({ row }: { row: JobStatusResult }) => {
-        if (row.jobState === "RUNNING") {
-          return <IRSCancelJobButton jobId={row.jobId} />;
+        if (row.state === "RUNNING") {
+          return <IRSCancelJobButton jobId={row.id} />;
         }
-        if (row.jobState === "COMPLETED") {
-          return <IRSNavigateToJobDetails jobId={row.jobId} />;
+        if (row.state === "COMPLETED") {
+          return <IRSNavigateToJobDetails jobId={row.id} />;
         }
 
         return null;
@@ -65,9 +65,6 @@ export const IRSJobTable: React.FC<{
       className="irs-table"
       columns={columns}
       rows={jobs}
-      getRowId={(row: JobStatusResult) => {
-        return row.jobId;
-      }}
       loading={isLoading}
       disableColumnSelector={true}
       disableDensitySelector={true}

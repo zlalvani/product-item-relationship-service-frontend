@@ -29,12 +29,11 @@ import { getSubModelPayload, getTombstones } from "./SubmodelTombstones";
 
 interface Props {
   submodel: SubmodelDescriptor;
-  aasId: string;
   job: JobResponse;
-  onClick: (x: { nodeId: string; aspectId: string }) => void;
+  onClick: () => void;
 }
 
-export const SubmodelDetailCard: React.FC<Props> = ({ submodel, aasId, onClick, job }) => {
+export const SubmodelDetailCard: React.FC<Props> = ({ submodel, onClick, job }) => {
   const tombstones = getTombstones(submodel, job);
   const submodelPayload = getSubModelPayload(submodel.identification, job);
 
@@ -52,8 +51,7 @@ export const SubmodelDetailCard: React.FC<Props> = ({ submodel, aasId, onClick, 
           variant="contained"
           onClick={(event) => {
             event.preventDefault();
-            console.log(submodel.idShort);
-            onClick({ nodeId: aasId, aspectId: submodel.idShort });
+            onClick();
           }}
         >
           {submodel.idShort}

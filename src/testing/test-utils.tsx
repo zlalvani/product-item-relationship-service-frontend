@@ -22,6 +22,8 @@ export function renderWithProviders(
   {
     preloadedState = {},
     // Automatically create a store instance if no store was passed in
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    //@ts-ignore
     store = configureStore({ reducer: { serverEnvReducer }, preloadedState }),
     ...renderOptions
   }: ExtendedRenderOptions = {},
