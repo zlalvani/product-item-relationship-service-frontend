@@ -31,7 +31,7 @@ export const DisplayNode: React.FC<{
       <Handle type="target" position={Position.Top} />
       <NodeStyles>
         <ClickableDiv className="node-header" onClick={() => onClick({ shell })}>
-          <p>{data.idShort}</p>
+          <p>{shell.idShort}</p>
           <p>{data.id}</p>
         </ClickableDiv>
         <Box
@@ -49,7 +49,6 @@ export const DisplayNode: React.FC<{
               <SubmodelDetailCard
                 key={uniqueId(n.identification)}
                 submodel={n}
-                aasId={shell.id}
                 onClick={() => onClick({ shell, aspectId: n.idShort })}
                 job={job}
               />

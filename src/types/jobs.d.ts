@@ -98,8 +98,8 @@ export interface GlobalAssetId {
 export interface SpecificAssetId {
   key: string;
   value: string;
-  semanticId: { value: string[] } | null;
-  subjectId: string | null;
+  semanticId?: { value: string[] } | null;
+  subjectId?: string | null;
 }
 
 export interface Description2 {

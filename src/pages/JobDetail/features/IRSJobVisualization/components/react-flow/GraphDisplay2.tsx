@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import ReactFlow, { Background, Controls, MiniMap, ReactFlowProvider } from "reactflow";
+import ReactFlow, { Background, Controls, Edge, MiniMap, Node, NodeProps, ReactFlowProvider } from "reactflow";
 import "reactflow/dist/style.css";
 import { JobResponse, Shell } from "../../../../../../types/jobs";
 import { DisplayNode } from "./DisplayNode";
@@ -16,7 +16,10 @@ const getNodeBoxHeight = (shell: Shell): number => {
   return INFO_BOX_HEIGHT + ASPECTS_TITLE_HEIGHT + TOTAL_BUTTON_HEIGHT;
 };
 
-const getNodes = (job: JobResponse) => {
+export type GraphNodeData = Node<Shell>;
+export type GraphEdgeData = Edge<unknown>;
+
+const getNodes = (job: JobResponse): GraphNodeData[] => {
   return job.shells.map((shell) => {
     return {
       id: shell.globalAssetId.value[0],
@@ -29,26 +32,25 @@ const getNodes = (job: JobResponse) => {
   });
 };
 
-const getEdges = (job: JobResponse) => {
+const getEdges = (job: JobResponse): GraphEdgeData[] => {
   const validNodeIds = job.shells.map((x: Shell) => {
     return x.globalAssetId.value[0];
   });
+  const edgeData: GraphEdgeData[] = [];
+  job.relationships.forEach((rel) => {
+    const from = rel.catenaXId;
+    const to = rel.linkedItem.childCatenaXId;
 
-  return job.relationships
-    .map((rel) => {
-      const from = rel.catenaXId;
-      const to = rel.linkedItem.childCatenaXId;
-
-      if (validNodeIds.includes(from) && validNodeIds.includes(to)) {
-        return {
-          id: `${rel.catenaXId}-${rel.linkedItem.childCatenaXId}`,
-          source: rel.catenaXId,
-          target: rel.linkedItem.childCatenaXId,
-          type: "smooth",
-        };
-      }
-    })
-    .filter((val) => val !== undefined);
+    if (validNodeIds.includes(from) && validNodeIds.includes(to)) {
+      edgeData.push({
+        id: `${rel.catenaXId}-${rel.linkedItem.childCatenaXId}`,
+        source: rel.catenaXId,
+        target: rel.linkedItem.childCatenaXId,
+        type: "smooth",
+      });
+    }
+  });
+  return edgeData;
 };
 
 export const GraphDisplay2: React.FC<{
@@ -59,7 +61,7 @@ export const GraphDisplay2: React.FC<{
   const jobNodes = getNodes(job);
   const jobEdges = getEdges(job);
   const nodeTypes = useMemo(
-    () => ({ displayNode: (data: Shell) => <DisplayNode data={data} onClick={showNodeDialog} job={job} /> }),
+    () => ({ displayNode: (data: NodeProps<Shell>) => <DisplayNode data={data} onClick={showNodeDialog} job={job} /> }),
     [],
   );
 
