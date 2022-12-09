@@ -28,7 +28,7 @@ export const DisplayNode: React.FC<{
 
   return (
     <div className="nodrag">
-      <Handle type="target" position={Position.Top} />
+      <Handle type="target" position={Position.Top} draggable={false} />
       <NodeStyles>
         <ClickableDiv className="node-header" onClick={() => onClick({ shell })}>
           <p>{shell.idShort}</p>
@@ -56,7 +56,7 @@ export const DisplayNode: React.FC<{
           })}
         </Box>
       </NodeStyles>
-      <Handle type="source" position={Position.Bottom} id="a" />
+      <Handle type="source" position={Position.Bottom} id="a" draggable={false} />
     </div>
   );
 };

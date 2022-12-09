@@ -37,24 +37,88 @@ exports[`renders a basic visualization 1`] = `
             />
           </button>
         </div>
-        <form>
-          <input
-            list="nodes"
-            name="selectedNode"
-            value=""
-          />
-          <datalist
-            id="nodes"
+        <div
+          class="css-5m6tqh"
+        >
+          <div
+            class="MuiAutocomplete-root MuiAutocomplete-hasPopupIcon css-oarg8b-MuiAutocomplete-root"
           >
-            <option
-              value="urn:uuid:a45a2246-f6e1-42da-b47d-5c3b58ed62e9"
-            />
-          </datalist>
-          <input
+            <div
+              class="MuiBox-root css-20iexu"
+            >
+              <div
+                class="MuiBox-root css-0"
+              >
+                <div
+                  class="MuiFormControl-root css-q8hpuo-MuiFormControl-root"
+                >
+                  <label
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled css-e4w4as-MuiFormLabel-root-MuiInputLabel-root"
+                    data-shrink="false"
+                  >
+                    Highlight Node
+                  </label>
+                  <div
+                    class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-wb57ya-MuiFormControl-root-MuiTextField-root"
+                  >
+                    <div
+                      class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-sl80c4-MuiInputBase-root-MuiFilledInput-root"
+                    >
+                      <input
+                        aria-autocomplete="list"
+                        aria-expanded="false"
+                        aria-invalid="false"
+                        autocapitalize="none"
+                        autocomplete="off"
+                        class="MuiInputBase-input MuiFilledInput-input MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-1gctnaj-MuiInputBase-input-MuiFilledInput-input"
+                        id="singleSelectList"
+                        placeholder="Enter Node ID"
+                        role="combobox"
+                        spellcheck="false"
+                        type="text"
+                        value=""
+                      />
+                      <div
+                        class="MuiAutocomplete-endAdornment css-1q60rmi-MuiAutocomplete-endAdornment"
+                      >
+                        <button
+                          aria-label="Open"
+                          class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium MuiAutocomplete-popupIndicator css-qzbt6i-MuiButtonBase-root-MuiIconButton-root-MuiAutocomplete-popupIndicator"
+                          tabindex="-1"
+                          title="Open"
+                          type="button"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                            data-testid="ArrowDropDownIcon"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M7 10l5 5 5-5z"
+                            />
+                          </svg>
+                          <span
+                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                          />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeSmall MuiButton-containedSizeSmall Mui-disabled MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeSmall MuiButton-containedSizeSmall css-9aa3p4-MuiButtonBase-root-MuiButton-root"
             disabled=""
-            type="submit"
-          />
-        </form>
+            tabindex="-1"
+            type="button"
+          >
+            Submit
+          </button>
+        </div>
         <div
           style="height: 40vh;"
         >
@@ -103,6 +167,7 @@ exports[`renders a basic visualization 1`] = `
                         class="react-flow__handle react-flow__handle-top nodrag nopan target connectable"
                         data-handlepos="top"
                         data-nodeid="urn:uuid:a45a2246-f6e1-42da-b47d-5c3b58ed62e9"
+                        draggable="false"
                       />
                       <div
                         class="css-1dderol"
@@ -182,6 +247,7 @@ exports[`renders a basic visualization 1`] = `
                         data-handleid="a"
                         data-handlepos="bottom"
                         data-nodeid="urn:uuid:a45a2246-f6e1-42da-b47d-5c3b58ed62e9"
+                        draggable="false"
                       />
                     </div>
                   </div>
