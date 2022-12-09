@@ -11,7 +11,7 @@ export interface JobStatusResult {
   id: string;
   state: JobStatus;
   startedOn: string;
-  jobCompleted: string;
+  completedOn: string;
 }
 
 export interface JobErrorResponse {
@@ -98,6 +98,8 @@ export interface GlobalAssetId {
 export interface SpecificAssetId {
   key: string;
   value: string;
+  semanticId: { value: string[] } | null;
+  subjectId: string | null;
 }
 
 export interface Description2 {

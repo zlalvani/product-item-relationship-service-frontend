@@ -17,7 +17,6 @@ const getNodeBoxHeight = (shell: Shell): number => {
 };
 
 const getNodes = (job: JobResponse) => {
-  // TODO: calculate Height
   return job.shells.map((shell) => {
     return {
       id: shell.globalAssetId.value[0],
@@ -78,6 +77,7 @@ export const GraphDisplay2: React.FC<{
           nodes={nodes}
           edges={edges}
           proOptions={{ hideAttribution: true }}
+          minZoom={0.01}
         >
           <Background />
           <Controls />

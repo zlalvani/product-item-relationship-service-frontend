@@ -5,7 +5,7 @@ import { useState } from "react";
 import { FullScreen, useFullScreenHandle } from "../../../../components/FullScreenHandler";
 import { FullscreenExitIcon, FullscreenIcon, useTranslation } from "../../../../lib";
 
-import { JobResponse, Relationship } from "../../../../types/jobs";
+import { JobResponse, Relationship, Shell } from "../../../../types/jobs";
 import { EdgeDetailDialog } from "./components/EdgeDetailDialog";
 import { NodeDetailDialog } from "./components/NodeDetailDialog";
 
@@ -13,7 +13,7 @@ export const IrsJobVisualization: React.FC<{ job: JobResponse }> = ({ job }) => 
   const { t } = useTranslation();
   const handle = useFullScreenHandle();
 
-  const [showNodeDialog, setShowNodeDialog] = useState<{ nodeId: string; aspectId?: string } | undefined>();
+  const [showNodeDialog, setShowNodeDialog] = useState<{ shell: Shell; aspectId?: string } | undefined>();
   const [showEdgeDialog, setShowEdgeDialog] = useState<Relationship | undefined>(undefined);
 
   if (job.shells.length === 0) {

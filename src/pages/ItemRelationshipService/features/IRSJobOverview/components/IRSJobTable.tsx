@@ -32,14 +32,14 @@ export const IRSJobTable: React.FC<{
       headerName: t("content.irs.jobsTable.endDate"),
       width: 230,
       filterable: false,
-      valueGetter: ({ row }: { row: JobStatusResult }) => defaultDateFormat(row.jobCompleted),
+      valueGetter: ({ row }: { row: JobStatusResult }) => defaultDateFormat(row.completedOn),
     },
     {
       field: "status",
       headerName: t("content.irs.jobsTable.status"),
       width: 170,
       filterable: false,
-      valueGetter: ({ row }: { row: JobStatusResult }) => row.jobState,
+      valueGetter: ({ row }: { row: JobStatusResult }) => row.state,
     },
     {
       field: "visualize",

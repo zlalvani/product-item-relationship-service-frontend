@@ -1,4 +1,7 @@
-import { JobStatusResultSuccess } from "../../../../../services/api/__test__/jobStatusResult.example";
+import {
+  JobListResponseSuccess,
+  JobStatusResultSuccess,
+} from "../../../../../services/api/__test__/jobStatusResult.example";
 import * as queryHooks from "../../../../../services/queries/jobs";
 import { render } from "../../../../../testing/test-utils";
 import { IRSJobOverview } from "../IRSJobOverview";
@@ -32,7 +35,7 @@ it("renders a error state", () => {
 
 it("renders a data state", () => {
   const mockData = {
-    data: JobStatusResultSuccess,
+    data: JobListResponseSuccess,
     isError: false,
     isLoading: false,
   };
