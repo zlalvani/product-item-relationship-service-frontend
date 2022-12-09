@@ -1,7 +1,4 @@
-import {
-  JobListResponseSuccess,
-  JobStatusResultSuccess,
-} from "../../../../../services/api/__test__/jobStatusResult.example";
+import { JobListResponseSuccess } from "../../../../../services/api/__test__/jobStatusResult.example";
 import * as queryHooks from "../../../../../services/queries/jobs";
 import { render } from "../../../../../testing/test-utils";
 import { IRSJobOverview } from "../IRSJobOverview";

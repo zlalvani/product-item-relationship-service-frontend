@@ -110,7 +110,9 @@ exports[`renders a basic visualization 1`] = `
                         <div
                           class="node-header css-1h5x3dy"
                         >
-                          <p />
+                          <p>
+                            future concept x
+                          </p>
                           <p>
                             urn:uuid:a45a2246-f6e1-42da-b47d-5c3b58ed62e9
                           </p>

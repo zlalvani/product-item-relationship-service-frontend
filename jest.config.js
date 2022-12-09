@@ -1,4 +1,3 @@
-/** @type {import('ts-jest').JestConfigWithTsJest} */
 
 const libs = ["react-syntax-highlighter", "p-cancelable", "d3-shape", "d3-path"].join("|");
 

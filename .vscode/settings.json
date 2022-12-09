@@ -1,4 +1,15 @@
 {
   "conventionalCommits.scopes": ["dps"],
-  "cSpell.words": ["keycloak"]
+  "cSpell.words": [
+    "commitlint",
+    "dagre",
+    "googlecode",
+    "keycloak",
+    "languagedetector",
+    "reactflow",
+    "reduxjs",
+    "Submodel",
+    "submodels",
+    "tanstack"
+  ]
 }
