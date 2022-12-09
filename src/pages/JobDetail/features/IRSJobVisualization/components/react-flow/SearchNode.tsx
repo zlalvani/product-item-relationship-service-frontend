@@ -1,3 +1,5 @@
+import styled from "@emotion/styled";
+import { Button, SelectList } from "cx-portal-shared-components";
 import { useState } from "react";
 import { useReactFlow, useStoreApi } from "reactflow";
 
@@ -23,20 +25,33 @@ export const SearchNode: React.FC = () => {
   };
 
   return (
-    <form
-      onSubmit={(e) => {
-        e.preventDefault();
-        focusNode(nodeId);
-        setNodeId("");
-      }}
-    >
-      <input list="nodes" value={nodeId} onChange={(e) => setNodeId(e.currentTarget.value)} />
-      <datalist id="nodes">
-        {nodes.map((node) => (
-          <option value={node.id} key={node.id} />
-        ))}
-      </datalist>
-      <input type="submit" disabled={!nodeIds.includes(nodeId)} />
-    </form>
+    <StyledInput>
+      <SelectList
+        clearText="clear"
+        helperText="Enter Node ID"
+        items={nodes.map((node) => ({ id: node.id, title: node.id, value: node.id }))}
+        label={"Highlight Node"}
+        placeholder={"Enter Node ID"}
+        onChangeItem={(item: { value: string }): void => {
+          setNodeId(item.value);
+        }}
+      />
+      <Button
+        color="secondary"
+        size="small"
+        disabled={!nodeIds.includes(nodeId)}
+        onClick={() => {
+          focusNode(nodeId);
+          setNodeId("");
+        }}
+      >
+        Submit
+      </Button>
+    </StyledInput>
   );
 };
+
+const StyledInput = styled.div`
+  text-align: left;
+  padding: 0.5rem;
+`;
