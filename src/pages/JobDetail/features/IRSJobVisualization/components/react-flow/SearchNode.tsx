@@ -30,7 +30,7 @@ export const SearchNode: React.FC = () => {
         setNodeId("");
       }}
     >
-      <input list="nodes" name="selectedNode" value={nodeId} onChange={(e) => setNodeId(e.currentTarget.value)} />
+      <input list="nodes" value={nodeId} onChange={(e) => setNodeId(e.currentTarget.value)} />
       <datalist id="nodes">
         {nodes.map((node) => (
           <option value={node.id} key={node.id} />
