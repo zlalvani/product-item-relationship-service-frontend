@@ -10,7 +10,6 @@ export const IRSJobTable: React.FC<{
   isLoading: boolean;
   jobs: JobStatusResult[];
 }> = ({ isLoading, jobs }) => {
-  console.log(jobs);
   const { t } = useTranslation();
   const columns = [
     {

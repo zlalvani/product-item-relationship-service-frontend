@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import ReactFlow, { Background, Controls, Edge, MiniMap, Node, NodeProps, ReactFlowProvider } from "reactflow";
 import "reactflow/dist/style.css";
-import { JobResponse, Shell } from "../../../../../../types/jobs";
+import { JobResponse, Relationship, Shell } from "../../../../../../types/jobs";
 import { DisplayNode } from "./DisplayNode";
 import { getLayoutedElements } from "./LayoutElements";
 import { SearchNode } from "./SearchNode";
@@ -17,7 +17,7 @@ const getNodeBoxHeight = (shell: Shell): number => {
 };
 
 export type GraphNodeData = Node<Shell>;
-export type GraphEdgeData = Edge<unknown>;
+export type GraphEdgeData = Edge<Relationship>;
 
 const getNodes = (job: JobResponse): GraphNodeData[] => {
   return job.shells.map((shell) => {
@@ -46,7 +46,8 @@ const getEdges = (job: JobResponse): GraphEdgeData[] => {
         id: `${rel.catenaXId}-${rel.linkedItem.childCatenaXId}`,
         source: rel.catenaXId,
         target: rel.linkedItem.childCatenaXId,
-        type: "smooth",
+
+        data: rel,
       });
     }
   });
@@ -56,8 +57,9 @@ const getEdges = (job: JobResponse): GraphEdgeData[] => {
 export const GraphDisplay2: React.FC<{
   job: JobResponse;
   showNodeDialog: (x: { shell: Shell; aspectId?: string }) => void;
+  showEdgeDialog: (rel: Relationship) => void;
   fullscreen: boolean;
-}> = ({ job, showNodeDialog, fullscreen }) => {
+}> = ({ job, showNodeDialog, showEdgeDialog, fullscreen }) => {
   const jobNodes = getNodes(job);
   const jobEdges = getEdges(job);
   const nodeTypes = useMemo(
@@ -80,6 +82,9 @@ export const GraphDisplay2: React.FC<{
           edges={edges}
           proOptions={{ hideAttribution: true }}
           minZoom={0.01}
+          onEdgeClick={(event: React.MouseEvent, edge: Edge) => {
+            showEdgeDialog(edge.data);
+          }}
         >
           <Background />
           <Controls />

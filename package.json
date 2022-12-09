@@ -83,7 +83,6 @@
     "react-router-dom": "^6.4.5",
     "react-syntax-highlighter": "^15.5.0",
     "reactflow": "^11.3.3",
-    "reaflow": "^5.1.1",
     "redux-persist": "^6.0.0"
   }
 }

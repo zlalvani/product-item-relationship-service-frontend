@@ -8,8 +8,6 @@ export const fetchJobById = async (jobId: string, serverEnv: AvailableServerEnvi
   if (serverEnv === "DEMO") {
     return JobsDemoDataSuccess;
   }
-  const data = await HttpClient.get(`jobs/${jobId}?returnUncompletedJob=true`, undefined, serverEnv);
-  console.log(JSON.stringify(data));
   return await HttpClient.get(`jobs/${jobId}?returnUncompletedJob=true`, undefined, serverEnv);
 };
 
