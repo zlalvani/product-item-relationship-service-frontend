@@ -3,7 +3,7 @@
 exports[`renders the tombstone information 1`] = `
 <div>
   <section
-    style="padding: 34px 20px;"
+    style="padding: 34px 0px;"
   >
     <div
       class="irs-job-details MuiBox-root css-0"
