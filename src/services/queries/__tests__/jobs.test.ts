@@ -4,6 +4,7 @@ import { serverConfig } from "../../../constants/serverConfig";
 import { renderHook, waitFor } from "../../../testing/test-utils";
 import { JobStatusResultSuccess } from "../../api/__test__/jobStatusResult.example";
 import { useCancelJobs, useFetchJobById, useFetchJobs } from "../jobs";
+import { expect, it } from "vitest";
 
 const mock = new MockAdapter(axios);
 
