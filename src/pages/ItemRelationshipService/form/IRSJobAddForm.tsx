@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 
-import { Button } from "cx-portal-shared-components";
+import { LoadingButton, PageSnackbar } from "cx-portal-shared-components";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { PaddedSection } from "../../../components/layout/PaddedSection";
@@ -23,7 +23,7 @@ const useGetCurrentServerUrl = () => {
 export const IRSJobAddForm = () => {
   const { t } = useTranslation();
   const serverUrl = useGetCurrentServerUrl();
-  const { mutate: createJob } = useCreateJob();
+  const { mutate: createJob, isLoading, isError, isSuccess } = useCreateJob();
 
   const testJob = {
     aspects: ["AssemblyPartRelationship", "SerialPartTypization"],
@@ -107,17 +107,28 @@ export const IRSJobAddForm = () => {
               }}
             />
           </form>
-          <Button
+          <LoadingButton
             style={{ marginTop: 20 }}
-            variant="contained"
             color="secondary"
+            label={t("content.irs.form.sendButton")}
+            loadIndicator="Creating Job ..."
+            loading={isLoading}
             onClick={onFormSubmit}
             disabled={formHasErrors()}
-          >
-            {t("content.irs.form.sendButton")}
-          </Button>
+            onButtonClick={onFormSubmit}
+            variant="contained"
+            size="medium"
+          />
         </Box>
       </Box>
+
+      {isError && (
+        <PageSnackbar description="Failed to create Job" open={true} severity="error" showIcon={true} title="Error" />
+      )}
+
+      {isSuccess && (
+        <PageSnackbar description="Created Job" open={true} severity="success" showIcon={true} title="Success" />
+      )}
     </PaddedSection>
   );
 };
