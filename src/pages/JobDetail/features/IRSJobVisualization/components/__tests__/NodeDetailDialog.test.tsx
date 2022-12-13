@@ -1,17 +1,16 @@
+import { expect, it, vi } from "vitest";
 import { JobsDemoDataSuccess } from "../../../../../../services/api/__test__/jobs.exampleData";
 import { fireEvent, render, renderWithRouter, screen } from "../../../../../../testing/test-utils";
 import { NodeDetailDialog } from "../NodeDetailDialog";
 
-const shellId = "urn:uuid:a45a2246-f6e1-42da-b47d-5c3b58ed62e9";
-
 it("does not render th node dialog", () => {
-  const onClose = jest.fn();
+  const onClose = vi.fn();
   const { container } = render(<NodeDetailDialog showInfo={undefined} job={JobsDemoDataSuccess} onClose={onClose} />);
   expect(container).toMatchSnapshot();
 });
 
 it("opens the node detail dialog", () => {
-  const closeFn = jest.fn();
+  const closeFn = vi.fn();
   renderWithRouter(
     <NodeDetailDialog
       showInfo={{ shell: JobsDemoDataSuccess.shells[0], aspectId: undefined }}

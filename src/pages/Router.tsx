@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import ErrorPage from "./General/ErrorPage";
+import { ErrorRoute } from "./General/ErrorPage";
 import { PrivateRoot, PublicRoot } from "./General/Root";
 import { ItemRelationshipService } from "./ItemRelationshipService/ItemRelationshipService";
 import { JobDetail } from "./JobDetail/JobDetail";
@@ -9,7 +9,7 @@ export const routeConfig = [
   {
     path: "/",
     element: <PublicRoot />,
-    errorElement: <ErrorPage />,
+    errorElement: <ErrorRoute />,
 
     children: [
       {

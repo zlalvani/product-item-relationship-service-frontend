@@ -2,6 +2,7 @@ import { JobListResponseSuccess } from "../../../../../services/api/__test__/job
 import * as queryHooks from "../../../../../services/queries/jobs";
 import { render } from "../../../../../testing/test-utils";
 import { IRSJobOverview } from "../IRSJobOverview";
+import { expect, it, vi } from "vitest";
 
 it("renders a loading state", () => {
   const mockData = {
@@ -11,7 +12,7 @@ it("renders a loading state", () => {
   };
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   //@ts-ignore
-  jest.spyOn(queryHooks, "useFetchJobs").mockReturnValue(mockData);
+  vi.spyOn(queryHooks, "useFetchJobs").mockReturnValue(mockData);
   const { container } = render(<IRSJobOverview />);
   expect(container).toMatchSnapshot();
 });
@@ -25,7 +26,7 @@ it("renders a error state", () => {
   };
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   //@ts-ignore
-  jest.spyOn(queryHooks, "useFetchJobs").mockReturnValue(mockData);
+  vi.spyOn(queryHooks, "useFetchJobs").mockReturnValue(mockData);
   const { container } = render(<IRSJobOverview />);
   expect(container).toMatchSnapshot();
 });
@@ -38,7 +39,7 @@ it("renders a data state", () => {
   };
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   //@ts-ignore
-  jest.spyOn(queryHooks, "useFetchJobs").mockReturnValue(mockData);
+  vi.spyOn(queryHooks, "useFetchJobs").mockReturnValue(mockData);
   const { container } = render(<IRSJobOverview />);
   expect(container).toMatchSnapshot();
 });

@@ -1,8 +1,8 @@
+import { expect, it, vi } from "vitest";
 import { fireEvent, render, screen } from "../../../../../../testing/test-utils";
 import { AutoRefreshSwitch } from "../AutoRefreshSwitch";
-
 it("renders the switch", () => {
-  const mockChangeHandler = jest.fn();
+  const mockChangeHandler = vi.fn();
   render(<AutoRefreshSwitch onChange={mockChangeHandler} />);
 
   const element2 = screen.getByTestId("IOSSwitch");

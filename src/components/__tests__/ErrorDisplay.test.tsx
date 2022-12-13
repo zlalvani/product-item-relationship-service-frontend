@@ -1,3 +1,4 @@
+import { expect, it } from "vitest";
 import { renderWithRouter } from "../../testing/test-utils";
 import { ErrorDisplay } from "../ErrorDisplay";
 

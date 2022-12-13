@@ -11,7 +11,7 @@ export const IrsJobDetails: React.FC<{ job: Job }> = ({ job }) => {
   return (
     <section
       style={{
-        padding: "34px 20px",
+        padding: "34px 0",
       }}
     >
       <Box className="irs-job-details">

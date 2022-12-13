@@ -2,8 +2,8 @@ import styled from "@emotion/styled";
 import { Box, useTheme } from "@mui/material";
 import { uniqueId } from "lodash";
 import { Handle, NodeProps, Position } from "reactflow";
-import { JobResponse, Shell, SubmodelDescriptor } from "../../../../../../types/jobs";
-import { SubmodelDetailCard } from "../submodelDetailCard";
+import { JobResponse, Shell, SubmodelDescriptor } from "../../../../../types/jobs";
+import { SubmodelDetailCard } from "./submodelDetailCard";
 
 const getSortedSubModelDescriptions = (shell: Shell) => {
   function compare(a: SubmodelDescriptor, b: SubmodelDescriptor) {

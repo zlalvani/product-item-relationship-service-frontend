@@ -11,5 +11,6 @@
     "Submodel",
     "submodels",
     "tanstack"
-  ]
+  ],
+  "testing.automaticallyOpenPeekView": "never"
 }
