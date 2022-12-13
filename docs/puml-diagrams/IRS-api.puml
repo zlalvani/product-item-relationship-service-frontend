@@ -1,7 +1,7 @@
 @startuml 
 title IRS API sequence diagramm v0.2
 
-actor CE as "CE Dashboard"
+actor CE as "User"
 
 box Item Relationship Service
 participant IRS_API as " API v0.2"

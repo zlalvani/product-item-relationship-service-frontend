@@ -2,9 +2,8 @@
 
     // TODO: Table of contents need to be done. Please mark [X] in front of topic when its done. After every topic is done, we can remove "checkbox"
 
-  [ o ] - need overview <br>
-  [ x ] - done
-
+[ o ] - need overview <br>
+[ x ] - done
 
 ## Table of Contents
 
@@ -13,22 +12,21 @@
   - [ o ] [Quality goals](#quality-goals)
   - [ o ] [Stakeholders](#stakeholders)
 - [ - ] [Architecture constraints](#architecture-constraints)
-  - [ ] [Technical Constraints](#technical-constraints)
-  - [ ] [Organizational Constraints](#organizational-constraints)
-  - [ ] [Political constraints](#political-constraints)
-  - [ ] [Development conventions](#development-conventions)
+  - [ - ] [Technical Constraints](#technical-constraints)
+  - [ - ] [Organizational Constraints](#organizational-constraints)
+  - [ - ] [Political constraints](#political-constraints)
+  - [ - ] [Development conventions](#development-conventions)
 - [ - ] [System scope and context](#system-scope-and-context)
   - [ - ] [Business context](#business-context)
   - [ - ] [Technical context](#technical-context)
-- [ ] [Solution strategy](#solution-strategy)
-  - [ ] [Introduction](#introduction)
-  - [ ] [Technology](#technology)
-  - [ ] [Structure](#structure)
+- [ - ] [Solution strategy](#solution-strategy)
+  - [ - ] [Introduction](#introduction)
+  - [ - ] [Technology](#technology)
+  - [ - ] [Structure](#structure)
 - [ o ] [Building block view](#building-block-view)
   - [ o ] [Whitebox overall system](#whitebox-overall-system)
-  - [ ] [Level 1](#level-1)
-  - [ ] [Level 2](#level-2)
-  - [ ] [IRS API](#irs-api)
+  - [ o ] [Level 1](#level-1)
+  - [ o ] [IRS API](#references)
 - [ ] [Runtime view](#runtime-view)
   - [ ] [Overall](#overall)
   - [ ] [Scenario 1: Create job](#scenario-1-create-job)
@@ -262,11 +260,14 @@ The job processing engine handles execution of the data requests for each job. I
 
 ## Whitebox overall system
 
-The interfaces show how the components interact with each other and which interfaces the IRS-DV is providing.
+The interfaces show how the components interact with each other and which interfaces the IRS-DV are.
+
+Full backend services graph you can find at **[IRS team](https://catenax-ng.github.io/tx-item-relationship-service/docs/arc42/full.html#_whitebox_overall_system)**.
+
 
 ### Component diagram
 
-whitebox overview (IMAGE)
+![whitebox overview](./images/puml-svg/whitebox%20overview.svg)
 
 ### Component description
 
@@ -274,84 +275,44 @@ whitebox overview (IMAGE)
 | ------------------- | ------------------------------------------------------------------------------------------------ |
 | IRSSelectServerEnv  | Select server environmental between given servers                                                |
 | IRSJobAddForm       | In this component, you can select settings according to which globalAssetId you are looking for. |
-| IRSJobOverview      | IRS-DV history by search parameters                                                                 |
-| IRSJobVisualization | IRS-DV visualization based on search parameters. We show all related nodes.                         |
-|IRSJobTombstones | IRS-DV cached errors |
-|IRSJobTable| Show all grid for filtered history|
-|ErrorPage| Catch errors(router error and ... ) and show error page|
-
- 
-
-
+| IRSJobOverview      | IRS-DV history by search parameters                                                              |
+| IRSJobVisualization | IRS-DV visualization based on search parameters. We show all related nodes.                      |
+| IRSJobTombstones    | IRS-DV cached errors                                                                             |
+| IRSJobTable         | Show all grid for filtered history                                                               |
+| ErrorPage           | Catch errors(router error and ... ) and show error page                                          |
 
 ## Level 1
 
 ### Component diagram
 
-level 1 (IMAGE)
+![whitebox Level 1](./images/puml-svg/whitebox-level1.svg)
 
 ### Component description
 
-| Components               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| IRS                      | The IRS builds a digital representation of a product (digital twin) and the relationships of items the product consists of in a hierarchical structure.<br><br>The result is an item graph in which each node represents a digital item of the product - this graph is called "Item Graph".                                                                                                                                                                                                                                                                             |
-| IRS API                  | The IRS API is the Interface over which the Data Consumer is communicating.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| IRSJobOverview          | The JobOrchestrator is a component which manages (start, end, cancel, resume) the jobs which execute the item graph retrieval process.                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| JobStore                 | The JobStore is the database where the jobs with the information about the requested item are stored.                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| Components         | Description                                                                                                                   |
+| ------------------ | ----------------------------------------------------------------------------------------------------------------------------- |
+| IRSSelectServerEnv | The IRS-DV you can select between environments you want to find job                                                           |
+| IRSJobAddForm      | The IRSJobAddForm is a JSON format with parameters, you can add "aspects", "direction", "globalAssetId" and other parameters. (see full json file below) |
+| IRSJobOverview     | The IRSJobOverview is a component which manages (start, cancel, auto refresh) the jobs, and store them in a table list.       |
+
+```json
+json example:
+{
+"aspects": [
+"AssemblyPartRelationship",
+"SerialPartTypization"
+],
+"bomLifecycle": "asBuilt",
+"collectAspects": true,
+"direction": "downward",
+"depth": 10,
+"globalAssetId": "urn:uuid:d387fa8e-603c-42bd-98c3-4d87fef8d2bb"
+}
 
 
-## Level 2
-
-### IRS controller
-
-The IRS REST controller to provide a RESTful web service.
-
-### Component diagram
-
-level 2 controller (IMAGE)
-
-### Component description
-
-| Components               | Description                                                                                        |
-| ------------------------ | -------------------------------------------------------------------------------------------------- |
+```
 
 
-### RecursiveJobHandler
-
-The RecursiveJobHandler component provide the logic to build jobs with recursive logic to retrieve items over the complete C-X network and assembles the partial results into a single item graph result.
-
-### Component diagram
-
-level 2 jobhandler (IMAGE)
-
-### Component description
-
-| Components             | Description                                                                                                                                              |
-| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| AASRecursiveJobHandler | Recursive job handler for AAS data                                                                                                                       |
-| TreeRecursiveLogic     | Retrieves item graphs from potentially multiple calls to IRS API behind multiple EDC Providers, and assembles their outputs into one overall item graph. |
-| ItemTreesAssembler     | Assembles multiple partial item graphs into one overall item graph.                                                                                      |
-| BlobPersistence        | Interface for storing data blobs.                                                                                                                        |
-
-### TransferProcessManagment
-
-The TransferProcessManager creates executions and provides them to the executor service. Each execution contains HTTP requests to the asset administration shell registry and to the submodel interface.
-
-### Component diagram
-
-level 2 transfer process management (IMAGE)
-
-### Component description
-
-| Components                | Description                                                                                                                                             |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| TransferProcessManager    | The TransferProcessManager manages the requests to the AASWrapper and DigitalTwinRegistry.                                                              |
-| DigitalTwinRegistryFacade | The DigitalTwinRegistryFacade calls the DigitalTwinRegistry to retrieve data form the AAS registry and transforms the response to internal data models. |
-| SubmodelFacade            | The SubmodelFacade calls the AASWrapper to retrieve data from the submodel server and transforms the response to internal data models.                  |
-| BlobStore                 | The BlobStore is the database where the relationships and tombstones are stored for a requested item.                                                   |
-| AASWrapper                | The AASWrapper is the interface to the EDC Network. It manages negotiation of contracts and transfer of data.                                           |
-| DigitalTwinRegistry       | The DigitalTwinRegistry is the central database of registered assets.                                                                                   |
-| ExecutorService           | The ExecutorService enables the simultaneous execution of requests of transfer processes.                                                               |
 
 ## IRS API
 
@@ -359,11 +320,11 @@ level 2 transfer process management (IMAGE)
 
 The Swagger documentation can be found in the local deployment of the reference application. More information can be found in the GitHub repository: https://github.com/eclipse-tractusx/item-relationship-service/blob/main/README.md
 
-Since we cannot rely on synchronous responses regarding the requests of submodel endpoints, we designed the IRS in a way that it will handle the job management of requesting all needed endpoints in order to build a BoM tree.
+
 
 ### IRS interaction diagram
 
-irs api (IMAGE)
+![IRS API jobs](./images/puml-svg/irs-api-jobs.svg)
 
 <br>
 <br>
@@ -375,7 +336,7 @@ irs api (IMAGE)
 
 # Runtime view
 
-This section covers the main processes of the IRS and explains how data is transfered and processed when a job is executed.
+This section covers the main processes of the IRS-DV and explains how data is transfered and processed when a job is executed.
 
 ## Overall
 
@@ -550,13 +511,13 @@ For detailed information about the API model, please refer to the API specificat
 
 A job can be in one of the following states:
 
-| State              | Description                                                                     |
-| ------------------ | ------------------------------------------------------------------------------- |
-| INITIAL            | The job was stored by the system and is now queued for processing.              |
-| RUNNING        | The job is currently being processed.                                           |
-| COMPLETED          | The job has completed. See the job response for details on the data.            |
-| CANCELED | The job could not be processed, user canceled request |
-| ERROR              | The job could not be processed correctly by the IRS due to a technical problem. |
+| State     | Description                                                                     |
+| --------- | ------------------------------------------------------------------------------- |
+| INITIAL   | The job was stored by the system and is now queued for processing.              |
+| RUNNING   | The job is currently being processed.                                           |
+| COMPLETED | The job has completed. See the job response for details on the data.            |
+| CANCELED  | The job could not be processed, user canceled request                           |
+| ERROR     | The job could not be processed correctly by the IRS due to a technical problem. |
 
 job state machine (IMAGE)
 
@@ -837,3 +798,4 @@ This section will be filled soon.
 
 <br>
 <br>
+```
