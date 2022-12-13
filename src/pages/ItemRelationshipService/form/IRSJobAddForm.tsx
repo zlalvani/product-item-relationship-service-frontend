@@ -123,11 +123,27 @@ export const IRSJobAddForm = () => {
       </Box>
 
       {isError && (
-        <PageSnackbar description="Failed to create Job" open={true} severity="error" showIcon={true} title="Error" />
+        <PageSnackbar
+          description="Failed to create Job"
+          open={true}
+          severity="error"
+          showIcon={true}
+          title="Error"
+          vertical={"top"}
+          horizontal={"center"}
+        />
       )}
 
       {isSuccess && (
-        <PageSnackbar description="Created Job" open={true} severity="success" showIcon={true} title="Success" />
+        <PageSnackbar
+          description="Created Job"
+          open={true}
+          severity="success"
+          showIcon={true}
+          title="Success"
+          vertical={"top"}
+          horizontal={"center"}
+        />
       )}
     </PaddedSection>
   );
