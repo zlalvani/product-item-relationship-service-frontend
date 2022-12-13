@@ -1,18 +1,7 @@
-import { Box } from "@mui/material";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { Box, IconButton } from "@mui/material";
+import React, { useState } from "react";
+import { FullscreenExitIcon, FullscreenIcon } from "../lib";
 
-export interface FullScreenHandle {
-  active: boolean;
-  enter: () => void;
-  exit: () => void;
-  node: React.MutableRefObject<HTMLDivElement | null>;
-}
-export interface FullScreenProps {
-  handle: FullScreenHandle;
-  children: React.ReactNode;
-  onChange?: (state: boolean, handle: FullScreenHandle) => void;
-  className?: string;
-}
 const stylesFullScreen: React.CSSProperties = {
   position: "fixed",
   zIndex: 1000,
@@ -30,49 +19,25 @@ const stylesFullScreen: React.CSSProperties = {
   backgroundSize: "20px 20px",
 };
 
-export const useFullScreenHandle = () => {
-  const [active, setActive] = useState(false);
+export const FullScreenButton: React.FC<{ active: boolean; setActive: (x: boolean) => void }> = ({
+  active,
+  setActive,
+}) => (
+  <IconButton color="secondary" size="medium" style={{ alignSelf: "right" }} onClick={() => setActive(!active)}>
+    {active ? <FullscreenExitIcon /> : <FullscreenIcon />}
+  </IconButton>
+);
 
-  const node = useRef(null);
-
-  const enter = useCallback(() => {
-    setActive(true);
-  }, []);
-
-  const exit = useCallback(() => {
-    setActive(false);
-  }, []);
-
-  return useMemo(() => {
-    return {
-      active: active,
-      enter: enter,
-      exit: exit,
-      node: node,
-    };
-  }, [active, enter, exit]);
+export const FullScreen: React.FC<{ children: React.ReactNode; active: boolean }> = ({ children, active }) => {
+  return <Box style={active ? stylesFullScreen : undefined}>{children}</Box>;
 };
 
-export const FullScreen = (el: FullScreenProps) => {
-  const handle = el.handle;
-  const onChange = el.onChange;
-  const children = el.children;
-  const className = el.className;
-  const classNames = [];
+export const useFullScreen = () => {
+  const [active, setActive] = useState<boolean>(false);
 
-  if (className) {
-    classNames.push(className);
-  }
-
-  useEffect(function () {
-    if (onChange) {
-      onChange(handle.active, handle);
-    }
-  });
-
-  return (
-    <Box className={classNames.join(" ")} ref={handle.node} style={handle.active ? stylesFullScreen : undefined}>
-      {children}
-    </Box>
-  );
+  return {
+    FullScreenButton: () => <FullScreenButton active={active} setActive={setActive} />,
+    FullScreen: ({ children }: { children: React.ReactNode }) => <FullScreen active={active}>{children}</FullScreen>,
+    fullScreenActive: active,
+  };
 };

@@ -1,22 +1,20 @@
-import { Button } from "cx-portal-shared-components";
-import { Link, useRouteError } from "react-router-dom";
-import { ErrorDisplay } from "../../components/ErrorDisplay";
-import { useTranslation } from "../../lib/index";
-//TODO: Create Better Layout
+import { ErrorPage } from "cx-portal-shared-components";
+import { useNavigate, useRouteError } from "react-router-dom";
 
-export default function ErrorPage() {
+export const ErrorRoute: React.FC = () => {
   const error = useRouteError() as Error & { statusText: string };
-  console.error(error);
-  const { t } = useTranslation();
+  const navigate = useNavigate();
 
   return (
-    <>
-      <ErrorDisplay error={new Error(error.statusText || error.message)} />
-      <Link to="/">
-        <Button style={{ margin: 20 }} variant="contained" color="secondary">
-          {t("global.actions.homepage")}
-        </Button>
-      </Link>
-    </>
+    <ErrorPage
+      additionalDescription="Please contact your admin."
+      description={error.statusText || error.message}
+      header="Error"
+      homeButtonTitle="Homepage"
+      onHomeClick={() => navigate("/")}
+      onReloadClick={() => navigate(-1)}
+      reloadButtonTitle="Reload Page"
+      title="Oops, Something went wrong."
+    />
   );
-}
+};

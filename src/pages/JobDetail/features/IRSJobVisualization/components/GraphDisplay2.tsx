@@ -22,7 +22,7 @@ export const GraphDisplay2: React.FC<{
   return (
     <ReactFlowProvider>
       <SearchNode />
-      <div style={{ height: fullscreen ? "90vh" : "40vh" }}>
+      <div style={{ height: fullscreen ? "75vh" : "40vh" }}>
         <ReactFlow
           nodeTypes={nodeTypes}
           fitView={true}
