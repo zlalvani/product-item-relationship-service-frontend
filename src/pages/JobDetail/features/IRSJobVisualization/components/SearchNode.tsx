@@ -23,13 +23,18 @@ export const SearchNode: React.FC = () => {
       setCenter(x, y, { zoom, duration: 1000 });
     }
   };
-
+  console.log(nodes);
   return (
     <StyledInput>
       <SelectList
         clearText="clear"
         helperText="Enter Node ID"
-        items={nodes.map((node) => ({ id: node.id, title: node.id, value: node.id }))}
+        keyTitle="title"
+        items={(nodes ?? []).map((node) => ({
+          id: node.id,
+          title: `${node.data.idShort} (${node.id})`,
+          value: node.id,
+        }))}
         label={"Highlight Node"}
         placeholder={"Enter Node ID"}
         onChangeItem={(item: { value: string }): void => {
