@@ -6,8 +6,8 @@ import { FullScreen, useFullScreenHandle } from "../../../../components/FullScre
 import { FullscreenExitIcon, FullscreenIcon, useTranslation } from "../../../../lib";
 import { JobResponse, Relationship, Shell } from "../../../../types/jobs";
 import { EdgeDetailDialog } from "./components/EdgeDetailDialog";
+import { GraphDisplay2 } from "./components/GraphDisplay2";
 import { NodeDetailDialog } from "./components/NodeDetailDialog";
-import { GraphDisplay2 } from "./components/react-flow/GraphDisplay2";
 
 export const IrsJobVisualization: React.FC<{ job: JobResponse }> = ({ job }) => {
   const { t } = useTranslation();
