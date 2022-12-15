@@ -16,9 +16,9 @@
   - [ - ] [Organizational Constraints](#organizational-constraints)
   - [ - ] [Political constraints](#political-constraints)
   - [ - ] [Development conventions](#development-conventions)
-- [ - ] [System scope and context](#system-scope-and-context)
-  - [ - ] [Business context](#business-context)
-  - [ - ] [Technical context](#technical-context)
+- [ o ] [System scope and context](#system-scope-and-context)
+  - [ o ] [Business context](#business-context)
+  - [ o ] [Technical context](#technical-context)
 - [ - ] [Solution strategy](#solution-strategy)
   - [ - ] [Introduction](#introduction)
   - [ - ] [Technology](#technology)
@@ -171,11 +171,13 @@ The following table entries define overall IRS-DV quality goals. The order of th
 
 # System scope and context
 
-The IRS acts as a middleware between consumers and manufacturers. This section describes the environment of IRS. Who are its users, and with which other systems does it interact with.
+The IRS-DV acts as a middleware between consumers and manufacturers. This section describes the environment of IRS-DV. Who are its users, and with which other systems does it interact with.
+
 
 ## Business context
 
-business context (IMAGE)
+![business context overview](./images/puml-svg/business-context.svg)
+
 
 ### Consumer
 
@@ -185,27 +187,21 @@ The IRS API is being consumed by the dismantler dashboard and other parties whic
 
 The IRS retrieves data from the Catena-X network (using the necessary infrastructure, see Technical Context), aggregates it and provides it back to the consumers. This connection is mandatory. If the Catena-X services are unavailable, the IRS cannot perform any work.
 
-As of now, the IRS uses its own IAM credentials to gather the required data. This might be changed to use the consumer credentials in the future.
-
 ## Technical context
 
-integrated overview (IMAGE)
+![technical context](./images/puml-svg/technical-context.svg)
 
 ## Component overview
 
 ### IRS-API
 
-We provide a REST API that can be consumed by any system registered in the Catena-X Keycloak, e.g. the Dismantler Dashboard. The development of such a consumer service is not part of the IRS application. Each system that acts as a client to the Restful application IRS can be used instead, if it supports any REST call of the designed REST endpoints in the REST Controller of the IRS application. For communication, the transport protocol HTTP(S) should be established.
+We use a REST API that is made by IRS team and can be used by any system registered in the Catena-X Keycloak. For communication we use HTTP(S) protocol.
 
 In order to consume the Restful application IRS, the security aspect should be taken in consideration. IRS is a Spring Boot based application and is secured with the OpenID connector provider Keycloak and the OAuth2. This means for the consumers (users) that they need to authenticate themselves in order to be authorized to get access to the IRS. They generate a bearer token that they get from Keycloak and attach it to the HTTP header parameter Authorization. Certainly, both a consumer and the IRS should use the same configured Keycloak Realm.
 
 ### Registry API
 
 The IRS acts as a consumer of the component Asset Administration Shell Registry. The IRS contains a Restful client (REST template) that build a REST call to the mentioned Digital Twin Registry API based on its known URL (the AAS registry URL is configured in the IRS Restful API). The request contains the given "globalAssetId" by the consumer. Like described in the above section, the security aspect is required in order to achieve a REST call against the AAS Registry. As a response, the IRS gets the corresponding asset administration shell descriptor. The last one contains a list of submodel descriptors which can be filtered by the aspect type entered by the consumer. An aspect type like AssemblyPartRelationship, SerialPartTypization etc. And as mentioned above, the transport protocol HTTP(S) is used for the REST call communication.
-
-### AAS Wrapper API
-
-The integrated Restful client named Submodel Client in the IRS is responsible for creating Restful requests to the component AAS Wrapper. The IRS application builds from the retrieved AAS Descriptor (see previous section) the corresponding Submodel endpoint URLs and sends via the submodel REST client requests to the AAS Wrapper API. The last one responds with the corresponding Submodel data.
 
 <br>
 <br>
@@ -336,11 +332,11 @@ The Swagger documentation can be found in the local deployment of the reference 
 
 # Runtime view
 
-This section covers the main processes of the IRS-DV and explains how data is transfered and processed when a job is executed.
+This section covers the main processes of the IRS-DV.
 
 ## Overall
 
-This section describes the overall flow of the IRS
+This section describes the overall flow of the IRS-DV.
 
 overall (IMAGE)
 
