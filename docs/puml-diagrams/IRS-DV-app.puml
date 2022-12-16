@@ -15,9 +15,9 @@ node "Visualization" as ui
 node "Item Relationship Service Job Details" as details
 
 
-User --> login
-login --> env: success
-env --> fill
+User --> env
+env--> login
+login --> fill  : success
 fill --> store: Build data chain
 store --> completed
 store -> cancel

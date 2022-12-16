@@ -4,7 +4,7 @@ skinparam actorStyle awesome
 actor consumer as user
 
 
-component "IRS-DV app FRONTEND <<Sytem>>" as irsdv {
+component "IRS-DV app FRONTEND" as irsdv <<Sytem>> {
 
 component App as mainPage {
 
@@ -12,6 +12,7 @@ node "Fill search parameters" as parameters
 node "Select Environment" as env
 node "Request information/submit form" as button
 node "Visualization and information" as visual
+node "Job store" as store
 
 } 
 }
@@ -26,14 +27,18 @@ component "API" as api
 
 
 
-user <.> keycloak
-keycloak <.> token
+user .> env
+env .> keycloak
+keycloak <..> token
 keycloak <..> irs
-keycloak .> mainPage
+keycloak .> parameters
+
 irs <..> api
-env ..> parameters 
+
 parameters ..> button
-button <.> api
-button ..> visual
-api .> visual
+button ..> api
+api .> store
+
+store ..> visual
+
 @enduml

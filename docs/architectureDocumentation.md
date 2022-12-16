@@ -63,9 +63,8 @@ This chapter gives you an overview about the goals of the service, in which cont
 The IRS-DV is a:
 
 - Functional federated component
-- API endpoint to retrieve the tree structures in a recursive way, which data assets are distributed throughout the Catena-X network
+- Uses API endpoint to retrieve the tree structures in a recursive way, which data assets are distributed throughout the Catena-X network
 - Reference implementation
-- Data chain provider
 - Catch and find errors
 
 ### Substantial Features
@@ -75,7 +74,7 @@ The IRS-DV is a:
 - functionality of IRS provider will be handled by providers submodel servers
 - federated IRS service
 - 'asBuild' BoM of serialized components
-- provides endpoints for submodel-descriptors
+
 
 ## Quality goals
 
@@ -151,12 +150,10 @@ The following table entries define overall IRS-DV quality goals. The order of th
 
 | Tool        | Scope                                                                                                                                                                    | Rule                                                          | Configuration (via files / annotations)                            |
 | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------- | ------------------------------------------------------------------ |
-| Tidy        | Enforce Maven POM Code Convention                                                                                                                                        | Fail build on untidy pom.xml                                  | N/A                                                                |
-| SpotBugs    | Static analysis to look for bugs in Java code. Successor of popular FindBugs tool                                                                                        | Fail build on violations                                      | ci/spotbugs-excludes.xml @SuppressFBWarnings(…​)                   |
 | FindSecBugs | SpotBugs plugin adding security bugs coverage                                                                                                                            | Fail build on violations                                      | N/A                                                                |
 | Checkstyle  | Enforce coding standard                                                                                                                                                  | Fail build on violations                                      | ci/checkstyle-suppressions.xml @SuppressWarnings("checkstyle:XXX") |
 | PMD         | Source code analyzer to finds common programming flaws                                                                                                                   | Fail build on violations                                      | ci/pmd-rules.xml @SuppressWarnings("PMD.XXX")                      |
-| JaCoCo      | Test coverage                                                                                                                                                            | Fail build on coverage < 80%                                  | pom.xml @ExcludeFromCodeCoverageGeneratedReport                    |
+| JEST      | Test coverage                                                                                                                                                            | Fail build on coverage < 80%                                  |   |
 | Veracode    | <ul><li> Scan source code for vulnerabilities (SAST) </li><li> Scan dependencies for known vulnerabilities (SCA) </li><li> Check used licenses (FOSS Licenses)</li></ul> |                                                               | https://web.analysiscenter.veracode.com/                           |
 | Dependabot  | Automated dependency updates built into GitHub. Provided pull requests on dependency updates.                                                                            | Any dependency update generates a pull request automatically. | .github/dependabot.yml                                             |
 | CodeQl      | Discover vulnerabilities across a codebase.                                                                                                                              |                                                               | .github/workflows/codeql.yml                                       |
@@ -274,7 +271,7 @@ Full backend services graph you can find at **[IRS team](https://catenax-ng.gith
 | IRSJobOverview      | IRS-DV history by search parameters                                                              |
 | IRSJobVisualization | IRS-DV visualization based on search parameters. We show all related nodes.                      |
 | IRSJobTombstones    | IRS-DV cached errors                                                                             |
-| IRSJobTable         | Show all grid for filtered history                                                               |
+| IRSJobStore         | Show all grid for filtered history                                                               |
 | ErrorPage           | Catch errors(router error and ... ) and show error page                                          |
 
 ## Level 1
