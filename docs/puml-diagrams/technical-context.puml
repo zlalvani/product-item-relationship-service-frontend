@@ -3,10 +3,8 @@ consumer as user
 component "IRS-DV" as irsdv << System >>
 node "Catena-X network" as catenaX
 entity "IRS API" as api
-entity "Registry API" as regAPI
 
 user - irsdv
 irsdv -- api 
-irsdv -- regAPI
 irsdv - catenaX
 @enduml

@@ -11,29 +11,26 @@
   - [ o ] [Requirements overview](#requirements-overview)
   - [ o ] [Quality goals](#quality-goals)
   - [ o ] [Stakeholders](#stakeholders)
-- [ - ] [Architecture constraints](#architecture-constraints)
-  - [ - ] [Technical Constraints](#technical-constraints)
-  - [ - ] [Organizational Constraints](#organizational-constraints)
-  - [ - ] [Political constraints](#political-constraints)
-  - [ - ] [Development conventions](#development-conventions)
+- [ o ] [Architecture constraints](#architecture-constraints)
+  - [ o ] [Technical Constraints](#technical-constraints)
+  - [ o ] [Organizational Constraints](#organizational-constraints)
+  - [ o ] [Political constraints](#political-constraints)
+  - [ o ] [Development conventions](#development-conventions)
 - [ o ] [System scope and context](#system-scope-and-context)
   - [ o ] [Business context](#business-context)
   - [ o ] [Technical context](#technical-context)
-- [ - ] [Solution strategy](#solution-strategy)
-  - [ - ] [Introduction](#introduction)
-  - [ - ] [Technology](#technology)
-  - [ - ] [Structure](#structure)
+- [ o ] [Solution strategy](#solution-strategy)
+  - [ o ] [Introduction](#introduction)
+  - [ o ] [Technology](#technology)
+  - [ o ] [Structure](#structure)
 - [ o ] [Building block view](#building-block-view)
   - [ o ] [Whitebox overall system](#whitebox-overall-system)
   - [ o ] [Level 1](#level-1)
   - [ o ] [IRS API](#references)
-- [ ] [Runtime view](#runtime-view)
-  - [ ] [Overall](#overall)
-  - [ ] [Scenario 1: Create job](#scenario-1-create-job)
-  - [ ] [Scenario 2: Job execution](#scenario-2-job-execution)
-  - [ ] [Scenario 3: Request for JobResponse](#scenario-3-request-for-jobresponse)
-  - [ ] [Scenario 4: Cancel job execution](#scenario-4-cancel-job-execution)
-- [ ] [Deployment view](#deployment-view)
+- [ o ] [Runtime view](#runtime-view)
+  - [ o ] [Overall](#overall)
+  - [ o ] [Scenario 1: Find a job](#scenario-1-find-a-job)
+- [ ] [Deployment view](#deployment-view) still unclear whole topic
   - [ ] [Local deployment](#local-deployment)
   - [ ] [View Levels](#view-levels)
 - [ ] [Cross-cutting concepts](#cross-cutting-concepts)
@@ -75,7 +72,6 @@ The IRS-DV is a:
 - federated IRS service
 - 'asBuild' BoM of serialized components
 
-
 ## Quality goals
 
 The following table entries define overall IRS-DV quality goals. The order of the topics do not resolve in a priority of the quality goals.
@@ -90,12 +86,11 @@ The following table entries define overall IRS-DV quality goals. The order of th
 
 ## Stakeholders
 
-| Role/name           | Contact                                                  | Expectations                                              |
-| ------------------- | -------------------------------------------------------- | --------------------------------------------------------- |
-| Product Owner       | Zahn Johannes johannes.zahn@bmw.de                       |                                                           |
-| Back-end team       |                                                          |                                                           |
-| Software Architects |                                                          | reuse things (e.g. format, notation) in their daily work  |
-| Developers          | Neal Buerger <br> Stephan Bauer <br> Giedrius Pacevicius | accept responsibility for architectural tasks in the team |
+| Role/name     | Contact                                                  | Expectations                                              |
+| ------------- | -------------------------------------------------------- | --------------------------------------------------------- |
+| Product Owner | Zahn Johannes johannes.zahn@bmw.de                       |                                                           |
+| Back-end team |                                                          |                                                           |
+| Developers    | Neal Buerger <br> Stephan Bauer <br> Giedrius Pacevicius | accept responsibility for architectural tasks in the team |
 
 <br>
 <br>
@@ -109,54 +104,44 @@ The following table entries define overall IRS-DV quality goals. The order of th
 
 ## Technical Constraints
 
-| Name                                                                                                          | Description                                                                                                                                                                                                                                               |
-| ------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Cloud Agnostic Architecture approach                                                                          | IRS provides a reference application/implementation which is deployable on any cloud ecosystem. There is no vendor lock to any cloud vendor.                                                                                                              |
-| Spring Boot and the Spring framework is used as underlying framework for Java development.                    | Spring Boot and Framework is used to build an easy and production-grade based application which could be deployed without any further infrastructure components.<br>Orchestrating application components and integrating with other libraries/frameworks. |
-| Lombok                                                                                                        | Lombok for generating boilerplate code. Keeping code concise increases quality and maintainability.                                                                                                                                                       |
-| Kubernetes is used for Container Orchestration                                                                | Kubernetes as container orchestration system used for software deployment, scaling and management of the IRS application. This supports our software infrastructure and ensures efficient management and scalability of the IRS reference application.    |
-| Docker Container are used to provide a microservice oriented architecture                                     | Deployment made on reliable production ready images. Avoiding repetitive, mundane configuration tasks for container orchestration.                                                                                                                        |
-| Docker Compose is used to define and tune multi container application based on docker container technologies. | Docker container to develop independently of the underlying OS.                                                                                                                                                                                           |
+| Name                                                                                                          | Description                                                                                                                                                                                                                                            |
+| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Cloud Agnostic Architecture approach                                                                          | IRS provides a reference application/implementation which is deployable on any cloud ecosystem. There is no vendor lock to any cloud vendor.                                                                                                           |
+| Kubernetes is used for Container Orchestration                                                                | Kubernetes as container orchestration system used for software deployment, scaling and management of the IRS application. This supports our software infrastructure and ensures efficient management and scalability of the IRS reference application. |
+| Docker Container are used to provide a microservice oriented architecture                                     | Deployment made on reliable production ready images. Avoiding repetitive, mundane configuration tasks for container orchestration.                                                                                                                     |
+| Docker Compose is used to define and tune multi container application based on docker container technologies. | Docker container to develop independently of the underlying OS.                                                                                                                                                                                        |
 
 ## Organizational Constraints
 
-| Name                                                                            | Description                                                                                                                                                                      | Comment                                  |
-| ------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------- |
-| CX-Services                                                                     | Provide IRS as a C-X Shared Data Service.                                                                                                                                        |                                          |
-| App Marketplace & API Connection                                                | IRS Application has to be accessible for the user in the App Marketplace.                                                                                                        | App Marketplace & API Connection         |
-| Federal Ministry for Economic Affairs and Energy (BMWi) promotion               | The Federal Ministry for Economic Affairs and Energy (BMWi) promotes the project and provides funds for the project.                                                             |                                          |
-| Technology Readiness Level (TRL) for Products developed within the CX Consortia | As IRS is a reference implementation, the Technology Readiness Level (TRL) must not be above TRL 8.                                                                              | Technology Readiness Level - TRL (IMAGE) |
-| Operational Readiness for Release 1 has to be fulfilled                         | Minimum requirements for release 1 has to be archived. Later on, the Operational Readiness for Release has to be fulfilled accordingly to the requirements of the C-X consortia. |                                          |
+| Name           | Description                                                               | Comment                          |
+| -------------- | ------------------------------------------------------------------------- | -------------------------------- |
+| API Connection | IRS Application has to be accessible for the user in the App Marketplace. | App Marketplace & API Connection |
 
 ## Political constraints
 
-| Name                           | Description                                                                                                                                                                                   |
-| ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Open Source                    | FOSS licenses approved by the eclipse foundation has to be used. It could represent the initial set that the CX community agrees on to regulate the content contribution under FOSS licenses. |
-| Apache License 2.0             | Apache License 2.0 is one of the approved licenses which should be used to respect and guarantee Intellectual property (IP).                                                                  |
-| Java OpenJDK Version JDK >= 11 | IRS provides an open source application standard. OpenJDK is used, which is licensed under GNU General Public License (GNU GPL) Version 2.                                                    |
+| Name               | Description                                                                                                                                                                                   |
+| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Open Source        | FOSS licenses approved by the eclipse foundation has to be used. It could represent the initial set that the CX community agrees on to regulate the content contribution under FOSS licenses. |
+| Apache License 2.0 | Apache License 2.0 is one of the approved licenses which should be used to respect and guarantee Intellectual property (IP).                                                                  |
+| NodeJs             | Node.js is an open-source, cross-platform JavaScript runtime environment and library for running web applications outside the client's browser                                                |
 
 ## Development conventions
 
-| Name                                                | Description                                                                                                                                                                                                                                           |
-| --------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Architecture documentation                          | Architectural documentation of IRS reference application/implementation according to ARC42 template.                                                                                                                                                  |
-| Coding guidelines                                   | We follow the Google Java Style Guide. That is ensured by using the unified code formatter in the team and enforcing the style via Maven and Checkstyle / PMD.                                                                                        |
-| Executable Bundle provided over the App Marketplace | As IRS is available in the App Marketplace, the application should be provided in one executable bundle.                                                                                                                                              |
-| Module structure                                    | The entire build is driven from a Maven file, itself run from a single Dockerfile.                                                                                                                                                                    |
-| Code Analysis, Linting and Code Coverage            | Consistent style increases readability and maintainability of the code base. Hence, we use analyzers to enforce consistency and style rules. We enforce the code style and rules in the CI to avoid merging code that does not comply with standards. |
+| Name                                     | Description                                                                                                                                                                                                                                           |
+| ---------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Architecture documentation               | Architectural documentation of IRS-DV according to ARC42 template.                                                                                                                                                                                    |
+| Coding guidelines                        | ESlint recomended TypeScript format.                                                                                                                                                                                                                  |
+| Module structure                         | React single page application.                                                                                                                                                                                                                        |
+| Code Analysis, Linting and Code Coverage | Consistent style increases readability and maintainability of the code base. Hence, we use analyzers to enforce consistency and style rules. We enforce the code style and rules in the CI to avoid merging code that does not comply with standards. |
 
 ## Code analysis, linting and code coverage
 
-| Tool        | Scope                                                                                                                                                                    | Rule                                                          | Configuration (via files / annotations)                            |
-| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------- | ------------------------------------------------------------------ |
-| FindSecBugs | SpotBugs plugin adding security bugs coverage                                                                                                                            | Fail build on violations                                      | N/A                                                                |
-| Checkstyle  | Enforce coding standard                                                                                                                                                  | Fail build on violations                                      | ci/checkstyle-suppressions.xml @SuppressWarnings("checkstyle:XXX") |
-| PMD         | Source code analyzer to finds common programming flaws                                                                                                                   | Fail build on violations                                      | ci/pmd-rules.xml @SuppressWarnings("PMD.XXX")                      |
-| JEST      | Test coverage                                                                                                                                                            | Fail build on coverage < 80%                                  |   |
-| Veracode    | <ul><li> Scan source code for vulnerabilities (SAST) </li><li> Scan dependencies for known vulnerabilities (SCA) </li><li> Check used licenses (FOSS Licenses)</li></ul> |                                                               | https://web.analysiscenter.veracode.com/                           |
-| Dependabot  | Automated dependency updates built into GitHub. Provided pull requests on dependency updates.                                                                            | Any dependency update generates a pull request automatically. | .github/dependabot.yml                                             |
-| CodeQl      | Discover vulnerabilities across a codebase.                                                                                                                              |                                                               | .github/workflows/codeql.yml                                       |
+| Tool       | Scope                                                                                         | Rule                                                          | Configuration (via files / annotations) |
+| ---------- | --------------------------------------------------------------------------------------------- | ------------------------------------------------------------- | --------------------------------------- |
+| JEST       | Test coverage                                                                                 | Fail build on coverage < 80%                                  | .github\jest.config.js                  |
+| Dependabot | Automated dependency updates built into GitHub. Provided pull requests on dependency updates. | Any dependency update generates a pull request automatically. | .github/dependabot.yml                  |
+| Prettier   | Code formatter                                                                                | Code style for all developers are the same                    | .github/.prettierrc.json                |
+| ESLINT     | Find and fix problems                                                                         | Find and fix problems with JavaScript code                    | .github/.eslintrc                       |
 
 <br>
 <br>
@@ -170,19 +155,17 @@ The following table entries define overall IRS-DV quality goals. The order of th
 
 The IRS-DV acts as a middleware between consumers and manufacturers. This section describes the environment of IRS-DV. Who are its users, and with which other systems does it interact with.
 
-
 ## Business context
 
 ![business context overview](./images/puml-svg/business-context.svg)
 
-
 ### Consumer
 
-The IRS API is being consumed by the dismantler dashboard and other parties which are part of the Catena-X network. They need to provide valid credentials issued by the Catena-X IAM. Additionally, they must provide a base global asset identifier to retrieve information for as well as configuration details for the view on that information.
+The consumer is end user who is searching and looking for a errors in all data chain of the Catena-X network. He need to get valid credentials issued by the Catena-X IAM.
 
 ### Catena-X network
 
-The IRS retrieves data from the Catena-X network (using the necessary infrastructure, see Technical Context), aggregates it and provides it back to the consumers. This connection is mandatory. If the Catena-X services are unavailable, the IRS cannot perform any work.
+The IRS-DV retrieves data from the Catena-X network (using the necessary infrastructure, see Technical Context), aggregates it and provides it back to the consumers. This connection is mandatory. If the Catena-X services are unavailable, the IRS-DV cannot perform any work.
 
 ## Technical context
 
@@ -194,12 +177,9 @@ The IRS retrieves data from the Catena-X network (using the necessary infrastruc
 
 We use a REST API that is made by IRS team and can be used by any system registered in the Catena-X Keycloak. For communication we use HTTP(S) protocol.
 
-In order to consume the Restful application IRS, the security aspect should be taken in consideration. IRS is a Spring Boot based application and is secured with the OpenID connector provider Keycloak and the OAuth2. This means for the consumers (users) that they need to authenticate themselves in order to be authorized to get access to the IRS. They generate a bearer token that they get from Keycloak and attach it to the HTTP header parameter Authorization. Certainly, both a consumer and the IRS should use the same configured Keycloak Realm.
+### IRS-DV system
 
-### Registry API
-
-The IRS acts as a consumer of the component Asset Administration Shell Registry. The IRS contains a Restful client (REST template) that build a REST call to the mentioned Digital Twin Registry API based on its known URL (the AAS registry URL is configured in the IRS Restful API). The request contains the given "globalAssetId" by the consumer. Like described in the above section, the security aspect is required in order to achieve a REST call against the AAS Registry. As a response, the IRS gets the corresponding asset administration shell descriptor. The last one contains a list of submodel descriptors which can be filtered by the aspect type entered by the consumer. An aspect type like AssemblyPartRelationship, SerialPartTypization etc. And as mentioned above, the transport protocol HTTP(S) is used for the REST call communication.
-
+The IRS-DV system is created to search and show all related components of searched element by globalAssetId and other parameters.
 <br>
 <br>
 
@@ -212,13 +192,12 @@ The IRS acts as a consumer of the component Asset Administration Shell Registry.
 
 ## Introduction
 
-| Quality goal                     | Matching approaches in the solution                                                                                                                                                                                       |
-| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| application reliability          | <ul><li>only data source is the Catena-X network, data is fetched directly from the data owner</li><li>IRS-DV can be hosted decentralized by every participant by being an open source reference implementation</li></ul> |
-| base security measures           | <ul><li>API protection using OAuth2.0/OIDC</li><li>automatic static and dynamic code analysis tools as part of the pipeline</li></ul>                                                                                     |
-| cloud agnostic solution          | <ul><li>IRS-DV is provided as a Docker image</li><li>Helm charts assist in deploying the application in any Kubernetes environment</li></ul>                                                                              |
-| multiple async job orchestration | <ul><li>Separate job executor decouples data requests from the job status API</li><li>Multiple jobs with multiple transfer requests each can be handled in parallel, depending on the deployment resources</li></ul>      |
-| running reference application    | <ul><li>Working application can be used as reference by anyone due to open source publishing </li></ul>                                                                                                                   |
+| Quality goal                  | Matching approaches in the solution                                                                                                                                                                       |
+| ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| application reliability       | <ul><li>only data source is the Catena-X network, data is fetched from IRS API</li><li>IRS-DV can be hosted decentralized by every participant by being an open source reference implementation</li></ul> |
+| base security measures        | <ul><li>automatic static and dynamic code analysis tools as part of the pipeline</li></ul>                                                                                                                |
+| cloud agnostic solution       | <ul><li>IRS-DV is provided as a Docker image</li><li>Helm charts assist in deploying the application in any Kubernetes environment</li></ul>                                                              |
+| running reference application | <ul><li>Working application can be used as reference by anyone due to open source publishing </li></ul>                                                                                                   |
 
 ## Technology
 
@@ -226,20 +205,21 @@ The IRS-DV is developed using React framework. This choice was made due to the t
 
 Hosting the application is done using Docker and Kubernetes, which is widely used and vendor-independent regarding the hosting provider (e.g. AWS, Google Cloud, Azure, …​).
 
-Inter-service communication is done using HTTP REST. This is the standard method in the Catena-X landscape and makes the IRS API easy to use for any third party client.
+Communication is done using HTTP. This is the standard method in the Catena-X landscape and makes the IRS API easy to use.
 
 ## Structure
 
-The IRS consists of 4 main components:
+The IRS-DV consists of 3 main views:
 
-<ol><li>the REST API to view and control Jobs</li>
-<li>the asynchronous job processing engine</li>
-<li>the job and payload persistence </li>
-<li>the AAS connector </li></ol>
+1. the REST API to view/find Jobs (services component)
+2. the job list
+3. the visualization and tumbstones blocks
 
-The REST API classes are separated from the application logic and can be replaced by a different interface easily. The actual entrypoint into the application logic are the \*Service classes.
+We search by parameters in REST API, and collecting fetched data in job list.
 
-The job processing engine handles execution of the data requests for each job. It uses the AAS connector to retrieve the data and stores it into the persistence. The actual implementation of the persistence is decoupled from the logical representation and can be replaced easily as well.
+The job list is the place where IRS-DV is storing all fetched jobs and hold search history.
+
+The visualization show us/consumer how elements are connected each other, and tumbstones show in what level data is missing.
 
 <br>
 <br>
@@ -256,7 +236,6 @@ The job processing engine handles execution of the data requests for each job. I
 The interfaces show how the components interact with each other and which interfaces the IRS-DV are.
 
 Full backend services graph you can find at **[IRS team](https://catenax-ng.github.io/tx-item-relationship-service/docs/arc42/full.html#_whitebox_overall_system)**.
-
 
 ### Component diagram
 
@@ -282,11 +261,11 @@ Full backend services graph you can find at **[IRS team](https://catenax-ng.gith
 
 ### Component description
 
-| Components         | Description                                                                                                                   |
-| ------------------ | ----------------------------------------------------------------------------------------------------------------------------- |
-| IRSSelectServerEnv | The IRS-DV you can select between environments you want to find job                                                           |
+| Components         | Description                                                                                                                                              |
+| ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| IRSSelectServerEnv | The IRS-DV you can select between environments you want to find job                                                                                      |
 | IRSJobAddForm      | The IRSJobAddForm is a JSON format with parameters, you can add "aspects", "direction", "globalAssetId" and other parameters. (see full json file below) |
-| IRSJobOverview     | The IRSJobOverview is a component which manages (start, cancel, auto refresh) the jobs, and store them in a table list.       |
+| IRSJobOverview     | The IRSJobOverview is a component which manages (start, cancel, auto refresh) the jobs, and store them in a table list.                                  |
 
 ```json
 json example:
@@ -305,15 +284,11 @@ json example:
 
 ```
 
-
-
 ## IRS API
 
 ### References
 
 The Swagger documentation can be found in the local deployment of the reference application. More information can be found in the GitHub repository: https://github.com/eclipse-tractusx/item-relationship-service/blob/main/README.md
-
-
 
 ### IRS interaction diagram
 
@@ -335,67 +310,18 @@ This section covers the main processes of the IRS-DV.
 
 This section describes the overall flow of the IRS-DV.
 
-overall (IMAGE)
+![IRS flow](./images/puml-svg/irs-dv-flow.svg)
 
-### Submodel
+## Scenario 1: Find a job
 
-This section describes how the IRS fetches submodel payload.
-
-submodel processing (IMAGE)
-
-### Job orchestration flow
-
-This section describes the job orchestration in IRS.
-
-job orchestration (IMAGE)
-
-## Scenario 1: Create job
-
-This section describes what happens when user creates a new job.
+This section describes what happens when user search for a job.
 
 create job (IAMGE)
 
 ### Overview
 
-If a job is registered via the IRS API, it will be persisted (with its parameters) in the JobStore, where it can be retrieved by further calls and processes. Then, the starting item ID is extracted, and a new transfer process is handed to the ExecutorService, which will process it asynchronously (see Scenario 2: Job Execution).
-<br><br>
-In the meantime, the JobOrchestrator returns a response to the API caller, which contains the UUID of the new job. This UUID can then be used by the caller to retrieve information about the job via the API. The input provided by the caller determines how the job will operate (starting point, recursion depth, aspect filter, …​).
+User run application locally and select environment. After user select environment and login thought Keycloak user can fill parameters to section and search for a job. If job is found, user will saw it in "Job list". If user cancel Job search it will shows in a "Job list". After Job search is completed user will see it in a "Job list" as "COMPLETED" and can open to overview the job.
 
-## Scenario 2: Job execution
-
-This section describes how a job is asynchronously executed inside the IRS.
-
-execute job(IMAGE)
-
-### Overview
-
-After a job has been created (see Scenario 1: Create Job), the first transfer containing the root item ID is passed to the ExecutorService. The transfer is then started asynchronously and retrieves the necessary information from the Catena-X network, first by fetching the AAS information from the DigitalTwin registry and then calling the SubmodelProviders for the submodel payload.<br><br>
-
-At least the aspect AssemblyPartRelationship is required for the tree to be built. If the customer that started the job provided more aspects to be fetched, they will be retrieved here too. The result of each transfer is stored in the BlobStore.<br><br>
-
-After the transfer process has finished, any subsequent child IDs will be extracted and new transfer processes will be scheduled for those via the ExecutorService. This cycle repeats until all leafs were reached, the specified max depth has been reached, or the job was canceled externally.<br><br>
-
-As soon as all transfers are finished, the results will be combined and stored in the BlobStore again. The job itself will be marked as completed.
-
-## Scenario 3: Request for JobResponse
-
-request job
-Overview
-When a user requests job details, the IRS looks up the jobId in the persistent job store. If the job exists, it will proceed to fetch the job details and prepare a response object. Only if the job is in state "COMPLETED" or if the caller has set the parameter "includePartialResults" to true, the IRS will fetch the payload data for the job (relationships, AAS shells and submodels, if applicable) and attach it to the response object.
-<br><br>
-
-This will then be passed to the caller.
-
-## Scenario 4: Cancel job execution
-
-cancel job (IMAGE)
-
-### Overview
-
-When a user wants to cancel a job execution, the IRS will lookup that job in the persistent job store and transition it to the CANCELED state, if it exists. If a job is canceled, no further requests to the Catena-X network will be performed.
-<br><br>
-
-Afterwards, the IRS will return the updated job details of the canceled job to the user.
 
 <br>
 <br>
@@ -407,12 +333,13 @@ Afterwards, the IRS will return the updated job details of the canceled job to t
 
 # Deployment view
 
-The deployment view shows the IRS application on ArgoCD, which is a continuous delivery tool for Kubernetes. Kubernetes manifests are specified using Helm charts. Helm is a package manager for Kubernetes. IRS is developed in a cloud-agnostic manner, so the application could be installed in any cloud infrastructure (on-premises, hybrid, or public cloud infrastructure).
+The deployment view shows the IRS-DV application 
 
-deployment view (IMAGE)
-**Operator**
+```
+Need later overview
+```
 
-Manual preparation is required to initially set up the ArgoCD apps and the credentials in the HashiCorp Vault. This is done by the IRS system operator.
+
 
 **ArgoCD**
 
@@ -428,13 +355,7 @@ Every secret information needed at runtime must be stored here and must never be
 
 GitHub contains the application source code as well as the Helm charts used for deployment. The IRS Helm charts can be found here: https://github.com/eclipse-tractusx/item-relationship-service/tree/main/charts
 
-**GitHub Container Registry (GHCR)**
 
-When the IRS is built by GitHub Action workflows, the final image is pushed to the GHCR, where it can be picked up for deployment.
-
-**Kubernetes**
-
-The kubernetes cluster manages the underlying hardware that is used to run the applications defined in the Helm charts.
 
 ## Local deployment
 
@@ -496,9 +417,6 @@ domain entity model (IMAGE)
 
 domain model (IMAGE)
 
-### API Model
-
-For detailed information about the API model, please refer to the API specification.
 
 ### JobStatus
 
