@@ -33,20 +33,19 @@
 - [ ] [Deployment view](#deployment-view) still unclear whole topic
   - [ ] [Local deployment](#local-deployment)
   - [ ] [View Levels](#view-levels)
-- [ ] [Cross-cutting concepts](#cross-cutting-concepts)
+- [ o ] [Cross-cutting concepts](#cross-cutting-concepts)
   - [ ] [Domain concepts](#domain-concepts)
-  - [ ] [Safety and security concepts](#safety-and-security-concepts)
-  - [ ] [Architecture and design patterns](#architecture-and-design-patterns)
-  - [ ] ["Under-the-hood" concepts](#under-the-hood-concepts)
-  - [ ] [Development concepts](#development-concepts)
-  - [ ] [Operational concepts](#operational-concepts)
-- [ ] [Quality requirements](#quality-requirements)
-  - [ ] [List of requirements](#list-of-requirements)
-- [ ] [Glossary](#glossary)
-      <br> <br>
+  - [ o ] [Safety and security concepts](#safety-and-security-concepts)
+  - [ o ] ["Under-the-hood" concepts](#under-the-hood-concepts)
+  - [ o ] [Development concepts](#development-concepts)
+  - [ o ] [Operational concepts](#operational-concepts)
+- [ o ] [Quality requirements](#quality-requirements)
+  - [ o ] [List of requirements](#list-of-requirements)
+- [ o ] [Glossary](#glossary)
+
+<br> 
 
 ---
-
 ---
 
 # Introduction and goals
@@ -322,7 +321,6 @@ create job (IAMGE)
 
 User run application locally and select environment. After user select environment and login thought Keycloak user can fill parameters to section and search for a job. If job is found, user will saw it in "Job list". If user cancel Job search it will shows in a "Job list". After Job search is completed user will see it in a "Job list" as "COMPLETED" and can open to overview the job.
 
-
 <br>
 <br>
 
@@ -333,13 +331,11 @@ User run application locally and select environment. After user select environme
 
 # Deployment view
 
-The deployment view shows the IRS-DV application 
+The deployment view shows the IRS-DV application
 
 ```
 Need later overview
 ```
-
-
 
 **ArgoCD**
 
@@ -354,8 +350,6 @@ Every secret information needed at runtime must be stored here and must never be
 **GitHub**
 
 GitHub contains the application source code as well as the Helm charts used for deployment. The IRS Helm charts can be found here: https://github.com/eclipse-tractusx/item-relationship-service/tree/main/charts
-
-
 
 ## Local deployment
 
@@ -417,7 +411,6 @@ domain entity model (IMAGE)
 
 domain model (IMAGE)
 
-
 ### JobStatus
 
 A job can be in one of the following states:
@@ -430,15 +423,9 @@ A job can be in one of the following states:
 | CANCELED  | The job could not be processed, user canceled request                           |
 | ERROR     | The job could not be processed correctly by the IRS due to a technical problem. |
 
-job state machine (IMAGE)
-
-### Job Store Datamodel
-
-inmemory model (IMAGE)
-
 ### Job Response Datamodel
 
-job response model (IMAGE)
+![job response data model](./images/puml-svg/job-response-datamodel.svg)
 
 ## Safety and security concepts
 
@@ -446,72 +433,14 @@ job response model (IMAGE)
 
 ### IRS API
 
-The IRS is secured using OAuth2.0 / Open ID Connect. Every request to the IRS API requires a valid bearer token.
-
-No special roles are required. Every user that can log in to the authentication provider may use the IRS API.
-
-### IRS as DTR client
-
-The IRS acts as a client for the Digital Twin Registry (DTR), which is also secured using OAuth2.0 / Open ID Connect. The IRS uses client credentials to authenticate requests to the DTR. Due to this, the IRS account needs to have access to every item in the DTR, unrelated to the permissions of the account calling the IRS API.
-
-### IRS as EDC client
-
-The IRS accesses the Catena-X network via the EDC consumer connector. This component requires authentication via a DAPS certificate, which was provided to the IRS via the network authority.
-
-The DAPS certificate identifies the IRS and is used to acquire access permissions for the data transferred via EDC.
+The IRS-DV accesses the Catena-X network via the EDC consumer connector (Keycloak).
+System are using RESTful calls over HTTP(S). Where central authentication is required, a common Keycloak instance is used. We are only using "GET" protocol from API.
 
 ## Credentials
 
 Credentials must never be stored in Git!
 
-## Architecture and design patterns
-
-### Dependency inversion
-
-For the IRS, we utilize the dependency inversion mechanisms provided by Spring Boot as much as possible.
-
-The principle says:
-
-High-level modules should not import anything from low-level modules. Both should depend on abstractions (e.g., interfaces). Abstractions should not depend on details. Details (concrete implementations) should depend on abstractions.
-
-Adhering to this, we define clear interfaces between the different domains (e.g. job orchestration and AAS communication) in the IRS and let dependencies be injected by the framework. This improves testability of the classes as well.
-
-### Hexagonal architecture
-
-The hexagonal architecture divides a system into several loosely-coupled interchangeable components, such as the application core, the database, the user interface, test scripts and interfaces with other systems. This approach is an alternative to the traditional layered architecture.
-
-For the IRS, this means decoupling the application logic from components like the BLOB store, the REST API controllers or the AAS client connection. With an interface between the parts (so-called port), it is easy to switch to other implementations, e.g. if you want to change the persistence implementation. No changes to the application logic will be necessary.
-
-architecture (IMAGE)
-
 ## "Under-the-hood" concepts
-
-### Persistency
-
-The IRS stores two types of data in a persistent way:
-
-- Job metadata
-- Job payloads, e.g. AAS shells or submodel data
-
-All of this is data is stored in an object store. The currently used implementation is Minio (Amazon S3 compatible). This reduces the complexity in storing and retrieving data. There also is no predefined model for the data, every document can be stored as it is. The downside of this approach is lack of query functionality, as we can only search through the keys of the entries but not based on the value data. In the future, another approach or an additional way to to index the data might be required.
-
-To let the data survive system restarts, Minio needs to use a persistent volume for the data storage. A default configuration for this is provided in the Helm charts.
-
-### Transaction handling
-
-There currently is no transaction management in the IRS.
-
-### Session handling
-
-There is no session handling in the IRS, access is solely based on bearer tokens, the API is stateless.
-
-### Communication and integration
-
-All interfaces to other systems are using RESTful calls over HTTP(S). Where central authentication is required, a common Keycloak instance is used.
-
-For outgoing calls, the Spring RestTemplate mechanism is used and separate RestTemplates are created for the different ways of authentication.
-
-For incoming calls, we utilize the Spring REST Controller mechanism, annotating the interfaces accordingly and also documenting the endpoints using OpenAPI annotations.
 
 ### Exception and error handling
 
@@ -519,139 +448,30 @@ There are two types of potential errors in the IRS:
 
 ### Technical errors
 
-Technical errors occur when there is a problem with the application itself, its configuration or directly connected infrastructure, e.g. the Minio persistence. Usually, the application cannot solve these problems by itself and requires some external support (manual work or automated recovery mechanisms, e.g. Kubernetes liveness probes).
-
-These errors are printed mainly to the application log and are relevant for the healthchecks.
+Technical errors occur when there is a problem with the API itself.
 
 ### Functional errors
 
 Functional errors occur when there is a problem with the data that is being processed or external systems are unavailable and data cannot be sent / fetched as required for the process. While the system might not be able to provide the required function at that moment, it may work with a different dataset or as soon as the external systems recover.
 
-These errors are reported in the Job response and do not directly affect application health.
-
-### Rules for exception handling
-
-_Throw or log, don’t do both_
-
-When catching an exception, either log the exception and handle the problem or rethrow it, so it can be handled at a higher level of the code. By doing both, an exception might be written to the log multiple times, which can be confusing.
-
-_Write own base exceptions for (internal) interfaces_
-By defining a common (checked) base exception for an interface, the caller is forced to handle potential errors, but can keep the logic simple. On the other hand, you still have the possibility to derive various, meaningful exceptions for different error cases, which can then be thrown via the API.
-
-Of course, when using only RuntimeExceptions, this is not necessary - but those can be overlooked quite easily, so be careful there.
-
-_Central fallback exception handler_
-There will always be some exception that cannot be handled inside of the code correctly - or it may just have been unforeseen. A central fallback exception handler is required so all problems are visible in the log and the API always returns meaningful responses. In some cases, this is as simple as a HTTP 500.
-
-Dont expose too much exception details over API
-It’s good to inform the user, why their request did not work, but only if they can do something about it (HTTP 4xx). So in case of application problems, you should not expose details of the problem to the caller. This way, we avoid opening potential attack vectors.
-
-### Parallelization and threading
-
-The heart of the IRS is the parallel execution of planned jobs. As almost each job requires multiple calls to various endpoints, those are done in parallel as well to reduce the total execution time for each job.
-
-Tasks execution is orchestrated by the JobOrchestrator class. It utilizes a cental ExecutorService, which manages the number of threads and schedules new Task as they come in.
-
-### Plausibility checks and validation
-
-Data validation happens at two points:
-
-- IRS API: the data sent by the client is validated to match the model defined in the IRS. If the validation fails, the IRS sends a HTTP 400 response and indicates the problem to the caller.
-- Submodel payload: each time a submodel payload is requested from via EDC, the data is validated against the model defined in the SemanticHub for the matching aspect type.
-
 ## Development concepts
 
 ### Build, test, deploy
 
-The IRS is built using Maven and utilizes all the standard concepts of it. Test execution is part of the build process and a minimum test coverage of 80% is enforced.
+The IRS-DV is built using React and utilizes all the standard concepts of it. Test execution is part of the build process and a minimum test coverage of 80% is enforced.
 
-The project setup contains a multi-module Maven build. Commonly used classes (like the IRS data model) should be extracted into a separate submodule and reused across the project. However, this is not a "one-size-fits-all" solution. New submodules should be created with care and require a review by the team.
-
-The Maven build alone only leads up to the JAR artifact of the IRS. Do create Docker images, the Docker build feature is used. This copies all resources into a builder image, builds the software and creates a final Docker image at the end that can then be deployed.
+```
+Add info about Helm chart
+```
 
 Although the Docker image can be deployed in various ways, the standard solution are the provided Helm charts, which describe the required components as well.
 
-### Code generation
-
-There are two methods of code generation in the IRS:
-
-### Lombok
-
-The Lombok library is heavily used to generate boilerplate code (like Constructors, Getters, Setters, Builders…​). This way, code can be written faster and this boilerplate code is excluded from test coverage, which keeps the test base lean.
-
-### Swagger / OpenAPI
-
-The API uses OpenAPI annotations to describe the endpoints with all necessary information. The annotations are then used to automatically generate the OpenAPI specification file, which can be viewed in the Swagger UI that is deployed with the application.
-
-The generated OpenAPI specification file is automatically compared to a fixed, stored version of it to avoid unwanted changes of the API.
-
-### Migration
-
-There currently is no data migration mechanism for the IRS. In case the model of the persisted data (Jobs) changes, data is dropped and Jobs will need to be recreated.
-
-### Configurability
-
-The IRS utilizes the configuration mechanism provided by Spring Boot. Configuration properties can be defined in the file src/main/resources/application.yml
-
-For local testing purposes, there is an additional configuration file called application-local.yml. Values can be overriden there to support the local dev environment.
-
-Other profiles should be avoided. Instead, any value that might need to change in a runtime environment must be overridable using environment variables. The operator must have total control over the configuration of the IRS.
-
 ## Operational concepts
 
-### Administration
-
-<br>
-
-### Configuration
-
-The IRS can be configured using two mechanisms:
-
-### application.yml
-
-If you build the IRS yourself, you can modify the application.yml config that is shipped with the IRS. This file contains all possible config entries for the application. Once the Docker image has been built, these values can only be overwritten using the Spring external config mechanism (see https://docs.spring.io/spring-boot/docs/2.1.9.RELEASE/reference/html/boot-features-external-config.html), e.g. by mounting a config file in the right path or using environment variables.
-
-### Helm Chart
+### Configuration - Helm Chart
 
 The most relevant config properties are exposed as environment variables and must be set in the Helm chart so the application can run at all. Check the IRS Helm chart in Git for all available variables.
 
-## Disaster-Recovery
-
-### Ephemeral components
-
-All components in the IRS deployment not listed in the persistent components section below are considered ephemeral and are easily replaced in a disaster scenario. All deployment components are described using Helm charts, which can be used to restore the deployment with the Docker images. Should the Docker images go missing, they can be restored by executing the build pipelines for the corresponding version tag of the component.
-
-### Persistent components
-
-These components utilize data persistence, which needs to be backed up separately by the operator.
-
-- Minio persistent volume: Contains the stored Job information. In case of data loss, Jobs can be started again to retrieve the data from the network.
-
-- Prometheus persistent volume: Contains the monitoring data of the IRS. In case of data loss, no analysis can be done for past timeframes.
-
-- Vault secrets: In case of data loss, the credentials stored in the Vault need to be recreated manually. See the deployment view for an overview.
-
-### Scaling
-
-If the number of consumers raises, the IRS can be scaled up by using more resources for the Deployment Pod. Those resources can be used to utilize more parallel threads to handle Job execution.
-
-### Clustering
-
-The IRS can run in clustered mode, as each running job is only present in one pod at a time. Note: as soon as a resume feature is implemented, this needs to be addressed here.
-
-### Logging
-
-Logs are being written directly to stdout and are picked up by the cluster management.
-
-### Monitoring
-
-The application can be monitored using Prometheus and Grafana. Both systems are defined in the Helm charts with a default setup. A number of Grafana dashboards are deployed automatically, to display data about:
-
-- Pod / JVM resources
-
-- API metrics
-
-- Functional information about IRS Jobs
   <br>
   <br>
 
@@ -709,4 +529,3 @@ This section will be filled soon.
 
 <br>
 <br>
-```
