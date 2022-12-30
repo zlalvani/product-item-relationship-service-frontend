@@ -34,7 +34,7 @@
   - [ ] [Local deployment](#local-deployment)
   - [ ] [View Levels](#view-levels)
 - [ o ] [Cross-cutting concepts](#cross-cutting-concepts)
-  - [ ] [Domain concepts](#domain-concepts)
+  - [ o ] [Domain concepts](#domain-concepts)
   - [ o ] [Safety and security concepts](#safety-and-security-concepts)
   - [ o ] ["Under-the-hood" concepts](#under-the-hood-concepts)
   - [ o ] [Development concepts](#development-concepts)
@@ -210,11 +210,11 @@ Communication is done using HTTP. This is the standard method in the Catena-X la
 
 The IRS-DV consists of 3 main views:
 
-1. the REST API to view/find Jobs (services component)
+1. the IRS API to view/find Jobs (services component)
 2. the job list
 3. the visualization and tumbstones blocks
 
-We search by parameters in REST API, and collecting fetched data in job list.
+IRS-DV search by parameters in IRS API, and collecting fetched data in job list.
 
 The job list is the place where IRS-DV is storing all fetched jobs and hold search history.
 
@@ -402,14 +402,10 @@ The ingress uses a reverse proxy to provide specified Service ports to the inter
 # Cross-cutting concepts
 
 ## Domain concepts
-
-### Domain entity model
-
-domain entity model (IMAGE)
-
 ### Domain model
 
-domain model (IMAGE)
+![Domain model](./images/puml-svg/domain-model.svg)
+
 
 ### JobStatus
 
@@ -461,7 +457,7 @@ Functional errors occur when there is a problem with the data that is being proc
 The IRS-DV is built using React and utilizes all the standard concepts of it. Test execution is part of the build process and a minimum test coverage of 80% is enforced.
 
 ```
-Add info about Helm chart
+TODO: Add info about Helm chart
 ```
 
 Although the Docker image can be deployed in various ways, the standard solution are the provided Helm charts, which describe the required components as well.
