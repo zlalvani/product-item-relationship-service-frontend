@@ -1,9 +1,8 @@
 import axios, { AxiosRequestConfig } from "axios";
-import { getCurrentEnvironment, serverConfig } from "../constants/serverConfig";
+import { getCurrentEnvironment, serverConfig, ServerEnvironment } from "../constants/serverConfig";
 import { keycloak } from "../lib/keycloak";
-import { AvailableServerEnvironments } from "../store/serverEnvironment";
 
-const getBaseURL = (serverEnv: AvailableServerEnvironments = getCurrentEnvironment()) => {
+const getBaseURL = (serverEnv: ServerEnvironment = getCurrentEnvironment()) => {
   return serverConfig[serverEnv].value;
 };
 
@@ -12,11 +11,7 @@ export const getHeaders = () => ({
 });
 
 export class HttpClient {
-  static async request<T, D>(
-    path: string,
-    options: AxiosRequestConfig<D>,
-    serverEnv?: AvailableServerEnvironments,
-  ): Promise<T> {
+  static async request<T, D>(path: string, options: AxiosRequestConfig<D>, serverEnv?: ServerEnvironment): Promise<T> {
     try {
       const response = await axios.request({
         ...options,
@@ -36,7 +31,7 @@ export class HttpClient {
   static async get<T, D = Record<string, unknown>>(
     path: string,
     params: D = {} as D,
-    serverEnv?: AvailableServerEnvironments,
+    serverEnv?: ServerEnvironment,
   ): Promise<T> {
     return HttpClient.request(path, { params, method: "GET" }, serverEnv);
   }
@@ -44,7 +39,7 @@ export class HttpClient {
   static async post<T, D = Record<string, unknown>>(
     path: string,
     data: D = {} as D,
-    serverEnv?: AvailableServerEnvironments,
+    serverEnv?: ServerEnvironment,
   ): Promise<T> {
     return HttpClient.request<T, D>(path, { data, method: "POST" }, serverEnv);
   }
@@ -52,7 +47,7 @@ export class HttpClient {
   static async put<T, D = Record<string, unknown>>(
     path: string,
     data: D = {} as D,
-    serverEnv?: AvailableServerEnvironments,
+    serverEnv?: ServerEnvironment,
   ): Promise<T> {
     return HttpClient.request<T, D>(path, { data, method: "PUT" }, serverEnv);
   }
@@ -60,7 +55,7 @@ export class HttpClient {
   static async delete<T, D = Record<string, unknown>>(
     path: string,
     params: D = {} as D,
-    serverEnv?: AvailableServerEnvironments,
+    serverEnv?: ServerEnvironment,
   ): Promise<T> {
     return HttpClient.request(path, { params, method: "DELETE" }, serverEnv);
   }

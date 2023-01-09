@@ -1,12 +1,11 @@
 import { useMutation } from "@tanstack/react-query";
-import { getCurrentEnvironment } from "../../constants/serverConfig";
+import { getCurrentEnvironment, ServerEnvironment } from "../../constants/serverConfig";
 import { useQuery } from "../../lib/react-query";
-import { AvailableServerEnvironments } from "../../store/serverEnvironment";
 import { IRSRequestBody } from "../../types/jobs";
 import { cancelJob, createJob, fetchJobById, fetchJobs } from "../api/jobs.api";
 
 export const useFetchJobById = (
-  { id, serverEnv }: { id: string; serverEnv: AvailableServerEnvironments },
+  { id, serverEnv }: { id: string; serverEnv: ServerEnvironment },
   refetchInterval: false | number = false,
 ) => {
   return useQuery(["jobs", serverEnv, id], () => fetchJobById(id, serverEnv), {
