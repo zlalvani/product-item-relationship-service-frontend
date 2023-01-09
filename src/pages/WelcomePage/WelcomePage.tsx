@@ -1,20 +1,15 @@
 import styled from "@emotion/styled";
 import { Box } from "@mui/material";
-import { useKeycloak } from "@react-keycloak/web";
-import { Button, MainHeader, Typography } from "cx-portal-shared-components";
-import { useNavigate } from "react-router-dom";
+import { MainHeader, Typography } from "cx-portal-shared-components";
 import { PublicHeader } from "../../components/layout/Header";
-import { getCurrentEnvironment } from "../../constants/serverConfig";
 import { IRSSelectServerEnv } from "../ItemRelationshipService/features/SelectEnvironment/IRSSelectServerEnv";
+import { LoginButton } from "./components/LoginButton";
 
 /**
  * This page is the first page that is going to be loaded.
  * @returns React.Node
  */
 export const WelcomePage: React.FC = () => {
-  const { keycloak } = useKeycloak();
-  const navigate = useNavigate();
-
   return (
     <div>
       <PublicHeader />
@@ -38,17 +33,7 @@ export const WelcomePage: React.FC = () => {
         </PaddingBottom>
 
         <IRSSelectServerEnv />
-
-        <Button
-          onClick={async () => {
-            const serverEnv = getCurrentEnvironment();
-            navigate(`${serverEnv}/dashboard`);
-            await keycloak.login();
-          }}
-          style={{ marginTop: "75px" }}
-        >
-          {"Login"}
-        </Button>
+        <LoginButton />
       </MainHeader>
     </div>
   );
