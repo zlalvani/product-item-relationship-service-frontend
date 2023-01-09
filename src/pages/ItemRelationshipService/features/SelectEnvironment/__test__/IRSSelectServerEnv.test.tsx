@@ -1,20 +1,18 @@
 import { fireEvent, screen } from "@testing-library/react";
+import { getCurrentEnvironment } from "../../../../../constants/serverConfig";
 import { render } from "../../../../../testing/test-utils";
 import { IRSSelectServerEnv } from "../IRSSelectServerEnv";
 
 it("renders the environment selector", () => {
-  const { store } = render(<IRSSelectServerEnv />);
+  render(<IRSSelectServerEnv />);
   const input = screen.getByRole("textbox", {
     hidden: true,
   });
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  //@ts-ignore
-  expect(store.getState().serverEnvReducer.serverEnv).toEqual("DEV");
+
+  expect(getCurrentEnvironment()).toEqual("DEV");
 
   fireEvent.change(input, {
     target: { value: "INT" },
   });
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  //@ts-ignore
-  expect(store.getState().serverEnvReducer.serverEnv).toEqual("INT");
+  expect(getCurrentEnvironment()).toEqual("INT");
 });

@@ -4,9 +4,8 @@ import { LoadingButton, PageSnackbar } from "cx-portal-shared-components";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { PaddedSection } from "../../../components/layout/PaddedSection";
-import { serverConfig } from "../../../constants/serverConfig";
+import { getCurrentEnvironment, serverConfig } from "../../../constants/serverConfig";
 import { useCreateJob } from "../../../services/queries/jobs";
-import { useAppSelector } from "../../../store/store";
 import { IRSRequestBody } from "../../../types/jobs";
 import { IRSJobAddFormTextfield } from "./components/IRSJobAddFormTextfield";
 
@@ -16,7 +15,7 @@ type DefaultFormFieldValuesType = {
 };
 
 const useGetCurrentServerUrl = () => {
-  const { serverEnv } = useAppSelector((state) => state.serverEnvReducer);
+  const serverEnv = getCurrentEnvironment();
   return serverConfig[serverEnv].value;
 };
 

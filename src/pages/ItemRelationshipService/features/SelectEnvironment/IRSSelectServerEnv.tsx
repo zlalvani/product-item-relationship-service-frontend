@@ -4,21 +4,23 @@ import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import { useTranslation } from "react-i18next";
 import { PaddedSection } from "../../../../components/layout/PaddedSection";
-import { serverConfig } from "../../../../constants/serverConfig";
-import { AvailableServerEnvironments, setServerEnv } from "../../../../store/serverEnvironment";
-import { useAppDispatch, useAppSelector } from "../../../../store/store";
+import {
+  getCurrentEnvironment,
+  serverConfig,
+  ServerEnvironment,
+  setCurrentEnvironment,
+} from "../../../../constants/serverConfig";
 
 export const IRSSelectServerEnv = () => {
   const { t } = useTranslation();
-  const { serverEnv } = useAppSelector((store) => store.serverEnvReducer);
-  const dispatch = useAppDispatch();
+  const serverEnv = getCurrentEnvironment();
 
   return (
     <PaddedSection>
       <InputLabel sx={{ marginBottom: "7px" }}>{t("content.irs.form.environment.label")}</InputLabel>
       <Select
         onChange={(event) => {
-          dispatch(setServerEnv(event.target.value as AvailableServerEnvironments));
+          setCurrentEnvironment(event.target.value as ServerEnvironment);
         }}
         value={serverEnv}
         variant="filled"

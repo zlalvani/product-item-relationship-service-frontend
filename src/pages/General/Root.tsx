@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import { useKeycloak } from "@react-keycloak/web";
 import { Outlet, useNavigate } from "react-router-dom";
 import { Header } from "../../components/layout/Header";
+import { getCurrentEnvironment } from "../../constants/serverConfig";
 
 /**
  * This is used by React Router as Root element for publicly accessible Routes
@@ -12,9 +13,10 @@ import { Header } from "../../components/layout/Header";
 export const PublicRoot: React.FC = () => {
   const { keycloak } = useKeycloak();
   const navigate = useNavigate();
+  const serverEnv = getCurrentEnvironment();
 
-  if (keycloak.authenticated) {
-    navigate("/dashboard");
+  if (keycloak.authenticated && serverEnv !== null) {
+    navigate(`${serverEnv}/dashboard`);
   }
 
   return (

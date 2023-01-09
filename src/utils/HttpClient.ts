@@ -1,10 +1,9 @@
 import axios, { AxiosRequestConfig } from "axios";
-import { serverConfig } from "../constants/serverConfig";
+import { getCurrentEnvironment, serverConfig } from "../constants/serverConfig";
 import { keycloak } from "../lib/keycloak";
 import { AvailableServerEnvironments } from "../store/serverEnvironment";
-import { store } from "../store/store";
 
-const getBaseURL = (serverEnv: AvailableServerEnvironments = store.getState().serverEnvReducer.serverEnv) => {
+const getBaseURL = (serverEnv: AvailableServerEnvironments = getCurrentEnvironment()) => {
   return serverConfig[serverEnv].value;
 };
 
