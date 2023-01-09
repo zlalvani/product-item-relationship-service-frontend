@@ -5,6 +5,7 @@ import userEvent from "@testing-library/user-event";
 import { I18nextProvider } from "react-i18next";
 import { BrowserRouter } from "react-router-dom";
 import { ReactQueryTestClientProvider } from "../lib";
+import { KeyCloakProvider } from "../lib/keycloak";
 import i18n from "./i18n-testconfig";
 
 type ExtendedRenderOptions = Omit<RenderOptions, "queries">;
@@ -13,7 +14,9 @@ export function renderWithProviders(ui: React.ReactElement, { ...renderOptions }
   const Wrapper: FC<{ children: React.ReactNode }> = ({ children }) => {
     return (
       <I18nextProvider i18n={i18n}>
-        <ReactQueryTestClientProvider>{children}</ReactQueryTestClientProvider>
+        <ReactQueryTestClientProvider>
+          <KeyCloakProvider>{children}</KeyCloakProvider>
+        </ReactQueryTestClientProvider>
       </I18nextProvider>
     );
   };
@@ -24,7 +27,9 @@ export function renderWithProviders(ui: React.ReactElement, { ...renderOptions }
 
 export function renderCustomHook<Props, Result>(fn: (props: Props) => Result) {
   const wrapper: FC<{ children: React.ReactNode }> = ({ children }) => (
-    <ReactQueryTestClientProvider>{children}</ReactQueryTestClientProvider>
+    <ReactQueryTestClientProvider>
+      <KeyCloakProvider>{children}</KeyCloakProvider>
+    </ReactQueryTestClientProvider>
   );
   return renderHook(fn, { wrapper });
 }

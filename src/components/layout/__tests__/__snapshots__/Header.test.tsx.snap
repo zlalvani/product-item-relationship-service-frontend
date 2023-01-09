@@ -70,7 +70,7 @@ exports[`renders a public header 1`] = `
         >
           <a
             class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-40uvlr-MuiTypography-root-MuiLink-root-MuiTypography-root-MuiLink-root"
-            href="/dashboard"
+            href="/DEV/dashboard"
           >
             Development Environment - Home
           </a>
