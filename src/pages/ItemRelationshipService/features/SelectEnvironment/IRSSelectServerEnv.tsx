@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
-import Select from "@mui/material/Select";
+import Select, { SelectChangeEvent } from "@mui/material/Select";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { PaddedSection } from "../../../../components/layout/PaddedSection";
 import {
@@ -13,19 +14,18 @@ import {
 
 export const IRSSelectServerEnv = () => {
   const { t } = useTranslation();
-  const serverEnv = getCurrentEnvironment();
+  const [serverEnv, setServerEnv] = useState(getCurrentEnvironment());
+
+  const changeHandler = (event: SelectChangeEvent<ServerEnvironment>) => {
+    const newServerEnv = event.target.value as ServerEnvironment;
+    setCurrentEnvironment(newServerEnv);
+    setServerEnv(newServerEnv);
+  };
 
   return (
     <PaddedSection>
       <InputLabel sx={{ marginBottom: "7px" }}>{t("content.irs.form.environment.label")}</InputLabel>
-      <Select
-        onChange={(event) => {
-          setCurrentEnvironment(event.target.value as ServerEnvironment);
-        }}
-        value={serverEnv}
-        variant="filled"
-        fullWidth
-      >
+      <Select onChange={changeHandler} value={serverEnv} variant="filled" fullWidth>
         <MenuItem disabled value="none">
           {t("global.actions.pleaseSelect")}
         </MenuItem>
