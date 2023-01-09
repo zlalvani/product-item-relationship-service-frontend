@@ -19,7 +19,7 @@ it("tests the use fetchjob by id", async () => {
 
 it("tests the use fetch jobs", async () => {
   mock.onGet(serverConfig.DEV.value + "jobs").reply(200, JobStatusResultSuccess);
-  const { result } = renderHook(() => useFetchJobs());
+  const { result } = renderHook(() => useFetchJobs(0, 0));
   await waitFor(() => {
     expect(result.current.isSuccess).toBe(true);
   });

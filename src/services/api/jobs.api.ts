@@ -11,11 +11,17 @@ export const fetchJobById = async (jobId: string, serverEnv: AvailableServerEnvi
   return await HttpClient.get(`jobs/${jobId}?returnUncompletedJob=true`, undefined, serverEnv);
 };
 
-export const fetchJobs = async (serverEnv?: AvailableServerEnvironments): Promise<JobListResponse> => {
+export const fetchJobs = async (page: number, serverEnv?: AvailableServerEnvironments): Promise<JobListResponse> => {
   if (serverEnv === "DEMO") {
     return JobListResponseSuccess;
   }
-  return await HttpClient.get("jobs", undefined, serverEnv);
+
+  const requestParams = {
+    page,
+    size: 20,
+    sort: "completedOn, asc",
+  };
+  return await HttpClient.get("jobs", requestParams, serverEnv);
 };
 
 export const cancelJob = async (jobId: string) => {

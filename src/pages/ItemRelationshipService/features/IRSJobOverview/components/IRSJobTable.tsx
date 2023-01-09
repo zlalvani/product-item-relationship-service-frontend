@@ -1,16 +1,23 @@
 import { Table } from "cx-portal-shared-components";
-import React from "react";
+import React, { useState } from "react";
+import { ErrorDisplay } from "../../../../../components/ErrorDisplay";
 import { useTranslation } from "../../../../../lib";
 import { defaultDateFormat } from "../../../../../lib/dayjs";
+import { useFetchJobs } from "../../../../../services/queries/jobs";
 import { JobStatusResult } from "../../../../../types/jobs";
 import { IRSCancelJobButton } from "./IRSCancelJobButton";
 import { IRSNavigateToJobDetails } from "./IRSNavigateToJobDetails";
 
 export const IRSJobTable: React.FC<{
-  isLoading: boolean;
-  jobs: JobStatusResult[];
-}> = ({ isLoading, jobs }) => {
+  isAutoRefreshEnabled: boolean;
+}> = ({ isAutoRefreshEnabled }) => {
+  const [currentPage, setCurrentPage] = useState(0);
+  const { isLoading, isError, data: jobs, error } = useFetchJobs(currentPage, isAutoRefreshEnabled ? 5000 : false);
   const { t } = useTranslation();
+  if (isError) {
+    return <ErrorDisplay error={error as Error} />;
+  }
+
   const columns = [
     {
       field: "id",
@@ -59,21 +66,24 @@ export const IRSJobTable: React.FC<{
       },
     },
   ];
+
   return (
     <Table
       title={t("content.irs.jobsTable.title")}
       className="irs-table"
       columns={columns}
-      rows={jobs}
+      rows={jobs?.content ?? []}
       loading={isLoading}
       disableColumnSelector={true}
       disableDensitySelector={true}
       hideFooter={false}
       disableColumnMenu={true}
       pagination={true}
-      pageSize={50}
+      pageSize={jobs?.pageSize ?? 0}
       hideFooterPagination={false}
-      paginationMode={"client"}
+      paginationMode="client"
+      rowCount={jobs?.pageCount}
+      onPageChange={setCurrentPage}
     />
   );
 };

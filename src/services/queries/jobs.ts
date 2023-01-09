@@ -14,9 +14,9 @@ export const useFetchJobById = (
   });
 };
 
-export const useFetchJobs = (refetchInterval: false | number = false) => {
+export const useFetchJobs = (page: number, refetchInterval: false | number = false) => {
   const { serverEnv } = useAppSelector((state) => state.serverEnvReducer);
-  return useQuery(["jobs", serverEnv], () => fetchJobs(serverEnv), { refetchInterval });
+  return useQuery(["jobs", serverEnv, page], () => fetchJobs(page, serverEnv), { refetchInterval });
 };
 
 export const useCancelJobs = () => {
