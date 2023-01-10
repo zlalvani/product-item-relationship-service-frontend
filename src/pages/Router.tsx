@@ -19,7 +19,7 @@ export const routeConfig = [
     ],
   },
   {
-    path: "/",
+    path: "/:env",
     element: <PrivateRoot />,
     errorElement: <ErrorRoute />,
     children: [

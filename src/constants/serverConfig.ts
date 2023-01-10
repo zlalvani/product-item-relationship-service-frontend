@@ -26,3 +26,7 @@ export const serverConfig = {
 } as const;
 
 export type ServerEnvironment = keyof typeof serverConfig;
+
+export const isServerEnvironment = (val: string): val is ServerEnvironment => {
+  return Object.keys(serverConfig).includes(val);
+};

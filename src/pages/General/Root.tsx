@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
 import { useKeycloak } from "@react-keycloak/web";
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useNavigate, useParams } from "react-router-dom";
 import { Header } from "../../components/layout/Header";
-import { getCurrentEnvironment } from "../../utils/sessionStorageHandling";
+import { getCurrentEnvironment, setCurrentEnvironment } from "../../utils/sessionStorageHandling";
 
 /**
  * This is used by React Router as Root element for publicly accessible Routes
@@ -35,6 +35,8 @@ export const PublicRoot: React.FC = () => {
 export const PrivateRoot: React.FC = () => {
   const { keycloak } = useKeycloak();
   const navigate = useNavigate();
+  const { env = "" } = useParams();
+  setCurrentEnvironment(env);
   if (keycloak.authenticated === undefined) {
     // This is used so first render will not display elements of the dashboard and will not trigger network requests.
     return null;
