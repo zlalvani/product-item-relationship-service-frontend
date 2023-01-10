@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import { useKeycloak } from "@react-keycloak/web";
 import { Outlet, useNavigate } from "react-router-dom";
 import { Header } from "../../components/layout/Header";
-import { getCurrentEnvironment } from "../../constants/serverConfig";
+import { getCurrentEnvironment } from "../../utils/sessionStorageHandling";
 
 /**
  * This is used by React Router as Root element for publicly accessible Routes

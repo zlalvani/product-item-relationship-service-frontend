@@ -1,7 +1,7 @@
 import { IconButton } from "cx-portal-shared-components";
 import { Link } from "react-router-dom";
-import { getCurrentEnvironment } from "../../../../../constants/serverConfig";
 import { ArrowForwardIcon } from "../../../../../lib";
+import { getCurrentEnvironment } from "../../../../../utils/sessionStorageHandling";
 
 export const IRSNavigateToJobDetails: React.FC<{ jobId: string }> = ({ jobId }) => {
   const serverEnv = getCurrentEnvironment();

@@ -5,12 +5,8 @@ import Select, { SelectChangeEvent } from "@mui/material/Select";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { PaddedSection } from "../../../../components/layout/PaddedSection";
-import {
-  getCurrentEnvironment,
-  serverConfig,
-  ServerEnvironment,
-  setCurrentEnvironment,
-} from "../../../../constants/serverConfig";
+import { serverConfig, ServerEnvironment } from "../../../../constants/serverConfig";
+import { getCurrentEnvironment, setCurrentEnvironment } from "../../../../utils/sessionStorageHandling";
 
 export const IRSSelectServerEnv = () => {
   const { t } = useTranslation();

@@ -1,7 +1,8 @@
 import { ReactKeycloakProvider } from "@react-keycloak/web";
 import Keycloak from "keycloak-js";
 import React from "react";
-import { getCurrentEnvironment, serverConfig } from "../constants/serverConfig";
+import { serverConfig } from "../constants/serverConfig";
+import { getCurrentEnvironment } from "../utils/sessionStorageHandling";
 
 const keycloakConfig: Keycloak.KeycloakConfig = {
   url: "https://centralidp.int.demo.catena-x.net/auth",

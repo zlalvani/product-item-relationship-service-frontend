@@ -1,5 +1,5 @@
 import { fireEvent, screen } from "@testing-library/react";
-import { getCurrentEnvironment } from "../../../../../constants/serverConfig";
+import { getCurrentEnvironment } from "../../../../../utils/sessionStorageHandling";
 import { render } from "../../../../../testing/test-utils";
 import { IRSSelectServerEnv } from "../IRSSelectServerEnv";
 
