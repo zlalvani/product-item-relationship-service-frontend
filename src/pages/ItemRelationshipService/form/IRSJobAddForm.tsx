@@ -5,9 +5,9 @@ import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { PaddedSection } from "../../../components/layout/PaddedSection";
 import { serverConfig } from "../../../constants/serverConfig";
-import { getCurrentEnvironment } from "../../../utils/sessionStorageHandling";
 import { useCreateJob } from "../../../services/queries/jobs";
 import { IRSRequestBody } from "../../../types/jobs";
+import { getCurrentEnvironment } from "../../../utils/sessionStorageHandling";
 import { IRSJobAddFormTextfield } from "./components/IRSJobAddFormTextfield";
 
 type DefaultFormFieldValuesType = {
@@ -123,27 +123,11 @@ export const IRSJobAddForm = () => {
       </Box>
 
       {isError && (
-        <PageSnackbar
-          description="Failed to create Job"
-          open={true}
-          severity="error"
-          showIcon={true}
-          title="Error"
-          vertical={"top"}
-          horizontal={"center"}
-        />
+        <PageSnackbar description="Failed to create Job" open={true} severity="error" showIcon={true} title="Error" />
       )}
 
       {isSuccess && (
-        <PageSnackbar
-          description="Created Job"
-          open={true}
-          severity="success"
-          showIcon={true}
-          title="Success"
-          vertical={"top"}
-          horizontal={"center"}
-        />
+        <PageSnackbar description="Created Job" open={true} severity="success" showIcon={true} title="Success" />
       )}
     </PaddedSection>
   );
