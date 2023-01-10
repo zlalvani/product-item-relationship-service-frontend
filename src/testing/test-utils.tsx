@@ -10,28 +10,23 @@ import i18n from "./i18n-testconfig";
 
 type ExtendedRenderOptions = Omit<RenderOptions, "queries">;
 
-export function renderWithProviders(ui: React.ReactElement, { ...renderOptions }: ExtendedRenderOptions = {}) {
-  const Wrapper: FC<{ children: React.ReactNode }> = ({ children }) => {
-    return (
-      <I18nextProvider i18n={i18n}>
-        <ReactQueryTestClientProvider>
-          <KeyCloakProvider>{children}</KeyCloakProvider>
-        </ReactQueryTestClientProvider>
-      </I18nextProvider>
-    );
-  };
+const Wrapper: FC<{ children: React.ReactNode }> = ({ children }) => {
+  return (
+    <I18nextProvider i18n={i18n}>
+      <ReactQueryTestClientProvider>
+        <KeyCloakProvider>{children}</KeyCloakProvider>
+      </ReactQueryTestClientProvider>
+    </I18nextProvider>
+  );
+};
 
+export function renderWithProviders(ui: React.ReactElement, { ...renderOptions }: ExtendedRenderOptions = {}) {
   // Return an object with the store and all of RTL's query functions
   return { ...render(ui, { wrapper: Wrapper, ...renderOptions }) };
 }
 
 export function renderCustomHook<Props, Result>(fn: (props: Props) => Result) {
-  const wrapper: FC<{ children: React.ReactNode }> = ({ children }) => (
-    <ReactQueryTestClientProvider>
-      <KeyCloakProvider>{children}</KeyCloakProvider>
-    </ReactQueryTestClientProvider>
-  );
-  return renderHook(fn, { wrapper });
+  return renderHook(fn, { wrapper: Wrapper });
 }
 
 export const renderWithRouter = (ui: React.ReactElement, { route = "/" } = {}) => {
