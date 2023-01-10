@@ -2,30 +2,7 @@
   "title": "Catena-X Portal",
   "pages": {
     "home": "Home",
-    "registration": "Onboarding Registration",
-    "swagger": "Swagger OpenAPI Definition",
-    "storybook": "Storybook Shared Component Library",
-    "marketplace": "Marketplace",
-    "appmarketplace": "App Marketplace",
-    "servicemarketplace": "Service Marketplace",
-    "dataspacemarketplace": "Dataspace Marketplace",
-    "appdetails": "App Details",
-    "datamanagement": "Data Management",
-    "datacatalog": "Data Catalog",
-    "semantichub": "Semantic Hub",
-    "digitaltwin": "Digital Twins",
-    "developerhub": "Developer Hub",
-    "partnernetwork": "Partner Network",
-    "connector": "Connector",
-    "account": "My CX Account",
-    "organization": "My Organization",
-    "notifications": "Notifications",
-    "usermanagement": "User Management",
-    "technicalsetup": "Technical Integration",
-    "applicationrequests": "Application Requests",
-    "admin": "Administration",
-    "developer": "Development",
-    "invite": "Invite Business Partner",
+   
     "help": "Help",
     "contact": "Contact",
     "imprint": "Imprint",
@@ -35,204 +12,26 @@
     "thirdpartylicenses": "Third Party Licenses",
     "logout": "Sign Out",
     "notfound": "Page not found",
-    "appmanagement": "App Management",
-    "appoverview": "App Overview",
-    "appreleaseprocess": "App Release Process",
-    "appusermanagement": "App User Management",
-    "userdetails": "User Details",
-    "technicaluser": "Technical User Management",
+  
     "itemrelationshipservice": "Item Relationship Service"
   },
-  "overlays": {
-    "invite": "Invite new Business Partner",
-    "add_user": "Add new user",
-    "add_techuser": "Add new technical user"
-  },
+ 
   "actions": {
     "SignOut": "Sign out",
     "Lang_de": "Switch language to german",
     "Lang_en": "Switch language to english"
   },
   "content": {
-    "admin": {
-      "registration-requests": {
-        "columns": {
-          "request": "Request",
-          "requestDescription": "ID of user request",
-          "date": "Date",
-          "companyinfo": "Company Application Info",
-          "documents": "Documents",
-          "details": "Details",
-          "state": "State"
-        },
-        "headertitle": "User Registration Requests",
-        "introText1": "The application request board includes all current outstanding application requests as well as an overview of confirmed and declined company applications to the Catena-X Network.",
-        "introText2": "If an application is approved, the registration company will receive access to the CX portal to start the technical and functional onboarding. Please make sure that you validate the application request details before approving a request.",
-        "tabletitle": "Registration requests",
-        "pending": "pending",
-        "buttonconfirm": "confirm",
-        "buttondecline": "decline",
-        "cellconfirmed": "confirmed",
-        "celldeclined": "declined",
-        "overlay": {
-          "title": "Company Detail",
-          "companydatatitle": "Company Data",
-          "taxid": "Tax ID"
-        },
-        "confirmmodal": {
-          "title": "Confirm action",
-          "description": "Are you sure to make action on selected request?"
-        }
-      }
-    },
-    "news": {
-      "title": "News"
-    },
-    "home": {
-      "stage": {
-        "title": "Catena-X",
-        "subtitle": "the gateway to the automotive digital network",
-        "cxButton": "My CX",
-        "appButton": "My Apps"
-      },
-      "searchSection": {
-        "inputPlaceholder": "Search in Catena-X"
-      },
-      "businessApplicationsSection": {
-        "title": "My Business Applications"
-      },
-      "appStoreSection": {
-        "title": "New Apps"
-      }
-    },
-    "appstore": {
-      "stage": {
-        "title": "Catena-X App Store",
-        "subtitle": "A scalable & expandable ecosystem",
-        "appButton": "App Overview"
-      },
-      "favoriteSection": {
-        "title": "My Favorite Applications",
-        "myFavorite": "My Favorites",
-        "noFavoriteDescription": "Your app favorites will show up in this section as soon as favorites selected."
-      },
-      "appOverviewSection": {
-        "title": "App Overview",
-        "categoryViews": {
-          "all": "List View",
-          "useCases": "Category View"
-        },
-        "categories": {
-          "none": "Not categorized",
-          "businesspartnermanagement": "Business Partner Data Management",
-          "circulareconomy": "Circular Economy",
-          "quality&demandmanagement": "Demand & Quality Management",
-          "demandandcapacitymanagement": "Demand & Capacity Management",
-          "traceability": "Traceability"
-        }
-      }
-    },
-    "semantichub": {
-      "title": "Semantic Data Models",
-      "introText_0": "Semantic models are used to structure data. As a concept, they make it possible to give fundamental meaning to data and their relationships. In the context of data modeling and data organization they realize the development of applications as well as the maintenance of data consistency.",
-      "introText_1": "In Catena-X, semantic data models are provided in a suitable publication system, the so-called Semantic Hub. For data or service providers, the Semantic Hub presents a foundation for the use and reuse of semantic models. For this reason, the publication of a semantic data model takes place under the specification of a version. This supports transparency as well as control over all semantic models and their release status.",
-      "addModel": "Neues Model anlegen",
-      "alerts": {
-        "alertSuccessTitle": "Success!",
-        "alertErrorTitle": "Error!",
-        "uploadSuccess": "Model successfully uploaded.",
-        "deleteSuccess": "Model successfully deleted."
-      },
-      "table": {
-        "title": "Semantic Data Models",
-        "filter": {
-          "namespaceLabel": "Namespace",
-          "namespacePlaceholder": "Enter a namespace to filter",
-          "objNameLabel": "Object Name",
-          "objNamePlaceholder": "Enter a object name to filter",
-          "selectLabel": "Select Object Type",
-          "button": "Search",
-          "resetButton": "Reset"
-        },
-        "columns": {
-          "name": "Name",
-          "status": "Status",
-          "type": "Vocabulary Type",
-          "version": "Version",
-          "src": "Source",
-          "details": "Details"
-        },
-        "load_button": "Load more"
-      },
-      "importDialog": {
-        "title": "Import Model",
-        "buttonConfirm": "Upload",
-        "buttonCancel": "Cancel"
-      },
-      "deleteDialog": {
-        "title": "Delete aspect model",
-        "subtitle": "Are you sure you want to delete the aspect model?",
-        "info": "Note: If you delete the model now, you won't be able to reactivate it later.",
-        "buttonConfirm": "Delete",
-        "buttonCancel": "Cancel"
-      },
-      "detail": {
-        "deleteButton": "Delete Model",
-        "diagramTitle": "diagram of the aspect model",
-        "urnLabel": "Aspect model URN",
-        "imgAlt": "Model diagram",
-        "downloads": {
-          "ttl": "TTL file",
-          "docu": "Documentation",
-          "json": "JSON Schema",
-          "payload": "Example Payload JSON",
-          "aasAasx": "AAS file",
-          "aasXml": "AAS XML"
-        },
-        "aasSelect": {
-          "label": "Choose a download format",
-          "itemFile": "AASX",
-          "itemXml": "XML"
-        },
-        "fileError": "Error: The file could not be loaded.",
-        "ttlTooltip": "The downloaded Turtle file looks different but is semantically the same compared to the uploaded Turtle file for the Aspect. To further develop existing Aspects refer to the source Turtle files (e.g. in the Catena-X BAMM Model GitHub Repository)",
-        "downloadTitle": "Download options related to this aspect model",
-        "openApi": {
-          "inputLabel": "Enter a base URL to change the default open API URL.",
-          "inputPlaceholder": "Default URL",
-          "buttonText": "Save new URL",
-          "buttonTitle": "Get Open API JSON"
-        },
-        "nomodelTitle": "Oooops! No Model found!",
-        "nomodelText": "The used URN is either incorrect or the model does not yet exist."
-      }
-    },
-    "digitaltwin": {
-      "table": {
-        "title": "Overview Digital Twins",
-        "columns": {
-          "idShort": "Name",
-          "sm_count": "Submodel Count",
-          "asset_count": "Asset Count"
-        },
-        "load_button": "Load more"
-      },
-      "detail": {
-        "error": "ERROR: No twin data available.",
-        "no_description": "This asset has no description.",
-        "assetId": "Specific asset IDs",
-        "submodel_endpoints": "Submodel endpoints:",
-        "semanticid": "Semantic ID:",
-        "key": "Key:",
-        "value": "Value:",
-        "endpoints": "Endpoints:",
-        "interface": "Interface:",
-        "protocol": "Protocol:",
-        "protocol_version": "Protocol version:",
-        "protocol_endpoint": "Aspect Endpoint:"
-      }
-    },
+   
+
+
+
+    
     "irs": {
+      "welcomePage": {
+        "loginButtonLabel": "Login",
+        "headerSubtitle": "Insights into decentral stored Data Chains"
+      },
       "jobsTable": {
         "title": "Item Relationship Service Job Store ",
         "jobID": "Id",
@@ -293,253 +92,7 @@
         "sendButton": "Build Data Chain"
       }
     },
-    "datamanagement": {
-      "message": "Contents of Data Management"
-    },
-    "datacatalog": {
-      "message": "Contents of Data Catalog"
-    },
-    "developerhub": {
-      "message": "Contents of Developer Hub"
-    },
-    "appoverview": {
-      "message": "App Overview Message"
-    },
-    "appreleaseprocess": {
-      "message": "App Release Process Message"
-    },
-    "connector": {
-      "message": "Contents of connector"
-    },
-    "edcconnector": {
-      "columns": {
-        "name": "Connector Name",
-        "id": "Connector_ID",
-        "type": "Connector Type",
-        "details": "Details"
-      },
-      "headertitle": "Technical Integration - Connectors & IDPs",
-      "subheadertitle": "Connector",
-      "tabletitle": "Onboarded Connectors",
-      "imagetext": "The connector combines the benefits of IDS connectors (secure and standardized communication, data usage control) with the interoperability. To register your connector inside the network and create your connector self-description, please register your connector below.",
-      "addconnectorbutton": "Register Connector",
-      "snackbar": {
-        "successmessage": "Edc connector successfully added",
-        "errormessage": "Error! Something went wrong"
-      },
-      "deletemodal": {
-        "title": "Delete EDC Connector",
-        "description": "Are you sure to delete selected connector?"
-      },
-      "modal": {
-        "title": "Connect company connector",
-        "intro": "Registration of a company connector which is implemented in your own company network.",
-        "companyconnectorlabel": "Connect company connector",
-        "connectorasaservice": "Connector-as-a-service",
-        "insertform": {
-          "name": {
-            "label": "Connector Name*",
-            "placeholder": "Connector Name",
-            "error": "Connector name is mandatory"
-          },
-          "id": {
-            "label": "Connector ID*",
-            "placeholder": "Connector ID",
-            "error": "Connector ID is mandatory"
-          },
-          "url": {
-            "label": "Connector URL*",
-            "placeholder": "Connector URL",
-            "error": "This field needs to be valid url eg: https://catena-x.net"
-          }
-        }
-      }
-    },
-    "partnernetwork": {
-      "headertitle": "Partners Network",
-      "tabletitle": "Business Partner Data",
-      "columns": {
-        "bpn": "BPN",
-        "name": "Company Name",
-        "country": "Country",
-        "street": "Street",
-        "zipcode": "Zip Code",
-        "city": "City",
-        "cxparticipant": "CX Member"
-      },
-      "filters": {
-        "germany": "Germany",
-        "others": "Others"
-      },
-      "message": "Contents of Partner Network",
-      "loadmore": "Load More",
-      "bpnsearchplaceholder": "Please type BPN number of company",
-      "bpnsearchlabel": "BPN Number",
-      "companynamesearchplaceholder": "Please type company name",
-      "companynamesearchlabel": "Company Name",
-      "searchbuttonlabel": "Search",
-      "overlay": {
-        "title": "Company Detail",
-        "companydatatitle": "Company Data",
-        "legalform": "Legal Form"
-      }
-    },
-    "invite": {
-      "headerTitle": "Business Partner Invite",
-      "headerIntro": "Add below the business partner registration contact and the company name.",
-      "subHeaderTitle": "Invite a new partner",
-      "inviteText1": "Registration application invite process.",
-      "inviteText2": "Invite a new partner to Catena-X.",
-      "invite": "Invite",
-      "success": "Business Partner Successfully Invited",
-      "successSubText": "The window will close automatically. In case it doesn't, please use the 'close' button on the top right.",
-      "failure": "Error - Business Partner was not invited",
-      "failureSubText": "An error occured. Please try it again later.",
-      "tabletitle": "Invites",
-      "load_button": "Load more",
-      "columns": {
-        "companyName": "Company Name",
-        "firstAndLastName": "First and Last Name",
-        "date": "Date",
-        "status": "Status",
-        "details": "Details"
-      }
-    },
-    "provisionIdp": {
-      "title": "Setup your company IDP",
-      "send": "Submit IDP request",
-      "field": {
-        "organization": "Your Organization",
-        "metadata": "IDP well known metadata URL",
-        "clientId": "IDP client ID",
-        "clientSecret": "IDP client secret",
-        "clientAuthMethod": "IDP client authentication method"
-      },
-      "success": "Your identity provider was provisioned successfully",
-      "failure": "Processing your request failed"
-    },
-    "usermanagement": {
-      "apparea": {
-        "headline": "App Access Management"
-      },
-      "table": {
-        "headline": "Identity Management",
-        "title": "User List",
-        "details": "Details",
-        "add": "Add user"
-      },
-      "appUserDetails": {
-        "headline": "App Access Management - {{app}}",
-        "subheadline": "App Access Management",
-        "header": {
-          "title": "App Roles",
-          "subtitle": "Below you can find an overview of the available app roles as well as a role description by selectiong the 'Role Description' field. To add the user role to an existing active company user, please use the 'add role' button below the 'Available Role' area."
-        },
-        "table": {
-          "headline": "Identity Management",
-          "title": "App Users",
-          "add": "Add Role"
-        },
-        "roles": {
-          "error": {
-            "title": "Error",
-            "message": "Incorrect Application Id"
-          }
-        },
-        "editRoles": {
-          "title": "Manage roles for ",
-          "subtitle": "The user cannot enter his account until he has set a new password."
-        }
-      },
-      "technicalUser": {
-        "create": "Create technical user",
-        "delete": "Delete this technical User",
-        "headline": "Technical user management {{company}}",
-        "descriptionHeader": "Technical user management {{company}}",
-        "descriptionText": "The technical user is an identity that a company can use to connect to CX backend services without continous disconnection. For example, a run-as technical user is required for connecting to the digital twin registry or the semantic model. Please use the action button to request a new technical user with the roles as per your need. Or manage already existing technical users by using the user management function below.",
-        "tableHeader": "Technical User List",
-        "detailsHeader": "Technical User: USER_NAME",
-        "detailsPage": {
-          "userDetails": "User Details",
-          "description": "Description",
-          "spoc": "SPOC",
-          "permission": "Permission"
-        },
-        "confirmDeleteUser": "Are you sure you want to delete OBJECT_NAME ?",
-        "noteDeleteUser": "Note: add any note information here - e.g. if the deletion is getting confirmed, the user wont be able to reactivate the OBJECT_NAME",
-        "confirmDeleteNotificationTitle": "User deletion was successful.",
-        "confirmDeleteNotificationDescription": "The action can not be reversed. Please create a new user in case it's needed"
-      }
-    },
-    "addUser": {
-      "headline": "Add User Account",
-      "subheadline": "tbd",
-      "singleUser": "Single User",
-      "multipleUser": "Multiple User",
-      "multipleUserHeadline": "Add multiple users by file upload:",
-      "multipleUserSubheadline": "Please use this <1>upload template</1>, to add multiple users by file",
-      "technicalUserHeadline": "Technical User Creation",
-      "technicalUserSubheadline": "Create a technical user by adding the relevant information requested below. Please note that the description is used for your own reference only. In case you have a number of technical users it will help you to differenciate between the technical user accounts.",
-      "technicalUserSubheadlineSuccess": "Congratulations, the technical user got successfully created. Below you can find all the relevant details needed to apply the technical user for your service connection. Please ensure that you keep this secrets confidential.",
-      "chooseUserRole": "Select CX Portal User Role",
-      "helperText": "Bitte geben Sie alle erforderlichen Informationen ein, bevor Sie fortfahren.",
-      "technicalUser": {
-        "addOverlay": {
-          "service": "Service",
-          "username": "Username",
-          "description": "Description",
-          "spocHeadline": "Single Point of Contact (SPoC):",
-          "error": {
-            "select": "Please select a value.",
-            "description": "Please enter a description."
-          }
-        }
-      },
-      "userUpload": {
-        "title": "Drag & drop your files here",
-        "subtitle": "or browse files on your computer.",
-        "uploadStatus": {
-          "rejected_file_type": "rejected (file type)",
-          "rejected_max_files": "rejected (max files)",
-          "preparing": "preparing",
-          "error_file_size": "error (file_size)",
-          "error_validation": "error (validation)",
-          "ready": "ready",
-          "started": "started",
-          "getting_upload_params": "getting (upload_params)",
-          "error_upload_params": "error (upload_params)",
-          "uploading": "uploading",
-          "exception_upload": "exception_upload",
-          "aborted": "aborted",
-          "restarted": "restarted",
-          "removed": "removed",
-          "error_upload": "upload error",
-          "headers_received": "headers received",
-          "done": "done"
-        }
-      }
-    },
-    "addUserRight": {
-      "headline": "Add app permissions to your company user",
-      "subheadline": "Select one or multiple user roles with the checkboxes below as well as the relevant user/s which should receive the role."
-    },
-    "account": {
-      "userAccount": "User account",
-      "token": "DEV only: Current authentication token",
-      "copy_to_clipboard": "copy token to clipboard",
-      "deleteAccount": "Delete user",
-      "suspendAccount": "Suspend user",
-      "resetPswrdAccount": "Reset password",
-      "resetPswrdSuccessMsg": "Password Reset Successfully",
-      "resetPswrdMaxLimitError": "The maximum amount of errors is triggered already. Please try it later again",
-      "resetPswrdUnsuccessfulError": "The password reset was unsuccessful. An issue occurred. Please try It later again",
-      "resetPswrdPermissionsError": "Reset of the password was unsuccessful due to missing permissions.",
-      "appPermissionTable": {
-        "title": "App User Permissions",
-        "appName": "App Name",
-        "appProvider": "App Provider"
-      }
-    },
+   
     "footer": {
       "copyright": "Copyright © Catena-X Automotive Network"
     },
@@ -554,81 +107,12 @@
         "notimplemented": "hasn't been implemented yet."
       },
       "further": "If you think there should be content please contact your administrator."
-    },
-    "appdetail": {
-      "usecase": "Use Case",
-      "language": "Language",
-      "subscribe": "Subscribe",
-      "subscribed": "Subscribed",
-      "pending": "Requested",
-      "privacy": {
-        "heading": "Privacy Policy",
-        "message": "The Privacy Policy states which data the business applications collects, handles and processes. The details below explicitly show which company / user information are getting collected/stored."
-      },
-      "howtouse": {
-        "heading": "Terms of use",
-        "message": "These terms of use regulate the relationship between app prospects and app providers. The terms of use, as well as the data models and further information can be viewed by clicking on the hyperlinks."
-      },
-      "providerInformation": {
-        "heading": "Provider Information",
-        "message": "If you have any question, want to get in contact or visit the provider website, you can find all necessary information below.",
-        "appProvider": "App Provider",
-        "website": "Provider Homepage",
-        "email": "Email",
-        "phone": "Phone"
-      }
-    },
-    "apprelease": {
-      "headerTitle": "App Release Process",
-      "descHeading": "Publish your company app inside the Catena-X marketplace",
-      "descMessage": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard .Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard .",
-      "startCreatingButton": "Start creating your app",
-      "appOverviewButton": "Overview my apps",
-      "stepHeading": "The process will guide your through the following steps:",
-      "dividerText": "Lets get started to publishing your app...",
-      "marketplaceHeading": "App Marketplace upcomming submission requirements",
-      "neuButton": "Neu",
-      "marketplaceTitle": "Requirement Lorem ipsum",
-      "marketplaceExplanation": "Expalanation of the requirement",
-      "stepper": {
-        "appMarketCard": "App Market Card",
-        "contractAndConsent": "Contract & Consent",
-        "technicalIntegration": "Technical Integration",
-        "betaTest": "Beta Test",
-        "validateAndPublish": "Validate & Publish",
-        "verifyYourCompanyData": "Verify your company data"
-      },
-      "appMarketCard": {
-        "headerTitle": "Create App",
-        "headerDescription": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard .Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard .",
-        "defaultCardAppImageAlt": "Part Chain",
-        "defaultCardAppProvider": "Catena-X",
-        "defaultCardAppTitle": "Digital Twin Aspect Debugger",
-        "defaultCardShortDescriptionEN": "[short description EN] Lorem ipsum sapientem ne neque dolor erat,eros solet invidunt duo Quisque aliquid leo.",
-        "appTitle": "App title*",
-        "appProvider": "App provider*",
-        "shortDescriptionEN": "Short Description - EN*",
-        "shortDescriptionDE": "Short Description - DE*",
-        "useCaseCategory": "Use Case /Category*",
-        "appLanguage": "App Language*",
-        "pricingInformation": "Pricing Information*",
-        "uploadTitle": "Drag & drop your files here",
-        "uploadSubTitle": "or browse files on your computer.",
-        "note": "Note:",
-        "OnlyOneFileAllowed": "Only one file for upload allowed",
-        "help": "Help",
-        "saveAndProceed": "save & proceed",
-        "save": "Save"
-      }
+
+
     }
+
   },
-  "navigation": {
-    "subNavigation": {
-      "buttonLabel": "Technical User Management",
-      "link1Label": "Access Management",
-      "link2Label": "Identity User Management"
-    }
-  },
+
   "global": {
     "field": {
       "first": "First Name",
@@ -690,16 +174,6 @@
       "today": "today",
       "tomorrow": "tomorrow"
     }
-  },
-  "servicemarketplace": {
-    "title": "Service Marketplace",
-    "message": "Service Marketplace Description"
-  },
-  "dataspacemarketplace": {
-    "title": "Dataspace Marketplace",
-    "message": "Dataspace Marketplace Description"
-  },
-  "hints": {
-    "coming_soon": "coming soon"
+
   }
 }

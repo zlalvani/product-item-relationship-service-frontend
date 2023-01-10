@@ -4,9 +4,9 @@ import MenuItem from "@mui/material/MenuItem";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { PaddedSection } from "../../../../components/layout/PaddedSection";
-import { serverConfig, ServerEnvironment } from "../../../../constants/serverConfig";
-import { getCurrentEnvironment, setCurrentEnvironment } from "../../../../utils/sessionStorageHandling";
+import { PaddedSection } from "../../../components/layout/PaddedSection";
+import { serverConfig, ServerEnvironment } from "../../../constants/serverConfig";
+import { getCurrentEnvironment, setCurrentEnvironment } from "../../../utils/sessionStorageHandling";
 
 export const IRSSelectServerEnv = () => {
   const { t } = useTranslation();

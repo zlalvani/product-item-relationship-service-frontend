@@ -1,6 +1,6 @@
 import { fireEvent, screen } from "@testing-library/react";
-import { getCurrentEnvironment } from "../../../../../utils/sessionStorageHandling";
-import { render } from "../../../../../testing/test-utils";
+import { render } from "../../../../testing/test-utils";
+import { getCurrentEnvironment } from "../../../../utils/sessionStorageHandling";
 import { IRSSelectServerEnv } from "../IRSSelectServerEnv";
 
 it("renders the environment selector", () => {

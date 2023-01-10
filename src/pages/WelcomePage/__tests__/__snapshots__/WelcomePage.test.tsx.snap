@@ -1,142 +1,5 @@
 // Vitest Snapshot v1
 
-exports[`clicks the login button 1`] = `
-<div>
-  <div>
-    <header
-      class="css-on3ivn"
-    >
-      <div
-        class="MuiBox-root css-1becb2a"
-      >
-        <div
-          class="MuiBox-root css-429xfk"
-        >
-          <img
-            class="MuiBox-root css-1emgxcc"
-            src="/img/cx-logo-text.svg"
-          />
-        </div>
-        <div
-          class="MuiBox-root css-14tu3sa"
-        >
-          <nav
-            class="MuiBox-root css-2imjyh"
-          />
-        </div>
-        <div
-          class="MuiBox-root css-19g4w2v"
-        >
-          <div
-            class="MuiBox-root css-0"
-          >
-            <button
-              class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeSmall MuiButton-containedSizeSmall css-73kr90-MuiButtonBase-root-MuiButton-root"
-              tabindex="0"
-              type="button"
-            >
-              Help
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
-            </button>
-          </div>
-        </div>
-      </div>
-    </header>
-    <div
-      class="MuiBox-root css-5kk6ic"
-    >
-      <div
-        class="MuiBox-root css-1ybz6by"
-      >
-        <img
-          alt="home stage"
-          class="object-fit x-left-40"
-          src="./img/home-stage-desktop.png"
-          style="bottom: 0px; height: 100%; left: 0px; object-fit: cover; right: 0px; top: 0px; visibility: visible; width: 100%;"
-        />
-      </div>
-      <div
-        class="MuiBox-root css-xownll"
-      >
-        <div
-          class="children-header"
-        >
-          <div
-            class="css-180vpgq"
-          >
-            <img
-              class="MuiBox-root css-1baulvz"
-              src="/img/IRS_FE_Logo_long.png"
-            />
-          </div>
-          <div
-            class="css-180vpgq"
-          >
-            <p
-              class="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
-            >
-              Insights into decentral stored Data Chains
-            </p>
-          </div>
-          <section
-            class="css-jlkg07"
-          >
-            <label
-              class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated css-y7y8hp-MuiFormLabel-root-MuiInputLabel-root"
-            >
-              content.irs.form.environment.label
-            </label>
-            <div
-              class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-fullWidth  css-12005ah-MuiInputBase-root-MuiFilledInput-root-MuiSelect-root"
-            >
-              <div
-                aria-expanded="false"
-                aria-haspopup="listbox"
-                class="MuiSelect-select MuiSelect-filled MuiInputBase-input MuiFilledInput-input css-d9oaum-MuiSelect-select-MuiInputBase-input-MuiFilledInput-input"
-                role="button"
-                tabindex="0"
-              >
-                DEV
-              </div>
-              <input
-                aria-hidden="true"
-                class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
-                tabindex="-1"
-                value="DEV"
-              />
-              <svg
-                aria-hidden="true"
-                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiSelect-icon MuiSelect-iconFilled css-hfutr2-MuiSvgIcon-root-MuiSelect-icon"
-                data-testid="ArrowDropDownIcon"
-                focusable="false"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M7 10l5 5 5-5z"
-                />
-              </svg>
-            </div>
-          </section>
-          <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-sghohy-MuiButtonBase-root-MuiButton-root"
-            style="margin-top: 75px;"
-            tabindex="0"
-            type="button"
-          >
-            Login
-            <span
-              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-            />
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
 exports[`renders the welcome page 1`] = `
 <div>
   <div>
@@ -214,7 +77,7 @@ exports[`renders the welcome page 1`] = `
             <p
               class="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
             >
-              Insights into decentral stored Data Chains
+              content.irs.welcomePage.headerSubtitle
             </p>
           </div>
           <section
@@ -262,7 +125,7 @@ exports[`renders the welcome page 1`] = `
             tabindex="0"
             type="button"
           >
-            Login
+            content.irs.welcomePage.loginButtonLabel
             <span
               class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
             />
