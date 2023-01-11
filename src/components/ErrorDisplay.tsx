@@ -1,21 +1,21 @@
-import { Box } from "@mui/system";
 import { useTranslation } from "../lib/index";
+import { StyledBox, StyledBoxContent, StyledBoxHeader } from "./StyledBox";
 
 export const ErrorDisplay: React.FC<{ error: Error }> = ({ error }) => {
   const { t } = useTranslation();
   return (
     <section>
-      <Box className="irs-error-page">
-        <Box className="irs-error-page-header">
+      <StyledBox>
+        <StyledBoxHeader>
           <h1>{t("global.errors.title")}</h1>
-        </Box>
-        <Box className="error-page-body">
+        </StyledBoxHeader>
+        <StyledBoxContent>
           <p>{t("global.errors.description")}</p>
           <p>
             <i>{error.message}</i>
           </p>
-        </Box>
-      </Box>
+        </StyledBoxContent>
+      </StyledBox>
     </section>
   );
 };

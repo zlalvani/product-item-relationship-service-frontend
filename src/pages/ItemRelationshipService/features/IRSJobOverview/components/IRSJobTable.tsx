@@ -81,7 +81,7 @@ export const IRSJobTable: React.FC<{
       pagination={true}
       pageSize={jobs?.pageSize ?? 0}
       hideFooterPagination={false}
-      paginationMode="client"
+      paginationMode="server"
       rowCount={jobs?.pageCount}
       onPageChange={setCurrentPage}
     />

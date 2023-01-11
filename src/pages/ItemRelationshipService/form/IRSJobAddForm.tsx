@@ -1,9 +1,8 @@
-import { Box } from "@mui/material";
-
 import { LoadingButton, PageSnackbar } from "cx-portal-shared-components";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { PaddedSection } from "../../../components/layout/PaddedSection";
+import { StyledBox, StyledBoxContent, StyledBoxHeader, StyledBoxTitle } from "../../../components/StyledBox";
 import { serverConfig } from "../../../constants/serverConfig";
 import { useCreateJob } from "../../../services/queries/jobs";
 import { IRSRequestBody } from "../../../types/jobs";
@@ -74,12 +73,11 @@ export const IRSJobAddForm = () => {
 
   return (
     <PaddedSection>
-      <Box className="irs-job-form">
-        <Box className="irs-job-form-header">
-          <h5>{t("content.irs.form.title")}</h5>
-        </Box>
-        <Box
-          className="irs-job-form-content"
+      <StyledBox>
+        <StyledBoxHeader>
+          <StyledBoxTitle>{t("content.irs.form.title")}</StyledBoxTitle>
+        </StyledBoxHeader>
+        <StyledBoxContent
           style={{
             margin: "20px",
           }}
@@ -119,8 +117,8 @@ export const IRSJobAddForm = () => {
             variant="contained"
             size="medium"
           />
-        </Box>
-      </Box>
+        </StyledBoxContent>
+      </StyledBox>
 
       {isError && (
         <PageSnackbar description="Failed to create Job" open={true} severity="error" showIcon={true} title="Error" />

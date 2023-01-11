@@ -663,17 +663,17 @@ exports[`renders a error state 1`] = `
     content.irs.jobsTable.toggleAutoRefresh
     <section>
       <div
-        class="irs-error-page MuiBox-root css-0"
+        class="css-1xiw371 MuiBox-root css-0"
       >
         <div
-          class="irs-error-page-header MuiBox-root css-0"
+          class="css-q0ry9c MuiBox-root css-0"
         >
           <h1>
             global.errors.title
           </h1>
         </div>
         <div
-          class="error-page-body MuiBox-root css-0"
+          class="css-18xbavu MuiBox-root css-0"
         >
           <p>
             global.errors.description

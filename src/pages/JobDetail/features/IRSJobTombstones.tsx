@@ -2,6 +2,7 @@ import { Box, Divider, useTheme } from "@mui/material";
 import dayjs from "dayjs";
 import uniqueId from "lodash/uniqueId";
 import { DetailGrid } from "../../../components/DetailGrid";
+import { StyledBox, StyledBoxContent, StyledBoxHeader } from "../../../components/StyledBox";
 import { ErrorOutlineIcon, useTranslation } from "../../../lib";
 import { Tombstone } from "../../../types/jobs";
 
@@ -11,8 +12,8 @@ export const IRSJobTombstones: React.FC<{ tombstones: Tombstone[] }> = ({ tombst
 
   return (
     <section>
-      <Box className="irs-tombstones-details">
-        <Box className="irs-tombstones-details-header">
+      <StyledBox>
+        <StyledBoxHeader>
           <Box
             style={{
               display: "inline-block",
@@ -30,8 +31,8 @@ export const IRSJobTombstones: React.FC<{ tombstones: Tombstone[] }> = ({ tombst
             />
             <h2 style={{ float: "left", marginLeft: 10 }}>{t("content.irs.dialog.submodelTombstones.title")}</h2>
           </Box>
-        </Box>
-        <Box className="irs-tombstones-details-content">
+        </StyledBoxHeader>
+        <StyledBoxContent>
           {tombstones.map((stone) => {
             return (
               <Box key={`${uniqueId(stone.catenaXId)}`}>
@@ -48,8 +49,8 @@ export const IRSJobTombstones: React.FC<{ tombstones: Tombstone[] }> = ({ tombst
               </Box>
             );
           })}
-        </Box>
-      </Box>
+        </StyledBoxContent>
+      </StyledBox>
     </section>
   );
 };

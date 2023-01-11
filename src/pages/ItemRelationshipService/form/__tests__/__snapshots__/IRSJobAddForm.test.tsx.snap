@@ -6,17 +6,19 @@ exports[`renders the form 1`] = `
     class="css-jlkg07"
   >
     <div
-      class="irs-job-form MuiBox-root css-0"
+      class="css-1xiw371 MuiBox-root css-0"
     >
       <div
-        class="irs-job-form-header MuiBox-root css-0"
+        class="css-q0ry9c MuiBox-root css-0"
       >
-        <h5>
+        <h5
+          class="css-88oh4l"
+        >
           content.irs.form.title
         </h5>
       </div>
       <div
-        class="irs-job-form-content MuiBox-root css-0"
+        class="css-18xbavu MuiBox-root css-0"
         style="margin: 20px;"
       >
         <form>

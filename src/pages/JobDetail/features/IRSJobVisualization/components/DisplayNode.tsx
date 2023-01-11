@@ -30,7 +30,7 @@ export const DisplayNode: React.FC<{
     <div className="nodrag">
       <Handle type="target" position={Position.Top} draggable={false} />
       <NodeStyles>
-        <ClickableDiv className="node-header" onClick={() => onClick({ shell })}>
+        <ClickableDiv onClick={() => onClick({ shell })}>
           <p>{shell.idShort}</p>
           <p>{data.id}</p>
         </ClickableDiv>
@@ -71,4 +71,8 @@ const NodeStyles = styled.div`
 
 const ClickableDiv = styled.div`
   cursor: pointer;
+  font-size: x-small;
+  text-align: left;
+  width: 100%;
+  padding: 10px;
 `;
