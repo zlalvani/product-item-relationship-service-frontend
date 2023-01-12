@@ -11,7 +11,7 @@ const mock = new MockAdapter(axios);
 it("tests the use fetchjob by id", async () => {
   const dummyId = "dummyId";
   mock.onGet(serverConfig.DEV.value + `jobs/${dummyId}?returnUncompletedJob=true`).reply(200, JobStatusResultSuccess);
-  const { result } = renderHook(() => useFetchJobById({ id: dummyId, serverEnv: "DEV" }));
+  const { result } = renderHook(() => useFetchJobById({ id: dummyId }));
   await waitFor(() => {
     expect(result.current.isSuccess).toBe(true);
   });

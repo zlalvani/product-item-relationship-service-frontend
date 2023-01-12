@@ -1,9 +1,10 @@
 import axios, { AxiosRequestConfig } from "axios";
-import { serverConfig, ServerEnvironment } from "../constants/serverConfig";
+import { serverConfig } from "../constants/serverConfig";
 import { keycloak } from "../lib/keycloak";
 import { getCurrentEnvironment } from "./sessionStorageHandling";
 
-const getBaseURL = (serverEnv: ServerEnvironment = getCurrentEnvironment()) => {
+const getBaseURL = () => {
+  const serverEnv = getCurrentEnvironment();
   return serverConfig[serverEnv].value;
 };
 
@@ -12,11 +13,11 @@ export const getHeaders = () => ({
 });
 
 export class HttpClient {
-  static async request<T, D>(path: string, options: AxiosRequestConfig<D>, serverEnv?: ServerEnvironment): Promise<T> {
+  static async request<T, D>(path: string, options: AxiosRequestConfig<D>): Promise<T> {
     try {
       const response = await axios.request({
         ...options,
-        baseURL: getBaseURL(serverEnv),
+        baseURL: getBaseURL(),
         url: path,
         headers: getHeaders(),
       });
@@ -29,35 +30,27 @@ export class HttpClient {
     }
   }
 
-  static async get<T, D = Record<string, unknown>>(
-    path: string,
-    params: D = {} as D,
-    serverEnv?: ServerEnvironment,
-  ): Promise<T> {
-    return HttpClient.request(path, { params, method: "GET" }, serverEnv);
+  static async get<T, D = Record<string, unknown>>(path: string, params: D = {} as D): Promise<T> {
+    return HttpClient.request(path, { params, method: "GET" });
   }
 
-  static async post<T, D = Record<string, unknown>>(
-    path: string,
-    data: D = {} as D,
-    serverEnv?: ServerEnvironment,
-  ): Promise<T> {
-    return HttpClient.request<T, D>(path, { data, method: "POST" }, serverEnv);
+  static async post<T, D = Record<string, unknown>>(path: string, data: D = {} as D): Promise<T> {
+    return HttpClient.request<T, D>(path, { data, method: "POST" });
   }
 
-  static async put<T, D = Record<string, unknown>>(
-    path: string,
-    data: D = {} as D,
-    serverEnv?: ServerEnvironment,
-  ): Promise<T> {
-    return HttpClient.request<T, D>(path, { data, method: "PUT" }, serverEnv);
-  }
+  // static async put<T, D = Record<string, unknown>>(
+  //   path: string,
+  //   data: D = {} as D,
+  //   serverEnv?: ServerEnvironment,
+  // ): Promise<T> {
+  //   return HttpClient.request<T, D>(path, { data, method: "PUT" }, serverEnv);
+  // }
 
-  static async delete<T, D = Record<string, unknown>>(
-    path: string,
-    params: D = {} as D,
-    serverEnv?: ServerEnvironment,
-  ): Promise<T> {
-    return HttpClient.request(path, { params, method: "DELETE" }, serverEnv);
-  }
+  // static async delete<T, D = Record<string, unknown>>(
+  //   path: string,
+  //   params: D = {} as D,
+  //   serverEnv?: ServerEnvironment,
+  // ): Promise<T> {
+  //   return HttpClient.request(path, { params, method: "DELETE" }, serverEnv);
+  // }
 }

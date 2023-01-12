@@ -3,7 +3,7 @@ import { isServerEnvironment, ServerEnvironment } from "../constants/serverConfi
 const SESSION_STORAGE_ENV_KEY = "serverEnv";
 
 export const getCurrentEnvironment = (): ServerEnvironment => {
-  return (window.sessionStorage.getItem(SESSION_STORAGE_ENV_KEY) ?? "DEV") as ServerEnvironment;
+  return (window.sessionStorage.getItem(SESSION_STORAGE_ENV_KEY) ?? "DEMO") as ServerEnvironment;
 };
 
 export const setCurrentEnvironment = (value: string) => {

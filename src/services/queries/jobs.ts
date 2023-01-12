@@ -1,33 +1,35 @@
 import { useMutation } from "@tanstack/react-query";
-import { ServerEnvironment } from "../../constants/serverConfig";
 import { useQuery } from "../../lib/react-query";
 import { IRSRequestBody } from "../../types/jobs";
 import { getCurrentEnvironment } from "../../utils/sessionStorageHandling";
-import { cancelJob, createJob, fetchJobById, fetchJobs } from "../api/jobs.api";
+import { selectAPI } from "../api/jobs.api";
 
-export const useFetchJobById = (
-  { id, serverEnv }: { id: string; serverEnv: ServerEnvironment },
-  refetchInterval: false | number = false,
-) => {
-  return useQuery(["jobs", serverEnv, id], () => fetchJobById(id, serverEnv), {
+export const useFetchJobById = ({ id }: { id: string }, refetchInterval: false | number = false) => {
+  const serverEnv = getCurrentEnvironment();
+  const jobAPI = selectAPI(serverEnv);
+  return useQuery(["jobs", serverEnv, id], () => jobAPI.fetchJobById(id), {
     refetchInterval,
   });
 };
 
 export const useFetchJobs = (page: number, refetchInterval: false | number = false) => {
   const serverEnv = getCurrentEnvironment();
-  return useQuery(["jobs", serverEnv, page], () => fetchJobs(page, serverEnv), { refetchInterval });
+  const jobAPI = selectAPI(serverEnv);
+  return useQuery(["jobs", serverEnv, page], () => jobAPI.fetchJobs(page), { refetchInterval });
 };
 
 export const useCancelJobs = () => {
-  return useMutation(cancelJob);
+  const serverEnv = getCurrentEnvironment();
+  const jobAPI = selectAPI(serverEnv);
+  return useMutation(jobAPI.cancelJob);
 };
 
 export const useCreateJob = () => {
   const serverEnv = getCurrentEnvironment();
+  const jobAPI = selectAPI(serverEnv);
   return useMutation({
     mutationFn: (data: IRSRequestBody) => {
-      return createJob(data, serverEnv);
+      return jobAPI.createJob(data);
     },
   });
 };
