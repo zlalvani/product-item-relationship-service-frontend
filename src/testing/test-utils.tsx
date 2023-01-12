@@ -1,54 +1,32 @@
-import type { PreloadedState } from "@reduxjs/toolkit";
-import { configureStore } from "@reduxjs/toolkit";
 import { render, renderHook, RenderOptions } from "@testing-library/react";
 import React, { FC } from "react";
-import { Provider } from "react-redux";
-import { serverEnvReducer } from "../store/serverEnvironment";
-import { AppStore, RootState } from "../store/store";
 
 import userEvent from "@testing-library/user-event";
 import { I18nextProvider } from "react-i18next";
 import { BrowserRouter } from "react-router-dom";
 import { ReactQueryTestClientProvider } from "../lib";
+import { KeyCloakProvider } from "../lib/keycloak";
 import i18n from "./i18n-testconfig";
 
-interface ExtendedRenderOptions extends Omit<RenderOptions, "queries"> {
-  preloadedState?: PreloadedState<RootState>;
-  store?: AppStore;
-}
+type ExtendedRenderOptions = Omit<RenderOptions, "queries">;
 
-export function renderWithProviders(
-  ui: React.ReactElement,
-  {
-    preloadedState = {},
-    // Automatically create a store instance if no store was passed in
+const Wrapper: FC<{ children: React.ReactNode }> = ({ children }) => {
+  return (
+    <I18nextProvider i18n={i18n}>
+      <ReactQueryTestClientProvider>
+        <KeyCloakProvider>{children}</KeyCloakProvider>
+      </ReactQueryTestClientProvider>
+    </I18nextProvider>
+  );
+};
 
-    store = configureStore({ reducer: { serverEnvReducer }, preloadedState }),
-    ...renderOptions
-  }: ExtendedRenderOptions = {},
-) {
-  const Wrapper: FC<{ children: React.ReactNode }> = ({ children }) => {
-    return (
-      <I18nextProvider i18n={i18n}>
-        <ReactQueryTestClientProvider>
-          <Provider store={store}>{children}</Provider>
-        </ReactQueryTestClientProvider>
-      </I18nextProvider>
-    );
-  };
-
+export function renderWithProviders(ui: React.ReactElement, { ...renderOptions }: ExtendedRenderOptions = {}) {
   // Return an object with the store and all of RTL's query functions
-  return { store, ...render(ui, { wrapper: Wrapper, ...renderOptions }) };
+  return { ...render(ui, { wrapper: Wrapper, ...renderOptions }) };
 }
 
 export function renderCustomHook<Props, Result>(fn: (props: Props) => Result) {
-  const store = configureStore({ reducer: { serverEnvReducer }, preloadedState: {} });
-  const wrapper: FC<{ children: React.ReactNode }> = ({ children }) => (
-    <ReactQueryTestClientProvider>
-      <Provider store={store}>{children}</Provider>
-    </ReactQueryTestClientProvider>
-  );
-  return renderHook(fn, { wrapper });
+  return renderHook(fn, { wrapper: Wrapper });
 }
 
 export const renderWithRouter = (ui: React.ReactElement, { route = "/" } = {}) => {

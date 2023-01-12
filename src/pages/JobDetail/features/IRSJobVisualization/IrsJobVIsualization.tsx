@@ -1,7 +1,6 @@
-import { Box } from "@mui/material";
-
 import { useState } from "react";
 import { useFullScreen } from "../../../../components/FullScreenHandler";
+import { StyledBox, StyledBoxHeader, StyledBoxTitle } from "../../../../components/StyledBox";
 import { useTranslation } from "../../../../lib";
 import { JobResponse, Relationship, Shell } from "../../../../types/jobs";
 import { EdgeDetailDialog } from "./components/EdgeDetailDialog";
@@ -23,12 +22,12 @@ export const IrsJobVisualization: React.FC<{ job: JobResponse }> = ({ job }) => 
 
   return (
     <section>
-      <Box className="irs-visualization" sx={{ textAlign: "center" }}>
+      <StyledBox sx={{ textAlign: "center" }}>
         <FullScreen>
-          <Box className="irs-visualization-header">
-            <h5>{t("content.irs.visualization.title")}</h5>
+          <StyledBoxHeader>
+            <StyledBoxTitle>{t("content.irs.visualization.title")}</StyledBoxTitle>
             <FullScreenButton />
-          </Box>
+          </StyledBoxHeader>
 
           <GraphDisplay2
             job={job}
@@ -37,7 +36,7 @@ export const IrsJobVisualization: React.FC<{ job: JobResponse }> = ({ job }) => 
             fullscreen={fullScreenActive}
           />
         </FullScreen>
-      </Box>
+      </StyledBox>
       <NodeDetailDialog showInfo={showNodeDialog} onClose={() => setShowNodeDialog(undefined)} job={job} />
       <EdgeDetailDialog edge={showEdgeDialog} onClose={() => setShowEdgeDialog(undefined)} />
     </section>

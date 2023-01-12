@@ -2,6 +2,7 @@ import { Box, Divider, Grid } from "@mui/material";
 import dayjs from "dayjs";
 import { useTranslation } from "react-i18next";
 import { DetailGrid } from "../../../components/DetailGrid";
+import { StyledBox, StyledBoxContent, StyledBoxHeader, StyledBoxTitle } from "../../../components/StyledBox";
 import { BeautifulJson } from "../../../lib/react-syntax-highlighter";
 import { Job } from "../../../types/jobs";
 
@@ -14,11 +15,11 @@ export const IrsJobDetails: React.FC<{ job: Job }> = ({ job }) => {
         padding: "34px 0",
       }}
     >
-      <Box className="irs-job-details">
-        <Box className="irs-job-details-header">
-          <h5>{t("content.irs.jobDetails.title")}</h5>
-        </Box>
-        <Box className="irs-job-details-content">
+      <StyledBox>
+        <StyledBoxHeader>
+          <StyledBoxTitle>{t("content.irs.jobDetails.title")}</StyledBoxTitle>
+        </StyledBoxHeader>
+        <StyledBoxContent>
           <Grid>
             <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
             <DetailGrid topic={"Job ID:"} content={job?.jobId} />
@@ -61,8 +62,8 @@ export const IrsJobDetails: React.FC<{ job: Job }> = ({ job }) => {
               content={<BeautifulJson json={job.jobParameter} />}
             />
           </Grid>
-        </Box>
-      </Box>
+        </StyledBoxContent>
+      </StyledBox>
     </section>
   );
 };

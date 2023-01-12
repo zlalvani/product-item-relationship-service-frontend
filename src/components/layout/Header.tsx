@@ -1,9 +1,10 @@
 import styled from "@emotion/styled";
 import { Box } from "@mui/material";
-import { Button, MainNavigation } from "cx-portal-shared-components";
+import { MainNavigation } from "cx-portal-shared-components";
 import React from "react";
 import { serverConfig } from "../../constants/serverConfig";
-import { useAppSelector } from "../../store/store";
+import { getCurrentEnvironment } from "../../utils/sessionStorageHandling";
+import { HelpButton } from "./HelpButton";
 import { LogOutButton } from "./LogOutButton";
 
 type LinkItem = Partial<Record<"href" | "to", string>>;
@@ -20,13 +21,13 @@ export interface MenuItem extends LinkItem, Tree {
 }
 
 export const Header: React.FC = () => {
-  const { serverEnv } = useAppSelector((state) => state.serverEnvReducer);
+  const serverEnv = getCurrentEnvironment();
 
   return (
     <MainNavigation
       items={[
         {
-          href: "/dashboard",
+          href: `/${serverEnv}/dashboard`,
           title: `${serverConfig[serverEnv].label} - Home`,
         },
       ]}
@@ -41,17 +42,7 @@ export const Header: React.FC = () => {
       />
 
       <Box>
-        <Button
-          color="secondary"
-          size="small"
-          sx={{
-            backgroundColor: "white",
-            marginRight: "16px",
-          }}
-          variant="contained"
-        >
-          Help
-        </Button>
+        <HelpButton />
         <LogOutButton />
       </Box>
     </MainNavigation>
@@ -72,17 +63,7 @@ export const PublicHeader: React.FC = () => {
           }}
         />
         <Box>
-          <Button
-            color="secondary"
-            size="small"
-            sx={{
-              backgroundColor: "white",
-              marginRight: "16px",
-            }}
-            variant="contained"
-          >
-            Help
-          </Button>
+          <HelpButton />
         </Box>
       </MainNavigation>
     </StyledHeader>

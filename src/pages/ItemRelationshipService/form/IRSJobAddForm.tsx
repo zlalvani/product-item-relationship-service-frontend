@@ -1,13 +1,12 @@
-import { Box } from "@mui/material";
-
 import { LoadingButton, PageSnackbar } from "cx-portal-shared-components";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { PaddedSection } from "../../../components/layout/PaddedSection";
+import { StyledBox, StyledBoxContent, StyledBoxHeader, StyledBoxTitle } from "../../../components/StyledBox";
 import { serverConfig } from "../../../constants/serverConfig";
 import { useCreateJob } from "../../../services/queries/jobs";
-import { useAppSelector } from "../../../store/store";
 import { IRSRequestBody } from "../../../types/jobs";
+import { getCurrentEnvironment } from "../../../utils/sessionStorageHandling";
 import { IRSJobAddFormTextfield } from "./components/IRSJobAddFormTextfield";
 
 type DefaultFormFieldValuesType = {
@@ -16,7 +15,7 @@ type DefaultFormFieldValuesType = {
 };
 
 const useGetCurrentServerUrl = () => {
-  const { serverEnv } = useAppSelector((state) => state.serverEnvReducer);
+  const serverEnv = getCurrentEnvironment();
   return serverConfig[serverEnv].value;
 };
 
@@ -74,12 +73,11 @@ export const IRSJobAddForm = () => {
 
   return (
     <PaddedSection>
-      <Box className="irs-job-form">
-        <Box className="irs-job-form-header">
-          <h5>{t("content.irs.form.title")}</h5>
-        </Box>
-        <Box
-          className="irs-job-form-content"
+      <StyledBox>
+        <StyledBoxHeader>
+          <StyledBoxTitle>{t("content.irs.form.title")}</StyledBoxTitle>
+        </StyledBoxHeader>
+        <StyledBoxContent
           style={{
             margin: "20px",
           }}
@@ -119,31 +117,15 @@ export const IRSJobAddForm = () => {
             variant="contained"
             size="medium"
           />
-        </Box>
-      </Box>
+        </StyledBoxContent>
+      </StyledBox>
 
       {isError && (
-        <PageSnackbar
-          description="Failed to create Job"
-          open={true}
-          severity="error"
-          showIcon={true}
-          title="Error"
-          vertical={"top"}
-          horizontal={"center"}
-        />
+        <PageSnackbar description="Failed to create Job" open={true} severity="error" showIcon={true} title="Error" />
       )}
 
       {isSuccess && (
-        <PageSnackbar
-          description="Created Job"
-          open={true}
-          severity="success"
-          showIcon={true}
-          title="Success"
-          vertical={"top"}
-          horizontal={"center"}
-        />
+        <PageSnackbar description="Created Job" open={true} severity="success" showIcon={true} title="Success" />
       )}
     </PaddedSection>
   );

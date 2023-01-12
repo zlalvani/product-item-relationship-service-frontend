@@ -1,13 +1,13 @@
 import { IconButton } from "cx-portal-shared-components";
 import { Link } from "react-router-dom";
 import { ArrowForwardIcon } from "../../../../../lib";
-import { useAppSelector } from "../../../../../store/store";
+import { getCurrentEnvironment } from "../../../../../utils/sessionStorageHandling";
 
 export const IRSNavigateToJobDetails: React.FC<{ jobId: string }> = ({ jobId }) => {
-  const { serverEnv } = useAppSelector((store) => store.serverEnvReducer);
+  const serverEnv = getCurrentEnvironment();
 
   return (
-    <Link to={`/jobs/${serverEnv}/${jobId}`}>
+    <Link to={`/${serverEnv}/jobs/${jobId}`}>
       <IconButton color="secondary" size="small" style={{ alignSelf: "center" }}>
         <ArrowForwardIcon />
       </IconButton>

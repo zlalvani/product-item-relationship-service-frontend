@@ -1,6 +1,6 @@
 // Vitest Snapshot v1
 
-exports[`renders the App  1`] = `
+exports[`renders the welcome page 1`] = `
 <div>
   <div>
     <header

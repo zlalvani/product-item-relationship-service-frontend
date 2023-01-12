@@ -1,8 +1,7 @@
-import { JobsDemoDataSuccess } from "../../../services/api/__test__/jobs.exampleData";
+import { expect, it, vi } from "vitest";
 import * as queryHooks from "../../../services/queries/jobs";
 import { renderWithRouter } from "../../../testing/test-utils";
 import { JobDetail } from "../JobDetail";
-import { expect, it, vi } from "vitest";
 
 it("renders a loading state", () => {
   const mockData = {

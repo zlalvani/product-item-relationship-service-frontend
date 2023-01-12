@@ -2,8 +2,7 @@ import { ReactKeycloakProvider } from "@react-keycloak/web";
 import Keycloak from "keycloak-js";
 import React from "react";
 import { serverConfig } from "../constants/serverConfig";
-
-import { useAppSelector } from "../store/store";
+import { getCurrentEnvironment } from "../utils/sessionStorageHandling";
 
 const keycloakConfig: Keycloak.KeycloakConfig = {
   url: "https://centralidp.int.demo.catena-x.net/auth",
@@ -14,7 +13,7 @@ const keycloakConfig: Keycloak.KeycloakConfig = {
 export const keycloak = new Keycloak(keycloakConfig);
 
 export const KeyCloakProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const { serverEnv } = useAppSelector((state) => state.serverEnvReducer);
+  const serverEnv = getCurrentEnvironment();
 
   keycloak.authServerUrl = serverConfig[serverEnv].authServerUrl;
 

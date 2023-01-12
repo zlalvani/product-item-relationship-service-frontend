@@ -4,10 +4,10 @@ exports[`renders the tombstone information 1`] = `
 <div>
   <section>
     <div
-      class="irs-tombstones-details MuiBox-root css-0"
+      class="css-1xiw371 MuiBox-root css-0"
     >
       <div
-        class="irs-tombstones-details-header MuiBox-root css-0"
+        class="css-q0ry9c MuiBox-root css-0"
       >
         <div
           class="MuiBox-root css-0"
@@ -33,7 +33,7 @@ exports[`renders the tombstone information 1`] = `
         </div>
       </div>
       <div
-        class="irs-tombstones-details-content MuiBox-root css-0"
+        class="css-18xbavu MuiBox-root css-0"
       >
         <div
           class="MuiBox-root css-0"

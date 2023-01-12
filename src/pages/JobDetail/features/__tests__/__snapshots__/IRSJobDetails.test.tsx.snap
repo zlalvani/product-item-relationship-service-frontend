@@ -6,17 +6,19 @@ exports[`renders the tombstone information 1`] = `
     style="padding: 34px 0px;"
   >
     <div
-      class="irs-job-details MuiBox-root css-0"
+      class="css-1xiw371 MuiBox-root css-0"
     >
       <div
-        class="irs-job-details-header MuiBox-root css-0"
+        class="css-q0ry9c MuiBox-root css-0"
       >
-        <h5>
+        <h5
+          class="css-88oh4l"
+        >
           content.irs.jobDetails.title
         </h5>
       </div>
       <div
-        class="irs-job-details-content MuiBox-root css-0"
+        class="css-18xbavu MuiBox-root css-0"
       >
         <div
           class="MuiGrid-root css-vj1n65-MuiGrid-root"

@@ -7,7 +7,6 @@
 * `npm test:coverage`: Runs tests + collects collects coverage information
 
 
-*Note:* When adding new scripts, that need to set environment variables prefix the script with [cross-env](https://github.com/kentcdodds/cross-env)
 
 ## Current git workflow
 

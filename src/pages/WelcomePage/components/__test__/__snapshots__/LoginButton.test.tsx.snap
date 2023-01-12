@@ -1,0 +1,17 @@
+// Vitest Snapshot v1
+
+exports[`clicks the login button 1`] = `
+<div>
+  <button
+    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-sghohy-MuiButtonBase-root-MuiButton-root"
+    style="margin-top: 75px;"
+    tabindex="0"
+    type="button"
+  >
+    content.irs.welcomePage.loginButtonLabel
+    <span
+      class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+    />
+  </button>
+</div>
+`;

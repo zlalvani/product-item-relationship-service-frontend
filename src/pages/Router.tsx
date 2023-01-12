@@ -19,15 +19,16 @@ export const routeConfig = [
     ],
   },
   {
-    path: "/",
+    path: "/:env",
     element: <PrivateRoot />,
+    errorElement: <ErrorRoute />,
     children: [
       {
-        path: "/dashboard",
+        path: "/:env/dashboard",
         element: <ItemRelationshipService />,
       },
       {
-        path: "/jobs/:env/:jobId",
+        path: "/:env/jobs/:jobId",
         element: <JobDetail />,
       },
     ],
