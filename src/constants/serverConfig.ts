@@ -15,7 +15,7 @@ export const serverConfig = {
     id: 2,
     value: "https://irs.int.demo.catena-x.net/irs/",
     label: "Integration Environment",
-    authServerUrl: "https://centralidp.int.demo.catena-x.net/auth",
+    authServerUrl: "xxx",
   },
   PROD: {
     id: 3,

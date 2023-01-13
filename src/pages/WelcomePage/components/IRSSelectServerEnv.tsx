@@ -2,19 +2,17 @@
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
-import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { PaddedSection } from "../../../components/layout/PaddedSection";
 import { serverConfig, ServerEnvironment } from "../../../constants/serverConfig";
-import { getCurrentEnvironment, setCurrentEnvironment } from "../../../utils/sessionStorageHandling";
+import { useServerEnv } from "../../../utils/ServerEnv";
 
 export const IRSSelectServerEnv = () => {
   const { t } = useTranslation();
-  const [serverEnv, setServerEnv] = useState(getCurrentEnvironment());
+  const { serverEnv, setServerEnv } = useServerEnv();
 
   const changeHandler = (event: SelectChangeEvent<ServerEnvironment>) => {
     const newServerEnv = event.target.value as ServerEnvironment;
-    setCurrentEnvironment(newServerEnv);
     setServerEnv(newServerEnv);
   };
 
