@@ -1,8 +1,10 @@
 import styled from "@emotion/styled";
 import { Box, useTheme } from "@mui/material";
 import { uniqueId } from "lodash";
+import { useState } from "react";
 import { Handle, NodeProps, Position } from "reactflow";
 import { JobResponse, Shell, SubmodelDescriptor } from "../../../../../types/jobs";
+import { NodeDetailDialog } from "./NodeDetailDialog";
 import { SubmodelDetailCard } from "./submodelDetailCard";
 
 const getSortedSubModelDescriptions = (shell: Shell) => {
@@ -21,16 +23,16 @@ const getSortedSubModelDescriptions = (shell: Shell) => {
 export const DisplayNode: React.FC<{
   data: NodeProps<Shell>;
   job: JobResponse;
-  onClick: (x: { shell: Shell; aspectId?: string }) => void;
-}> = ({ data, onClick, job }) => {
+}> = ({ data, job }) => {
   const { spacing } = useTheme();
   const shell = data.data;
-
+  const [showNodeDialog, setShowNodeDialog] = useState<{ shell: Shell; aspectId?: string } | undefined>();
   return (
     <div className="nodrag">
+      <NodeDetailDialog showInfo={showNodeDialog} onClose={() => setShowNodeDialog(undefined)} job={job} />
       <Handle type="target" position={Position.Top} draggable={false} />
       <NodeStyles>
-        <ClickableDiv onClick={() => onClick({ shell })}>
+        <ClickableDiv onClick={() => setShowNodeDialog({ shell })}>
           <p>{shell.idShort}</p>
           <p>{data.id}</p>
         </ClickableDiv>
@@ -49,7 +51,7 @@ export const DisplayNode: React.FC<{
               <SubmodelDetailCard
                 key={uniqueId(n.identification)}
                 submodel={n}
-                onClick={() => onClick({ shell, aspectId: n.idShort })}
+                onClick={() => setShowNodeDialog({ shell, aspectId: n.idShort })}
                 job={job}
               />
             );

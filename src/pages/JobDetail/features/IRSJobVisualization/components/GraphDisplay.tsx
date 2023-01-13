@@ -1,19 +1,20 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import ReactFlow, { Background, Controls, Edge, MiniMap, NodeProps, ReactFlowProvider } from "reactflow";
 import "reactflow/dist/style.css";
 import { JobResponse, Relationship, Shell } from "../../../../../types/jobs";
 import { DisplayNode } from "./DisplayNode";
+import { EdgeDetailDialog } from "./EdgeDetailDialog";
 import { processJobForGraphDisplay } from "./react-flow/processJobForGraphDisplay";
 import { SearchNode } from "./SearchNode";
 
-export const GraphDisplay2: React.FC<{
+export const GraphDisplay: React.FC<{
   job: JobResponse;
-  showNodeDialog: (x: { shell: Shell; aspectId?: string }) => void;
-  showEdgeDialog: (rel: Relationship) => void;
   fullscreen: boolean;
-}> = ({ job, showNodeDialog, showEdgeDialog, fullscreen }) => {
+}> = ({ job, fullscreen }) => {
+  const [showEdgeDialog, setShowEdgeDialog] = useState<Relationship | undefined>(undefined);
+
   const nodeTypes = useMemo(
-    () => ({ displayNode: (data: NodeProps<Shell>) => <DisplayNode data={data} onClick={showNodeDialog} job={job} /> }),
+    () => ({ displayNode: (data: NodeProps<Shell>) => <DisplayNode data={data} job={job} /> }),
     [],
   );
 
@@ -34,7 +35,7 @@ export const GraphDisplay2: React.FC<{
           proOptions={{ hideAttribution: true }}
           minZoom={0.01}
           onEdgeClick={(event: React.MouseEvent, edge: Edge) => {
-            showEdgeDialog(edge.data);
+            setShowEdgeDialog(edge.data);
           }}
         >
           <Background />
@@ -42,6 +43,7 @@ export const GraphDisplay2: React.FC<{
           <MiniMap />
         </ReactFlow>
       </div>
+      <EdgeDetailDialog edge={showEdgeDialog} onClose={() => setShowEdgeDialog(undefined)} />
     </ReactFlowProvider>
   );
 };
