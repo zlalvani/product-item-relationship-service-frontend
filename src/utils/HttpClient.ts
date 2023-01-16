@@ -21,7 +21,7 @@ export class HttpClient {
         url: path,
         headers: getHeaders(),
       });
-      console.log({ response });
+
       return response.data;
     } catch (error) {
       // TODO: add 401 handling here

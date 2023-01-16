@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
-import { isServerEnvironment, ServerEnvironment } from "../constants/serverConfig";
-import { setCurrentEnvironment } from "./sessionStorageHandling";
+import { isServerEnvironment, serverConfig, ServerEnvironment } from "../constants/serverConfig";
+import { keycloak } from "../lib/keycloak";
+import { getCurrentEnvironment, setCurrentEnvironment } from "./sessionStorageHandling";
 
 export const ServerEnvContext = React.createContext<{
   serverEnv: ServerEnvironment;
@@ -8,12 +9,13 @@ export const ServerEnvContext = React.createContext<{
 } | null>(null);
 
 export const ServerEnvProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [serverEnv, update] = useState<ServerEnvironment>("DEMO");
+  const [serverEnv, update] = useState<ServerEnvironment>(getCurrentEnvironment());
 
   const setServerEnv = (serverEnv: string) => {
     if (isServerEnvironment(serverEnv)) {
       update(serverEnv);
       setCurrentEnvironment(serverEnv);
+      keycloak.authServerUrl = serverConfig[serverEnv].authServerUrl;
     } else {
       throw new Error(`Invalid server environment value: ${serverEnv}`);
     }

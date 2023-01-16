@@ -98,13 +98,13 @@ exports[`renders the welcome page 1`] = `
                 role="button"
                 tabindex="0"
               >
-                DEV
+                DEMO
               </div>
               <input
                 aria-hidden="true"
                 class="MuiSelect-nativeInput css-yf8vq0-MuiSelect-nativeInput"
                 tabindex="-1"
-                value="DEV"
+                value="DEMO"
               />
               <svg
                 aria-hidden="true"

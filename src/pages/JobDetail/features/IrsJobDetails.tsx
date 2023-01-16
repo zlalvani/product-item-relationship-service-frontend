@@ -1,4 +1,4 @@
-import { Box, Divider, Grid } from "@mui/material";
+import { Divider, Grid } from "@mui/material";
 import dayjs from "dayjs";
 import { useTranslation } from "react-i18next";
 import { DetailGrid } from "../../../components/DetailGrid";

@@ -23,7 +23,7 @@ export const SearchNode: React.FC = () => {
       setCenter(x, y, { zoom, duration: 1000 });
     }
   };
-  console.log(nodes);
+
   return (
     <StyledInput>
       <SelectList

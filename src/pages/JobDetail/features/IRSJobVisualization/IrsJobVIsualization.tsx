@@ -1,19 +1,13 @@
-import { useState } from "react";
 import { useFullScreen } from "../../../../components/FullScreenHandler";
 import { StyledBox, StyledBoxHeader, StyledBoxTitle } from "../../../../components/StyledBox";
 import { useTranslation } from "../../../../lib";
-import { JobResponse, Relationship, Shell } from "../../../../types/jobs";
-import { EdgeDetailDialog } from "./components/EdgeDetailDialog";
-import { GraphDisplay2 } from "./components/GraphDisplay2";
-import { NodeDetailDialog } from "./components/NodeDetailDialog";
+import { JobResponse } from "../../../../types/jobs";
+import { GraphDisplay } from "./components/GraphDisplay";
 
 export const IrsJobVisualization: React.FC<{ job: JobResponse }> = ({ job }) => {
   const { t } = useTranslation();
 
   const { FullScreen, FullScreenButton, fullScreenActive } = useFullScreen();
-
-  const [showNodeDialog, setShowNodeDialog] = useState<{ shell: Shell; aspectId?: string } | undefined>();
-  const [showEdgeDialog, setShowEdgeDialog] = useState<Relationship | undefined>(undefined);
 
   if (job.shells.length === 0) {
     //TODO: Better Error Handling
@@ -29,16 +23,9 @@ export const IrsJobVisualization: React.FC<{ job: JobResponse }> = ({ job }) => 
             <FullScreenButton />
           </StyledBoxHeader>
 
-          <GraphDisplay2
-            job={job}
-            showNodeDialog={setShowNodeDialog}
-            showEdgeDialog={setShowEdgeDialog}
-            fullscreen={fullScreenActive}
-          />
+          <GraphDisplay job={job} fullscreen={fullScreenActive} />
         </FullScreen>
       </StyledBox>
-      <NodeDetailDialog showInfo={showNodeDialog} onClose={() => setShowNodeDialog(undefined)} job={job} />
-      <EdgeDetailDialog edge={showEdgeDialog} onClose={() => setShowEdgeDialog(undefined)} />
     </section>
   );
 };
