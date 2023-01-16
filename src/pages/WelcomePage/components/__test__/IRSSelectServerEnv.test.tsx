@@ -9,7 +9,7 @@ it("renders the environment selector", () => {
     hidden: true,
   });
 
-  expect(getCurrentEnvironment()).toEqual("DEV");
+  expect(getCurrentEnvironment()).toEqual("DEMO");
 
   fireEvent.change(input, {
     target: { value: "INT" },

@@ -11,9 +11,10 @@
     "lint": "eslint src/ --ext=.ts,.tsx,.js,.jsx"
   },
   "devDependencies": {
-    "@commitlint/cli": "^17.4.1",
-    "@commitlint/config-conventional": "^17.4.0",
+    "@commitlint/cli": "^17.4.2",
+    "@commitlint/config-conventional": "^17.4.2",
     "@juggle/resize-observer": "^3.4.0",
+    "@rollup/plugin-inject": "^5.0.3",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^14.4.3",
@@ -23,17 +24,19 @@
     "@typescript-eslint/eslint-plugin": "^5.48.1",
     "@typescript-eslint/parser": "^5.48.1",
     "@vitejs/plugin-react": "^3.0.1",
-    "@vitest/coverage-istanbul": "^0.27.0",
-    "eslint": "^8.31.0",
+    "@vitest/coverage-istanbul": "^0.27.1",
+    "buffer": "^6.0.3",
+    "eslint": "^8.32.0",
     "husky": "^8.0.3",
     "identity-obj-proxy": "^3.0.0",
     "jsdom": "^21.0.0",
     "lint-staged": "^13.1.0",
-    "prettier": "^2.8.2",
+    "prettier": "^2.8.3",
+    "resize-observer-polyfill": "^1.5.1",
     "typescript": "^4.9.4",
     "vite": "^4.0.4",
     "vite-plugin-checker": "^0.5.3",
-    "vitest": "^0.27.0"
+    "vitest": "^0.27.1"
   },
   "lint-staged": {
     "src/**/*.{js,ts,tsx}": [
@@ -58,14 +61,14 @@
     "dayjs": "^1.11.7",
     "i18next": "^22.4.9",
     "i18next-browser-languagedetector": "^7.0.1",
-    "keycloak-js": "^20.0.2",
+    "keycloak-js": "^20.0.3",
     "lodash": "^4.17.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-hook-form": "^7.41.5",
+    "react-hook-form": "^7.42.1",
     "react-i18next": "^12.1.4",
     "react-router-dom": "^6.6.2",
     "react-syntax-highlighter": "^15.5.0",
-    "reactflow": "^11.4.0"
+    "reactflow": "^11.4.2"
   }
 }

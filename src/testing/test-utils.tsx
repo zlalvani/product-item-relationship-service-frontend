@@ -6,6 +6,7 @@ import { I18nextProvider } from "react-i18next";
 import { BrowserRouter } from "react-router-dom";
 import { ReactQueryTestClientProvider } from "../lib";
 import { KeyCloakProvider } from "../lib/keycloak";
+import { ServerEnvProvider } from "../utils/ServerEnv";
 import i18n from "./i18n-testconfig";
 
 type ExtendedRenderOptions = Omit<RenderOptions, "queries">;
@@ -13,9 +14,11 @@ type ExtendedRenderOptions = Omit<RenderOptions, "queries">;
 const Wrapper: FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
     <I18nextProvider i18n={i18n}>
-      <ReactQueryTestClientProvider>
-        <KeyCloakProvider>{children}</KeyCloakProvider>
-      </ReactQueryTestClientProvider>
+      <ServerEnvProvider>
+        <ReactQueryTestClientProvider>
+          <KeyCloakProvider>{children}</KeyCloakProvider>
+        </ReactQueryTestClientProvider>
+      </ServerEnvProvider>
     </I18nextProvider>
   );
 };

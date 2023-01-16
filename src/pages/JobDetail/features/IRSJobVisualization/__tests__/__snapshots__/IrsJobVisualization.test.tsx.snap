@@ -1,0 +1,447 @@
+// Vitest Snapshot v1
+
+exports[`renders a basic visualization 1`] = `
+<div>
+  <section>
+    <div
+      class="css-1xiw371 MuiBox-root css-xi606m"
+    >
+      <div
+        class="MuiBox-root css-0"
+      >
+        <div
+          class="css-q0ry9c MuiBox-root css-0"
+        >
+          <h5
+            class="css-88oh4l"
+          >
+            content.irs.visualization.title
+          </h5>
+          <button
+            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorSecondary MuiIconButton-sizeMedium css-1gws2xf-MuiButtonBase-root-MuiIconButton-root"
+            style="align-self: right;"
+            tabindex="0"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+              data-testid="FullscreenIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"
+              />
+            </svg>
+            <span
+              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+            />
+          </button>
+        </div>
+        <div
+          class="css-5m6tqh"
+        >
+          <div
+            class="MuiAutocomplete-root MuiAutocomplete-hasClearIcon MuiAutocomplete-hasPopupIcon css-oarg8b-MuiAutocomplete-root"
+          >
+            <div
+              class="MuiBox-root css-20iexu"
+            >
+              <div
+                class="MuiBox-root css-0"
+              >
+                <div
+                  class="MuiFormControl-root css-q8hpuo-MuiFormControl-root"
+                >
+                  <label
+                    class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-filled css-e4w4as-MuiFormLabel-root-MuiInputLabel-root"
+                    data-shrink="false"
+                  >
+                    Highlight Node
+                  </label>
+                  <div
+                    class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-wb57ya-MuiFormControl-root-MuiTextField-root"
+                  >
+                    <div
+                      class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd MuiAutocomplete-inputRoot css-sl80c4-MuiInputBase-root-MuiFilledInput-root"
+                    >
+                      <input
+                        aria-autocomplete="list"
+                        aria-expanded="false"
+                        aria-invalid="false"
+                        autocapitalize="none"
+                        autocomplete="off"
+                        class="MuiInputBase-input MuiFilledInput-input MuiInputBase-inputAdornedEnd MuiAutocomplete-input MuiAutocomplete-inputFocused css-1gctnaj-MuiInputBase-input-MuiFilledInput-input"
+                        id="singleSelectList"
+                        placeholder="Enter Node ID"
+                        role="combobox"
+                        spellcheck="false"
+                        type="text"
+                        value=""
+                      />
+                      <div
+                        class="MuiAutocomplete-endAdornment css-1q60rmi-MuiAutocomplete-endAdornment"
+                      >
+                        <button
+                          aria-label="clear"
+                          class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium MuiAutocomplete-clearIndicator css-1glvl0p-MuiButtonBase-root-MuiIconButton-root-MuiAutocomplete-clearIndicator"
+                          tabindex="-1"
+                          title="clear"
+                          type="button"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-ptiqhd-MuiSvgIcon-root"
+                            data-testid="CloseIcon"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                            />
+                          </svg>
+                          <span
+                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                          />
+                        </button>
+                        <button
+                          aria-label="Open"
+                          class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium MuiAutocomplete-popupIndicator css-qzbt6i-MuiButtonBase-root-MuiIconButton-root-MuiAutocomplete-popupIndicator"
+                          tabindex="-1"
+                          title="Open"
+                          type="button"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                            data-testid="ArrowDropDownIcon"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M7 10l5 5 5-5z"
+                            />
+                          </svg>
+                          <span
+                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                          />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeSmall MuiButton-containedSizeSmall Mui-disabled MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeSmall MuiButton-containedSizeSmall css-9aa3p4-MuiButtonBase-root-MuiButton-root"
+            disabled=""
+            tabindex="-1"
+            type="button"
+          >
+            Submit
+          </button>
+        </div>
+        <div
+          style="height: 40vh;"
+        >
+          <div
+            class="react-flow"
+            data-testid="rf__wrapper"
+            style="width: 100%; height: 100%; overflow: hidden; position: relative; z-index: 0;"
+          >
+            <div
+              class="react-flow__renderer"
+              style="position: absolute; width: 100%; height: 100%; top: 0px; left: 0px;"
+            >
+              <div
+                class="react-flow__pane"
+                style="position: absolute; width: 100%; height: 100%; top: 0px; left: 0px;"
+              >
+                <div
+                  class="react-flow__viewport react-flow__container"
+                  style="transform: translate(0px,0px) scale(1);"
+                >
+                  <svg
+                    class="react-flow__edges react-flow__container"
+                    height="500"
+                    style="z-index: 0;"
+                    width="500"
+                  >
+                    <defs />
+                    <g />
+                  </svg>
+                  <div
+                    class="react-flow__edgelabel-renderer"
+                  />
+                  <div
+                    class="react-flow__nodes"
+                    style="position: absolute; width: 100%; height: 100%; top: 0px; left: 0px;"
+                  >
+                    <div
+                      aria-describedby="react-flow__node-desc-1"
+                      class="react-flow__node react-flow__node-displayNode nopan selectable"
+                      data-id="urn:uuid:a45a2246-f6e1-42da-b47d-5c3b58ed62e9"
+                      data-testid="rf__node-urn:uuid:a45a2246-f6e1-42da-b47d-5c3b58ed62e9"
+                      role="button"
+                      style="z-index: 0; transform: translate(0px,0px); pointer-events: all; visibility: visible;"
+                      tabindex="0"
+                    >
+                      <div
+                        class="nodrag"
+                      >
+                        <div
+                          class="react-flow__handle react-flow__handle-top nodrag nopan target connectable"
+                          data-handlepos="top"
+                          data-nodeid="urn:uuid:a45a2246-f6e1-42da-b47d-5c3b58ed62e9"
+                          draggable="false"
+                        />
+                        <div
+                          class="css-1dderol"
+                        >
+                          <div
+                            class="css-9pltgg"
+                          >
+                            <p>
+                              future concept x
+                            </p>
+                            <p>
+                              urn:uuid:a45a2246-f6e1-42da-b47d-5c3b58ed62e9
+                            </p>
+                          </div>
+                          <div
+                            class="MuiBox-root css-6cgya3"
+                          >
+                            <div
+                              style="text-align: left; margin: 5px;"
+                            >
+                              Aspects:
+                            </div>
+                            <div
+                              class="MuiBox-root css-0"
+                            >
+                              <button
+                                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall css-7xvvqp-MuiButtonBase-root-MuiButton-root"
+                                tabindex="0"
+                                type="button"
+                              >
+                                vehicle base details
+                                <div>
+                                  <div
+                                    style="float: right; margin-left: 10px;"
+                                  />
+                                </div>
+                                <span
+                                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                />
+                              </button>
+                            </div>
+                            <div
+                              class="MuiBox-root css-0"
+                            >
+                              <button
+                                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedError MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedError MuiButton-sizeSmall MuiButton-containedSizeSmall css-cxm5bq-MuiButtonBase-root-MuiButton-root"
+                                tabindex="0"
+                                type="button"
+                              >
+                                vehicle part details
+                                <div>
+                                  <div
+                                    style="float: right; margin-left: 10px;"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                      data-testid="ErrorOutlineIcon"
+                                      focusable="false"
+                                      viewBox="0 0 24 24"
+                                    >
+                                      <path
+                                        d="M11 15h2v2h-2zm0-8h2v6h-2zm.99-5C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
+                                      />
+                                    </svg>
+                                  </div>
+                                </div>
+                                <span
+                                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                />
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          class="react-flow__handle react-flow__handle-bottom nodrag nopan source connectable"
+                          data-handleid="a"
+                          data-handlepos="bottom"
+                          data-nodeid="urn:uuid:a45a2246-f6e1-42da-b47d-5c3b58ed62e9"
+                          draggable="false"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <svg
+              class="react-flow__background"
+              style="position: absolute; width: 100%; height: 100%; top: 0px; left: 0px;"
+            >
+              <pattern
+                height="20"
+                id="pattern-1"
+                patternTransform="translate(-0.5,-0.5)"
+                patternUnits="userSpaceOnUse"
+                width="20"
+                x="0"
+                y="0"
+              >
+                <circle
+                  cx="0.5"
+                  cy="0.5"
+                  fill="#91919a"
+                  r="0.5"
+                />
+              </pattern>
+              <rect
+                fill="url(#pattern-1)"
+                height="100%"
+                width="100%"
+                x="0"
+                y="0"
+              />
+            </svg>
+            <div
+              class="react-flow__panel react-flow__controls bottom left"
+              style="pointer-events: all;"
+            >
+              <button
+                aria-label="zoom in"
+                class="react-flow__controls-button react-flow__controls-zoomin"
+                title="zoom in"
+                type="button"
+              >
+                <svg
+                  viewBox="0 0 32 32"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M32 18.133H18.133V32h-4.266V18.133H0v-4.266h13.867V0h4.266v13.867H32z"
+                  />
+                </svg>
+              </button>
+              <button
+                aria-label="zoom out"
+                class="react-flow__controls-button react-flow__controls-zoomout"
+                title="zoom out"
+                type="button"
+              >
+                <svg
+                  viewBox="0 0 32 5"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0 0h32v4.2H0z"
+                  />
+                </svg>
+              </button>
+              <button
+                aria-label="fit view"
+                class="react-flow__controls-button react-flow__controls-fitview"
+                title="fit view"
+                type="button"
+              >
+                <svg
+                  viewBox="0 0 32 30"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M3.692 4.63c0-.53.4-.938.939-.938h5.215V0H4.708C2.13 0 0 2.054 0 4.63v5.216h3.692V4.631zM27.354 0h-5.2v3.692h5.17c.53 0 .984.4.984.939v5.215H32V4.631A4.624 4.624 0 0027.354 0zm.954 24.83c0 .532-.4.94-.939.94h-5.215v3.768h5.215c2.577 0 4.631-2.13 4.631-4.707v-5.139h-3.692v5.139zm-23.677.94c-.531 0-.939-.4-.939-.94v-5.138H0v5.139c0 2.577 2.13 4.707 4.708 4.707h5.138V25.77H4.631z"
+                  />
+                </svg>
+              </button>
+              <button
+                aria-label="toggle interactivity"
+                class="react-flow__controls-button react-flow__controls-interactive"
+                title="toggle interactivity"
+                type="button"
+              >
+                <svg
+                  viewBox="0 0 25 32"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M21.333 10.667H19.81V7.619C19.81 3.429 16.38 0 12.19 0c-4.114 1.828-1.37 2.133.305 2.438 1.676.305 4.42 2.59 4.42 5.181v3.048H3.047A3.056 3.056 0 000 13.714v15.238A3.056 3.056 0 003.048 32h18.285a3.056 3.056 0 003.048-3.048V13.714a3.056 3.056 0 00-3.048-3.047zM12.19 24.533a3.056 3.056 0 01-3.047-3.047 3.056 3.056 0 013.047-3.048 3.056 3.056 0 013.048 3.048 3.056 3.056 0 01-3.048 3.047z"
+                  />
+                </svg>
+              </button>
+            </div>
+            <div
+              class="react-flow__panel react-flow__minimap bottom right"
+              style="pointer-events: all;"
+            >
+              <svg
+                aria-labelledby="react-flow__minimap-desc-1"
+                height="150"
+                role="img"
+                viewBox="-100.00000000000004 -16.666666666666668 700.0000000000001 533.3333333333334"
+                width="200"
+              >
+                <title
+                  id="react-flow__minimap-desc-1"
+                >
+                  React Flow mini map
+                </title>
+                <rect
+                  class="react-flow__minimap-node"
+                  fill="#e2e2e2"
+                  height="240"
+                  rx="5"
+                  ry="5"
+                  shape-rendering="geometricPrecision"
+                  stroke="transparent"
+                  stroke-width="2"
+                  width="300"
+                  x="0"
+                  y="0"
+                />
+                <path
+                  class="react-flow__minimap-mask"
+                  d="M-116.66666666666671,-33.333333333333336h733.3333333333335v566.6666666666667h-733.3333333333335z
+        M0,0h500v500h-500z"
+                  fill="rgb(240, 240, 240, 0.6)"
+                  fill-rule="evenodd"
+                  pointer-events="none"
+                  stroke="none"
+                  stroke-width="1"
+                />
+              </svg>
+            </div>
+            <div
+              id="react-flow__node-desc-1"
+              style="display: none;"
+            >
+              Press enter or space to select a node.
+              You can then use the arrow keys to move the node around.
+               Press delete to remove it and escape to cancel.
+               
+            </div>
+            <div
+              id="react-flow__edge-desc-1"
+              style="display: none;"
+            >
+              Press enter or space to select an edge. You can then press delete to remove it or escape to cancel.
+            </div>
+            <div
+              aria-atomic="true"
+              aria-live="assertive"
+              id="react-flow__aria-live-1"
+              style="position: absolute; width: 1px; height: 1px; margin: -1px; border: 0px; padding: 0px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); clip-path: inset(100%);"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+`;

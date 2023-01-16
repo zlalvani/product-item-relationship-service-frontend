@@ -18,6 +18,6 @@ export class JobAPI implements IJobAPI {
     return await HttpClient.post(`jobs`, data);
   }
   async fetchJobById(jobId: string): Promise<JobResponse> {
-    return await HttpClient.get(`jobs/${jobId}?returnUncompletedJob=true`, undefined);
+    return await HttpClient.get(`jobs/${jobId}?returnUncompletedJob=true`);
   }
 }
