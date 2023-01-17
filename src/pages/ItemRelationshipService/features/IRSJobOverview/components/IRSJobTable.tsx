@@ -76,13 +76,11 @@ export const IRSJobTable: React.FC<{
       loading={isLoading}
       disableColumnSelector={true}
       disableDensitySelector={true}
-      hideFooter={false}
       disableColumnMenu={true}
       pagination={true}
       pageSize={jobs?.pageSize ?? 0}
-      hideFooterPagination={false}
       paginationMode="server"
-      rowCount={jobs?.pageCount}
+      rowCount={jobs?.totalElements}
       onPageChange={setCurrentPage}
     />
   );
