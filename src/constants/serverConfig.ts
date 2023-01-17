@@ -15,13 +15,13 @@ export const serverConfig = {
     id: 2,
     value: "https://irs.int.demo.catena-x.net/irs/",
     label: "Integration Environment",
-    authServerUrl: "xxx",
-  },
-  PROD: {
-    id: 3,
-    value: "https://irs.int.demo.catena-x.net/irs/", // TODO: Real link for prod envi
-    label: "Production Environment",
     authServerUrl: "https://centralidp.int.demo.catena-x.net/auth",
+  },
+  BETA: {
+    id: 3,
+    value: "https://irs.beta.demo.catena-x.net/irs/", // TODO: Real link for prod envi
+    label: "Production Environment",
+    authServerUrl: "https://centralidp.beta.demo.catena-x.net/auth",
   },
 } as const;
 
