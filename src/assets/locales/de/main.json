@@ -220,6 +220,10 @@
       "detail": {
         "error": "FEHLER: Es gibt keine Details zu diesem Asset.",
         "no_description": "Dieses Asset hat keine Beschreibung.",
+        "description":"Beschreibung:",
+        "id_short":"ID Kurz:",
+        "global_asset_id":"Globale Asset ID:",
+        "aas_id":"AAS ID:",
         "assetId": "Specific Asset IDs",
         "submodel_endpoints": "Submodell Endpunkte:",
         "semanticid": "Semantic ID:",
