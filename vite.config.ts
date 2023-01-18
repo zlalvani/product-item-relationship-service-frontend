@@ -6,6 +6,8 @@ import inject from '@rollup/plugin-inject';
 export default defineConfig({
   plugins: [checker({ typescript: true }), react()],
   server: {
+    host: true, // needed for the Docker Container port mapping to work
+    strictPort: true,
     port: 3000,
   },
   test: {
