@@ -43,12 +43,12 @@ export const NodeDetailsTwo: React.FC<{ twin: Shell; job: JobResponse; aspectId?
   });
 
   const getDescription = (elem: Shell | SubmodelDescriptor) => (
-    <Typography sx={{ mb: 3, typography: "body3" }}>
-      {elem.description[0] ? elem.description[0].text : t("content.digitaltwin.detail.no_description")}
-    </Typography>
+    <>
+      <Typography sx={{ mb: 3, typography: "body3" }}>
+        {elem.description[0] ? elem.description[0].text : t("content.digitaltwin.detail.no_description")}
+      </Typography>
+    </>
   );
-
-  const hasSubmodels = () => twin.submodelDescriptors.length > 0;
 
   const secondaryContent = (subModel: SubmodelDescriptor, semId: string, idKey: string) => (
     <div key={uniqueId()} id={subModel.idShort}>
@@ -108,9 +108,25 @@ export const NodeDetailsTwo: React.FC<{ twin: Shell; job: JobResponse; aspectId?
   return (
     <ScrollableDiv>
       <h1>Shell</h1>
-      {getDescription(twin)}
 
-      {hasSubmodels() && (
+      <DetailGrid
+        topic={t("content.digitaltwin.detail.aas_id")}
+        content={twin.identification ? twin.identification : "not found"}
+      ></DetailGrid>
+      <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
+      <DetailGrid
+        topic={t("content.digitaltwin.detail.global_asset_id")}
+        content={twin.globalAssetId ? twin.globalAssetId.value[0] : "not found"}
+      ></DetailGrid>
+      <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
+      <DetailGrid
+        topic={t("content.digitaltwin.detail.id_short")}
+        content={twin.idShort ? twin.idShort : "not found"}
+      ></DetailGrid>
+      <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
+      <DetailGrid topic={t("content.digitaltwin.detail.description")} content={getDescription(twin)}></DetailGrid>
+
+      {
         <>
           <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
           <Typography sx={{ mb: 3, typography: "label2" }}>{t("content.digitaltwin.detail.assetId")}</Typography>
@@ -144,7 +160,7 @@ export const NodeDetailsTwo: React.FC<{ twin: Shell; job: JobResponse; aspectId?
             return secondaryContent(subModel, subModel.semanticId.value[0], `${subModel.idShort}_${indexSubmodel}`);
           })}
         </>
-      )}
+      }
     </ScrollableDiv>
   );
 };
