@@ -41,6 +41,19 @@ jobs:
       - name: Set application version
         id: app_version
         run: echo "::set-output name=prefix::$(date +'%Y-%m-%d').${{ github.run_number }}."
+      
+      - name: Set docker image version
+        run: |
+          VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
+          # Strip "v" prefix from tag name
+          [[ "${{ github.ref }}" == "refs/tags/"* ]] && VERSION=$(echo $VERSION | sed -e 's/^v//')
+          # Support PR ref versions
+          [[ "${{ github.ref }}" == "refs/pull/"* ]] && VERSION=PR-$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\)/merge,\1,')
+          # Use Docker `latest` tag convention
+          [ "$VERSION" == "main" ] && VERSION=latest
+          echo IMAGE_ID=$IMAGE_ID
+          echo $VERSION
+          echo "DOCKER_IMAGE_TAG=$VERSION" >> $GITHUB_ENV
 
       # Extract metadata (tags, labels) for Docker
       # https://github.com/docker/metadata-action
@@ -58,5 +71,5 @@ jobs:
         with:
           context: .
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ steps.meta.outputs.tags }}
+          tags: ${{ env.DOCKER_IMAGE_TAG }}
           labels: ${{ steps.meta.outputs.labels }}
