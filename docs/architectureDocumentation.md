@@ -7,10 +7,10 @@
 
 ## Table of Contents
 
-- [ o ] [Introduction and goals](#introduction-and-goals)
-  - [ o ] [Requirements overview](#requirements-overview)
-  - [ o ] [Quality goals](#quality-goals)
-  - [ o ] [Stakeholders](#stakeholders)
+- [ x ] [Introduction and goals](#introduction-and-goals)
+  - [ x ] [Requirements overview](#requirements-overview)
+  - [ x ] [Quality goals](#quality-goals)
+  - [ x ] [Stakeholders](#stakeholders)
 - [ o ] [Architecture constraints](#architecture-constraints)
   - [ o ] [Technical Constraints](#technical-constraints)
   - [ o ] [Organizational Constraints](#organizational-constraints)
@@ -43,9 +43,10 @@
   - [ o ] [List of requirements](#list-of-requirements)
 - [ o ] [Glossary](#glossary)
 
-<br> 
+<br>
 
 ---
+
 ---
 
 # Introduction and goals
@@ -58,18 +59,14 @@ This chapter gives you an overview about the goals of the service, in which cont
 
 The IRS-DV is a:
 
-- Functional federated component
+- Web-frontend to visualize an IRS Job to detect errors and failures in the job
 - Uses API endpoint to retrieve the tree structures in a recursive way, which data assets are distributed throughout the Catena-X network
 - Reference implementation
-- Catch and find errors
 
 ### Substantial Features
 
 - provide a top-down BoM asBuilt tree structure along the submodel "AssemblyPartRelationship"
-- usage of EDC consumer for communicating with the Catena-X network
-- functionality of IRS provider will be handled by providers submodel servers
-- federated IRS service
-- 'asBuild' BoM of serialized components
+- usage of IRS Jobs endpoint for communicating with the Catena-X network
 
 ## Quality goals
 
@@ -77,19 +74,10 @@ The following table entries define overall IRS-DV quality goals. The order of th
 
 | Quality goal                  | Motivation and description                                                                                                                                                                                        |
 | ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| running reference application | The IRS-DV is built to traverse a distributed data chain across the automotive Industry. The IRS-DV release scope aims to build a running solution to find errors in the whole chain by a given request.          |
-| multiple async job            | The IRS-DV is built to access multiple endpoints parallel. Since the for the Endpoint it is not clear yet how long a request will take to respond. The Service is built to handle multiple asynchronous requests. |
+| running reference application | The IRS-DV is built to visualize completed IRS-Jobs. The IRS-DV release scope aims to build a running solution to display a job as a tree of nodes, with an highlight on failing nodes.                           |
 | cloud agnostic solution       | The IRS-DV is built as reference architecture and able to run on different cloud solutions. It uses helm charts, terraform and a abstracts the storage, so that it can easily be integrated on different systems. |
 | base security measures        | The IRS-DV is built with a base set of security features. The program can only be used by logging in via Keyclock                                                                                                 |
 | application reliability       | The IRS-DV architecture is set up so that the costumers can rely on reliable data chains                                                                                                                          |
-
-## Stakeholders
-
-| Role/name     | Contact                                                  | Expectations                                              |
-| ------------- | -------------------------------------------------------- | --------------------------------------------------------- |
-| Product Owner | Zahn Johannes johannes.zahn@bmw.de                       |                                                           |
-| Back-end team |                                                          |                                                           |
-| Developers    | Neal Buerger <br> Stephan Bauer <br> Giedrius Pacevicius | accept responsibility for architectural tasks in the team |
 
 <br>
 <br>
@@ -109,12 +97,14 @@ The following table entries define overall IRS-DV quality goals. The order of th
 | Kubernetes is used for Container Orchestration                                                                | Kubernetes as container orchestration system used for software deployment, scaling and management of the IRS application. This supports our software infrastructure and ensures efficient management and scalability of the IRS reference application. |
 | Docker Container are used to provide a microservice oriented architecture                                     | Deployment made on reliable production ready images. Avoiding repetitive, mundane configuration tasks for container orchestration.                                                                                                                     |
 | Docker Compose is used to define and tune multi container application based on docker container technologies. | Docker container to develop independently of the underlying OS.                                                                                                                                                                                        |
+|                                                                                                               |
 
 ## Organizational Constraints
 
-| Name           | Description                                                               | Comment                          |
-| -------------- | ------------------------------------------------------------------------- | -------------------------------- |
-| API Connection | IRS Application has to be accessible for the user in the App Marketplace. | App Marketplace & API Connection |
+| Name             | Description                                              | Comment                                           |
+| ---------------- | -------------------------------------------------------- | ------------------------------------------------- |
+| IRS Jobs Service | Provide IRS as a C-X Shared Data Service.                | Multiple target IRS Job services are configurable |
+| Keycloak         | Authentication has to be handled by a keycloak instance. |                                                   |
 
 ## Political constraints
 
@@ -129,18 +119,20 @@ The following table entries define overall IRS-DV quality goals. The order of th
 | Name                                     | Description                                                                                                                                                                                                                                           |
 | ---------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Architecture documentation               | Architectural documentation of IRS-DV according to ARC42 template.                                                                                                                                                                                    |
-| Coding guidelines                        | ESlint recomended TypeScript format.                                                                                                                                                                                                                  |
+| Coding guidelines                        | ESlint recommended TypeScript format.                                                                                                                                                                                                                 |
 | Module structure                         | React single page application.                                                                                                                                                                                                                        |
 | Code Analysis, Linting and Code Coverage | Consistent style increases readability and maintainability of the code base. Hence, we use analyzers to enforce consistency and style rules. We enforce the code style and rules in the CI to avoid merging code that does not comply with standards. |
 
 ## Code analysis, linting and code coverage
 
-| Tool       | Scope                                                                                         | Rule                                                          | Configuration (via files / annotations) |
-| ---------- | --------------------------------------------------------------------------------------------- | ------------------------------------------------------------- | --------------------------------------- |
-| JEST       | Test coverage                                                                                 | Fail build on coverage < 80%                                  | .github\jest.config.js                  |
-| Dependabot | Automated dependency updates built into GitHub. Provided pull requests on dependency updates. | Any dependency update generates a pull request automatically. | .github/dependabot.yml                  |
-| Prettier   | Code formatter                                                                                | Code style for all developers are the same                    | .github/.prettierrc.json                |
-| ESLINT     | Find and fix problems                                                                         | Find and fix problems with JavaScript code                    | .github/.eslintrc                       |
+| Tool       | Scope                                                                                         | Rule                                                          | Configuration (via files / annotations)  |
+| ---------- | --------------------------------------------------------------------------------------------- | ------------------------------------------------------------- | ---------------------------------------- |
+| Vitest     | Test coverage                                                                                 | Fail build on coverage < 80%                                  | vite.config.ts                           |
+| Dependabot | Automated dependency updates built into GitHub. Provided pull requests on dependency updates. | Any dependency update generates a pull request automatically. | .github/dependabot.yml                   |
+| Prettier   | Code formatter                                                                                | Code style for all developers are the same                    | .prettierrc.json                         |
+| ESLINT     | Find and fix problems                                                                         | Find and fix problems with JavaScript code                    | .github/.eslintrc                        |
+| SonaCloud  | CodeSmell and Security Scan                                                                   | Global catena-x configuration.                                |
+| Veracode   | Packages and Security Scan                                                                    | Global catena-x configuration.                                | https://web.analysiscenter.veracode.com/ |
 
 <br>
 <br>
@@ -402,10 +394,10 @@ The ingress uses a reverse proxy to provide specified Service ports to the inter
 # Cross-cutting concepts
 
 ## Domain concepts
+
 ### Domain model
 
 ![Domain model](./images/puml-svg/domain-model.svg)
-
 
 ### JobStatus
 
