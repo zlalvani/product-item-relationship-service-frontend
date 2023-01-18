@@ -50,8 +50,6 @@ export const NodeDetailsTwo: React.FC<{ twin: Shell; job: JobResponse; aspectId?
     </>
   );
 
-  // const hasSubmodels = () => twin.submodelDescriptors.length > 0;
-
   const secondaryContent = (subModel: SubmodelDescriptor, semId: string, idKey: string) => (
     <div key={uniqueId()} id={subModel.idShort}>
       <h1 style={{ marginTop: "100px" }}>{subModel.idShort} aspect</h1>
@@ -110,7 +108,7 @@ export const NodeDetailsTwo: React.FC<{ twin: Shell; job: JobResponse; aspectId?
   return (
     <ScrollableDiv>
       <h1>Shell</h1>
-      {/* {getDescription(twin)} */}
+
       <DetailGrid
         topic={t("content.digitaltwin.detail.aas_id")}
         content={twin.identification ? twin.identification : "not found"}
