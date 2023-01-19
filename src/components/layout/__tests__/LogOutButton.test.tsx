@@ -1,6 +1,6 @@
 import { vi } from "vitest";
 import { fireEvent, renderWithRouter, screen } from "../../../testing/test-utils";
-import { LogOutButton } from "../LogOutButton";
+import { LogOutButton } from "../Header/Buttons/LogOutButton";
 
 const logout = vi.fn();
 

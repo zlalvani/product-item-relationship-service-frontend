@@ -2,7 +2,7 @@
   "title": "Catena-X Portal",
   "pages": {
     "home": "Home",
-   
+
     "help": "Help",
     "contact": "Contact",
     "imprint": "Imprint",
@@ -12,22 +12,21 @@
     "thirdpartylicenses": "Third Party Licenses",
     "logout": "Sign Out",
     "notfound": "Page not found",
-  
+
     "itemrelationshipservice": "Item Relationship Service"
   },
- 
+
   "actions": {
     "SignOut": "Sign out",
     "Lang_de": "Switch language to german",
     "Lang_en": "Switch language to english"
   },
   "content": {
-   
-
-
-
-    
     "irs": {
+      "header": {
+        "home": "Home",
+        "help": "Help"
+      },
       "welcomePage": {
         "loginButtonLabel": "Login",
         "headerSubtitle": "Insights into decentral stored Data Chains"
@@ -92,7 +91,7 @@
         "sendButton": "Build Data Chain"
       }
     },
-   
+
     "footer": {
       "copyright": "Copyright © Catena-X Automotive Network"
     },
@@ -107,10 +106,7 @@
         "notimplemented": "hasn't been implemented yet."
       },
       "further": "If you think there should be content please contact your administrator."
-
-
     }
-
   },
 
   "global": {
@@ -174,6 +170,5 @@
       "today": "today",
       "tomorrow": "tomorrow"
     }
-
   }
 }

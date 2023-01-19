@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import { Box } from "@mui/material";
 import { MainHeader, Typography } from "cx-portal-shared-components";
 import { useTranslation } from "react-i18next";
-import { PublicHeader } from "../../components/layout/Header";
+import { PublicHeader } from "../../components/layout/Header/PublicHeader";
 import { IRSSelectServerEnv } from "./components/IRSSelectServerEnv";
 import { LoginButton } from "./components/LoginButton";
 

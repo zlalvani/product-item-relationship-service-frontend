@@ -1,8 +1,12 @@
 import { useKeycloak } from "@react-keycloak/web";
 import { IconButton } from "cx-portal-shared-components";
 import { redirect } from "react-router-dom";
-import { LogoutIcon } from "../../lib/icons";
+import { LogoutIcon } from "../../../../lib/icons";
 
+/**
+ * Header Log out Button
+ * @returns React component
+ */
 export const LogOutButton: React.FC = () => {
   const { keycloak } = useKeycloak();
 

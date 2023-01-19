@@ -1,11 +1,12 @@
 import { KeyCloakProvider } from "../../../lib/keycloak";
 import { renderWithProviders } from "../../../testing/test-utils";
-import { Header, PublicHeader } from "../Header";
+import { PrivateHeader } from "../Header/PrivateHeader";
+import { PublicHeader } from "../Header/PublicHeader";
 
 it("renders a public header", () => {
   const { container } = renderWithProviders(
     <KeyCloakProvider>
-      <Header />
+      <PrivateHeader />
     </KeyCloakProvider>,
   );
   expect(container).toMatchSnapshot();
