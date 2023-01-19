@@ -1,8 +1,8 @@
-import styled from "@emotion/styled";
 import { Box } from "@mui/material";
 import { MainHeader, Typography } from "cx-portal-shared-components";
 import { useTranslation } from "react-i18next";
 import { PublicHeader } from "../../components/layout/Header/PublicHeader";
+import { PaddedSection } from "../../components/layout/PaddedSection";
 import { IRSSelectServerEnv } from "./components/IRSSelectServerEnv";
 import { LoginButton } from "./components/LoginButton";
 
@@ -22,7 +22,7 @@ export const WelcomePage: React.FC = () => {
         headerHeight={window.innerHeight}
         imagePath="./img/home-stage-desktop.png"
       >
-        <PaddingBottom>
+        <PaddedSection>
           <Box
             component="img"
             src="/img/IRS_FE_Logo_long.png"
@@ -30,11 +30,11 @@ export const WelcomePage: React.FC = () => {
               display: "inline-block",
             }}
           />
-        </PaddingBottom>
+        </PaddedSection>
 
-        <PaddingBottom>
+        <PaddedSection>
           <Typography variant="body1">{t("content.irs.welcomePage.headerSubtitle")}</Typography>
-        </PaddingBottom>
+        </PaddedSection>
 
         <IRSSelectServerEnv />
         <LoginButton />
@@ -42,7 +42,3 @@ export const WelcomePage: React.FC = () => {
     </div>
   );
 };
-
-const PaddingBottom = styled.div`
-  margin-bottom: 1.5rem;
-`;

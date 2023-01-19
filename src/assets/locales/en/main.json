@@ -1,20 +1,5 @@
 {
   "title": "Catena-X Portal",
-  "pages": {
-    "home": "Home",
-
-    "help": "Help",
-    "contact": "Contact",
-    "imprint": "Imprint",
-    "privacy": "Privacy",
-    "terms": "Terms of Service",
-    "cookiepolicy": "Cookies",
-    "thirdpartylicenses": "Third Party Licenses",
-    "logout": "Sign Out",
-    "notfound": "Page not found",
-
-    "itemrelationshipservice": "Item Relationship Service"
-  },
 
   "actions": {
     "SignOut": "Sign out",
@@ -22,7 +7,39 @@
     "Lang_en": "Switch language to english"
   },
   "content": {
+    "digitaltwin": {
+      "table": {
+        "title": "Overview Digital Twins",
+        "columns": {
+          "idShort": "Name",
+          "sm_count": "Submodel Count",
+          "asset_count": "Asset Count"
+        },
+        "load_button": "Load more"
+      },
+      "detail": {
+        "error": "ERROR: No twin data available.",
+        "no_description": "This asset has no description.",
+        "assetId": "Specific asset IDs",
+        "submodel_endpoints": "Submodel endpoints:",
+        "semanticid": "Semantic ID:",
+        "key": "Key:",
+        "value": "Value:",
+        "endpoints": "Endpoints:",
+        "interface": "Interface:",
+        "protocol": "Protocol:",
+        "protocol_version": "Protocol version:",
+        "protocol_endpoint": "Aspect Endpoint:"
+      }
+    },
     "irs": {
+      "errorPage": {
+        "header": "Error",
+        "title": "Oops, Something went wrong.",
+        "description": "Please contact your admin.",
+        "homeButtonTitle": "Home",
+        "reloadButtonTitle": "Reload Page"
+      },
       "header": {
         "home": "Home",
         "help": "Help"
@@ -90,85 +107,14 @@
         },
         "sendButton": "Build Data Chain"
       }
-    },
-
-    "footer": {
-      "copyright": "Copyright © Catena-X Automotive Network"
-    },
-    "logout": {
-      "message": "We are logging you out now... Hope to see you again soon!"
-    },
-    "notfound": {
-      "message": "The content could not be found. This can happen because of various reasons - either",
-      "reason": {
-        "nopermission": "you have no permission to view this content or",
-        "notexisting": "the page doesn't exist in the Catena-X portal or",
-        "notimplemented": "hasn't been implemented yet."
-      },
-      "further": "If you think there should be content please contact your administrator."
     }
   },
 
   "global": {
-    "field": {
-      "first": "First Name",
-      "last": "Last Name",
-      "email": "Email",
-      "company": "Company Name",
-      "status": "Status",
-      "role": "Role",
-      "active": "Active",
-      "inactive": "Inactive",
-      "name": "Name",
-      "details": "Details",
-      "userName": "Username",
-      "clientId": "Client ID",
-      "authType": "Auth Type"
-    },
-    "actions": {
-      "cancel": "Cancel",
-      "confirm": "Confirm",
-      "more": "More",
-      "loadmore": "Load more",
-      "details": "Details",
-      "close": "Close",
-      "back": "Back",
-      "delete": "Delete",
-      "pleaseSelect": "Please select",
-      "reload": "Reload Page",
-      "homepage": "Homepage"
-    },
-    "search": {
-      "less": "show less",
-      "more": "show more",
-      "category": {
-        "USECASE": "Use Cases",
-        "APP": "Apps",
-        "USER": "Users",
-        "PARTNER": "Business Partners",
-        "PAGE": "Pages",
-        "OVERLAY": "Actions",
-        "ACTION": "Settings",
-        "NEWS": "News"
-      }
-    },
-    "userRoles": {
-      "itAdmin": "IT Admin",
-      "businessAdmin": "Business Admin",
-      "cxUser": "CX User",
-      "dataSpecialist": "Data Specialist",
-      "appDeveloper": "App Developer",
-      "appAdmin": "App Administrator"
-    },
     "errors": {
       "title": "Oops, Something went wrong.",
       "description": "The server encountered an internal error or misconfiguration and was unable to complete your request.",
       "additionalDescription": "Please contact your admin."
-    },
-    "date": {
-      "yesterday": "yesterday",
-      "today": "today",
-      "tomorrow": "tomorrow"
     }
   }
 }
