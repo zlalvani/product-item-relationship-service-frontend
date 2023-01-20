@@ -35,7 +35,7 @@ exports[`renders the welcome page 1`] = `
               tabindex="0"
               type="button"
             >
-              Help
+              content.irs.header.help
               <span
                 class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
               />
@@ -63,23 +63,23 @@ exports[`renders the welcome page 1`] = `
         <div
           class="children-header"
         >
-          <div
-            class="css-180vpgq"
+          <section
+            class="css-jlkg07"
           >
             <img
               class="MuiBox-root css-1baulvz"
               src="/img/IRS_FE_Logo_long.png"
             />
-          </div>
-          <div
-            class="css-180vpgq"
+          </section>
+          <section
+            class="css-jlkg07"
           >
             <p
               class="MuiTypography-root MuiTypography-body1 css-ahj2mt-MuiTypography-root"
             >
               content.irs.welcomePage.headerSubtitle
             </p>
-          </div>
+          </section>
           <section
             class="css-jlkg07"
           >

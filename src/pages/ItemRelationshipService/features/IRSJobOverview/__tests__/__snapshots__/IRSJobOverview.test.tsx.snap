@@ -580,7 +580,7 @@ exports[`renders a data state 1`] = `
                 <p
                   class="MuiTablePagination-displayedRows css-levciy-MuiTablePagination-displayedRows"
                 >
-                  1–1 of 1
+                  1–4 of 4
                 </p>
                 <div
                   class="MuiTablePagination-actions"
