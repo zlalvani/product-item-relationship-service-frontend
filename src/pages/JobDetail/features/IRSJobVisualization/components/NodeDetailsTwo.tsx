@@ -58,10 +58,10 @@ export const NodeDetailsTwo: React.FC<{ twin: Shell; job: JobResponse; aspectId?
       <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
       <DetailGrid
         topic={t("content.digitaltwin.detail.semanticid")}
-        link={{
-          pathname: `/semantichub/${encodeURIComponent(semId)}`,
-          state: semId,
-        }}
+        // link={{
+        //   pathname: `/semantichub/${encodeURIComponent(semId)}`,
+        //   state: semId,
+        // }}
         content={semId}
       />
       <Divider sx={{ mr: -2, ml: -2 }} />

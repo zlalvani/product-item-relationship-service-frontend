@@ -24,8 +24,7 @@ export class HttpClient {
 
       return response.data;
     } catch (error) {
-      // TODO: add 401 handling here
-      console.log(error);
+      keycloak.logout();
       throw error;
     }
   }

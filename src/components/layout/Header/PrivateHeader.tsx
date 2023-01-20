@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import styled from "@emotion/styled";
 import { MainNavigation } from "cx-portal-shared-components";
 import React from "react";
 import { useTranslation } from "react-i18next";
@@ -29,10 +29,14 @@ export const PrivateHeader: React.FC = () => {
     >
       <LogoCatenaX />
 
-      <Box>
+      <StyledDiv>
         <HelpButton />
         <LogOutButton />
-      </Box>
+      </StyledDiv>
     </MainNavigation>
   );
 };
+
+const StyledDiv = styled.div`
+  display: flex;
+`;

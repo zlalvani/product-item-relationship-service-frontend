@@ -37,4 +37,5 @@ export const I18nService = {
   changeLanguage,
   supportedLanguages,
   resources,
+  resolvedLanguage: i18n.resolvedLanguage,
 };

@@ -1,7 +1,9 @@
+import styled from "@emotion/styled";
 import { useKeycloak } from "@react-keycloak/web";
-import { IconButton } from "cx-portal-shared-components";
-import { redirect } from "react-router-dom";
-import { LogoutIcon } from "../../../../lib/icons";
+import { UserAvatar, UserMenu, UserNav } from "cx-portal-shared-components";
+import { useMemo, useRef, useState } from "react";
+import { Link } from "react-router-dom";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 
 /**
  * Header Log out Button
@@ -9,17 +11,52 @@ import { LogoutIcon } from "../../../../lib/icons";
  */
 export const LogOutButton: React.FC = () => {
   const { keycloak } = useKeycloak();
+  const avatar = useRef<HTMLDivElement>(null);
+  const [userInfo, setUserInfo] = useState<{ name: string; tenant: string } | undefined>();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  useMemo(async () => {
+    const info = (await keycloak.loadUserInfo()) as { name: string; tenant: string };
+    setUserInfo(info);
+  }, []);
+
+  const openMenu = () => setIsMenuOpen(true);
+  const onClickAway = (e: MouseEvent | TouchEvent) => {
+    if (!avatar.current?.contains(e.target as HTMLDivElement)) {
+      setIsMenuOpen(false);
+    }
+  };
 
   return (
-    <IconButton
-      color="primary"
-      size="medium"
-      onClick={async () => {
-        await keycloak.logout();
-        redirect("/");
-      }}
-    >
-      <LogoutIcon />
-    </IconButton>
+    <StyledUserInfo>
+      <div ref={avatar}>
+        <UserAvatar onClick={openMenu} />
+      </div>
+      <UserMenu
+        open={isMenuOpen}
+        userName={userInfo?.name ?? ""}
+        userRole={userInfo?.tenant ?? ""}
+        onClickAway={onClickAway}
+      >
+        <UserNav
+          component={Link}
+          divider
+          items={[
+            {
+              title: "Logout",
+              to: "/",
+              onClick: async () => {
+                await keycloak.logout();
+              },
+            },
+          ]}
+        />
+        <LanguageSwitcher />
+      </UserMenu>
+    </StyledUserInfo>
   );
 };
+
+const StyledUserInfo = styled.div`
+  position: relative;
+  z-index: 100;
+`;
