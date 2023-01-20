@@ -1,8 +1,9 @@
 import styled from "@emotion/styled";
 import { useKeycloak } from "@react-keycloak/web";
 import { UserAvatar, UserMenu, UserNav } from "cx-portal-shared-components";
-import { useMemo, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import { getUserInfo } from "../../../../services/queries/user";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 
 /**
@@ -12,12 +13,9 @@ import { LanguageSwitcher } from "./LanguageSwitcher";
 export const LogOutButton: React.FC = () => {
   const { keycloak } = useKeycloak();
   const avatar = useRef<HTMLDivElement>(null);
-  const [userInfo, setUserInfo] = useState<{ name: string; tenant: string } | undefined>();
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  useMemo(async () => {
-    const info = (await keycloak.loadUserInfo()) as { name: string; tenant: string };
-    setUserInfo(info);
-  }, []);
+  const { data: userInfo } = getUserInfo();
 
   const openMenu = () => setIsMenuOpen(true);
   const onClickAway = (e: MouseEvent | TouchEvent) => {
