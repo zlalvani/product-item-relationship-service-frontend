@@ -12,6 +12,7 @@ export class JobAPI implements IJobAPI {
     return await HttpClient.get("jobs", requestParams);
   }
   async cancelJob(jobId: string): Promise<void> {
+    //TODO: Implement this
     console.error("implement cancel Job endpoint", { jobId });
   }
   async createJob(data: IRSRequestBody): Promise<unknown> {

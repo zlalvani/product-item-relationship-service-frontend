@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { useKeycloak } from "@react-keycloak/web";
 import { Outlet, useNavigate, useParams } from "react-router-dom";
-import { Header } from "../../components/layout/Header";
+import { PrivateHeader } from "../../components/layout/Header/PrivateHeader";
 import { useServerEnv } from "../../utils/ServerEnv";
 import { getCurrentEnvironment } from "../../utils/sessionStorageHandling";
 
@@ -39,6 +39,7 @@ export const PrivateRoot: React.FC = () => {
   const { env = "" } = useParams();
   const { setServerEnv } = useServerEnv();
   setServerEnv(env);
+
   if (keycloak.authenticated === undefined) {
     // This is used so first render will not display elements of the dashboard and will not trigger network requests.
     return null;
@@ -50,7 +51,7 @@ export const PrivateRoot: React.FC = () => {
 
   return (
     <>
-      <Header />
+      <PrivateHeader />
       <CenterLayout>
         <Outlet />
       </CenterLayout>

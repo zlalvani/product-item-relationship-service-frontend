@@ -1,10 +1,10 @@
 import { Grid } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, To } from "react-router-dom";
 
 interface DetailGridProps {
   topic: string;
   content: string | number | React.ReactNode;
-  link?: unknown; //TODO: fix type
+  link?: To;
 }
 export const DetailGrid = ({ topic, content, link }: DetailGridProps) => {
   return (

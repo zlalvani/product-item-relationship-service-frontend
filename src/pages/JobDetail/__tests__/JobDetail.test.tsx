@@ -24,7 +24,7 @@ it("renders a error state", () => {
     isLoading: false,
     error: new Error("test error"),
   };
-  //TODO: expand with dummy error data
+
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   //@ts-ignore
   vi.spyOn(queryHooks, "useFetchJobById").mockReturnValue(mockData);
@@ -32,17 +32,3 @@ it("renders a error state", () => {
   const { container } = renderWithRouter(<JobDetail />);
   expect(container).toMatchSnapshot();
 });
-
-// it("renders a data success state", () => {
-//   const mockData = {
-//     data: JobsDemoDataSuccess,
-//     isError: false,
-//     isLoading: false,
-//   };
-//   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-//   //@ts-ignore
-//   vi.spyOn(queryHooks, "useFetchJobById").mockReturnValue(mockData);
-
-//   const { container } = renderWithRouter(<JobDetail />);
-//   expect(container).toMatchSnapshot();
-// });
