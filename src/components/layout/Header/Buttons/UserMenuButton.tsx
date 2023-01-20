@@ -10,7 +10,7 @@ import { LanguageSwitcher } from "./LanguageSwitcher";
  * Header Log out Button
  * @returns React component
  */
-export const LogOutButton: React.FC = () => {
+export const UserMenuButton: React.FC = () => {
   const { keycloak } = useKeycloak();
   const avatar = useRef<HTMLDivElement>(null);
 

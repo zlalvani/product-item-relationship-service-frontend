@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import { serverConfig } from "../../../constants/serverConfig";
 import { getCurrentEnvironment } from "../../../utils/sessionStorageHandling";
 import { HelpButton } from "./Buttons/HelpButton";
-import { LogOutButton } from "./Buttons/LogOutButton";
+import { UserMenuButton } from "./Buttons/UserMenuButton";
 import { LogoCatenaX } from "./Logo/LogoCatenaX";
 
 /**
@@ -31,7 +31,7 @@ export const PrivateHeader: React.FC = () => {
 
       <StyledDiv>
         <HelpButton />
-        <LogOutButton />
+        <UserMenuButton />
       </StyledDiv>
     </MainNavigation>
   );
