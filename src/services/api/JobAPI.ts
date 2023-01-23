@@ -10,7 +10,7 @@ export class JobAPI implements IJobAPI {
     const requestParams = {
       page,
       size: 20,
-      sort: "completedOn, asc",
+      sort: "completedOn,desc",
     };
     return await HttpClient.get("jobs", requestParams);
   }
