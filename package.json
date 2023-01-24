@@ -8,7 +8,8 @@
     "test": "vitest --run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
-    "lint": "eslint src/ --ext=.ts,.tsx,.js,.jsx"
+    "lint": "eslint src/ --ext=.ts,.tsx,.js,.jsx",
+    "generateApiTypes": "npx swagger-typescript-api -p https://irs.int.demo.catena-x.net/api/api-docs -o ./src/generated -n jobsApi.d.ts"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.4.2",

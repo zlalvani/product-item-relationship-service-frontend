@@ -204,13 +204,13 @@ The IRS-DV consists of 3 main views:
 
 1. the IRS API to view/find Jobs (services component)
 2. the job list
-3. the visualization and tumbstones blocks
+3. the visualization and tombstones blocks
 
 IRS-DV search by parameters in IRS API, and collecting fetched data in job list.
 
 The job list is the place where IRS-DV is storing all fetched jobs and hold search history.
 
-The visualization show us/consumer how elements are connected each other, and tumbstones show in what level data is missing.
+The visualization show us/consumer how elements are connected each other, and tombstones show in what level data is missing.
 
 <br>
 <br>
