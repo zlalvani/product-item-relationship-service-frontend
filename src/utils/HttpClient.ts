@@ -37,13 +37,9 @@ export class HttpClient {
     return HttpClient.request<T, D>(path, { data, method: "POST" });
   }
 
-  // static async put<T, D = Record<string, unknown>>(
-  //   path: string,
-  //   data: D = {} as D,
-  //   serverEnv?: ServerEnvironment,
-  // ): Promise<T> {
-  //   return HttpClient.request<T, D>(path, { data, method: "PUT" }, serverEnv);
-  // }
+  static async put<T, D = Record<string, unknown>>(path: string, data: D = {} as D): Promise<T> {
+    return HttpClient.request<T, D>(path, { data, method: "PUT" });
+  }
 
   // static async delete<T, D = Record<string, unknown>>(
   //   path: string,

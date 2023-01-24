@@ -27,7 +27,7 @@ it("tests the use fetch jobs", async () => {
 
 it("tests the use cancel job", async () => {
   const dummyId = "dummyId";
-  const { result } = renderHook(() => useCancelJobs());
+  const { result } = renderHook(() => useCancelJobs(0));
   result.current.mutate(dummyId);
   await waitFor(() => {
     expect(result.current.isSuccess).toBe(true);

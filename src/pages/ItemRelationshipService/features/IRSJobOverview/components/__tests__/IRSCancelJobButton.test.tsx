@@ -13,7 +13,7 @@ vi.mock("../../../../../../services/queries/jobs", () => ({
 it("renders the cancel button", async () => {
   const testJobId = "testJobId";
 
-  render(<IRSCancelJobButton jobId={testJobId} />);
+  render(<IRSCancelJobButton jobId={testJobId} currentPage={0} />);
   const button = screen.getByRole("button");
   expect(button).toBeDefined();
   fireEvent.click(button);

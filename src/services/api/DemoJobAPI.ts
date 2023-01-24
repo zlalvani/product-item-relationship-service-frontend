@@ -9,7 +9,8 @@ export class DemoJobAPI implements IJobAPI {
     return JobListResponseSuccess;
   }
   async cancelJob(jobId: string): Promise<void> {
-    console.error("implement cancel Job endpoint", { jobId });
+    console.log("cancelJob id", { jobId });
+    return undefined;
   }
   async createJob(data: IRSRequestBody): Promise<unknown> {
     console.log("createJob requestData", { data });
