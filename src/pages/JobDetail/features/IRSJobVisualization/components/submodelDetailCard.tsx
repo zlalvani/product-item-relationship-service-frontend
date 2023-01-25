@@ -24,18 +24,19 @@ import { Box } from "@mui/material";
 import { Button } from "cx-portal-shared-components";
 
 import uniqueId from "lodash/uniqueId";
-import { JobResponse, SubmodelDescriptor } from "../../../../../types/jobs";
+import { Jobs, SubmodelDescriptor } from "../../../../../generated/jobsApi";
+
 import { getSubModelPayload, getTombstones } from "./SubmodelTombstones";
 
 interface Props {
   submodel: SubmodelDescriptor;
-  job: JobResponse;
+  job: Jobs;
   onClick: () => void;
 }
 
 export const SubmodelDetailCard: React.FC<Props> = ({ submodel, onClick, job }) => {
   const tombstones = getTombstones(submodel, job);
-  const submodelPayload = getSubModelPayload(submodel.identification, job);
+  const submodelPayload = getSubModelPayload(submodel.identification ?? "", job);
 
   if (!tombstones || !submodelPayload) {
     return null;

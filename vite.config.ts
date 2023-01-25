@@ -16,6 +16,7 @@ export default defineConfig({
     setupFiles: "./vitest-setup.js",
     coverage: {
       include: ["src/**"],
+      exclude: ["src/generated/**"],
       provider: 'istanbul', // or 'c8'
       reporter: ['text', 'json', 'html'],
     },

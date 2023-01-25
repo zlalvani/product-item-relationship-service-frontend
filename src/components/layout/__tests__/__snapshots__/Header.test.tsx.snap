@@ -1,6 +1,6 @@
 // Vitest Snapshot v1
 
-exports[`renders a private header 1`] = `
+exports[`renders a public header 1`] = `
 <div>
   <header
     class="css-on3ivn"

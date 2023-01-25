@@ -25,10 +25,10 @@ import uniqueId from "lodash/uniqueId";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { DetailGrid } from "../../../../../components/DetailGrid";
-import { JobResponse, Shell, SubmodelDescriptor } from "../../../../../types/jobs";
+import { AssetAdministrationShellDescriptor, Jobs, SubmodelDescriptor } from "../../../../../generated/jobsApi";
 import { SubmodelTombstones } from "./SubmodelTombstones";
 
-export const NodeDetailsTwo: React.FC<{ twin: Shell; job: JobResponse; aspectId?: string }> = ({
+export const NodeDetailsTwo: React.FC<{ twin: AssetAdministrationShellDescriptor; job: Jobs; aspectId?: string }> = ({
   twin,
   job,
   aspectId,
@@ -42,10 +42,12 @@ export const NodeDetailsTwo: React.FC<{ twin: Shell; job: JobResponse; aspectId?
     }
   });
 
-  const getDescription = (elem: Shell | SubmodelDescriptor) => (
+  const getDescription = (elem: AssetAdministrationShellDescriptor | SubmodelDescriptor) => (
     <>
       <Typography sx={{ mb: 3, typography: "body3" }}>
-        {elem.description[0] ? elem.description[0].text : t("content.digitaltwin.detail.no_description")}
+        {(elem.description ?? [])[0]
+          ? (elem.description ?? [])[0].text
+          : t("content.digitaltwin.detail.no_description")}
       </Typography>
     </>
   );
@@ -79,24 +81,24 @@ export const NodeDetailsTwo: React.FC<{ twin: Shell; job: JobResponse; aspectId?
           {t("content.digitaltwin.detail.endpoints")}
         </Grid>
       </Grid>
-      {subModel.endpoints.map((endpoint, indexEndpoint) => (
+      {(subModel.endpoints ?? []).map((endpoint, indexEndpoint) => (
         <Box key={`${idKey}_${endpoint.interface}_${indexEndpoint}`}>
           <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
           <DetailGrid topic={t("content.digitaltwin.detail.interface")} content={endpoint.interface} />
           <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
           <DetailGrid
             topic={t("content.digitaltwin.detail.protocol")}
-            content={endpoint.protocolInformation.endpointProtocol}
+            content={endpoint.protocolInformation?.endpointProtocol}
           />
           <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
           <DetailGrid
             topic={t("content.digitaltwin.detail.protocol_endpoint")}
-            content={endpoint.protocolInformation.endpointAddress}
+            content={endpoint.protocolInformation?.endpointAddress}
           />
           <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
           <DetailGrid
             topic={t("content.digitaltwin.detail.protocol_version")}
-            content={endpoint.protocolInformation.endpointProtocolVersion}
+            content={endpoint.protocolInformation?.endpointProtocolVersion}
           />
         </Box>
       ))}
@@ -116,7 +118,7 @@ export const NodeDetailsTwo: React.FC<{ twin: Shell; job: JobResponse; aspectId?
       <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
       <DetailGrid
         topic={t("content.digitaltwin.detail.global_asset_id")}
-        content={twin.globalAssetId ? twin.globalAssetId.value[0] : "not found"}
+        content={twin.globalAssetId ? (twin.globalAssetId?.value ?? [])[0] : "not found"}
       ></DetailGrid>
       <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
       <DetailGrid
@@ -130,15 +132,15 @@ export const NodeDetailsTwo: React.FC<{ twin: Shell; job: JobResponse; aspectId?
         <>
           <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
           <Typography sx={{ mb: 3, typography: "label2" }}>{t("content.digitaltwin.detail.assetId")}</Typography>
-          {twin.submodelDescriptors.length > 0 && (
+          {(twin.submodelDescriptors ?? []).length > 0 && (
             <DetailGrid
               topic={t("content.digitaltwin.detail.submodel_endpoints")}
-              content={twin.submodelDescriptors.length}
+              content={(twin.submodelDescriptors ?? []).length}
             />
           )}
           <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
 
-          {twin.specificAssetIds.map((saId, index) => (
+          {(twin.specificAssetIds ?? []).map((saId, index) => (
             <Box key={saId.key}>
               <DetailGrid topic={t("content.digitaltwin.detail.key")} content={saId.key} />
               <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
@@ -148,16 +150,20 @@ export const NodeDetailsTwo: React.FC<{ twin: Shell; job: JobResponse; aspectId?
                   <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
                   <DetailGrid
                     topic={t("content.digitaltwin.detail.semanticid")}
-                    content={saId.semanticId.value.join(", ")}
+                    content={(saId.semanticId.value ?? []).join(", ")}
                   />
                 </>
               )}
-              {index + 1 !== twin.specificAssetIds.length && <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />}
+              {index + 1 !== (twin.specificAssetIds ?? []).length && <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />}
             </Box>
           ))}
 
-          {twin.submodelDescriptors.map((subModel, indexSubmodel) => {
-            return secondaryContent(subModel, subModel.semanticId.value[0], `${subModel.idShort}_${indexSubmodel}`);
+          {(twin.submodelDescriptors ?? []).map((subModel, indexSubmodel) => {
+            return secondaryContent(
+              subModel,
+              (subModel.semanticId?.value ?? [])[0],
+              `${subModel.idShort}_${indexSubmodel}`,
+            );
           })}
         </>
       }

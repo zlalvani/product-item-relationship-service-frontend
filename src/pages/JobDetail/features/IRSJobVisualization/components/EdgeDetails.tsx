@@ -23,7 +23,7 @@ import { useTranslation } from "react-i18next";
 
 import dayjs from "dayjs";
 import { DetailGrid } from "../../../../../components/DetailGrid";
-import { Relationship } from "../../../../../types/jobs";
+import { Relationship } from "../../../../../generated/jobsApi";
 
 export const EdgeDetails = ({ edge }: { edge: Relationship }) => {
   const theme = useTheme();
@@ -47,45 +47,43 @@ export const EdgeDetails = ({ edge }: { edge: Relationship }) => {
         </Grid>
       </Grid>
 
-      <>
-        <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
-        <DetailGrid topic={t("content.irs.dialog.edge.catenaXId") + ":"} content={edge.catenaXId} />
-        <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
-        <DetailGrid
-          topic={t("content.irs.dialog.edge.childCatenaXId") + ":"}
-          content={edge.linkedItem.childCatenaXId}
-        />
-        <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
-        <DetailGrid
-          topic={t("content.irs.dialog.edge.assembledOn") + ":"}
-          content={dayjs(edge.linkedItem.assembledOn).format("YYYY-MM-DD HH:mm:ss")}
-        />
-        <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
-        <DetailGrid
-          topic={t("content.irs.dialog.edge.lastModifiedOn") + ":"}
-          content={dayjs(edge.linkedItem.lastModifiedOn).format("YYYY-MM-DD HH:mm:ss")}
-        />
-        <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
-        <DetailGrid
-          topic={t("content.irs.dialog.edge.lifecycleContext") + ":"}
-          content={edge.linkedItem.lifecycleContext}
-        />
-        <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
-        <DetailGrid
-          topic={t("content.irs.dialog.edge.measurementUnit.datatypeURI") + ":"}
-          content={edge.linkedItem.quantity.measurementUnit.datatypeURI}
-        />
-        <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
-        <DetailGrid
-          topic={t("content.irs.dialog.edge.measurementUnit.lexicalValue") + ":"}
-          content={edge.linkedItem.quantity.measurementUnit.lexicalValue}
-        />
-        <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
-        <DetailGrid
-          topic={t("content.irs.dialog.edge.quantityNumber") + ":"}
-          content={edge.linkedItem.quantity.quantityNumber}
-        />
-      </>
+      <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
+      <DetailGrid topic={t("content.irs.dialog.edge.catenaXId") + ":"} content={edge.catenaXId?.globalAssetId} />
+      <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
+      <DetailGrid
+        topic={t("content.irs.dialog.edge.childCatenaXId") + ":"}
+        content={edge.linkedItem?.childCatenaXId?.globalAssetId}
+      />
+      <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
+      <DetailGrid
+        topic={t("content.irs.dialog.edge.assembledOn") + ":"}
+        content={dayjs(edge.linkedItem?.assembledOn).format("YYYY-MM-DD HH:mm:ss")}
+      />
+      <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
+      <DetailGrid
+        topic={t("content.irs.dialog.edge.lastModifiedOn") + ":"}
+        content={dayjs(edge.linkedItem?.lastModifiedOn).format("YYYY-MM-DD HH:mm:ss")}
+      />
+      <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
+      <DetailGrid
+        topic={t("content.irs.dialog.edge.lifecycleContext") + ":"}
+        content={edge.linkedItem?.lifecycleContext}
+      />
+      <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
+      <DetailGrid
+        topic={t("content.irs.dialog.edge.measurementUnit.datatypeURI") + ":"}
+        content={edge.linkedItem?.quantity?.measurementUnit?.datatypeURI}
+      />
+      <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
+      <DetailGrid
+        topic={t("content.irs.dialog.edge.measurementUnit.lexicalValue") + ":"}
+        content={edge.linkedItem?.quantity?.measurementUnit?.lexicalValue}
+      />
+      <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
+      <DetailGrid
+        topic={t("content.irs.dialog.edge.quantityNumber") + ":"}
+        content={edge.linkedItem?.quantity?.quantityNumber}
+      />
     </>
   );
 };

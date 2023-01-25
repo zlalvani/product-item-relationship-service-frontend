@@ -3,30 +3,33 @@ import { Box, useTheme } from "@mui/material";
 import { uniqueId } from "lodash";
 import { useState } from "react";
 import { Handle, NodeProps, Position } from "reactflow";
-import { JobResponse, Shell, SubmodelDescriptor } from "../../../../../types/jobs";
+import { AssetAdministrationShellDescriptor, Jobs, SubmodelDescriptor } from "../../../../../generated/jobsApi";
+
 import { NodeDetailDialog } from "./NodeDetailDialog";
 import { SubmodelDetailCard } from "./submodelDetailCard";
 
-const getSortedSubModelDescriptions = (shell: Shell) => {
+const getSortedSubModelDescriptions = (shell: AssetAdministrationShellDescriptor) => {
   function compare(a: SubmodelDescriptor, b: SubmodelDescriptor) {
-    if (a.idShort < b.idShort) {
+    if ((a.idShort ?? "") < (b.idShort ?? "")) {
       return -1;
     }
-    if (a.idShort > b.idShort) {
+    if ((a.idShort ?? "") > (b.idShort ?? "")) {
       return 1;
     }
     return 0;
   }
-  return [...shell.submodelDescriptors].sort(compare);
+  return [...(shell.submodelDescriptors ?? [])].sort(compare);
 };
 
 export const DisplayNode: React.FC<{
-  data: NodeProps<Shell>;
-  job: JobResponse;
+  data: NodeProps<AssetAdministrationShellDescriptor>;
+  job: Jobs;
 }> = ({ data, job }) => {
   const { spacing } = useTheme();
   const shell = data.data;
-  const [showNodeDialog, setShowNodeDialog] = useState<{ shell: Shell; aspectId?: string } | undefined>();
+  const [showNodeDialog, setShowNodeDialog] = useState<
+    { shell: AssetAdministrationShellDescriptor; aspectId?: string } | undefined
+  >();
   return (
     <div className="nodrag">
       <NodeDetailDialog showInfo={showNodeDialog} onClose={() => setShowNodeDialog(undefined)} job={job} />

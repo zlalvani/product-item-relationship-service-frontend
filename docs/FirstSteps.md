@@ -1,12 +1,10 @@
-# First Steps
+# Working with this project
 
 ## NPM Scripts
 
 * `npm start`: Starts the local development server
 * `npm test`: Runs tests
 * `npm test:coverage`: Runs tests + collects collects coverage information
-
-
 
 ## Current git workflow
 
@@ -16,3 +14,6 @@
 4. The pull request is going to be merged when there are no more open issues to work on.
 
 *Note:* The main branch is protected currently by husky, i.e. git pre commit hook. This is because we currently cannot enable this feature on the github repository because we lack the rights to modify the repository settings.
+
+
+## React 

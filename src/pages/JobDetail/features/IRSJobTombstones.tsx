@@ -3,8 +3,8 @@ import dayjs from "dayjs";
 import uniqueId from "lodash/uniqueId";
 import { DetailGrid } from "../../../components/DetailGrid";
 import { StyledBox, StyledBoxContent, StyledBoxHeader } from "../../../components/StyledBox";
+import { Tombstone } from "../../../generated/jobsApi";
 import { ErrorOutlineIcon, useTranslation } from "../../../lib";
-import { Tombstone } from "../../../types/jobs";
 
 export const IRSJobTombstones: React.FC<{ tombstones: Tombstone[] }> = ({ tombstones }) => {
   const { t } = useTranslation();
@@ -39,12 +39,12 @@ export const IRSJobTombstones: React.FC<{ tombstones: Tombstone[] }> = ({ tombst
                 <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
                 <DetailGrid
                   topic={t("content.irs.dialog.submodelTombstones.lastAttempt") + ":"}
-                  content={dayjs(stone.processingError.lastAttempt).format("YYYY-MM-DD HH:mm:ss")}
+                  content={dayjs(stone.processingError?.lastAttempt).format("YYYY-MM-DD HH:mm:ss")}
                 />
                 <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
                 <DetailGrid
                   topic={t("content.irs.dialog.submodelTombstones.errorDetail") + ":"}
-                  content={stone.processingError.errorDetail}
+                  content={stone.processingError?.errorDetail}
                 />
               </Box>
             );

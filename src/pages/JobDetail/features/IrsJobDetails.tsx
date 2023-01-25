@@ -3,8 +3,8 @@ import dayjs from "dayjs";
 import { useTranslation } from "react-i18next";
 import { DetailGrid } from "../../../components/DetailGrid";
 import { StyledBox, StyledBoxContent, StyledBoxHeader, StyledBoxTitle } from "../../../components/StyledBox";
+import { Job } from "../../../generated/jobsApi";
 import { BeautifulJson } from "../../../lib/react-syntax-highlighter";
-import { Job } from "../../../types/jobs";
 
 export const IrsJobDetails: React.FC<{ job: Job }> = ({ job }) => {
   const { t } = useTranslation();
@@ -22,11 +22,11 @@ export const IrsJobDetails: React.FC<{ job: Job }> = ({ job }) => {
         <StyledBoxContent>
           <Grid>
             <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
-            <DetailGrid topic={"Job ID:"} content={job?.jobId} />
+            <DetailGrid topic={"Job ID:"} content={job?.id} />
             <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
-            <DetailGrid topic={t("content.irs.jobDetails.globalAssetId")} content={job.globalAssetId} />
+            <DetailGrid topic={t("content.irs.jobDetails.globalAssetId")} content={job.globalAssetId.globalAssetId} />
             <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
-            <DetailGrid topic={"Job State:"} content={job.jobState} />
+            <DetailGrid topic={"Job State:"} content={job.state} />
             <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
             <DetailGrid
               topic={t("content.irs.jobDetails.exception")}
@@ -50,7 +50,7 @@ export const IrsJobDetails: React.FC<{ job: Job }> = ({ job }) => {
             <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
             <DetailGrid
               topic={t("content.irs.jobDetails.jobCompleted")}
-              content={dayjs(job?.jobCompleted).format("YYYY-MM-DD HH:mm:ss")}
+              content={dayjs(job?.completedOn).format("YYYY-MM-DD HH:mm:ss")}
             />
             <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
             <DetailGrid topic={t("content.irs.jobDetails.owner")} content={job.owner} />
@@ -59,7 +59,7 @@ export const IrsJobDetails: React.FC<{ job: Job }> = ({ job }) => {
             <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
             <DetailGrid
               topic={t("content.irs.jobDetails.jobParameter")}
-              content={<BeautifulJson json={job.jobParameter} />}
+              content={<BeautifulJson json={job.parameter} />}
             />
           </Grid>
         </StyledBoxContent>

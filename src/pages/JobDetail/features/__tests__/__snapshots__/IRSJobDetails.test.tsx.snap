@@ -445,35 +445,17 @@ exports[`renders the tombstone information 1`] = `
                     "aspects"
                   </span>
                   <span>
-                    : [
-
-                  </span>
-                  <span>
-                        
+                    : 
                   </span>
                   <span
                     style="color: rgb(0, 136, 0);"
                   >
-                    "SerialPartTypization"
+                    "AddressAspect"
                   </span>
                   <span>
                     ,
 
                   </span>
-                  <span>
-                        
-                  </span>
-                  <span
-                    style="color: rgb(0, 136, 0);"
-                  >
-                    "ContactInformation"
-                  </span>
-                  <span>
-                    
-
-                  </span>
-                    ],
-
                   <span>
                       
                   </span>

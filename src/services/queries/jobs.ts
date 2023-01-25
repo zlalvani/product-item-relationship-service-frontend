@@ -1,6 +1,6 @@
 import { useMutation } from "@tanstack/react-query";
+import { PageResult, RegisterJob } from "../../generated/jobsApi";
 import { queryClient, useQuery } from "../../lib/react-query";
-import { IRSRequestBody, JobListResponse } from "../../types/jobs";
 import { getCurrentEnvironment } from "../../utils/sessionStorageHandling";
 import { selectAPI } from "../api/jobs.api";
 
@@ -26,11 +26,11 @@ export const useCancelJobs = (page: number) => {
   return useMutation({
     mutationFn: jobAPI.cancelJob,
     onMutate: async (jobsId: string) => {
-      queryClient.setQueryData<JobListResponse>(["jobs", serverEnv, page], (old) => {
+      queryClient.setQueryData<PageResult>(["jobs", serverEnv, page], (old) => {
         if (old === undefined) return undefined;
         return {
           ...old,
-          content: old.content.filter((job) => job.id !== jobsId),
+          content: (old.content ?? []).filter((job) => job.id !== jobsId),
         };
       });
     },
@@ -41,7 +41,7 @@ export const useCreateJob = () => {
   const serverEnv = getCurrentEnvironment();
   const jobAPI = selectAPI(serverEnv);
   return useMutation({
-    mutationFn: (data: IRSRequestBody) => {
+    mutationFn: (data: RegisterJob) => {
       return jobAPI.createJob(data);
     },
   });

@@ -3,25 +3,17 @@ import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { PaddedSection } from "../../../components/layout/PaddedSection";
 import { StyledBox, StyledBoxContent, StyledBoxHeader, StyledBoxTitle } from "../../../components/StyledBox";
-import { serverConfig } from "../../../constants/serverConfig";
+import { RegisterJob } from "../../../generated/jobsApi";
 import { useCreateJob } from "../../../services/queries/jobs";
-import { IRSRequestBody } from "../../../types/jobs";
-import { getCurrentEnvironment } from "../../../utils/sessionStorageHandling";
 import { IRSJobAddFormTextfield } from "./components/IRSJobAddFormTextfield";
 
 type DefaultFormFieldValuesType = {
   RequestBodyValues: string;
-  Environment: string;
-};
-
-const useGetCurrentServerUrl = () => {
-  const serverEnv = getCurrentEnvironment();
-  return serverConfig[serverEnv].value;
 };
 
 export const IRSJobAddForm = () => {
   const { t } = useTranslation();
-  const serverUrl = useGetCurrentServerUrl();
+
   const { mutate: createJob, isLoading, isError, isSuccess } = useCreateJob();
 
   const testJob = {
@@ -35,7 +27,6 @@ export const IRSJobAddForm = () => {
 
   const defaultFormFieldValues = {
     RequestBodyValues: JSON.stringify(testJob, null, 2),
-    Environment: serverUrl,
   };
 
   const {
@@ -51,7 +42,7 @@ export const IRSJobAddForm = () => {
 
   const handleConfirm = async (formValues: DefaultFormFieldValuesType) => {
     try {
-      const formData = JSON.parse(formValues.RequestBodyValues) as IRSRequestBody;
+      const formData = JSON.parse(formValues.RequestBodyValues) as RegisterJob;
       createJob(formData);
     } catch (error) {
       console.log(error);
@@ -59,7 +50,7 @@ export const IRSJobAddForm = () => {
   };
 
   const onFormSubmit = async () => {
-    const validateFields = await trigger(["RequestBodyValues", "Environment"]);
+    const validateFields = await trigger(["RequestBodyValues"]);
 
     if (validateFields) {
       const formValues = getValues();
