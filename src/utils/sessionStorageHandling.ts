@@ -1,4 +1,4 @@
-import { isServerEnvironment, ServerEnvironment } from "../constants/serverConfig";
+import { isServerEnvironment, ServerEnvironment } from "./serverConfig";
 
 const SESSION_STORAGE_ENV_KEY = "serverEnv";
 

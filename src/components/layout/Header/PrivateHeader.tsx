@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import { MainNavigation } from "cx-portal-shared-components";
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { serverConfig } from "../../../constants/serverConfig";
+import { serverConfig } from "../../../utils/serverConfig";
 import { getCurrentEnvironment } from "../../../utils/sessionStorageHandling";
 import { HelpButton } from "./Buttons/HelpButton";
 import { UserMenuButton } from "./Buttons/UserMenuButton";
@@ -23,7 +23,7 @@ export const PrivateHeader: React.FC = () => {
       items={[
         {
           href: `/${serverEnv}/dashboard`,
-          title: `${serverConfig[serverEnv].label} - ${t("content.irs.header.home")}`,
+          title: `${serverConfig(serverEnv).label} - ${t("content.irs.header.home")}`,
         },
       ]}
     >

@@ -1,5 +1,5 @@
-import { ServerEnvironment } from "../../constants/serverConfig";
 import { Jobs, PageResult, RegisterJob } from "../../generated/jobsApi";
+import { ServerEnvironment } from "../../utils/serverConfig";
 import { DemoJobAPI } from "./DemoJobAPI";
 import { JobAPI } from "./JobAPI";
 

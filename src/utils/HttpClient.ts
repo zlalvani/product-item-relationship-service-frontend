@@ -1,11 +1,11 @@
-import { serverConfig } from "../constants/serverConfig";
 import { Api } from "../generated/jobsApi";
 import { keycloak } from "../lib/keycloak";
+import { serverConfig } from "./serverConfig";
 import { getCurrentEnvironment } from "./sessionStorageHandling";
 
 export const getBaseURL = () => {
   const serverEnv = getCurrentEnvironment();
-  return serverConfig[serverEnv].value;
+  return serverConfig(serverEnv).value;
 };
 
 export const getHeaders = () => ({
@@ -13,6 +13,7 @@ export const getHeaders = () => ({
 });
 
 export const getJobsApi = () => {
+  console.log(getBaseURL());
   const api = new Api({
     baseUrl: getBaseURL(),
     baseApiParams: {
