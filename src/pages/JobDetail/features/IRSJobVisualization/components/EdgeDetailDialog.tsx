@@ -19,7 +19,8 @@
  ********************************************************************************/
 
 import { Dialog, DialogContent, DialogHeader } from "cx-portal-shared-components";
-import { Relationship } from "../../../../../types/jobs";
+import { Relationship } from "../../../../../generated/jobsApi";
+
 import { EdgeDetails } from "./EdgeDetails";
 
 interface EdgeDialogProps {

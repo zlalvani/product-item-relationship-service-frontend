@@ -22,12 +22,12 @@ import { Dialog, DialogContent, DialogHeader } from "cx-portal-shared-components
 import uniqueId from "lodash/uniqueId";
 
 import { useTranslation } from "react-i18next";
-import { JobResponse, Shell } from "../../../../../types/jobs";
+import { AssetAdministrationShellDescriptor, Jobs } from "../../../../../generated/jobsApi";
 import { NodeDetailsTwo } from "./NodeDetailsTwo";
 
 interface NodeDialogProps {
-  showInfo: { shell: Shell; aspectId?: string } | undefined;
-  job: JobResponse;
+  showInfo: { shell: AssetAdministrationShellDescriptor; aspectId?: string } | undefined;
+  job: Jobs;
   onClose: () => void;
 }
 

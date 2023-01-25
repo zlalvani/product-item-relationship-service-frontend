@@ -1,10 +1,10 @@
 import { Table } from "cx-portal-shared-components";
 import React, { useState } from "react";
 import { ErrorDisplay } from "../../../../../components/ErrorDisplay";
+import { JobStatusResult } from "../../../../../generated/jobsApi";
 import { useTranslation } from "../../../../../lib";
 import { defaultDateFormat } from "../../../../../lib/dayjs";
 import { useFetchJobs } from "../../../../../services/queries/jobs";
-import { JobStatusResult } from "../../../../../types/jobs";
 import { IRSCancelJobButton } from "./IRSCancelJobButton";
 import { IRSNavigateToJobDetails } from "./IRSNavigateToJobDetails";
 
@@ -31,14 +31,14 @@ export const IRSJobTable: React.FC<{
       headerName: t("content.irs.jobsTable.startDate"),
       width: 230,
       filterable: false,
-      valueGetter: ({ row }: { row: JobStatusResult }) => defaultDateFormat(row.startedOn),
+      valueGetter: ({ row }: { row: JobStatusResult }) => defaultDateFormat(row.startedOn ?? ""),
     },
     {
       field: "jobCompleted",
       headerName: t("content.irs.jobsTable.endDate"),
       width: 230,
       filterable: false,
-      valueGetter: ({ row }: { row: JobStatusResult }) => defaultDateFormat(row.completedOn),
+      valueGetter: ({ row }: { row: JobStatusResult }) => defaultDateFormat(row.completedOn ?? ""),
     },
     {
       field: "status",
@@ -56,10 +56,10 @@ export const IRSJobTable: React.FC<{
       width: 150,
       renderCell: ({ row }: { row: JobStatusResult }) => {
         if (row.state === "RUNNING") {
-          return <IRSCancelJobButton jobId={row.id} currentPage={currentPage} />;
+          return <IRSCancelJobButton jobId={row.id ?? ""} currentPage={currentPage} />;
         }
         if (row.state === "COMPLETED") {
-          return <IRSNavigateToJobDetails jobId={row.id} />;
+          return <IRSNavigateToJobDetails jobId={row.id ?? ""} />;
         }
 
         return null;

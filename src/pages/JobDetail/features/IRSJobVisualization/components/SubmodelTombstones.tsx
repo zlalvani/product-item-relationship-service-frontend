@@ -27,23 +27,23 @@ import { useTranslation } from "react-i18next";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { googlecode } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { DetailGrid } from "../../../../../components/DetailGrid";
-import { JobResponse, Submodel, SubmodelDescriptor, Tombstone } from "../../../../../types/jobs";
+import { Jobs, Submodel, SubmodelDescriptor, Tombstone } from "../../../../../generated/jobsApi";
 
 interface Props {
-  job: JobResponse;
+  job: Jobs;
   subModel: SubmodelDescriptor;
   // hasTombstones?: (x:boolean) => void
   // setPayload?: (x:boolean) => void
 }
 
-export const getTombstones = (subModel: SubmodelDescriptor, job: JobResponse): Tombstone[] => {
-  const endpointAddress = subModel.endpoints[0].protocolInformation.endpointAddress;
-  const tombstones = job.tombstones;
+export const getTombstones = (subModel: SubmodelDescriptor, job: Jobs): Tombstone[] => {
+  const endpointAddress = (subModel.endpoints ?? [])[0].protocolInformation?.endpointAddress;
+  const tombstones = job.tombstones ?? [];
   return tombstones.filter((x) => x.endpointURL === endpointAddress);
 };
 
-export const getSubModelPayload = (subModelId: string, job: JobResponse): Submodel[] => {
-  return job.submodels.filter((x) => x.identification === subModelId);
+export const getSubModelPayload = (subModelId: string, job: Jobs): Submodel[] => {
+  return (job.submodels ?? []).filter((x) => x.identification === subModelId);
 };
 
 export const SubmodelTombstones: React.FC<Props> = ({ subModel, job }) => {
@@ -54,7 +54,7 @@ export const SubmodelTombstones: React.FC<Props> = ({ subModel, job }) => {
 
   const hasTombstones = tombstones.length > 0;
 
-  const submodelPayload = getSubModelPayload(subModel.identification, job);
+  const submodelPayload = getSubModelPayload(subModel.identification ?? "", job);
 
   const hasPayload = () => (submodelPayload.length > 0 ? true : false);
 
@@ -87,12 +87,12 @@ export const SubmodelTombstones: React.FC<Props> = ({ subModel, job }) => {
                 <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
                 <DetailGrid
                   topic={t("content.irs.dialog.submodelTombstones.lastAttempt")}
-                  content={dayjs(stone.processingError.lastAttempt).format("YYYY-MM-DD HH:mm:ss")}
+                  content={dayjs(stone.processingError?.lastAttempt).format("YYYY-MM-DD HH:mm:ss")}
                 />
                 <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
                 <DetailGrid
                   topic={t("content.irs.dialog.submodelTombstones.errorDetail")}
-                  content={stone.processingError.errorDetail}
+                  content={stone.processingError?.errorDetail}
                 />
               </Box>
             );

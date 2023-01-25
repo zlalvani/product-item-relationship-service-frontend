@@ -4,8 +4,8 @@ import { useTranslation } from "react-i18next";
 import { PaddedSection } from "../../../components/layout/PaddedSection";
 import { StyledBox, StyledBoxContent, StyledBoxHeader, StyledBoxTitle } from "../../../components/StyledBox";
 import { serverConfig } from "../../../constants/serverConfig";
+import { RegisterJob } from "../../../generated/jobsApi";
 import { useCreateJob } from "../../../services/queries/jobs";
-import { IRSRequestBody } from "../../../types/jobs";
 import { getCurrentEnvironment } from "../../../utils/sessionStorageHandling";
 import { IRSJobAddFormTextfield } from "./components/IRSJobAddFormTextfield";
 
@@ -51,7 +51,7 @@ export const IRSJobAddForm = () => {
 
   const handleConfirm = async (formValues: DefaultFormFieldValuesType) => {
     try {
-      const formData = JSON.parse(formValues.RequestBodyValues) as IRSRequestBody;
+      const formData = JSON.parse(formValues.RequestBodyValues) as RegisterJob;
       createJob(formData);
     } catch (error) {
       console.log(error);

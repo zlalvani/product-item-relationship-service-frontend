@@ -13,7 +13,7 @@ it("opens the node detail dialog", () => {
   const closeFn = vi.fn();
   renderWithRouter(
     <NodeDetailDialog
-      showInfo={{ shell: JobsDemoDataSuccess.shells[0], aspectId: undefined }}
+      showInfo={{ shell: (JobsDemoDataSuccess.shells ?? [])[0], aspectId: undefined }}
       job={JobsDemoDataSuccess}
       onClose={closeFn}
     />,

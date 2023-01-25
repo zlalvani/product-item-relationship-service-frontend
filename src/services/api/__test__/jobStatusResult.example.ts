@@ -1,4 +1,4 @@
-import { JobListResponse, JobStatusResult } from "../../../types/jobs";
+import { JobStatusResult, PageResult } from "../../../generated/jobsApi";
 
 export const JobStatusResultSuccess: JobStatusResult[] = [
   {
@@ -27,7 +27,7 @@ export const JobStatusResultSuccess: JobStatusResult[] = [
   },
 ] as JobStatusResult[];
 
-export const JobListResponseSuccess: JobListResponse = {
+export const JobListResponseSuccess: PageResult = {
   content: JobStatusResultSuccess,
   pageCount: 1,
   pageNumber: 0,

@@ -550,7 +550,7 @@ export enum ContentType {
 }
 
 export class HttpClient<SecurityDataType = unknown> {
-  public baseUrl: string = "https://irs.int.demo.catena-x.net";
+  public baseUrl: string = "https://irs.dev.demo.catena-x.net";
   private securityData: SecurityDataType | null = null;
   private securityWorker?: ApiConfig<SecurityDataType>["securityWorker"];
   private abortControllers = new Map<CancelToken, AbortController>();
@@ -717,7 +717,7 @@ export class HttpClient<SecurityDataType = unknown> {
 /**
  * @title IRS API
  * @version 2.0
- * @baseUrl https://irs.int.demo.catena-x.net
+ * @baseUrl https://irs.dev.demo.catena-x.net
  *
  * The API of the Item Relationship Service (IRS) for retrieving item graphs along the value chain of CATENA-X partners.
  */

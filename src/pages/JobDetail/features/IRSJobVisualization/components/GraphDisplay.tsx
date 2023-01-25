@@ -1,20 +1,22 @@
 import { useMemo, useState } from "react";
 import ReactFlow, { Background, Controls, Edge, MiniMap, NodeProps, ReactFlowProvider } from "reactflow";
 import "reactflow/dist/style.css";
-import { JobResponse, Relationship, Shell } from "../../../../../types/jobs";
+import { AssetAdministrationShellDescriptor, Jobs, Relationship } from "../../../../../generated/jobsApi";
 import { DisplayNode } from "./DisplayNode";
 import { EdgeDetailDialog } from "./EdgeDetailDialog";
 import { processJobForGraphDisplay } from "./react-flow/processJobForGraphDisplay";
 import { SearchNode } from "./SearchNode";
 
 export const GraphDisplay: React.FC<{
-  job: JobResponse;
+  job: Jobs;
   fullscreen: boolean;
 }> = ({ job, fullscreen }) => {
   const [showEdgeDialog, setShowEdgeDialog] = useState<Relationship | undefined>(undefined);
 
   const nodeTypes = useMemo(
-    () => ({ displayNode: (data: NodeProps<Shell>) => <DisplayNode data={data} job={job} /> }),
+    () => ({
+      displayNode: (data: NodeProps<AssetAdministrationShellDescriptor>) => <DisplayNode data={data} job={job} />,
+    }),
     [],
   );
 

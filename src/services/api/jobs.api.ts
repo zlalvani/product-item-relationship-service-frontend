@@ -1,13 +1,13 @@
 import { ServerEnvironment } from "../../constants/serverConfig";
-import { IRSRequestBody, JobListResponse, JobResponse } from "../../types/jobs";
+import { Jobs, PageResult, RegisterJob } from "../../generated/jobsApi";
 import { DemoJobAPI } from "./DemoJobAPI";
 import { JobAPI } from "./JobAPI";
 
 export interface IJobAPI {
-  fetchJobById(jobId: string): Promise<JobResponse>;
-  fetchJobs(page: number): Promise<JobListResponse>;
+  fetchJobById(jobId: string): Promise<Jobs>;
+  fetchJobs(page: number): Promise<PageResult>;
   cancelJob(jobId: string): Promise<void>;
-  createJob(data: IRSRequestBody): Promise<unknown>;
+  createJob(data: RegisterJob): Promise<unknown>;
 }
 
 const demoJobAPI = new DemoJobAPI();

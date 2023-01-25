@@ -8,7 +8,7 @@ it("does not open the dialog", () => {
 });
 
 it("opens the edge detail dialog", () => {
-  const edge = JobsDemoDataSuccess.relationships[0];
+  const edge = (JobsDemoDataSuccess.relationships ?? [])[0];
   const closeFn = vi.fn();
   render(<EdgeDetailDialog edge={edge} onClose={closeFn} />);
   const button = screen.getByRole("button", {

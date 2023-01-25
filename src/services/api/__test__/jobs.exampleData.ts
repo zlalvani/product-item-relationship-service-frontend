@@ -1,6 +1,6 @@
-import { JobErrorResponse, JobResponse } from "../../../types/jobs";
+import { ErrorResponse, Jobs } from "../../../generated/jobsApi";
 
-export const JobsDemoDataSuccess: JobResponse = {
+export const JobsDemoDataSuccess: Jobs = {
   bpns: [
     {
       manufacturerId: "BPNL00000003AYRE",
@@ -14,17 +14,17 @@ export const JobsDemoDataSuccess: JobResponse = {
       exception: "IrsTimeoutException",
       exceptionDate: "2022-02-03T14:48:54.709Z",
     },
-    globalAssetId: "urn:uuid:6c311d29-5753-46d4-b32c-19b918ea93b0",
-    jobCompleted: "2022-02-03T14:48:54.709Z",
-    jobId: "e5347c88-a921-11ec-b909-0242ac120002",
-    jobParameter: {
-      aspects: ["SerialPartTypization", "ContactInformation"],
+    globalAssetId: { globalAssetId: "urn:uuid:6c311d29-5753-46d4-b32c-19b918ea93b0" },
+    completedOn: "2022-02-03T14:48:54.709Z",
+    id: "e5347c88-a921-11ec-b909-0242ac120002",
+    parameter: {
+      aspects: "AddressAspect",
       bomLifecycle: "asBuilt",
       collectAspects: false,
       depth: 4,
       direction: "downward",
     },
-    jobState: "COMPLETED",
+    state: "COMPLETED",
     lastModifiedOn: "2022-02-03T14:48:54.709Z",
     owner: "",
     startedOn: "2022-02-03T14:48:54.709Z",
@@ -38,10 +38,10 @@ export const JobsDemoDataSuccess: JobResponse = {
   },
   relationships: [
     {
-      catenaXId: "urn:uuid:d9bec1c6-e47c-4d18-ba41-0a5fe8b7f447",
+      catenaXId: { globalAssetId: "urn:uuid:d9bec1c6-e47c-4d18-ba41-0a5fe8b7f447" },
       linkedItem: {
         assembledOn: "2022-02-03T14:48:54.709Z",
-        childCatenaXId: "urn:uuid:a45a2246-f6e1-42da-b47d-5c3b58ed62e9",
+        childCatenaXId: { globalAssetId: "urn:uuid:a45a2246-f6e1-42da-b47d-5c3b58ed62e9" },
         lastModifiedOn: "2022-02-03T14:48:54.709Z",
         lifecycleContext: "asBuilt",
         quantity: {
@@ -128,7 +128,7 @@ export const JobsDemoDataSuccess: JobResponse = {
       aspectType: "urn:bamm:io.catenax.assembly_part_relationship:1.0.0",
       identification: "urn:uuid:fc784d2a-5506-4e61-8e34-21600f8cdeff",
       payload: {
-        catenaXId: "urn:uuid:d9bec1c6-e47c-4d18-ba41-0a5fe8b7f447",
+        catenaXId: { globalAssetId: "urn:uuid:d9bec1c6-e47c-4d18-ba41-0a5fe8b7f447" },
         childParts: [
           {
             assembledOn: "2022-02-03T14:48:54.709Z",
@@ -160,8 +160,8 @@ export const JobsDemoDataSuccess: JobResponse = {
   ],
 };
 
-export const jobsDemoDataError404: JobErrorResponse = {
-  errors: ["NotFoundException"],
-  message: "Not found",
+export const jobsDemoDataError404: ErrorResponse = {
+  messages: ["NotFoundException"],
+  error: "Not found",
   statusCode: "404 NOT_FOUND",
 };
