@@ -16,7 +16,7 @@ export type GraphEdgeData = Edge<Relationship>;
 const getNodes = (job: Jobs): GraphNodeData[] => {
   return (job.shells ?? []).map((shell) => {
     return {
-      id: shell.globalAssetId.value[0],
+      id: (shell.globalAssetId?.value ?? [])[0],
       data: shell,
       position: { x: 0, y: 0 },
       type: "displayNode",
@@ -27,12 +27,13 @@ const getNodes = (job: Jobs): GraphNodeData[] => {
 };
 const getEdges = (job: Jobs): GraphEdgeData[] => {
   const validNodeIds = (job.shells ?? []).map((x: AssetAdministrationShellDescriptor) => {
-    return x.globalAssetId.value[0];
+    return (x.globalAssetId?.value ?? [])[0];
   });
   const edgeData: GraphEdgeData[] = [];
   (job.relationships ?? []).forEach((rel) => {
-    const from = rel.catenaXId;
-    const to = rel.linkedItem?.childCatenaXId;
+    // TODO: This type assertion is due to the wrong api documentation, and needs to be removed once the swagger api has been corrected.
+    const from = rel.catenaXId as string;
+    const to = rel.linkedItem?.childCatenaXId as string;
 
     if (validNodeIds.includes(from) && validNodeIds.includes(to)) {
       edgeData.push({

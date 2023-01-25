@@ -1,5 +1,5 @@
 import { Jobs, PageResult, RegisterJob } from "../../generated/jobsApi";
-import { HttpClient } from "../../utils/HttpClient";
+import { getJobsApi } from "../../utils/HttpClient";
 import { IJobAPI } from "./jobs.api";
 
 /**
@@ -10,17 +10,26 @@ export class JobAPI implements IJobAPI {
     const requestParams = {
       page,
       size: 20,
-      sort: "completedOn,desc",
+      sort: ["completedOn,desc"],
     };
-    return await HttpClient.get("jobs", requestParams);
+    const jobs = await getJobsApi().getJobsByJobStates(requestParams);
+    if (jobs.error) {
+      throw jobs.error;
+    }
+    return jobs.data;
   }
   async cancelJob(jobId: string): Promise<void> {
-    return await HttpClient.put(`jobs/${jobId}`);
+    await getJobsApi().cancelJobByJobId(jobId);
   }
   async createJob(data: RegisterJob): Promise<unknown> {
-    return await HttpClient.post(`jobs`, data);
+    const job = await getJobsApi().registerJobForGlobalAssetId(data);
+    return job.data;
   }
   async fetchJobById(jobId: string): Promise<Jobs> {
-    return await HttpClient.get(`jobs/${jobId}?returnUncompletedJob=true`);
+    const job = await getJobsApi().getJobForJobId(jobId, { returnUncompletedJob: true });
+    if (job.error) {
+      throw job.error;
+    }
+    return job.data;
   }
 }

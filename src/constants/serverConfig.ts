@@ -5,17 +5,17 @@ export const serverConfig = {
     authServerUrl: "https://centralidp.int.demo.catena-x.net/auth",
   },
   DEV: {
-    value: "https://irs.dev.demo.catena-x.net/irs/",
+    value: "https://irs.dev.demo.catena-x.net",
     label: "Development Environment",
     authServerUrl: "https://centralidp.int.demo.catena-x.net/auth",
   },
   INT: {
-    value: "https://irs.int.demo.catena-x.net/irs/",
+    value: "https://irs.int.demo.catena-x.net",
     label: "Integration Environment",
     authServerUrl: "https://centralidp.int.demo.catena-x.net/auth",
   },
   BETA: {
-    value: "https://irs.beta.demo.catena-x.net/irs/",
+    value: "https://irs.beta.demo.catena-x.net",
     label: "Production Environment",
     authServerUrl: "https://centralidp.beta.demo.catena-x.net/auth",
   },

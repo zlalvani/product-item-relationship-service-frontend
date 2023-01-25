@@ -1,9 +1,9 @@
-import axios, { AxiosRequestConfig } from "axios";
 import { serverConfig } from "../constants/serverConfig";
+import { Api } from "../generated/jobsApi";
 import { keycloak } from "../lib/keycloak";
 import { getCurrentEnvironment } from "./sessionStorageHandling";
 
-const getBaseURL = () => {
+export const getBaseURL = () => {
   const serverEnv = getCurrentEnvironment();
   return serverConfig[serverEnv].value;
 };
@@ -12,40 +12,12 @@ export const getHeaders = () => ({
   authorization: `Bearer ${keycloak.token}`,
 });
 
-export class HttpClient {
-  static async request<T, D>(path: string, options: AxiosRequestConfig<D>): Promise<T> {
-    try {
-      const response = await axios.request({
-        ...options,
-        baseURL: getBaseURL(),
-        url: path,
-        headers: getHeaders(),
-      });
-
-      return response.data;
-    } catch (error) {
-      keycloak.logout();
-      throw error;
-    }
-  }
-
-  static async get<T, D = Record<string, unknown>>(path: string, params: D = {} as D): Promise<T> {
-    return HttpClient.request(path, { params, method: "GET" });
-  }
-
-  static async post<T, D = Record<string, unknown>>(path: string, data: D = {} as D): Promise<T> {
-    return HttpClient.request<T, D>(path, { data, method: "POST" });
-  }
-
-  static async put<T, D = Record<string, unknown>>(path: string, data: D = {} as D): Promise<T> {
-    return HttpClient.request<T, D>(path, { data, method: "PUT" });
-  }
-
-  // static async delete<T, D = Record<string, unknown>>(
-  //   path: string,
-  //   params: D = {} as D,
-  //   serverEnv?: ServerEnvironment,
-  // ): Promise<T> {
-  //   return HttpClient.request(path, { params, method: "DELETE" }, serverEnv);
-  // }
-}
+export const getJobsApi = () => {
+  const api = new Api({
+    baseUrl: getBaseURL(),
+    baseApiParams: {
+      headers: getHeaders(),
+    },
+  });
+  return api.irs;
+};
