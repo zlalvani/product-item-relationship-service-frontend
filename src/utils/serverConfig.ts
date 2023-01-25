@@ -17,7 +17,7 @@ const readServerConfigFromEnv = () => {
       authServerUrl: import.meta.env[`VITE_SERVER_${val}_KEYCLOAK_URL`],
     };
   });
-  console.log(output);
+
   return output;
 };
 
