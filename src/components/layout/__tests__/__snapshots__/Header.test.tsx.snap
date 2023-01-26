@@ -45,3 +45,49 @@ exports[`renders a public header 1`] = `
   </header>
 </div>
 `;
+
+exports[`renders a public header 1`] = `
+<div>
+  <header
+    class="css-on3ivn"
+  >
+    <div
+      class="MuiBox-root css-1becb2a"
+    >
+      <div
+        class="MuiBox-root css-429xfk"
+      >
+        <img
+          class="MuiBox-root css-1emgxcc"
+          src="/img/cx-logo-text.svg"
+        />
+      </div>
+      <div
+        class="MuiBox-root css-14tu3sa"
+      >
+        <nav
+          class="MuiBox-root css-2imjyh"
+        />
+      </div>
+      <div
+        class="MuiBox-root css-19g4w2v"
+      >
+        <div
+          class="MuiBox-root css-0"
+        >
+          <button
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeSmall MuiButton-containedSizeSmall css-73kr90-MuiButtonBase-root-MuiButton-root"
+            tabindex="0"
+            type="button"
+          >
+            content.irs.header.help
+            <span
+              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+            />
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+</div>
+`;
