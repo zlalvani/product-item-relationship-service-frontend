@@ -28,6 +28,19 @@ export const PublicRoot: React.FC = () => {
 };
 
 /**
+ * Helper to set ServerEnv
+ *
+ * @returns React.ReactNode
+ */
+const ServerEnvHelper: React.FC = () => {
+  const { env = "" } = useParams();
+  const { setServerEnv } = useServerEnv();
+  setServerEnv(env);
+
+  return null;
+};
+
+/**
  * This is used by React Router as Root element for private Routes
  * It automatically navigates you to the welcome page if you are logged in.
  *
@@ -36,9 +49,6 @@ export const PublicRoot: React.FC = () => {
 export const PrivateRoot: React.FC = () => {
   const { keycloak } = useKeycloak();
   const navigate = useNavigate();
-  const { env = "" } = useParams();
-  const { setServerEnv } = useServerEnv();
-  setServerEnv(env);
 
   if (keycloak.authenticated === undefined) {
     // This is used so first render will not display elements of the dashboard and will not trigger network requests.
@@ -51,6 +61,7 @@ export const PrivateRoot: React.FC = () => {
 
   return (
     <>
+      <ServerEnvHelper />
       <PrivateHeader />
       <CenterLayout>
         <Outlet />
