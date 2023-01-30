@@ -1,0 +1,8 @@
+
+{
+    "identification": "submodeldescriptorIdentification",
+    "aspectType": "urn:bamm:io.catenax.ess_incident:1.0.0#EssIncident",
+    "payload": {
+        "supplychain_impacted": "yes|no|unknown"
+    }
+}
