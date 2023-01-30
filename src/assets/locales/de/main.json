@@ -29,7 +29,11 @@
         "interface": "Schnittstelle:",
         "protocol": "Protokoll:",
         "protocol_version": "Protokoll Version:",
-        "protocol_endpoint": "Aspekt Endpoint:"
+        "protocol_endpoint": "Aspekt Endpoint:",
+        "aas_id": "ASS ID:",
+        "global_asset_id": "Global Asset ID:",
+        "id_short": "ID Short:",
+        "description": "Beschreibung:"
       }
     },
     "irs": {
@@ -106,7 +110,7 @@
         "environment": {
           "label": "Wähle Umgebung"
         },
-        "sendButton": "Datenkette"
+        "sendButton": "Erstelle Datenkette"
       }
     }
   },

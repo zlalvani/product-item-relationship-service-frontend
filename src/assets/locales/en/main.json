@@ -29,7 +29,11 @@
         "interface": "Interface:",
         "protocol": "Protocol:",
         "protocol_version": "Protocol version:",
-        "protocol_endpoint": "Aspect Endpoint:"
+        "protocol_endpoint": "Aspect Endpoint:",
+        "aas_id": "ASS ID:",
+        "global_asset_id": "Global Asset ID:",
+        "id_short": "ID Short:",
+        "description": "Description:"
       }
     },
     "irs": {
