@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import { Box, useTheme } from "@mui/material";
 import { uniqueId } from "lodash";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Handle, NodeProps, Position } from "reactflow";
 import { AssetAdministrationShellDescriptor, Jobs, SubmodelDescriptor } from "../../../../../generated/jobsApi";
 
@@ -26,6 +27,7 @@ export const DisplayNode: React.FC<{
   job: Jobs;
 }> = ({ data, job }) => {
   const { spacing } = useTheme();
+  const { t } = useTranslation();
   const shell = data.data;
   const [showNodeDialog, setShowNodeDialog] = useState<
     { shell: AssetAdministrationShellDescriptor; aspectId?: string } | undefined
@@ -47,7 +49,7 @@ export const DisplayNode: React.FC<{
             marginLeft: 0.5,
           }}
         >
-          <div style={{ textAlign: "left", margin: 5 }}>Aspects:</div>
+          <div style={{ textAlign: "left", margin: 5 }}>{t("content.irs.visualization.nodeAspectsTitle")}</div>
           {getSortedSubModelDescriptions(shell).map((n: SubmodelDescriptor) => {
             //Todo: Check for errors and add them to the object
             return (

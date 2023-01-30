@@ -70,7 +70,8 @@
         "jobParameter": "Job parameter"
       },
       "visualization": {
-        "title": "Visualization of IRS Result"
+        "title": "Visualization of IRS Result",
+        "nodeAspectsTitle": "Aspects:"
       },
       "dialog": {
         "title": "Node Details",
