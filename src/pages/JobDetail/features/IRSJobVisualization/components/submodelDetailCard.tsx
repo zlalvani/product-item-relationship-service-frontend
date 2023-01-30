@@ -34,6 +34,15 @@ interface Props {
   onClick: () => void;
 }
 
+const getButtonColor = (id: string, errorCount: number) => {
+  // if (id === "SerialPartTypization") {
+  //   return "warning";
+  // }
+
+  if (errorCount > 0) return "error";
+  return "success";
+};
+
 export const SubmodelDetailCard: React.FC<Props> = ({ submodel, onClick, job }) => {
   const tombstones = getTombstones(submodel, job);
   const submodelPayload = getSubModelPayload(submodel.identification ?? "", job);
@@ -41,6 +50,9 @@ export const SubmodelDetailCard: React.FC<Props> = ({ submodel, onClick, job }) 
   if (!tombstones || !submodelPayload) {
     return null;
   }
+
+  const buttonColor = getButtonColor(submodel.idShort ?? "", tombstones.length);
+
   return (
     <>
       <Box>
@@ -48,7 +60,7 @@ export const SubmodelDetailCard: React.FC<Props> = ({ submodel, onClick, job }) 
           key={uniqueId(submodel.idShort)}
           sx={{ width: "100%" }}
           size="small"
-          color={tombstones.length < 1 ? "success" : "error"}
+          color={buttonColor as "success"}
           variant="contained"
           onClick={(event) => {
             event.preventDefault();
