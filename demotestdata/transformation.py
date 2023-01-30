@@ -62,5 +62,5 @@ res['shells'] = shells
 res['submodels'] = submodels
 res['tombstones'] = []
     
-with open("test_data.json", "w") as outfile:
+with open("testdata_output.json", "w") as outfile:
     outfile.write(json.dumps(res, indent=4))    
