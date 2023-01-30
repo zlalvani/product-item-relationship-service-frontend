@@ -14,7 +14,7 @@ export const JobsDemoDataSuccess: Jobs = {
       exception: "IrsTimeoutException",
       exceptionDate: "2022-02-03T14:48:54.709Z",
     },
-    globalAssetId: { globalAssetId: "urn:uuid:6c311d29-5753-46d4-b32c-19b918ea93b0" },
+    globalAssetId: "urn:uuid:6c311d29-5753-46d4-b32c-19b918ea93b0",
     completedOn: "2022-02-03T14:48:54.709Z",
     id: "e5347c88-a921-11ec-b909-0242ac120002",
     parameter: {
@@ -158,7 +158,7 @@ export const JobsDemoDataSuccess: Jobs = {
       },
     },
   ],
-};
+} as Jobs;
 
 export const jobsDemoDataError404: ErrorResponse = {
   messages: ["NotFoundException"],

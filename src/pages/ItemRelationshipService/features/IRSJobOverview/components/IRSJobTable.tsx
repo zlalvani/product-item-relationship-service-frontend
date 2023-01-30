@@ -56,7 +56,12 @@ export const IRSJobTable: React.FC<{
       width: 150,
       renderCell: ({ row }: { row: JobStatusResult }) => {
         if (row.state === "RUNNING") {
-          return <IRSCancelJobButton jobId={row.id ?? ""} currentPage={currentPage} />;
+          return (
+            <>
+              <IRSNavigateToJobDetails jobId={row.id ?? ""} />
+              <IRSCancelJobButton jobId={row.id ?? ""} currentPage={currentPage} />
+            </>
+          );
         }
         if (row.state === "COMPLETED") {
           return <IRSNavigateToJobDetails jobId={row.id ?? ""} />;
@@ -80,7 +85,7 @@ export const IRSJobTable: React.FC<{
       pagination={true}
       pageSize={jobs?.pageSize ?? 0}
       paginationMode="server"
-      rowCount={jobs?.totalElements}
+      rowCount={jobs?.totalElements ?? 0}
       onPageChange={setCurrentPage}
     />
   );

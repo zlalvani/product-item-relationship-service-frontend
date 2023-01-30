@@ -24,7 +24,7 @@ export const IrsJobDetails: React.FC<{ job: Job }> = ({ job }) => {
             <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
             <DetailGrid topic={"Job ID:"} content={job?.id} />
             <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
-            <DetailGrid topic={t("content.irs.jobDetails.globalAssetId")} content={job.globalAssetId.globalAssetId} />
+            <DetailGrid topic={t("content.irs.jobDetails.globalAssetId")} content={job.globalAssetId as string} />
             <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
             <DetailGrid topic={"Job State:"} content={job.state} />
             <Divider sx={{ mb: 2, mr: -2, ml: -2 }} />
