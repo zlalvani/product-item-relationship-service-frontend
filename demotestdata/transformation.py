@@ -1,6 +1,10 @@
 import json
 import uuid
-import random
+import secrets
+import os
+
+
+ROOT_DIR= os.path.dirname(os.path.abspath(__file__))
 
 def generate_submodel_descriptor (aas_id,submodel_id= None):
 
@@ -9,7 +13,7 @@ def generate_submodel_descriptor (aas_id,submodel_id= None):
     if submodel_id == None: 
         submodel_id = "urn:uuid:"+str(uuid.uuid4())
         
-    with open('submodel_descriptor_template.json', 'r') as f:
+    with open(os.path.join(ROOT_DIR, 'submodel_descriptor_template.json'), 'r') as f:
         submodel_descriptor_template = json.load(f)
 
     submodel_descriptor = submodel_descriptor_template
@@ -24,15 +28,15 @@ def generate_submodel(identification):
     
     enum_result = ['yes','no','unknown']
     
-    with open('submodel_template.json','r') as fi:
+    with open(os.path.join(ROOT_DIR, 'submodel_template.json'),'r') as fi:
         submodel_temp = json.load(fi)
 
     submodel_temp['identification'] = identification
-    submodel_temp['payload']['supplychain_impacted'] = random.sample(enum_result,1)
+    submodel_temp['payload']['supplychain_impacted'] = secrets.choice(enum_result)
 
     return submodel_temp
 
-with open('testdata_input.json', 'r') as f:
+with open(os.path.join(ROOT_DIR, 'testdata_input.json'), 'r') as f:
   data = json.load(f)
 
 
@@ -62,5 +66,5 @@ res['shells'] = shells
 res['submodels'] = submodels
 res['tombstones'] = []
     
-with open("testdata_output.json", "w") as outfile:
+with open(os.path.join(ROOT_DIR, "testdata_output.json"), "w") as outfile:
     outfile.write(json.dumps(res, indent=4))    
