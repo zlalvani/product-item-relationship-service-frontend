@@ -28,7 +28,7 @@ def generate_submodel(identification):
         submodel_temp = json.load(fi)
 
     submodel_temp['identification'] = identification
-    submodel_temp['payload']['supplychain_impacted'] = random.choice(enum_result)
+    submodel_temp['payload']['supplychain_impacted'] = random.sample(enum_result,1)
 
     return submodel_temp
 
