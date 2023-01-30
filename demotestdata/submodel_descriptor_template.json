@@ -1,0 +1,24 @@
+{
+    "administration": null,
+    "description": [],
+    "idShort": "EssIncident",
+    "identification": "",
+    "semanticId": {
+        "value": [
+            "urn:bamm:io.catenax.ess_incident:1.0.0#EssIncident"
+        ]
+    },
+    "endpoints": [
+        {
+            "protocolInformation": {
+                "endpointAddress": "https://irs-provider-controlplane2.dev.demo.catena-x.net/urn:uuid:4f7b1cf2-a598-4027-bc78-63f6d8e55699-urn:uuid:ff415c66-f5e0-4b15-bfbf-0b547c1a3651/submodel?content=value&extent=withBlobValue",
+                "endpointProtocol": "HTTPS",
+                "endpointProtocolVersion": "1.0",
+                "subprotocol": null,
+                "subprotocolBody": null,
+                "subprotocolBodyEncoding": null
+            },
+            "interface": "HTTP"
+        }
+    ]
+}
