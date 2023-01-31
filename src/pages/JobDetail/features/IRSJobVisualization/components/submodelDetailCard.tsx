@@ -24,7 +24,7 @@ import { Box } from "@mui/material";
 import { Button } from "cx-portal-shared-components";
 
 import uniqueId from "lodash/uniqueId";
-import { Jobs, SubmodelDescriptor } from "../../../../../generated/jobsApi";
+import { Jobs, Submodel, SubmodelDescriptor } from "../../../../../generated/jobsApi";
 
 import { getSubModelPayload, getTombstones } from "./SubmodelTombstones";
 
@@ -34,10 +34,19 @@ interface Props {
   onClick: () => void;
 }
 
-const getButtonColor = (id: string, errorCount: number) => {
-  // if (id === "SerialPartTypization") {
-  //   return "warning";
-  // }
+const getButtonColor = (submodel: SubmodelDescriptor, errorCount: number, submodelPayload: Submodel[] = []) => {
+  if (submodel.idShort === "EssIncident") {
+    const colorMap = {
+      yes: "error",
+      no: "success",
+      unknown: "warning",
+    };
+    //TODO: Adjust when backend adds support for this
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    //@ts-ignore
+    const value: "yes" | "no" | "unknown" = submodelPayload[0].payload.supplychain_impacted ?? "yes";
+    return colorMap[value];
+  }
 
   if (errorCount > 0) return "error";
   return "success";
@@ -51,7 +60,7 @@ export const SubmodelDetailCard: React.FC<Props> = ({ submodel, onClick, job }) 
     return null;
   }
 
-  const buttonColor = getButtonColor(submodel.idShort ?? "", tombstones.length);
+  const buttonColor = getButtonColor(submodel, tombstones.length, submodelPayload);
 
   return (
     <>
