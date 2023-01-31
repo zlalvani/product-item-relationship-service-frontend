@@ -37,7 +37,7 @@ exports[`renders the tombstone information 1`] = `
             <div
               class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 css-vgqnfl-MuiGrid-root"
             >
-              e5347c88-a921-11ec-b909-0242ac120002
+              42b335a0-4ccb-4918-be9b-1a8f6b53116f
             </div>
           </div>
           <hr
@@ -54,7 +54,7 @@ exports[`renders the tombstone information 1`] = `
             <div
               class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 css-vgqnfl-MuiGrid-root"
             >
-              urn:uuid:6c311d29-5753-46d4-b32c-19b918ea93b0
+              urn:uuid:0733946c-59c6-41ae-9570-cb43a6e4c79e
             </div>
           </div>
           <hr
@@ -94,133 +94,10 @@ exports[`renders the tombstone information 1`] = `
                 <code
                   style="white-space: pre;"
                 >
-                  <span>
-                    {
-
-                  </span>
-                  <span>
-                      "
-                  </span>
-                  <span
-                    style="color: rgb(0, 0, 0);"
-                  >
-                    errorDetail
-                  </span>
-                  <span
-                    style="color: rgb(0, 136, 0);"
-                  >
-                    ": "
-                  </span>
-                  <span>
-                    Timeout while requesting Digital Registry
-                  </span>
-                  <span
-                    style="color: rgb(0, 136, 0);"
-                  >
-                    ",
-
-                  </span>
-                  <span
-                    style="color: rgb(0, 136, 0);"
-                  >
-                      "
-                  </span>
-                  <span>
-                    exception
-                  </span>
-                  <span
-                    style="color: rgb(0, 136, 0);"
-                  >
-                    ": "
-                  </span>
-                  <span>
-                    IrsTimeoutException
-                  </span>
-                  <span
-                    style="color: rgb(0, 136, 0);"
-                  >
-                    ",
-
-                  </span>
-                  <span
-                    style="color: rgb(0, 136, 0);"
-                  >
-                      "
-                  </span>
-                  <span>
-                    exceptionDate
-                  </span>
-                  <span
-                    style="color: rgb(0, 136, 0);"
-                  >
-                    ": "
-                  </span>
                   <span
                     style="color: rgb(0, 102, 102);"
                   >
-                    2022
-                  </span>
-                  <span>
-                    -
-                  </span>
-                  <span
-                    style="color: rgb(0, 102, 102);"
-                  >
-                    02
-                  </span>
-                  <span>
-                    -
-                  </span>
-                  <span
-                    style="color: rgb(0, 102, 102);"
-                  >
-                    03
-                  </span>
-                  <span>
-                    T
-                  </span>
-                  <span
-                    style="color: rgb(0, 102, 102);"
-                  >
-                    14
-                  </span>
-                  <span>
-                    :
-                  </span>
-                  <span
-                    style="color: rgb(0, 102, 102);"
-                  >
-                    48
-                  </span>
-                  <span>
-                    :
-                  </span>
-                  <span
-                    style="color: rgb(0, 102, 102);"
-                  >
-                    54
-                  </span>
-                  <span>
-                    .
-                  </span>
-                  <span
-                    style="color: rgb(0, 102, 102);"
-                  >
-                    709
-                  </span>
-                  <span>
-                    Z
-                  </span>
-                  <span
-                    style="color: rgb(0, 136, 0);"
-                  >
-                    "
-
-                  </span>
-                  <span
-                    style="color: rgb(0, 136, 0);"
-                  >
-                    }
+                    null
                   </span>
                 </code>
               </pre>
@@ -240,7 +117,7 @@ exports[`renders the tombstone information 1`] = `
             <div
               class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 css-vgqnfl-MuiGrid-root"
             >
-              2022-02-03 15:48:54
+              2023-01-30 10:38:59
             </div>
           </div>
           <hr
@@ -257,7 +134,7 @@ exports[`renders the tombstone information 1`] = `
             <div
               class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 css-vgqnfl-MuiGrid-root"
             >
-              2022-02-03 15:48:54
+              2023-01-30 10:38:59
             </div>
           </div>
           <hr
@@ -274,7 +151,7 @@ exports[`renders the tombstone information 1`] = `
             <div
               class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 css-vgqnfl-MuiGrid-root"
             >
-              2022-02-03 15:48:54
+              2023-01-30 10:42:31
             </div>
           </div>
           <hr
@@ -291,7 +168,7 @@ exports[`renders the tombstone information 1`] = `
             <div
               class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 css-vgqnfl-MuiGrid-root"
             >
-              2022-02-03 15:48:54
+              2023-01-30 10:42:31
             </div>
           </div>
           <hr
@@ -307,7 +184,9 @@ exports[`renders the tombstone information 1`] = `
             </div>
             <div
               class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6 css-vgqnfl-MuiGrid-root"
-            />
+            >
+              Unknown
+            </div>
           </div>
           <hr
             class="MuiDivider-root MuiDivider-fullWidth css-1pdy5v-MuiDivider-root"
@@ -351,6 +230,80 @@ exports[`renders the tombstone information 1`] = `
                   <span
                     style="color: rgb(102, 0, 102);"
                   >
+                    "running"
+                  </span>
+                  <span>
+                    : 
+                  </span>
+                  <span
+                    style="color: rgb(0, 102, 102);"
+                  >
+                    0
+                  </span>
+                  <span>
+                    ,
+
+                  </span>
+                  <span>
+                        
+                  </span>
+                  <span
+                    style="color: rgb(102, 0, 102);"
+                  >
+                    "completed"
+                  </span>
+                  <span>
+                    : 
+                  </span>
+                  <span
+                    style="color: rgb(0, 102, 102);"
+                  >
+                    14
+                  </span>
+                  <span>
+                    ,
+
+                  </span>
+                  <span>
+                        
+                  </span>
+                  <span
+                    style="color: rgb(102, 0, 102);"
+                  >
+                    "failed"
+                  </span>
+                  <span>
+                    : 
+                  </span>
+                  <span
+                    style="color: rgb(0, 102, 102);"
+                  >
+                    14
+                  </span>
+                  <span>
+                    
+
+                  </span>
+                    },
+
+                  <span>
+                      
+                  </span>
+                  <span
+                    style="color: rgb(102, 0, 102);"
+                  >
+                    "bpnLookups"
+                  </span>
+                  <span>
+                    : {
+
+                  </span>
+                  <span>
+                        
+                  </span>
+                  <span
+                    style="color: rgb(102, 0, 102);"
+                  >
                     "completed"
                   </span>
                   <span>
@@ -372,26 +325,6 @@ exports[`renders the tombstone information 1`] = `
                     style="color: rgb(102, 0, 102);"
                   >
                     "failed"
-                  </span>
-                  <span>
-                    : 
-                  </span>
-                  <span
-                    style="color: rgb(0, 102, 102);"
-                  >
-                    0
-                  </span>
-                  <span>
-                    ,
-
-                  </span>
-                  <span>
-                        
-                  </span>
-                  <span
-                    style="color: rgb(102, 0, 102);"
-                  >
-                    "running"
                   </span>
                   <span>
                     : 
@@ -442,26 +375,6 @@ exports[`renders the tombstone information 1`] = `
                   <span
                     style="color: rgb(102, 0, 102);"
                   >
-                    "aspects"
-                  </span>
-                  <span>
-                    : 
-                  </span>
-                  <span
-                    style="color: rgb(0, 136, 0);"
-                  >
-                    "AddressAspect"
-                  </span>
-                  <span>
-                    ,
-
-                  </span>
-                  <span>
-                      
-                  </span>
-                  <span
-                    style="color: rgb(102, 0, 102);"
-                  >
                     "bomLifecycle"
                   </span>
                   <span>
@@ -470,7 +383,7 @@ exports[`renders the tombstone information 1`] = `
                   <span
                     style="color: rgb(0, 136, 0);"
                   >
-                    "asBuilt"
+                    "asPlanned"
                   </span>
                   <span>
                     ,
@@ -482,20 +395,38 @@ exports[`renders the tombstone information 1`] = `
                   <span
                     style="color: rgb(102, 0, 102);"
                   >
-                    "collectAspects"
+                    "aspects"
                   </span>
                   <span>
-                    : 
+                    : [
+
+                  </span>
+                  <span>
+                        
                   </span>
                   <span
-                    style="color: rgb(0, 102, 102);"
+                    style="color: rgb(0, 136, 0);"
                   >
-                    false
+                    "PartAsPlanned"
                   </span>
                   <span>
                     ,
 
                   </span>
+                  <span>
+                        
+                  </span>
+                  <span
+                    style="color: rgb(0, 136, 0);"
+                  >
+                    "SingleLevelBomAsPlanned"
+                  </span>
+                  <span>
+                    
+
+                  </span>
+                    ],
+
                   <span>
                       
                   </span>
@@ -510,7 +441,7 @@ exports[`renders the tombstone information 1`] = `
                   <span
                     style="color: rgb(0, 102, 102);"
                   >
-                    4
+                    10
                   </span>
                   <span>
                     ,
@@ -531,6 +462,66 @@ exports[`renders the tombstone information 1`] = `
                     style="color: rgb(0, 136, 0);"
                   >
                     "downward"
+                  </span>
+                  <span>
+                    ,
+
+                  </span>
+                  <span>
+                      
+                  </span>
+                  <span
+                    style="color: rgb(102, 0, 102);"
+                  >
+                    "collectAspects"
+                  </span>
+                  <span>
+                    : 
+                  </span>
+                  <span
+                    style="color: rgb(0, 102, 102);"
+                  >
+                    true
+                  </span>
+                  <span>
+                    ,
+
+                  </span>
+                  <span>
+                      
+                  </span>
+                  <span
+                    style="color: rgb(102, 0, 102);"
+                  >
+                    "lookupBPNs"
+                  </span>
+                  <span>
+                    : 
+                  </span>
+                  <span
+                    style="color: rgb(0, 102, 102);"
+                  >
+                    false
+                  </span>
+                  <span>
+                    ,
+
+                  </span>
+                  <span>
+                      
+                  </span>
+                  <span
+                    style="color: rgb(102, 0, 102);"
+                  >
+                    "callbackUrl"
+                  </span>
+                  <span>
+                    : 
+                  </span>
+                  <span
+                    style="color: rgb(0, 102, 102);"
+                  >
+                    null
                   </span>
                   <span>
                     
