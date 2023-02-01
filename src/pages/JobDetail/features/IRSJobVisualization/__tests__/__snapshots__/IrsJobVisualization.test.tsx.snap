@@ -228,72 +228,20 @@ exports[`renders a basic visualization 1`] = `
                                 type="button"
                               >
                                 EssIncident
-                                <div>
-                                  <div
-                                    style="float: right; margin-left: 10px;"
+                                <div
+                                  style="float: right; margin-left: 10px;"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                    data-testid="FindInPageIcon"
+                                    focusable="false"
+                                    viewBox="0 0 24 24"
                                   >
-                                    <svg
-                                      aria-hidden="true"
-                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                                      data-testid="SourceIcon"
-                                      focusable="false"
-                                      viewBox="0 0 24 24"
-                                    >
-                                      <path
-                                        d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"
-                                      />
-                                    </svg>
-                                  </div>
-                                </div>
-                                <span
-                                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                                />
-                              </button>
-                            </div>
-                            <div
-                              class="MuiBox-root css-0"
-                            >
-                              <button
-                                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall css-7xvvqp-MuiButtonBase-root-MuiButton-root"
-                                tabindex="0"
-                                type="button"
-                              >
-                                PartAsPlanned
-                                <div>
-                                  <div
-                                    style="float: right; margin-left: 10px;"
-                                  >
-                                    <svg
-                                      aria-hidden="true"
-                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                                      data-testid="SourceIcon"
-                                      focusable="false"
-                                      viewBox="0 0 24 24"
-                                    >
-                                      <path
-                                        d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"
-                                      />
-                                    </svg>
-                                  </div>
-                                </div>
-                                <span
-                                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-                                />
-                              </button>
-                            </div>
-                            <div
-                              class="MuiBox-root css-0"
-                            >
-                              <button
-                                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall css-7xvvqp-MuiButtonBase-root-MuiButton-root"
-                                tabindex="0"
-                                type="button"
-                              >
-                                SingleLevelBomAsPlanned
-                                <div>
-                                  <div
-                                    style="float: right; margin-left: 10px;"
-                                  />
+                                    <path
+                                      d="M20 19.59V8l-6-6H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c.45 0 .85-.15 1.19-.4l-4.43-4.43c-.8.52-1.74.83-2.76.83-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5c0 1.02-.31 1.96-.83 2.75L20 19.59zM9 13c0 1.66 1.34 3 3 3s3-1.34 3-3-1.34-3-3-3-3 1.34-3 3z"
+                                    />
+                                  </svg>
                                 </div>
                                 <span
                                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -361,22 +309,20 @@ exports[`renders a basic visualization 1`] = `
                                 type="button"
                               >
                                 EssIncident
-                                <div>
-                                  <div
-                                    style="float: right; margin-left: 10px;"
+                                <div
+                                  style="float: right; margin-left: 10px;"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                    data-testid="FindInPageIcon"
+                                    focusable="false"
+                                    viewBox="0 0 24 24"
                                   >
-                                    <svg
-                                      aria-hidden="true"
-                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                                      data-testid="SourceIcon"
-                                      focusable="false"
-                                      viewBox="0 0 24 24"
-                                    >
-                                      <path
-                                        d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"
-                                      />
-                                    </svg>
-                                  </div>
+                                    <path
+                                      d="M20 19.59V8l-6-6H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c.45 0 .85-.15 1.19-.4l-4.43-4.43c-.8.52-1.74.83-2.76.83-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5c0 1.02-.31 1.96-.83 2.75L20 19.59zM9 13c0 1.66 1.34 3 3 3s3-1.34 3-3-1.34-3-3-3-3 1.34-3 3z"
+                                    />
+                                  </svg>
                                 </div>
                                 <span
                                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -392,22 +338,20 @@ exports[`renders a basic visualization 1`] = `
                                 type="button"
                               >
                                 PartAsPlanned
-                                <div>
-                                  <div
-                                    style="float: right; margin-left: 10px;"
+                                <div
+                                  style="float: right; margin-left: 10px;"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                    data-testid="SourceIcon"
+                                    focusable="false"
+                                    viewBox="0 0 24 24"
                                   >
-                                    <svg
-                                      aria-hidden="true"
-                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                                      data-testid="SourceIcon"
-                                      focusable="false"
-                                      viewBox="0 0 24 24"
-                                    >
-                                      <path
-                                        d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"
-                                      />
-                                    </svg>
-                                  </div>
+                                    <path
+                                      d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"
+                                    />
+                                  </svg>
                                 </div>
                                 <span
                                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -423,11 +367,9 @@ exports[`renders a basic visualization 1`] = `
                                 type="button"
                               >
                                 SingleLevelBomAsPlanned
-                                <div>
-                                  <div
-                                    style="float: right; margin-left: 10px;"
-                                  />
-                                </div>
+                                <div
+                                  style="float: right; margin-left: 10px;"
+                                />
                                 <span
                                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                                 />
@@ -494,22 +436,20 @@ exports[`renders a basic visualization 1`] = `
                                 type="button"
                               >
                                 EssIncident
-                                <div>
-                                  <div
-                                    style="float: right; margin-left: 10px;"
+                                <div
+                                  style="float: right; margin-left: 10px;"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                    data-testid="VerifiedIcon"
+                                    focusable="false"
+                                    viewBox="0 0 24 24"
                                   >
-                                    <svg
-                                      aria-hidden="true"
-                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                                      data-testid="SourceIcon"
-                                      focusable="false"
-                                      viewBox="0 0 24 24"
-                                    >
-                                      <path
-                                        d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"
-                                      />
-                                    </svg>
-                                  </div>
+                                    <path
+                                      d="m23 12-2.44-2.79.34-3.69-3.61-.82-1.89-3.2L12 2.96 8.6 1.5 6.71 4.69 3.1 5.5l.34 3.7L1 12l2.44 2.79-.34 3.7 3.61.82L8.6 22.5l3.4-1.47 3.4 1.46 1.89-3.19 3.61-.82-.34-3.69L23 12zm-12.91 4.72-3.8-3.81 1.48-1.48 2.32 2.33 5.85-5.87 1.48 1.48-7.33 7.35z"
+                                    />
+                                  </svg>
                                 </div>
                                 <span
                                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -525,22 +465,20 @@ exports[`renders a basic visualization 1`] = `
                                 type="button"
                               >
                                 PartAsPlanned
-                                <div>
-                                  <div
-                                    style="float: right; margin-left: 10px;"
+                                <div
+                                  style="float: right; margin-left: 10px;"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                    data-testid="SourceIcon"
+                                    focusable="false"
+                                    viewBox="0 0 24 24"
                                   >
-                                    <svg
-                                      aria-hidden="true"
-                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                                      data-testid="SourceIcon"
-                                      focusable="false"
-                                      viewBox="0 0 24 24"
-                                    >
-                                      <path
-                                        d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"
-                                      />
-                                    </svg>
-                                  </div>
+                                    <path
+                                      d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"
+                                    />
+                                  </svg>
                                 </div>
                                 <span
                                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -556,11 +494,9 @@ exports[`renders a basic visualization 1`] = `
                                 type="button"
                               >
                                 SingleLevelBomAsPlanned
-                                <div>
-                                  <div
-                                    style="float: right; margin-left: 10px;"
-                                  />
-                                </div>
+                                <div
+                                  style="float: right; margin-left: 10px;"
+                                />
                                 <span
                                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                                 />
@@ -627,22 +563,20 @@ exports[`renders a basic visualization 1`] = `
                                 type="button"
                               >
                                 EssIncident
-                                <div>
-                                  <div
-                                    style="float: right; margin-left: 10px;"
+                                <div
+                                  style="float: right; margin-left: 10px;"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                    data-testid="ErrorOutlineIcon"
+                                    focusable="false"
+                                    viewBox="0 0 24 24"
                                   >
-                                    <svg
-                                      aria-hidden="true"
-                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                                      data-testid="SourceIcon"
-                                      focusable="false"
-                                      viewBox="0 0 24 24"
-                                    >
-                                      <path
-                                        d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"
-                                      />
-                                    </svg>
-                                  </div>
+                                    <path
+                                      d="M11 15h2v2h-2zm0-8h2v6h-2zm.99-5C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
+                                    />
+                                  </svg>
                                 </div>
                                 <span
                                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -658,22 +592,20 @@ exports[`renders a basic visualization 1`] = `
                                 type="button"
                               >
                                 PartAsPlanned
-                                <div>
-                                  <div
-                                    style="float: right; margin-left: 10px;"
+                                <div
+                                  style="float: right; margin-left: 10px;"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                    data-testid="SourceIcon"
+                                    focusable="false"
+                                    viewBox="0 0 24 24"
                                   >
-                                    <svg
-                                      aria-hidden="true"
-                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                                      data-testid="SourceIcon"
-                                      focusable="false"
-                                      viewBox="0 0 24 24"
-                                    >
-                                      <path
-                                        d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"
-                                      />
-                                    </svg>
-                                  </div>
+                                    <path
+                                      d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"
+                                    />
+                                  </svg>
                                 </div>
                                 <span
                                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -689,11 +621,9 @@ exports[`renders a basic visualization 1`] = `
                                 type="button"
                               >
                                 SingleLevelBomAsPlanned
-                                <div>
-                                  <div
-                                    style="float: right; margin-left: 10px;"
-                                  />
-                                </div>
+                                <div
+                                  style="float: right; margin-left: 10px;"
+                                />
                                 <span
                                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                                 />
@@ -760,22 +690,20 @@ exports[`renders a basic visualization 1`] = `
                                 type="button"
                               >
                                 EssIncident
-                                <div>
-                                  <div
-                                    style="float: right; margin-left: 10px;"
+                                <div
+                                  style="float: right; margin-left: 10px;"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                    data-testid="VerifiedIcon"
+                                    focusable="false"
+                                    viewBox="0 0 24 24"
                                   >
-                                    <svg
-                                      aria-hidden="true"
-                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                                      data-testid="SourceIcon"
-                                      focusable="false"
-                                      viewBox="0 0 24 24"
-                                    >
-                                      <path
-                                        d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"
-                                      />
-                                    </svg>
-                                  </div>
+                                    <path
+                                      d="m23 12-2.44-2.79.34-3.69-3.61-.82-1.89-3.2L12 2.96 8.6 1.5 6.71 4.69 3.1 5.5l.34 3.7L1 12l2.44 2.79-.34 3.7 3.61.82L8.6 22.5l3.4-1.47 3.4 1.46 1.89-3.19 3.61-.82-.34-3.69L23 12zm-12.91 4.72-3.8-3.81 1.48-1.48 2.32 2.33 5.85-5.87 1.48 1.48-7.33 7.35z"
+                                    />
+                                  </svg>
                                 </div>
                                 <span
                                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -791,33 +719,20 @@ exports[`renders a basic visualization 1`] = `
                                 type="button"
                               >
                                 PartAsPlanned
-                                <div>
-                                  <div
-                                    style="float: right; margin-left: 10px;"
+                                <div
+                                  style="float: right; margin-left: 10px;"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                    data-testid="SourceIcon"
+                                    focusable="false"
+                                    viewBox="0 0 24 24"
                                   >
-                                    <svg
-                                      aria-hidden="true"
-                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                                      data-testid="SourceIcon"
-                                      focusable="false"
-                                      viewBox="0 0 24 24"
-                                    >
-                                      <path
-                                        d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"
-                                      />
-                                    </svg>
-                                    <svg
-                                      aria-hidden="true"
-                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                                      data-testid="SourceIcon"
-                                      focusable="false"
-                                      viewBox="0 0 24 24"
-                                    >
-                                      <path
-                                        d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"
-                                      />
-                                    </svg>
-                                  </div>
+                                    <path
+                                      d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"
+                                    />
+                                  </svg>
                                 </div>
                                 <span
                                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -833,11 +748,9 @@ exports[`renders a basic visualization 1`] = `
                                 type="button"
                               >
                                 SingleLevelBomAsPlanned
-                                <div>
-                                  <div
-                                    style="float: right; margin-left: 10px;"
-                                  />
-                                </div>
+                                <div
+                                  style="float: right; margin-left: 10px;"
+                                />
                                 <span
                                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                                 />
@@ -904,22 +817,20 @@ exports[`renders a basic visualization 1`] = `
                                 type="button"
                               >
                                 EssIncident
-                                <div>
-                                  <div
-                                    style="float: right; margin-left: 10px;"
+                                <div
+                                  style="float: right; margin-left: 10px;"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                    data-testid="FindInPageIcon"
+                                    focusable="false"
+                                    viewBox="0 0 24 24"
                                   >
-                                    <svg
-                                      aria-hidden="true"
-                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                                      data-testid="SourceIcon"
-                                      focusable="false"
-                                      viewBox="0 0 24 24"
-                                    >
-                                      <path
-                                        d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"
-                                      />
-                                    </svg>
-                                  </div>
+                                    <path
+                                      d="M20 19.59V8l-6-6H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c.45 0 .85-.15 1.19-.4l-4.43-4.43c-.8.52-1.74.83-2.76.83-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5c0 1.02-.31 1.96-.83 2.75L20 19.59zM9 13c0 1.66 1.34 3 3 3s3-1.34 3-3-1.34-3-3-3-3 1.34-3 3z"
+                                    />
+                                  </svg>
                                 </div>
                                 <span
                                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -935,22 +846,20 @@ exports[`renders a basic visualization 1`] = `
                                 type="button"
                               >
                                 PartAsPlanned
-                                <div>
-                                  <div
-                                    style="float: right; margin-left: 10px;"
+                                <div
+                                  style="float: right; margin-left: 10px;"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                    data-testid="SourceIcon"
+                                    focusable="false"
+                                    viewBox="0 0 24 24"
                                   >
-                                    <svg
-                                      aria-hidden="true"
-                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                                      data-testid="SourceIcon"
-                                      focusable="false"
-                                      viewBox="0 0 24 24"
-                                    >
-                                      <path
-                                        d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"
-                                      />
-                                    </svg>
-                                  </div>
+                                    <path
+                                      d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"
+                                    />
+                                  </svg>
                                 </div>
                                 <span
                                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -966,11 +875,9 @@ exports[`renders a basic visualization 1`] = `
                                 type="button"
                               >
                                 SingleLevelBomAsPlanned
-                                <div>
-                                  <div
-                                    style="float: right; margin-left: 10px;"
-                                  />
-                                </div>
+                                <div
+                                  style="float: right; margin-left: 10px;"
+                                />
                                 <span
                                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                                 />
@@ -1037,22 +944,20 @@ exports[`renders a basic visualization 1`] = `
                                 type="button"
                               >
                                 EssIncident
-                                <div>
-                                  <div
-                                    style="float: right; margin-left: 10px;"
+                                <div
+                                  style="float: right; margin-left: 10px;"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                    data-testid="FindInPageIcon"
+                                    focusable="false"
+                                    viewBox="0 0 24 24"
                                   >
-                                    <svg
-                                      aria-hidden="true"
-                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                                      data-testid="SourceIcon"
-                                      focusable="false"
-                                      viewBox="0 0 24 24"
-                                    >
-                                      <path
-                                        d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"
-                                      />
-                                    </svg>
-                                  </div>
+                                    <path
+                                      d="M20 19.59V8l-6-6H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c.45 0 .85-.15 1.19-.4l-4.43-4.43c-.8.52-1.74.83-2.76.83-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5c0 1.02-.31 1.96-.83 2.75L20 19.59zM9 13c0 1.66 1.34 3 3 3s3-1.34 3-3-1.34-3-3-3-3 1.34-3 3z"
+                                    />
+                                  </svg>
                                 </div>
                                 <span
                                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -1068,22 +973,20 @@ exports[`renders a basic visualization 1`] = `
                                 type="button"
                               >
                                 PartAsPlanned
-                                <div>
-                                  <div
-                                    style="float: right; margin-left: 10px;"
+                                <div
+                                  style="float: right; margin-left: 10px;"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                    data-testid="SourceIcon"
+                                    focusable="false"
+                                    viewBox="0 0 24 24"
                                   >
-                                    <svg
-                                      aria-hidden="true"
-                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                                      data-testid="SourceIcon"
-                                      focusable="false"
-                                      viewBox="0 0 24 24"
-                                    >
-                                      <path
-                                        d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"
-                                      />
-                                    </svg>
-                                  </div>
+                                    <path
+                                      d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"
+                                    />
+                                  </svg>
                                 </div>
                                 <span
                                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -1099,11 +1002,9 @@ exports[`renders a basic visualization 1`] = `
                                 type="button"
                               >
                                 SingleLevelBomAsPlanned
-                                <div>
-                                  <div
-                                    style="float: right; margin-left: 10px;"
-                                  />
-                                </div>
+                                <div
+                                  style="float: right; margin-left: 10px;"
+                                />
                                 <span
                                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                                 />
@@ -1170,22 +1071,20 @@ exports[`renders a basic visualization 1`] = `
                                 type="button"
                               >
                                 EssIncident
-                                <div>
-                                  <div
-                                    style="float: right; margin-left: 10px;"
+                                <div
+                                  style="float: right; margin-left: 10px;"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                    data-testid="ErrorOutlineIcon"
+                                    focusable="false"
+                                    viewBox="0 0 24 24"
                                   >
-                                    <svg
-                                      aria-hidden="true"
-                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                                      data-testid="SourceIcon"
-                                      focusable="false"
-                                      viewBox="0 0 24 24"
-                                    >
-                                      <path
-                                        d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"
-                                      />
-                                    </svg>
-                                  </div>
+                                    <path
+                                      d="M11 15h2v2h-2zm0-8h2v6h-2zm.99-5C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
+                                    />
+                                  </svg>
                                 </div>
                                 <span
                                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -1201,23 +1100,9 @@ exports[`renders a basic visualization 1`] = `
                                 type="button"
                               >
                                 PartAsPlanned
-                                <div>
-                                  <div
-                                    style="float: right; margin-left: 10px;"
-                                  >
-                                    <svg
-                                      aria-hidden="true"
-                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                                      data-testid="SourceIcon"
-                                      focusable="false"
-                                      viewBox="0 0 24 24"
-                                    >
-                                      <path
-                                        d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"
-                                      />
-                                    </svg>
-                                  </div>
-                                </div>
+                                <div
+                                  style="float: right; margin-left: 10px;"
+                                />
                                 <span
                                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                                 />
@@ -1232,11 +1117,9 @@ exports[`renders a basic visualization 1`] = `
                                 type="button"
                               >
                                 SingleLevelBomAsPlanned
-                                <div>
-                                  <div
-                                    style="float: right; margin-left: 10px;"
-                                  />
-                                </div>
+                                <div
+                                  style="float: right; margin-left: 10px;"
+                                />
                                 <span
                                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                                 />
@@ -1303,22 +1186,20 @@ exports[`renders a basic visualization 1`] = `
                                 type="button"
                               >
                                 EssIncident
-                                <div>
-                                  <div
-                                    style="float: right; margin-left: 10px;"
+                                <div
+                                  style="float: right; margin-left: 10px;"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                    data-testid="ErrorOutlineIcon"
+                                    focusable="false"
+                                    viewBox="0 0 24 24"
                                   >
-                                    <svg
-                                      aria-hidden="true"
-                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                                      data-testid="SourceIcon"
-                                      focusable="false"
-                                      viewBox="0 0 24 24"
-                                    >
-                                      <path
-                                        d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"
-                                      />
-                                    </svg>
-                                  </div>
+                                    <path
+                                      d="M11 15h2v2h-2zm0-8h2v6h-2zm.99-5C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
+                                    />
+                                  </svg>
                                 </div>
                                 <span
                                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -1334,33 +1215,20 @@ exports[`renders a basic visualization 1`] = `
                                 type="button"
                               >
                                 PartAsPlanned
-                                <div>
-                                  <div
-                                    style="float: right; margin-left: 10px;"
+                                <div
+                                  style="float: right; margin-left: 10px;"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                    data-testid="SourceIcon"
+                                    focusable="false"
+                                    viewBox="0 0 24 24"
                                   >
-                                    <svg
-                                      aria-hidden="true"
-                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                                      data-testid="SourceIcon"
-                                      focusable="false"
-                                      viewBox="0 0 24 24"
-                                    >
-                                      <path
-                                        d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"
-                                      />
-                                    </svg>
-                                    <svg
-                                      aria-hidden="true"
-                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                                      data-testid="SourceIcon"
-                                      focusable="false"
-                                      viewBox="0 0 24 24"
-                                    >
-                                      <path
-                                        d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"
-                                      />
-                                    </svg>
-                                  </div>
+                                    <path
+                                      d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"
+                                    />
+                                  </svg>
                                 </div>
                                 <span
                                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -1376,11 +1244,9 @@ exports[`renders a basic visualization 1`] = `
                                 type="button"
                               >
                                 SingleLevelBomAsPlanned
-                                <div>
-                                  <div
-                                    style="float: right; margin-left: 10px;"
-                                  />
-                                </div>
+                                <div
+                                  style="float: right; margin-left: 10px;"
+                                />
                                 <span
                                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                                 />
@@ -1447,22 +1313,20 @@ exports[`renders a basic visualization 1`] = `
                                 type="button"
                               >
                                 EssIncident
-                                <div>
-                                  <div
-                                    style="float: right; margin-left: 10px;"
+                                <div
+                                  style="float: right; margin-left: 10px;"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                    data-testid="VerifiedIcon"
+                                    focusable="false"
+                                    viewBox="0 0 24 24"
                                   >
-                                    <svg
-                                      aria-hidden="true"
-                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                                      data-testid="SourceIcon"
-                                      focusable="false"
-                                      viewBox="0 0 24 24"
-                                    >
-                                      <path
-                                        d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"
-                                      />
-                                    </svg>
-                                  </div>
+                                    <path
+                                      d="m23 12-2.44-2.79.34-3.69-3.61-.82-1.89-3.2L12 2.96 8.6 1.5 6.71 4.69 3.1 5.5l.34 3.7L1 12l2.44 2.79-.34 3.7 3.61.82L8.6 22.5l3.4-1.47 3.4 1.46 1.89-3.19 3.61-.82-.34-3.69L23 12zm-12.91 4.72-3.8-3.81 1.48-1.48 2.32 2.33 5.85-5.87 1.48 1.48-7.33 7.35z"
+                                    />
+                                  </svg>
                                 </div>
                                 <span
                                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -1478,22 +1342,20 @@ exports[`renders a basic visualization 1`] = `
                                 type="button"
                               >
                                 PartAsPlanned
-                                <div>
-                                  <div
-                                    style="float: right; margin-left: 10px;"
+                                <div
+                                  style="float: right; margin-left: 10px;"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                    data-testid="SourceIcon"
+                                    focusable="false"
+                                    viewBox="0 0 24 24"
                                   >
-                                    <svg
-                                      aria-hidden="true"
-                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                                      data-testid="SourceIcon"
-                                      focusable="false"
-                                      viewBox="0 0 24 24"
-                                    >
-                                      <path
-                                        d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"
-                                      />
-                                    </svg>
-                                  </div>
+                                    <path
+                                      d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"
+                                    />
+                                  </svg>
                                 </div>
                                 <span
                                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -1509,11 +1371,9 @@ exports[`renders a basic visualization 1`] = `
                                 type="button"
                               >
                                 SingleLevelBomAsPlanned
-                                <div>
-                                  <div
-                                    style="float: right; margin-left: 10px;"
-                                  />
-                                </div>
+                                <div
+                                  style="float: right; margin-left: 10px;"
+                                />
                                 <span
                                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                                 />
@@ -1580,22 +1440,20 @@ exports[`renders a basic visualization 1`] = `
                                 type="button"
                               >
                                 EssIncident
-                                <div>
-                                  <div
-                                    style="float: right; margin-left: 10px;"
+                                <div
+                                  style="float: right; margin-left: 10px;"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                    data-testid="VerifiedIcon"
+                                    focusable="false"
+                                    viewBox="0 0 24 24"
                                   >
-                                    <svg
-                                      aria-hidden="true"
-                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                                      data-testid="SourceIcon"
-                                      focusable="false"
-                                      viewBox="0 0 24 24"
-                                    >
-                                      <path
-                                        d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"
-                                      />
-                                    </svg>
-                                  </div>
+                                    <path
+                                      d="m23 12-2.44-2.79.34-3.69-3.61-.82-1.89-3.2L12 2.96 8.6 1.5 6.71 4.69 3.1 5.5l.34 3.7L1 12l2.44 2.79-.34 3.7 3.61.82L8.6 22.5l3.4-1.47 3.4 1.46 1.89-3.19 3.61-.82-.34-3.69L23 12zm-12.91 4.72-3.8-3.81 1.48-1.48 2.32 2.33 5.85-5.87 1.48 1.48-7.33 7.35z"
+                                    />
+                                  </svg>
                                 </div>
                                 <span
                                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -1611,22 +1469,20 @@ exports[`renders a basic visualization 1`] = `
                                 type="button"
                               >
                                 PartAsPlanned
-                                <div>
-                                  <div
-                                    style="float: right; margin-left: 10px;"
+                                <div
+                                  style="float: right; margin-left: 10px;"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                    data-testid="SourceIcon"
+                                    focusable="false"
+                                    viewBox="0 0 24 24"
                                   >
-                                    <svg
-                                      aria-hidden="true"
-                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                                      data-testid="SourceIcon"
-                                      focusable="false"
-                                      viewBox="0 0 24 24"
-                                    >
-                                      <path
-                                        d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"
-                                      />
-                                    </svg>
-                                  </div>
+                                    <path
+                                      d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"
+                                    />
+                                  </svg>
                                 </div>
                                 <span
                                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -1642,11 +1498,9 @@ exports[`renders a basic visualization 1`] = `
                                 type="button"
                               >
                                 SingleLevelBomAsPlanned
-                                <div>
-                                  <div
-                                    style="float: right; margin-left: 10px;"
-                                  />
-                                </div>
+                                <div
+                                  style="float: right; margin-left: 10px;"
+                                />
                                 <span
                                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                                 />
@@ -1713,22 +1567,20 @@ exports[`renders a basic visualization 1`] = `
                                 type="button"
                               >
                                 EssIncident
-                                <div>
-                                  <div
-                                    style="float: right; margin-left: 10px;"
+                                <div
+                                  style="float: right; margin-left: 10px;"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                    data-testid="VerifiedIcon"
+                                    focusable="false"
+                                    viewBox="0 0 24 24"
                                   >
-                                    <svg
-                                      aria-hidden="true"
-                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                                      data-testid="SourceIcon"
-                                      focusable="false"
-                                      viewBox="0 0 24 24"
-                                    >
-                                      <path
-                                        d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"
-                                      />
-                                    </svg>
-                                  </div>
+                                    <path
+                                      d="m23 12-2.44-2.79.34-3.69-3.61-.82-1.89-3.2L12 2.96 8.6 1.5 6.71 4.69 3.1 5.5l.34 3.7L1 12l2.44 2.79-.34 3.7 3.61.82L8.6 22.5l3.4-1.47 3.4 1.46 1.89-3.19 3.61-.82-.34-3.69L23 12zm-12.91 4.72-3.8-3.81 1.48-1.48 2.32 2.33 5.85-5.87 1.48 1.48-7.33 7.35z"
+                                    />
+                                  </svg>
                                 </div>
                                 <span
                                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -1744,22 +1596,20 @@ exports[`renders a basic visualization 1`] = `
                                 type="button"
                               >
                                 PartAsPlanned
-                                <div>
-                                  <div
-                                    style="float: right; margin-left: 10px;"
+                                <div
+                                  style="float: right; margin-left: 10px;"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                    data-testid="SourceIcon"
+                                    focusable="false"
+                                    viewBox="0 0 24 24"
                                   >
-                                    <svg
-                                      aria-hidden="true"
-                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                                      data-testid="SourceIcon"
-                                      focusable="false"
-                                      viewBox="0 0 24 24"
-                                    >
-                                      <path
-                                        d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"
-                                      />
-                                    </svg>
-                                  </div>
+                                    <path
+                                      d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"
+                                    />
+                                  </svg>
                                 </div>
                                 <span
                                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -1775,11 +1625,9 @@ exports[`renders a basic visualization 1`] = `
                                 type="button"
                               >
                                 SingleLevelBomAsPlanned
-                                <div>
-                                  <div
-                                    style="float: right; margin-left: 10px;"
-                                  />
-                                </div>
+                                <div
+                                  style="float: right; margin-left: 10px;"
+                                />
                                 <span
                                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                                 />

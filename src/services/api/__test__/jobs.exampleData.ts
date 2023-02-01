@@ -1673,54 +1673,6 @@ export const JobsDemoDataSuccess: Jobs = {
       },
     },
     {
-      identification: "urn:uuid:a2e15226-c890-4d12-a171-285205d8ab42",
-      aspectType: "urn:bamm:io.catenax.part_as_planned:1.0.0#PartAsPlanned",
-      payload: {
-        validityPeriod: {
-          validFrom: "2019-08-05T21:18:41.000Z",
-          validTo: "2029-05-20T17:40:33.000Z",
-        },
-        catenaXId: "urn:uuid:4518c080-14fb-4252-b8de-4362d615868d",
-        partTypeInformation: {
-          manufacturerPartId: "7A987KK-04",
-          classification: "product",
-          nameAtManufacturer: "N Tier A Plastics",
-        },
-      },
-    },
-    {
-      identification: "urn:uuid:211fa9e1-b62e-406a-94a1-d3e74ed7c387",
-      aspectType: "urn:bamm:io.catenax.part_as_planned:1.0.0#PartAsPlanned",
-      payload: {
-        validityPeriod: {
-          validFrom: "2015-03-15T17:25:20.000Z",
-          validTo: "2027-12-12T17:07:52.000Z",
-        },
-        catenaXId: "urn:uuid:bee5614f-9e46-4c98-9209-61a6f2b2a7fc",
-        partTypeInformation: {
-          manufacturerPartId: "6740244-02",
-          classification: "product",
-          nameAtManufacturer: "Sub Tier A Sensor",
-        },
-      },
-    },
-    {
-      identification: "urn:uuid:abad5802-5071-4e21-97ae-e6f295731a1c",
-      aspectType: "urn:bamm:io.catenax.part_as_planned:1.0.0#PartAsPlanned",
-      payload: {
-        validityPeriod: {
-          validFrom: "2019-12-30T09:17:00.000Z",
-          validTo: "2025-06-28T12:55:41.000Z",
-        },
-        catenaXId: "urn:uuid:86f69643-3b90-4e34-90bf-789edcf40e7e",
-        partTypeInformation: {
-          manufacturerPartId: "7A047KK-01",
-          classification: "product",
-          nameAtManufacturer: "N Tier A NTier Product",
-        },
-      },
-    },
-    {
       identification: "urn:uuid:08780981-14db-440b-bf59-fe54157bcd65",
       aspectType: "urn:bamm:io.catenax.part_as_planned:1.0.0#PartAsPlanned",
       payload: {
