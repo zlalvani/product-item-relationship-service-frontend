@@ -1,11 +1,13 @@
 import { ErrorResponse, Jobs } from "../../../generated/jobsApi";
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+//@ts-ignore
 export const JobsDemoDataSuccess: Jobs = {
   job: {
     id: "42b335a0-4ccb-4918-be9b-1a8f6b53116f",
     globalAssetId: "urn:uuid:0733946c-59c6-41ae-9570-cb43a6e4c79e",
     state: "COMPLETED",
-    exception: null,
+    exception: undefined,
     createdOn: "2023-01-30T09:38:59.692798661Z",
     startedOn: "2023-01-30T09:38:59.69298626Z",
     lastModifiedOn: "2023-01-30T09:42:31.085628948Z",
