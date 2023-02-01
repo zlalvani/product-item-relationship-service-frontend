@@ -5,7 +5,6 @@ import { serverConfig } from "../utils/serverConfig";
 import { useServerEnv } from "../utils/ServerEnv";
 
 const keycloakConfig: Keycloak.KeycloakConfig = {
-  url: "https://centralidp.int.demo.catena-x.net/auth",
   realm: "CX-Central",
   clientId: "Cl2-CX-Portal",
 };

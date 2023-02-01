@@ -2,46 +2,46 @@
 
     // TODO: Table of contents need to be done. Please mark [X] in front of topic when its done. After every topic is done, we can remove "checkbox"
 
-[ o ] - need overview <br>
-[ x ] - done
+- [ ] - need overview <br>
+- [x] - done
 
 ## Table of Contents
 
-- [ x ] [Introduction and goals](#introduction-and-goals)
-  - [ x ] [Requirements overview](#requirements-overview)
-  - [ x ] [Quality goals](#quality-goals)
-  - [ x ] [Stakeholders](#stakeholders)
-- [ o ] [Architecture constraints](#architecture-constraints)
-  - [ o ] [Technical Constraints](#technical-constraints)
-  - [ o ] [Organizational Constraints](#organizational-constraints)
-  - [ o ] [Political constraints](#political-constraints)
-  - [ o ] [Development conventions](#development-conventions)
-- [ o ] [System scope and context](#system-scope-and-context)
-  - [ o ] [Business context](#business-context)
-  - [ o ] [Technical context](#technical-context)
-- [ o ] [Solution strategy](#solution-strategy)
-  - [ o ] [Introduction](#introduction)
-  - [ o ] [Technology](#technology)
-  - [ o ] [Structure](#structure)
-- [ o ] [Building block view](#building-block-view)
-  - [ o ] [Whitebox overall system](#whitebox-overall-system)
-  - [ o ] [Level 1](#level-1)
-  - [ o ] [IRS API](#references)
-- [ o ] [Runtime view](#runtime-view)
-  - [ o ] [Overall](#overall)
-  - [ o ] [Scenario 1: Find a job](#scenario-1-find-a-job)
-- [ ] [Deployment view](#deployment-view) still unclear whole topic
-  - [ ] [Local deployment](#local-deployment)
-  - [ ] [View Levels](#view-levels)
-- [ o ] [Cross-cutting concepts](#cross-cutting-concepts)
-  - [ o ] [Domain concepts](#domain-concepts)
-  - [ o ] [Safety and security concepts](#safety-and-security-concepts)
-  - [ o ] ["Under-the-hood" concepts](#under-the-hood-concepts)
-  - [ o ] [Development concepts](#development-concepts)
-  - [ o ] [Operational concepts](#operational-concepts)
-- [ o ] [Quality requirements](#quality-requirements)
-  - [ o ] [List of requirements](#list-of-requirements)
-- [ o ] [Glossary](#glossary)
+- [x] [Introduction and goals](#introduction-and-goals)
+  - [x] [Requirements overview](#requirements-overview)
+  - [x] [Quality goals](#quality-goals)
+  - [x] [Stakeholders](#stakeholders)
+- [x] [Architecture constraints](#architecture-constraints)
+  - [x] [Technical Constraints](#technical-constraints)
+  - [x] [Organizational Constraints](#organizational-constraints)
+  - [x] [Political constraints](#political-constraints)
+  - [x] [Development conventions](#development-conventions)
+- [x] [System scope and context](#system-scope-and-context)
+  - [x] [Business context](#business-context)
+  - [x] [Technical context](#technical-context)
+- [x] [Solution strategy](#solution-strategy)
+  - [x] [Introduction](#introduction)
+  - [x] [Technology](#technology)
+  - [x] [Structure](#structure)
+- [x] [Building block view](#building-block-view)
+  - [x] [Whitebox overall system](#whitebox-overall-system)
+  - [x] [Level 1](#level-1)
+  - [x] [IRS API](#references)
+- [x] [Runtime view](#runtime-view)
+  - [x] [Overall](#overall)
+  - [x] [Scenario 1: Create a job](#scenario-1-find-a-job)
+- [x] [Deployment view](#deployment-view) still unclear whole topic
+  - [x] [Local deployment](#local-deployment)
+  - [x] [View Levels](#view-levels)
+- [x] [Cross-cutting concepts](#cross-cutting-concepts)
+  - [x] [Domain concepts](#domain-concepts)
+  - [x] [Safety and security concepts](#safety-and-security-concepts)
+  - [x] ["Under-the-hood" concepts](#under-the-hood-concepts)
+  - [ ] [Development concepts](#development-concepts)
+  - [x] [Operational concepts](#operational-concepts)
+- [x] [Quality requirements](#quality-requirements)
+  - [x] [List of requirements](#list-of-requirements)
+- [x] [Glossary](#glossary)
 
 <br>
 
@@ -258,23 +258,6 @@ Full backend services graph you can find at **[IRS team](https://catenax-ng.gith
 | IRSJobAddForm      | The IRSJobAddForm is a JSON format with parameters, you can add "aspects", "direction", "globalAssetId" and other parameters. (see full json file below) |
 | IRSJobOverview     | The IRSJobOverview is a component which manages (start, cancel, auto refresh) the jobs, and store them in a table list.                                  |
 
-```json
-json example:
-{
-"aspects": [
-"AssemblyPartRelationship",
-"SerialPartTypization"
-],
-"bomLifecycle": "asBuilt",
-"collectAspects": true,
-"direction": "downward",
-"depth": 10,
-"globalAssetId": "urn:uuid:d387fa8e-603c-42bd-98c3-4d87fef8d2bb"
-}
-
-
-```
-
 ## IRS API
 
 ### References
@@ -303,9 +286,9 @@ This section describes the overall flow of the IRS-DV.
 
 ![IRS flow](./images/puml-svg/irs-dv-flow.svg)
 
-## Scenario 1: Find a job
+## Scenario 1: Create a job
 
-This section describes what happens when user search for a job.
+This section describes what happens when user creates a job.
 
 create job (IAMGE)
 
@@ -326,18 +309,8 @@ User run application locally and select environment. After user select environme
 The deployment view shows the IRS-DV application
 
 ```
-Need later overview
+//TODO: Adjust after HelmCarts Need later overview
 ```
-
-**ArgoCD**
-
-Argo CD is a declarative, GitOps continuous delivery tool for Kubernetes. See https://argo-cd.readthedocs.io/.
-
-**Vault**
-
-HashiCorp Vault stores credentials, which are picked up by ArgoCD to deploy them to the application.
-
-Every secret information needed at runtime must be stored here and must never be part of the IRS Helm charts
 
 **GitHub**
 
@@ -345,7 +318,7 @@ GitHub contains the application source code as well as the Helm charts used for 
 
 ## Local deployment
 
-For information on how to run the application locally, please check the README documentation in GitHub: https://github.com/eclipse-tractusx/item-relationship-service/blob/main/README.md
+For information on how to run the application locally, please check the README documentation in GitHub: https://github.com/catenax-ng/product-item-relationship-service-frontend/blob/main/docs/FirstSteps.md
 
 ## View Levels
 
@@ -353,7 +326,7 @@ For information on how to run the application locally, please check the README d
 
 ### Isolated environment
 
-The isolated environment contains the IRS as well as the surrounding services, excluding the external IAM.
+The isolated environment contains the IRS-DV as well as the surrounding services, excluding the external Keycloak.
 
 isolated (IMAGE)
 
@@ -365,24 +338,13 @@ integrated (IMAGE)
 
 ## Level 1 - IRS application
 
-This section focuses only on the IRS itself, detached from its neighbors. It shows the resources deployed in Kubernetes for the IRS.
+This section focuses only on the IRS-DV itself, detached from its neighbors. It shows the resources deployed in Kubernetes for the IRS.
 
 irs resources (IMAGE)
 **Pod**
 
 This is the actual IRS Docker image which runs as a container. The ports are only available internally and can be opened up with the Service.
 
-**Secrets**
-
-The secret information (e.g. connection credentials) is stored here and provided to the Pod at runtime.
-
-**Service**
-
-The service resource opens up selected ports of the Pod so that other applications in the same cluster can access it or to be used by the Ingress.
-
-**Ingress**
-
-The ingress uses a reverse proxy to provide specified Service ports to the internet under a specified URL. This make the IRS API publicly available.
 <br>
 <br>
 
@@ -432,7 +394,7 @@ Credentials must never be stored in Git!
 
 ### Exception and error handling
 
-There are two types of potential errors in the IRS:
+There are two types of potential errors in the IRS-DV:
 
 ### Technical errors
 
@@ -486,7 +448,9 @@ The quality scenarios in this section depict the fundamental quality goals as we
 
 ## List of requirements
 
-This section will be filled soon.
+The Quality Requirements are defined in the ESLint and Prettier configuration. As well as the Sonarcube configuration.
+
+Overall the code should be as low complexity as possible. This is ensured by using smaller functions that are easy to test.
 <br>
 <br>
 

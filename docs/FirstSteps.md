@@ -26,6 +26,13 @@ _Note:_ The main branch is protected currently by husky, i.e. git pre commit hoo
 
 Here is a list of 3rd party dependencies and how they relate to each other.
 
+### Upgrade Strategy
+Currently there is no fixed schedule to upgrade the packages. 
+
+### IMPORTANT NOTE
+Currently the package: "@mui/material": "5.10.17" cannot be updated to a newer version.
+A ticket has been opened with the owner of the library https://github.com/mui/material-ui/issues/35773
+
 ### Dependencies
 
 ### UI Components

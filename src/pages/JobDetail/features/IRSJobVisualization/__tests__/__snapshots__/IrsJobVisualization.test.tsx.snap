@@ -182,10 +182,10 @@ exports[`renders a basic visualization 1`] = `
                     <div
                       aria-describedby="react-flow__node-desc-1"
                       class="react-flow__node react-flow__node-displayNode nopan selectable"
-                      data-id="urn:uuid:a45a2246-f6e1-42da-b47d-5c3b58ed62e9"
-                      data-testid="rf__node-urn:uuid:a45a2246-f6e1-42da-b47d-5c3b58ed62e9"
+                      data-id="urn:uuid:0733946c-59c6-41ae-9570-cb43a6e4c79e"
+                      data-testid="rf__node-urn:uuid:0733946c-59c6-41ae-9570-cb43a6e4c79e"
                       role="button"
-                      style="z-index: 0; transform: translate(0px,0px); pointer-events: all; visibility: visible;"
+                      style="z-index: 0; transform: translate(185px,0px); pointer-events: all; visibility: visible;"
                       tabindex="0"
                     >
                       <div
@@ -194,8 +194,8 @@ exports[`renders a basic visualization 1`] = `
                         <div
                           class="react-flow__handle react-flow__handle-top nodrag nopan target connectable"
                           data-handlepos="top"
-                          data-id="urn:uuid:a45a2246-f6e1-42da-b47d-5c3b58ed62e9-null-target"
-                          data-nodeid="urn:uuid:a45a2246-f6e1-42da-b47d-5c3b58ed62e9"
+                          data-id="urn:uuid:0733946c-59c6-41ae-9570-cb43a6e4c79e-null-target"
+                          data-nodeid="urn:uuid:0733946c-59c6-41ae-9570-cb43a6e4c79e"
                           draggable="false"
                         />
                         <div
@@ -205,10 +205,276 @@ exports[`renders a basic visualization 1`] = `
                             class="css-9pltgg"
                           >
                             <p>
-                              future concept x
+                              VehicleModelA
                             </p>
                             <p>
-                              urn:uuid:a45a2246-f6e1-42da-b47d-5c3b58ed62e9
+                              urn:uuid:0733946c-59c6-41ae-9570-cb43a6e4c79e
+                            </p>
+                          </div>
+                          <div
+                            class="MuiBox-root css-6cgya3"
+                          >
+                            <div
+                              style="text-align: left; margin: 5px;"
+                            >
+                              content.irs.visualization.nodeAspectsTitle
+                            </div>
+                            <div
+                              class="MuiBox-root css-0"
+                            >
+                              <button
+                                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedError MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedError MuiButton-sizeSmall MuiButton-containedSizeSmall css-cxm5bq-MuiButtonBase-root-MuiButton-root"
+                                tabindex="0"
+                                type="button"
+                              >
+                                EssIncident
+                                <div>
+                                  <div
+                                    style="float: right; margin-left: 10px;"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                      data-testid="SourceIcon"
+                                      focusable="false"
+                                      viewBox="0 0 24 24"
+                                    >
+                                      <path
+                                        d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"
+                                      />
+                                    </svg>
+                                  </div>
+                                </div>
+                                <span
+                                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                />
+                              </button>
+                            </div>
+                            <div
+                              class="MuiBox-root css-0"
+                            >
+                              <button
+                                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall css-7xvvqp-MuiButtonBase-root-MuiButton-root"
+                                tabindex="0"
+                                type="button"
+                              >
+                                PartAsPlanned
+                                <div>
+                                  <div
+                                    style="float: right; margin-left: 10px;"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                      data-testid="SourceIcon"
+                                      focusable="false"
+                                      viewBox="0 0 24 24"
+                                    >
+                                      <path
+                                        d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"
+                                      />
+                                    </svg>
+                                  </div>
+                                </div>
+                                <span
+                                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                />
+                              </button>
+                            </div>
+                            <div
+                              class="MuiBox-root css-0"
+                            >
+                              <button
+                                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall css-7xvvqp-MuiButtonBase-root-MuiButton-root"
+                                tabindex="0"
+                                type="button"
+                              >
+                                SingleLevelBomAsPlanned
+                                <div>
+                                  <div
+                                    style="float: right; margin-left: 10px;"
+                                  />
+                                </div>
+                                <span
+                                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                />
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          class="react-flow__handle react-flow__handle-bottom nodrag nopan source connectable"
+                          data-handleid="a"
+                          data-handlepos="bottom"
+                          data-id="urn:uuid:0733946c-59c6-41ae-9570-cb43a6e4c79e-a-source"
+                          data-nodeid="urn:uuid:0733946c-59c6-41ae-9570-cb43a6e4c79e"
+                          draggable="false"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      aria-describedby="react-flow__node-desc-1"
+                      class="react-flow__node react-flow__node-displayNode nopan selectable"
+                      data-id="urn:uuid:07cb071f-8716-45fe-89f1-f2f77a1ce93b"
+                      data-testid="rf__node-urn:uuid:07cb071f-8716-45fe-89f1-f2f77a1ce93b"
+                      role="button"
+                      style="z-index: 0; transform: translate(0px,345px); pointer-events: all; visibility: visible;"
+                      tabindex="0"
+                    >
+                      <div
+                        class="nodrag"
+                      >
+                        <div
+                          class="react-flow__handle react-flow__handle-top nodrag nopan target connectable"
+                          data-handlepos="top"
+                          data-id="urn:uuid:07cb071f-8716-45fe-89f1-f2f77a1ce93b-null-target"
+                          data-nodeid="urn:uuid:07cb071f-8716-45fe-89f1-f2f77a1ce93b"
+                          draggable="false"
+                        />
+                        <div
+                          class="css-1dderol"
+                        >
+                          <div
+                            class="css-9pltgg"
+                          >
+                            <p>
+                              TierBECU1
+                            </p>
+                            <p>
+                              urn:uuid:07cb071f-8716-45fe-89f1-f2f77a1ce93b
+                            </p>
+                          </div>
+                          <div
+                            class="MuiBox-root css-6cgya3"
+                          >
+                            <div
+                              style="text-align: left; margin: 5px;"
+                            >
+                              content.irs.visualization.nodeAspectsTitle
+                            </div>
+                            <div
+                              class="MuiBox-root css-0"
+                            >
+                              <button
+                                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedError MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedError MuiButton-sizeSmall MuiButton-containedSizeSmall css-cxm5bq-MuiButtonBase-root-MuiButton-root"
+                                tabindex="0"
+                                type="button"
+                              >
+                                EssIncident
+                                <div>
+                                  <div
+                                    style="float: right; margin-left: 10px;"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                      data-testid="SourceIcon"
+                                      focusable="false"
+                                      viewBox="0 0 24 24"
+                                    >
+                                      <path
+                                        d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"
+                                      />
+                                    </svg>
+                                  </div>
+                                </div>
+                                <span
+                                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                />
+                              </button>
+                            </div>
+                            <div
+                              class="MuiBox-root css-0"
+                            >
+                              <button
+                                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall css-7xvvqp-MuiButtonBase-root-MuiButton-root"
+                                tabindex="0"
+                                type="button"
+                              >
+                                PartAsPlanned
+                                <div>
+                                  <div
+                                    style="float: right; margin-left: 10px;"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                      data-testid="SourceIcon"
+                                      focusable="false"
+                                      viewBox="0 0 24 24"
+                                    >
+                                      <path
+                                        d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"
+                                      />
+                                    </svg>
+                                  </div>
+                                </div>
+                                <span
+                                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                />
+                              </button>
+                            </div>
+                            <div
+                              class="MuiBox-root css-0"
+                            >
+                              <button
+                                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall css-7xvvqp-MuiButtonBase-root-MuiButton-root"
+                                tabindex="0"
+                                type="button"
+                              >
+                                SingleLevelBomAsPlanned
+                                <div>
+                                  <div
+                                    style="float: right; margin-left: 10px;"
+                                  />
+                                </div>
+                                <span
+                                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                />
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          class="react-flow__handle react-flow__handle-bottom nodrag nopan source connectable"
+                          data-handleid="a"
+                          data-handlepos="bottom"
+                          data-id="urn:uuid:07cb071f-8716-45fe-89f1-f2f77a1ce93b-a-source"
+                          data-nodeid="urn:uuid:07cb071f-8716-45fe-89f1-f2f77a1ce93b"
+                          draggable="false"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      aria-describedby="react-flow__node-desc-1"
+                      class="react-flow__node react-flow__node-displayNode nopan selectable"
+                      data-id="urn:uuid:aad27ddb-43aa-4e42-98c2-01e529ef127c"
+                      data-testid="rf__node-urn:uuid:aad27ddb-43aa-4e42-98c2-01e529ef127c"
+                      role="button"
+                      style="z-index: 0; transform: translate(720px,345px); pointer-events: all; visibility: visible;"
+                      tabindex="0"
+                    >
+                      <div
+                        class="nodrag"
+                      >
+                        <div
+                          class="react-flow__handle react-flow__handle-top nodrag nopan target connectable"
+                          data-handlepos="top"
+                          data-id="urn:uuid:aad27ddb-43aa-4e42-98c2-01e529ef127c-null-target"
+                          data-nodeid="urn:uuid:aad27ddb-43aa-4e42-98c2-01e529ef127c"
+                          draggable="false"
+                        />
+                        <div
+                          class="css-1dderol"
+                        >
+                          <div
+                            class="css-9pltgg"
+                          >
+                            <p>
+                              OEMAHighVoltageBattery
+                            </p>
+                            <p>
+                              urn:uuid:aad27ddb-43aa-4e42-98c2-01e529ef127c
                             </p>
                           </div>
                           <div
@@ -227,11 +493,23 @@ exports[`renders a basic visualization 1`] = `
                                 tabindex="0"
                                 type="button"
                               >
-                                vehicle base details
+                                EssIncident
                                 <div>
                                   <div
                                     style="float: right; margin-left: 10px;"
-                                  />
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                      data-testid="SourceIcon"
+                                      focusable="false"
+                                      viewBox="0 0 24 24"
+                                    >
+                                      <path
+                                        d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"
+                                      />
+                                    </svg>
+                                  </div>
                                 </div>
                                 <span
                                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -242,11 +520,11 @@ exports[`renders a basic visualization 1`] = `
                               class="MuiBox-root css-0"
                             >
                               <button
-                                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedError MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedError MuiButton-sizeSmall MuiButton-containedSizeSmall css-cxm5bq-MuiButtonBase-root-MuiButton-root"
+                                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall css-7xvvqp-MuiButtonBase-root-MuiButton-root"
                                 tabindex="0"
                                 type="button"
                               >
-                                vehicle part details
+                                PartAsPlanned
                                 <div>
                                   <div
                                     style="float: right; margin-left: 10px;"
@@ -254,15 +532,34 @@ exports[`renders a basic visualization 1`] = `
                                     <svg
                                       aria-hidden="true"
                                       class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                                      data-testid="ErrorOutlineIcon"
+                                      data-testid="SourceIcon"
                                       focusable="false"
                                       viewBox="0 0 24 24"
                                     >
                                       <path
-                                        d="M11 15h2v2h-2zm0-8h2v6h-2zm.99-5C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
+                                        d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"
                                       />
                                     </svg>
                                   </div>
+                                </div>
+                                <span
+                                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                />
+                              </button>
+                            </div>
+                            <div
+                              class="MuiBox-root css-0"
+                            >
+                              <button
+                                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall css-7xvvqp-MuiButtonBase-root-MuiButton-root"
+                                tabindex="0"
+                                type="button"
+                              >
+                                SingleLevelBomAsPlanned
+                                <div>
+                                  <div
+                                    style="float: right; margin-left: 10px;"
+                                  />
                                 </div>
                                 <span
                                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
@@ -275,8 +572,1227 @@ exports[`renders a basic visualization 1`] = `
                           class="react-flow__handle react-flow__handle-bottom nodrag nopan source connectable"
                           data-handleid="a"
                           data-handlepos="bottom"
-                          data-id="urn:uuid:a45a2246-f6e1-42da-b47d-5c3b58ed62e9-a-source"
-                          data-nodeid="urn:uuid:a45a2246-f6e1-42da-b47d-5c3b58ed62e9"
+                          data-id="urn:uuid:aad27ddb-43aa-4e42-98c2-01e529ef127c-a-source"
+                          data-nodeid="urn:uuid:aad27ddb-43aa-4e42-98c2-01e529ef127c"
+                          draggable="false"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      aria-describedby="react-flow__node-desc-1"
+                      class="react-flow__node react-flow__node-displayNode nopan selectable"
+                      data-id="urn:uuid:2c57b0e9-a653-411d-bdcd-64787e9fd3a7"
+                      data-testid="rf__node-urn:uuid:2c57b0e9-a653-411d-bdcd-64787e9fd3a7"
+                      role="button"
+                      style="z-index: 0; transform: translate(350px,345px); pointer-events: all; visibility: visible;"
+                      tabindex="0"
+                    >
+                      <div
+                        class="nodrag"
+                      >
+                        <div
+                          class="react-flow__handle react-flow__handle-top nodrag nopan target connectable"
+                          data-handlepos="top"
+                          data-id="urn:uuid:2c57b0e9-a653-411d-bdcd-64787e9fd3a7-null-target"
+                          data-nodeid="urn:uuid:2c57b0e9-a653-411d-bdcd-64787e9fd3a7"
+                          draggable="false"
+                        />
+                        <div
+                          class="css-1dderol"
+                        >
+                          <div
+                            class="css-9pltgg"
+                          >
+                            <p>
+                              TierAGearbox
+                            </p>
+                            <p>
+                              urn:uuid:2c57b0e9-a653-411d-bdcd-64787e9fd3a7
+                            </p>
+                          </div>
+                          <div
+                            class="MuiBox-root css-6cgya3"
+                          >
+                            <div
+                              style="text-align: left; margin: 5px;"
+                            >
+                              content.irs.visualization.nodeAspectsTitle
+                            </div>
+                            <div
+                              class="MuiBox-root css-0"
+                            >
+                              <button
+                                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedWarning MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedWarning MuiButton-sizeSmall MuiButton-containedSizeSmall css-1akf5ju-MuiButtonBase-root-MuiButton-root"
+                                tabindex="0"
+                                type="button"
+                              >
+                                EssIncident
+                                <div>
+                                  <div
+                                    style="float: right; margin-left: 10px;"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                      data-testid="SourceIcon"
+                                      focusable="false"
+                                      viewBox="0 0 24 24"
+                                    >
+                                      <path
+                                        d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"
+                                      />
+                                    </svg>
+                                  </div>
+                                </div>
+                                <span
+                                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                />
+                              </button>
+                            </div>
+                            <div
+                              class="MuiBox-root css-0"
+                            >
+                              <button
+                                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall css-7xvvqp-MuiButtonBase-root-MuiButton-root"
+                                tabindex="0"
+                                type="button"
+                              >
+                                PartAsPlanned
+                                <div>
+                                  <div
+                                    style="float: right; margin-left: 10px;"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                      data-testid="SourceIcon"
+                                      focusable="false"
+                                      viewBox="0 0 24 24"
+                                    >
+                                      <path
+                                        d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"
+                                      />
+                                    </svg>
+                                  </div>
+                                </div>
+                                <span
+                                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                />
+                              </button>
+                            </div>
+                            <div
+                              class="MuiBox-root css-0"
+                            >
+                              <button
+                                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall css-7xvvqp-MuiButtonBase-root-MuiButton-root"
+                                tabindex="0"
+                                type="button"
+                              >
+                                SingleLevelBomAsPlanned
+                                <div>
+                                  <div
+                                    style="float: right; margin-left: 10px;"
+                                  />
+                                </div>
+                                <span
+                                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                />
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          class="react-flow__handle react-flow__handle-bottom nodrag nopan source connectable"
+                          data-handleid="a"
+                          data-handlepos="bottom"
+                          data-id="urn:uuid:2c57b0e9-a653-411d-bdcd-64787e9fd3a7-a-source"
+                          data-nodeid="urn:uuid:2c57b0e9-a653-411d-bdcd-64787e9fd3a7"
+                          draggable="false"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      aria-describedby="react-flow__node-desc-1"
+                      class="react-flow__node react-flow__node-displayNode nopan selectable"
+                      data-id="urn:uuid:bee5614f-9e46-4c98-9209-61a6f2b2a7fc"
+                      data-testid="rf__node-urn:uuid:bee5614f-9e46-4c98-9209-61a6f2b2a7fc"
+                      role="button"
+                      style="z-index: 0; transform: translate(0px,690px); pointer-events: all; visibility: visible;"
+                      tabindex="0"
+                    >
+                      <div
+                        class="nodrag"
+                      >
+                        <div
+                          class="react-flow__handle react-flow__handle-top nodrag nopan target connectable"
+                          data-handlepos="top"
+                          data-id="urn:uuid:bee5614f-9e46-4c98-9209-61a6f2b2a7fc-null-target"
+                          data-nodeid="urn:uuid:bee5614f-9e46-4c98-9209-61a6f2b2a7fc"
+                          draggable="false"
+                        />
+                        <div
+                          class="css-1dderol"
+                        >
+                          <div
+                            class="css-9pltgg"
+                          >
+                            <p>
+                              SubTierASensor
+                            </p>
+                            <p>
+                              urn:uuid:bee5614f-9e46-4c98-9209-61a6f2b2a7fc
+                            </p>
+                          </div>
+                          <div
+                            class="MuiBox-root css-6cgya3"
+                          >
+                            <div
+                              style="text-align: left; margin: 5px;"
+                            >
+                              content.irs.visualization.nodeAspectsTitle
+                            </div>
+                            <div
+                              class="MuiBox-root css-0"
+                            >
+                              <button
+                                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall css-7xvvqp-MuiButtonBase-root-MuiButton-root"
+                                tabindex="0"
+                                type="button"
+                              >
+                                EssIncident
+                                <div>
+                                  <div
+                                    style="float: right; margin-left: 10px;"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                      data-testid="SourceIcon"
+                                      focusable="false"
+                                      viewBox="0 0 24 24"
+                                    >
+                                      <path
+                                        d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"
+                                      />
+                                    </svg>
+                                  </div>
+                                </div>
+                                <span
+                                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                />
+                              </button>
+                            </div>
+                            <div
+                              class="MuiBox-root css-0"
+                            >
+                              <button
+                                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall css-7xvvqp-MuiButtonBase-root-MuiButton-root"
+                                tabindex="0"
+                                type="button"
+                              >
+                                PartAsPlanned
+                                <div>
+                                  <div
+                                    style="float: right; margin-left: 10px;"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                      data-testid="SourceIcon"
+                                      focusable="false"
+                                      viewBox="0 0 24 24"
+                                    >
+                                      <path
+                                        d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"
+                                      />
+                                    </svg>
+                                    <svg
+                                      aria-hidden="true"
+                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                      data-testid="SourceIcon"
+                                      focusable="false"
+                                      viewBox="0 0 24 24"
+                                    >
+                                      <path
+                                        d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"
+                                      />
+                                    </svg>
+                                  </div>
+                                </div>
+                                <span
+                                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                />
+                              </button>
+                            </div>
+                            <div
+                              class="MuiBox-root css-0"
+                            >
+                              <button
+                                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall css-7xvvqp-MuiButtonBase-root-MuiButton-root"
+                                tabindex="0"
+                                type="button"
+                              >
+                                SingleLevelBomAsPlanned
+                                <div>
+                                  <div
+                                    style="float: right; margin-left: 10px;"
+                                  />
+                                </div>
+                                <span
+                                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                />
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          class="react-flow__handle react-flow__handle-bottom nodrag nopan source connectable"
+                          data-handleid="a"
+                          data-handlepos="bottom"
+                          data-id="urn:uuid:bee5614f-9e46-4c98-9209-61a6f2b2a7fc-a-source"
+                          data-nodeid="urn:uuid:bee5614f-9e46-4c98-9209-61a6f2b2a7fc"
+                          draggable="false"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      aria-describedby="react-flow__node-desc-1"
+                      class="react-flow__node react-flow__node-displayNode nopan selectable"
+                      data-id="urn:uuid:3cdd2826-5df0-4c7b-b540-9eeccecb2301"
+                      data-testid="rf__node-urn:uuid:3cdd2826-5df0-4c7b-b540-9eeccecb2301"
+                      role="button"
+                      style="z-index: 0; transform: translate(370px,690px); pointer-events: all; visibility: visible;"
+                      tabindex="0"
+                    >
+                      <div
+                        class="nodrag"
+                      >
+                        <div
+                          class="react-flow__handle react-flow__handle-top nodrag nopan target connectable"
+                          data-handlepos="top"
+                          data-id="urn:uuid:3cdd2826-5df0-4c7b-b540-9eeccecb2301-null-target"
+                          data-nodeid="urn:uuid:3cdd2826-5df0-4c7b-b540-9eeccecb2301"
+                          draggable="false"
+                        />
+                        <div
+                          class="css-1dderol"
+                        >
+                          <div
+                            class="css-9pltgg"
+                          >
+                            <p>
+                              SubTierBGlue
+                            </p>
+                            <p>
+                              urn:uuid:3cdd2826-5df0-4c7b-b540-9eeccecb2301
+                            </p>
+                          </div>
+                          <div
+                            class="MuiBox-root css-6cgya3"
+                          >
+                            <div
+                              style="text-align: left; margin: 5px;"
+                            >
+                              content.irs.visualization.nodeAspectsTitle
+                            </div>
+                            <div
+                              class="MuiBox-root css-0"
+                            >
+                              <button
+                                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedError MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedError MuiButton-sizeSmall MuiButton-containedSizeSmall css-cxm5bq-MuiButtonBase-root-MuiButton-root"
+                                tabindex="0"
+                                type="button"
+                              >
+                                EssIncident
+                                <div>
+                                  <div
+                                    style="float: right; margin-left: 10px;"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                      data-testid="SourceIcon"
+                                      focusable="false"
+                                      viewBox="0 0 24 24"
+                                    >
+                                      <path
+                                        d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"
+                                      />
+                                    </svg>
+                                  </div>
+                                </div>
+                                <span
+                                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                />
+                              </button>
+                            </div>
+                            <div
+                              class="MuiBox-root css-0"
+                            >
+                              <button
+                                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall css-7xvvqp-MuiButtonBase-root-MuiButton-root"
+                                tabindex="0"
+                                type="button"
+                              >
+                                PartAsPlanned
+                                <div>
+                                  <div
+                                    style="float: right; margin-left: 10px;"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                      data-testid="SourceIcon"
+                                      focusable="false"
+                                      viewBox="0 0 24 24"
+                                    >
+                                      <path
+                                        d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"
+                                      />
+                                    </svg>
+                                  </div>
+                                </div>
+                                <span
+                                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                />
+                              </button>
+                            </div>
+                            <div
+                              class="MuiBox-root css-0"
+                            >
+                              <button
+                                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall css-7xvvqp-MuiButtonBase-root-MuiButton-root"
+                                tabindex="0"
+                                type="button"
+                              >
+                                SingleLevelBomAsPlanned
+                                <div>
+                                  <div
+                                    style="float: right; margin-left: 10px;"
+                                  />
+                                </div>
+                                <span
+                                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                />
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          class="react-flow__handle react-flow__handle-bottom nodrag nopan source connectable"
+                          data-handleid="a"
+                          data-handlepos="bottom"
+                          data-id="urn:uuid:3cdd2826-5df0-4c7b-b540-9eeccecb2301-a-source"
+                          data-nodeid="urn:uuid:3cdd2826-5df0-4c7b-b540-9eeccecb2301"
+                          draggable="false"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      aria-describedby="react-flow__node-desc-1"
+                      class="react-flow__node react-flow__node-displayNode nopan selectable"
+                      data-id="urn:uuid:e5c96ab5-896a-482c-8761-efd74777ca97"
+                      data-testid="rf__node-urn:uuid:e5c96ab5-896a-482c-8761-efd74777ca97"
+                      role="button"
+                      style="z-index: 0; transform: translate(720px,690px); pointer-events: all; visibility: visible;"
+                      tabindex="0"
+                    >
+                      <div
+                        class="nodrag"
+                      >
+                        <div
+                          class="react-flow__handle react-flow__handle-top nodrag nopan target connectable"
+                          data-handlepos="top"
+                          data-id="urn:uuid:e5c96ab5-896a-482c-8761-efd74777ca97-null-target"
+                          data-nodeid="urn:uuid:e5c96ab5-896a-482c-8761-efd74777ca97"
+                          draggable="false"
+                        />
+                        <div
+                          class="css-1dderol"
+                        >
+                          <div
+                            class="css-9pltgg"
+                          >
+                            <p>
+                              HVModul
+                            </p>
+                            <p>
+                              urn:uuid:e5c96ab5-896a-482c-8761-efd74777ca97
+                            </p>
+                          </div>
+                          <div
+                            class="MuiBox-root css-6cgya3"
+                          >
+                            <div
+                              style="text-align: left; margin: 5px;"
+                            >
+                              content.irs.visualization.nodeAspectsTitle
+                            </div>
+                            <div
+                              class="MuiBox-root css-0"
+                            >
+                              <button
+                                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedError MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedError MuiButton-sizeSmall MuiButton-containedSizeSmall css-cxm5bq-MuiButtonBase-root-MuiButton-root"
+                                tabindex="0"
+                                type="button"
+                              >
+                                EssIncident
+                                <div>
+                                  <div
+                                    style="float: right; margin-left: 10px;"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                      data-testid="SourceIcon"
+                                      focusable="false"
+                                      viewBox="0 0 24 24"
+                                    >
+                                      <path
+                                        d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"
+                                      />
+                                    </svg>
+                                  </div>
+                                </div>
+                                <span
+                                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                />
+                              </button>
+                            </div>
+                            <div
+                              class="MuiBox-root css-0"
+                            >
+                              <button
+                                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall css-7xvvqp-MuiButtonBase-root-MuiButton-root"
+                                tabindex="0"
+                                type="button"
+                              >
+                                PartAsPlanned
+                                <div>
+                                  <div
+                                    style="float: right; margin-left: 10px;"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                      data-testid="SourceIcon"
+                                      focusable="false"
+                                      viewBox="0 0 24 24"
+                                    >
+                                      <path
+                                        d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"
+                                      />
+                                    </svg>
+                                  </div>
+                                </div>
+                                <span
+                                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                />
+                              </button>
+                            </div>
+                            <div
+                              class="MuiBox-root css-0"
+                            >
+                              <button
+                                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall css-7xvvqp-MuiButtonBase-root-MuiButton-root"
+                                tabindex="0"
+                                type="button"
+                              >
+                                SingleLevelBomAsPlanned
+                                <div>
+                                  <div
+                                    style="float: right; margin-left: 10px;"
+                                  />
+                                </div>
+                                <span
+                                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                />
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          class="react-flow__handle react-flow__handle-bottom nodrag nopan source connectable"
+                          data-handleid="a"
+                          data-handlepos="bottom"
+                          data-id="urn:uuid:e5c96ab5-896a-482c-8761-efd74777ca97-a-source"
+                          data-nodeid="urn:uuid:e5c96ab5-896a-482c-8761-efd74777ca97"
+                          draggable="false"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      aria-describedby="react-flow__node-desc-1"
+                      class="react-flow__node react-flow__node-displayNode nopan selectable"
+                      data-id="urn:uuid:4518c080-14fb-4252-b8de-4362d615868d"
+                      data-testid="rf__node-urn:uuid:4518c080-14fb-4252-b8de-4362d615868d"
+                      role="button"
+                      style="z-index: 0; transform: translate(1070px,690px); pointer-events: all; visibility: visible;"
+                      tabindex="0"
+                    >
+                      <div
+                        class="nodrag"
+                      >
+                        <div
+                          class="react-flow__handle react-flow__handle-top nodrag nopan target connectable"
+                          data-handlepos="top"
+                          data-id="urn:uuid:4518c080-14fb-4252-b8de-4362d615868d-null-target"
+                          data-nodeid="urn:uuid:4518c080-14fb-4252-b8de-4362d615868d"
+                          draggable="false"
+                        />
+                        <div
+                          class="css-1dderol"
+                        >
+                          <div
+                            class="css-9pltgg"
+                          >
+                            <p>
+                              NTierAPlastics
+                            </p>
+                            <p>
+                              urn:uuid:4518c080-14fb-4252-b8de-4362d615868d
+                            </p>
+                          </div>
+                          <div
+                            class="MuiBox-root css-6cgya3"
+                          >
+                            <div
+                              style="text-align: left; margin: 5px;"
+                            >
+                              content.irs.visualization.nodeAspectsTitle
+                            </div>
+                            <div
+                              class="MuiBox-root css-0"
+                            >
+                              <button
+                                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedWarning MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedWarning MuiButton-sizeSmall MuiButton-containedSizeSmall css-1akf5ju-MuiButtonBase-root-MuiButton-root"
+                                tabindex="0"
+                                type="button"
+                              >
+                                EssIncident
+                                <div>
+                                  <div
+                                    style="float: right; margin-left: 10px;"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                      data-testid="SourceIcon"
+                                      focusable="false"
+                                      viewBox="0 0 24 24"
+                                    >
+                                      <path
+                                        d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"
+                                      />
+                                    </svg>
+                                  </div>
+                                </div>
+                                <span
+                                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                />
+                              </button>
+                            </div>
+                            <div
+                              class="MuiBox-root css-0"
+                            >
+                              <button
+                                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall css-7xvvqp-MuiButtonBase-root-MuiButton-root"
+                                tabindex="0"
+                                type="button"
+                              >
+                                PartAsPlanned
+                                <div>
+                                  <div
+                                    style="float: right; margin-left: 10px;"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                      data-testid="SourceIcon"
+                                      focusable="false"
+                                      viewBox="0 0 24 24"
+                                    >
+                                      <path
+                                        d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"
+                                      />
+                                    </svg>
+                                  </div>
+                                </div>
+                                <span
+                                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                />
+                              </button>
+                            </div>
+                            <div
+                              class="MuiBox-root css-0"
+                            >
+                              <button
+                                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall css-7xvvqp-MuiButtonBase-root-MuiButton-root"
+                                tabindex="0"
+                                type="button"
+                              >
+                                SingleLevelBomAsPlanned
+                                <div>
+                                  <div
+                                    style="float: right; margin-left: 10px;"
+                                  />
+                                </div>
+                                <span
+                                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                />
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          class="react-flow__handle react-flow__handle-bottom nodrag nopan source connectable"
+                          data-handleid="a"
+                          data-handlepos="bottom"
+                          data-id="urn:uuid:4518c080-14fb-4252-b8de-4362d615868d-a-source"
+                          data-nodeid="urn:uuid:4518c080-14fb-4252-b8de-4362d615868d"
+                          draggable="false"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      aria-describedby="react-flow__node-desc-1"
+                      class="react-flow__node react-flow__node-displayNode nopan selectable"
+                      data-id="urn:uuid:86f69643-3b90-4e34-90bf-789edcf40e7e"
+                      data-testid="rf__node-urn:uuid:86f69643-3b90-4e34-90bf-789edcf40e7e"
+                      role="button"
+                      style="z-index: 0; transform: translate(0px,1035px); pointer-events: all; visibility: visible;"
+                      tabindex="0"
+                    >
+                      <div
+                        class="nodrag"
+                      >
+                        <div
+                          class="react-flow__handle react-flow__handle-top nodrag nopan target connectable"
+                          data-handlepos="top"
+                          data-id="urn:uuid:86f69643-3b90-4e34-90bf-789edcf40e7e-null-target"
+                          data-nodeid="urn:uuid:86f69643-3b90-4e34-90bf-789edcf40e7e"
+                          draggable="false"
+                        />
+                        <div
+                          class="css-1dderol"
+                        >
+                          <div
+                            class="css-9pltgg"
+                          >
+                            <p>
+                              NTierANTierProduct
+                            </p>
+                            <p>
+                              urn:uuid:86f69643-3b90-4e34-90bf-789edcf40e7e
+                            </p>
+                          </div>
+                          <div
+                            class="MuiBox-root css-6cgya3"
+                          >
+                            <div
+                              style="text-align: left; margin: 5px;"
+                            >
+                              content.irs.visualization.nodeAspectsTitle
+                            </div>
+                            <div
+                              class="MuiBox-root css-0"
+                            >
+                              <button
+                                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedWarning MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedWarning MuiButton-sizeSmall MuiButton-containedSizeSmall css-1akf5ju-MuiButtonBase-root-MuiButton-root"
+                                tabindex="0"
+                                type="button"
+                              >
+                                EssIncident
+                                <div>
+                                  <div
+                                    style="float: right; margin-left: 10px;"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                      data-testid="SourceIcon"
+                                      focusable="false"
+                                      viewBox="0 0 24 24"
+                                    >
+                                      <path
+                                        d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"
+                                      />
+                                    </svg>
+                                  </div>
+                                </div>
+                                <span
+                                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                />
+                              </button>
+                            </div>
+                            <div
+                              class="MuiBox-root css-0"
+                            >
+                              <button
+                                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall css-7xvvqp-MuiButtonBase-root-MuiButton-root"
+                                tabindex="0"
+                                type="button"
+                              >
+                                PartAsPlanned
+                                <div>
+                                  <div
+                                    style="float: right; margin-left: 10px;"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                      data-testid="SourceIcon"
+                                      focusable="false"
+                                      viewBox="0 0 24 24"
+                                    >
+                                      <path
+                                        d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"
+                                      />
+                                    </svg>
+                                    <svg
+                                      aria-hidden="true"
+                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                      data-testid="SourceIcon"
+                                      focusable="false"
+                                      viewBox="0 0 24 24"
+                                    >
+                                      <path
+                                        d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"
+                                      />
+                                    </svg>
+                                  </div>
+                                </div>
+                                <span
+                                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                />
+                              </button>
+                            </div>
+                            <div
+                              class="MuiBox-root css-0"
+                            >
+                              <button
+                                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall css-7xvvqp-MuiButtonBase-root-MuiButton-root"
+                                tabindex="0"
+                                type="button"
+                              >
+                                SingleLevelBomAsPlanned
+                                <div>
+                                  <div
+                                    style="float: right; margin-left: 10px;"
+                                  />
+                                </div>
+                                <span
+                                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                />
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          class="react-flow__handle react-flow__handle-bottom nodrag nopan source connectable"
+                          data-handleid="a"
+                          data-handlepos="bottom"
+                          data-id="urn:uuid:86f69643-3b90-4e34-90bf-789edcf40e7e-a-source"
+                          data-nodeid="urn:uuid:86f69643-3b90-4e34-90bf-789edcf40e7e"
+                          draggable="false"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      aria-describedby="react-flow__node-desc-1"
+                      class="react-flow__node react-flow__node-displayNode nopan selectable"
+                      data-id="urn:uuid:c7a2b803-f8fe-4b79-b6fc-967ce847c9a9"
+                      data-testid="rf__node-urn:uuid:c7a2b803-f8fe-4b79-b6fc-967ce847c9a9"
+                      role="button"
+                      style="z-index: 0; transform: translate(545px,1035px); pointer-events: all; visibility: visible;"
+                      tabindex="0"
+                    >
+                      <div
+                        class="nodrag"
+                      >
+                        <div
+                          class="react-flow__handle react-flow__handle-top nodrag nopan target connectable"
+                          data-handlepos="top"
+                          data-id="urn:uuid:c7a2b803-f8fe-4b79-b6fc-967ce847c9a9-null-target"
+                          data-nodeid="urn:uuid:c7a2b803-f8fe-4b79-b6fc-967ce847c9a9"
+                          draggable="false"
+                        />
+                        <div
+                          class="css-1dderol"
+                        >
+                          <div
+                            class="css-9pltgg"
+                          >
+                            <p>
+                              ZBZELLE
+                            </p>
+                            <p>
+                              urn:uuid:c7a2b803-f8fe-4b79-b6fc-967ce847c9a9
+                            </p>
+                          </div>
+                          <div
+                            class="MuiBox-root css-6cgya3"
+                          >
+                            <div
+                              style="text-align: left; margin: 5px;"
+                            >
+                              content.irs.visualization.nodeAspectsTitle
+                            </div>
+                            <div
+                              class="MuiBox-root css-0"
+                            >
+                              <button
+                                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall css-7xvvqp-MuiButtonBase-root-MuiButton-root"
+                                tabindex="0"
+                                type="button"
+                              >
+                                EssIncident
+                                <div>
+                                  <div
+                                    style="float: right; margin-left: 10px;"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                      data-testid="SourceIcon"
+                                      focusable="false"
+                                      viewBox="0 0 24 24"
+                                    >
+                                      <path
+                                        d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"
+                                      />
+                                    </svg>
+                                  </div>
+                                </div>
+                                <span
+                                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                />
+                              </button>
+                            </div>
+                            <div
+                              class="MuiBox-root css-0"
+                            >
+                              <button
+                                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall css-7xvvqp-MuiButtonBase-root-MuiButton-root"
+                                tabindex="0"
+                                type="button"
+                              >
+                                PartAsPlanned
+                                <div>
+                                  <div
+                                    style="float: right; margin-left: 10px;"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                      data-testid="SourceIcon"
+                                      focusable="false"
+                                      viewBox="0 0 24 24"
+                                    >
+                                      <path
+                                        d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"
+                                      />
+                                    </svg>
+                                  </div>
+                                </div>
+                                <span
+                                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                />
+                              </button>
+                            </div>
+                            <div
+                              class="MuiBox-root css-0"
+                            >
+                              <button
+                                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall css-7xvvqp-MuiButtonBase-root-MuiButton-root"
+                                tabindex="0"
+                                type="button"
+                              >
+                                SingleLevelBomAsPlanned
+                                <div>
+                                  <div
+                                    style="float: right; margin-left: 10px;"
+                                  />
+                                </div>
+                                <span
+                                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                />
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          class="react-flow__handle react-flow__handle-bottom nodrag nopan source connectable"
+                          data-handleid="a"
+                          data-handlepos="bottom"
+                          data-id="urn:uuid:c7a2b803-f8fe-4b79-b6fc-967ce847c9a9-a-source"
+                          data-nodeid="urn:uuid:c7a2b803-f8fe-4b79-b6fc-967ce847c9a9"
+                          draggable="false"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      aria-describedby="react-flow__node-desc-1"
+                      class="react-flow__node react-flow__node-displayNode nopan selectable"
+                      data-id="urn:uuid:15d2fcc8-6439-4d1e-904b-e62b4d3bf323"
+                      data-testid="rf__node-urn:uuid:15d2fcc8-6439-4d1e-904b-e62b4d3bf323"
+                      role="button"
+                      style="z-index: 0; transform: translate(895px,1035px); pointer-events: all; visibility: visible;"
+                      tabindex="0"
+                    >
+                      <div
+                        class="nodrag"
+                      >
+                        <div
+                          class="react-flow__handle react-flow__handle-top nodrag nopan target connectable"
+                          data-handlepos="top"
+                          data-id="urn:uuid:15d2fcc8-6439-4d1e-904b-e62b4d3bf323-null-target"
+                          data-nodeid="urn:uuid:15d2fcc8-6439-4d1e-904b-e62b4d3bf323"
+                          draggable="false"
+                        />
+                        <div
+                          class="css-1dderol"
+                        >
+                          <div
+                            class="css-9pltgg"
+                          >
+                            <p>
+                              SubTierBSealant
+                            </p>
+                            <p>
+                              urn:uuid:15d2fcc8-6439-4d1e-904b-e62b4d3bf323
+                            </p>
+                          </div>
+                          <div
+                            class="MuiBox-root css-6cgya3"
+                          >
+                            <div
+                              style="text-align: left; margin: 5px;"
+                            >
+                              content.irs.visualization.nodeAspectsTitle
+                            </div>
+                            <div
+                              class="MuiBox-root css-0"
+                            >
+                              <button
+                                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall css-7xvvqp-MuiButtonBase-root-MuiButton-root"
+                                tabindex="0"
+                                type="button"
+                              >
+                                EssIncident
+                                <div>
+                                  <div
+                                    style="float: right; margin-left: 10px;"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                      data-testid="SourceIcon"
+                                      focusable="false"
+                                      viewBox="0 0 24 24"
+                                    >
+                                      <path
+                                        d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"
+                                      />
+                                    </svg>
+                                  </div>
+                                </div>
+                                <span
+                                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                />
+                              </button>
+                            </div>
+                            <div
+                              class="MuiBox-root css-0"
+                            >
+                              <button
+                                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall css-7xvvqp-MuiButtonBase-root-MuiButton-root"
+                                tabindex="0"
+                                type="button"
+                              >
+                                PartAsPlanned
+                                <div>
+                                  <div
+                                    style="float: right; margin-left: 10px;"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                      data-testid="SourceIcon"
+                                      focusable="false"
+                                      viewBox="0 0 24 24"
+                                    >
+                                      <path
+                                        d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"
+                                      />
+                                    </svg>
+                                  </div>
+                                </div>
+                                <span
+                                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                />
+                              </button>
+                            </div>
+                            <div
+                              class="MuiBox-root css-0"
+                            >
+                              <button
+                                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall css-7xvvqp-MuiButtonBase-root-MuiButton-root"
+                                tabindex="0"
+                                type="button"
+                              >
+                                SingleLevelBomAsPlanned
+                                <div>
+                                  <div
+                                    style="float: right; margin-left: 10px;"
+                                  />
+                                </div>
+                                <span
+                                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                />
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          class="react-flow__handle react-flow__handle-bottom nodrag nopan source connectable"
+                          data-handleid="a"
+                          data-handlepos="bottom"
+                          data-id="urn:uuid:15d2fcc8-6439-4d1e-904b-e62b4d3bf323-a-source"
+                          data-nodeid="urn:uuid:15d2fcc8-6439-4d1e-904b-e62b4d3bf323"
+                          draggable="false"
+                        />
+                      </div>
+                    </div>
+                    <div
+                      aria-describedby="react-flow__node-desc-1"
+                      class="react-flow__node react-flow__node-displayNode nopan selectable"
+                      data-id="urn:uuid:4f7b1cf2-a598-4027-bc78-63f6d8e55699"
+                      data-testid="rf__node-urn:uuid:4f7b1cf2-a598-4027-bc78-63f6d8e55699"
+                      role="button"
+                      style="z-index: 0; transform: translate(545px,1380px); pointer-events: all; visibility: visible;"
+                      tabindex="0"
+                    >
+                      <div
+                        class="nodrag"
+                      >
+                        <div
+                          class="react-flow__handle react-flow__handle-top nodrag nopan target connectable"
+                          data-handlepos="top"
+                          data-id="urn:uuid:4f7b1cf2-a598-4027-bc78-63f6d8e55699-null-target"
+                          data-nodeid="urn:uuid:4f7b1cf2-a598-4027-bc78-63f6d8e55699"
+                          draggable="false"
+                        />
+                        <div
+                          class="css-1dderol"
+                        >
+                          <div
+                            class="css-9pltgg"
+                          >
+                            <p>
+                              NTierACathodeMaterial
+                            </p>
+                            <p>
+                              urn:uuid:4f7b1cf2-a598-4027-bc78-63f6d8e55699
+                            </p>
+                          </div>
+                          <div
+                            class="MuiBox-root css-6cgya3"
+                          >
+                            <div
+                              style="text-align: left; margin: 5px;"
+                            >
+                              content.irs.visualization.nodeAspectsTitle
+                            </div>
+                            <div
+                              class="MuiBox-root css-0"
+                            >
+                              <button
+                                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall css-7xvvqp-MuiButtonBase-root-MuiButton-root"
+                                tabindex="0"
+                                type="button"
+                              >
+                                EssIncident
+                                <div>
+                                  <div
+                                    style="float: right; margin-left: 10px;"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                      data-testid="SourceIcon"
+                                      focusable="false"
+                                      viewBox="0 0 24 24"
+                                    >
+                                      <path
+                                        d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"
+                                      />
+                                    </svg>
+                                  </div>
+                                </div>
+                                <span
+                                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                />
+                              </button>
+                            </div>
+                            <div
+                              class="MuiBox-root css-0"
+                            >
+                              <button
+                                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall css-7xvvqp-MuiButtonBase-root-MuiButton-root"
+                                tabindex="0"
+                                type="button"
+                              >
+                                PartAsPlanned
+                                <div>
+                                  <div
+                                    style="float: right; margin-left: 10px;"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                      data-testid="SourceIcon"
+                                      focusable="false"
+                                      viewBox="0 0 24 24"
+                                    >
+                                      <path
+                                        d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"
+                                      />
+                                    </svg>
+                                  </div>
+                                </div>
+                                <span
+                                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                />
+                              </button>
+                            </div>
+                            <div
+                              class="MuiBox-root css-0"
+                            >
+                              <button
+                                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall css-7xvvqp-MuiButtonBase-root-MuiButton-root"
+                                tabindex="0"
+                                type="button"
+                              >
+                                SingleLevelBomAsPlanned
+                                <div>
+                                  <div
+                                    style="float: right; margin-left: 10px;"
+                                  />
+                                </div>
+                                <span
+                                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                />
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          class="react-flow__handle react-flow__handle-bottom nodrag nopan source connectable"
+                          data-handleid="a"
+                          data-handlepos="bottom"
+                          data-id="urn:uuid:4f7b1cf2-a598-4027-bc78-63f6d8e55699-a-source"
+                          data-nodeid="urn:uuid:4f7b1cf2-a598-4027-bc78-63f6d8e55699"
                           draggable="false"
                         />
                       </div>
@@ -386,7 +1902,7 @@ exports[`renders a basic visualization 1`] = `
                 aria-labelledby="react-flow__minimap-desc-1"
                 height="150"
                 role="img"
-                viewBox="-100.00000000000004 -16.666666666666668 700.0000000000001 533.3333333333334"
+                viewBox="-487.49999999999983 -55.83333333333333 2344.9999999999995 1786.6666666666667"
                 width="200"
               >
                 <title
@@ -397,7 +1913,20 @@ exports[`renders a basic visualization 1`] = `
                 <rect
                   class="react-flow__minimap-node"
                   fill="#e2e2e2"
-                  height="240"
+                  height="295"
+                  rx="5"
+                  ry="5"
+                  shape-rendering="geometricPrecision"
+                  stroke="transparent"
+                  stroke-width="2"
+                  width="300"
+                  x="185"
+                  y="0"
+                />
+                <rect
+                  class="react-flow__minimap-node"
+                  fill="#e2e2e2"
+                  height="295"
                   rx="5"
                   ry="5"
                   shape-rendering="geometricPrecision"
@@ -405,11 +1934,141 @@ exports[`renders a basic visualization 1`] = `
                   stroke-width="2"
                   width="300"
                   x="0"
-                  y="0"
+                  y="345"
+                />
+                <rect
+                  class="react-flow__minimap-node"
+                  fill="#e2e2e2"
+                  height="295"
+                  rx="5"
+                  ry="5"
+                  shape-rendering="geometricPrecision"
+                  stroke="transparent"
+                  stroke-width="2"
+                  width="300"
+                  x="720"
+                  y="345"
+                />
+                <rect
+                  class="react-flow__minimap-node"
+                  fill="#e2e2e2"
+                  height="295"
+                  rx="5"
+                  ry="5"
+                  shape-rendering="geometricPrecision"
+                  stroke="transparent"
+                  stroke-width="2"
+                  width="300"
+                  x="350"
+                  y="345"
+                />
+                <rect
+                  class="react-flow__minimap-node"
+                  fill="#e2e2e2"
+                  height="295"
+                  rx="5"
+                  ry="5"
+                  shape-rendering="geometricPrecision"
+                  stroke="transparent"
+                  stroke-width="2"
+                  width="300"
+                  x="0"
+                  y="690"
+                />
+                <rect
+                  class="react-flow__minimap-node"
+                  fill="#e2e2e2"
+                  height="295"
+                  rx="5"
+                  ry="5"
+                  shape-rendering="geometricPrecision"
+                  stroke="transparent"
+                  stroke-width="2"
+                  width="300"
+                  x="370"
+                  y="690"
+                />
+                <rect
+                  class="react-flow__minimap-node"
+                  fill="#e2e2e2"
+                  height="295"
+                  rx="5"
+                  ry="5"
+                  shape-rendering="geometricPrecision"
+                  stroke="transparent"
+                  stroke-width="2"
+                  width="300"
+                  x="720"
+                  y="690"
+                />
+                <rect
+                  class="react-flow__minimap-node"
+                  fill="#e2e2e2"
+                  height="295"
+                  rx="5"
+                  ry="5"
+                  shape-rendering="geometricPrecision"
+                  stroke="transparent"
+                  stroke-width="2"
+                  width="300"
+                  x="1070"
+                  y="690"
+                />
+                <rect
+                  class="react-flow__minimap-node"
+                  fill="#e2e2e2"
+                  height="295"
+                  rx="5"
+                  ry="5"
+                  shape-rendering="geometricPrecision"
+                  stroke="transparent"
+                  stroke-width="2"
+                  width="300"
+                  x="0"
+                  y="1035"
+                />
+                <rect
+                  class="react-flow__minimap-node"
+                  fill="#e2e2e2"
+                  height="295"
+                  rx="5"
+                  ry="5"
+                  shape-rendering="geometricPrecision"
+                  stroke="transparent"
+                  stroke-width="2"
+                  width="300"
+                  x="545"
+                  y="1035"
+                />
+                <rect
+                  class="react-flow__minimap-node"
+                  fill="#e2e2e2"
+                  height="295"
+                  rx="5"
+                  ry="5"
+                  shape-rendering="geometricPrecision"
+                  stroke="transparent"
+                  stroke-width="2"
+                  width="300"
+                  x="895"
+                  y="1035"
+                />
+                <rect
+                  class="react-flow__minimap-node"
+                  fill="#e2e2e2"
+                  height="295"
+                  rx="5"
+                  ry="5"
+                  shape-rendering="geometricPrecision"
+                  stroke="transparent"
+                  stroke-width="2"
+                  width="300"
+                  x="545"
+                  y="1380"
                 />
                 <path
                   class="react-flow__minimap-mask"
-                  d="M-116.66666666666671,-33.333333333333336h733.3333333333335v566.6666666666667h-733.3333333333335z
+                  d="M-543.3333333333331,-111.66666666666666h2456.666666666666v1898.3333333333335h-2456.666666666666z
         M0,0h500v500h-500z"
                   fill="rgb(240, 240, 240, 0.6)"
                   fill-rule="evenodd"
