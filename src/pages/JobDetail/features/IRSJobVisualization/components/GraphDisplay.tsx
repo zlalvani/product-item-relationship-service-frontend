@@ -4,7 +4,7 @@ import "reactflow/dist/style.css";
 import { AssetAdministrationShellDescriptor, Jobs, Relationship } from "../../../../../generated/jobsApi";
 import { DisplayNode } from "./DisplayNode";
 import { EdgeDetailDialog } from "./EdgeDetailDialog";
-import { processJobForGraphDisplay } from "./react-flow/processJobForGraphDisplay";
+import { ExtendedShellDescriptor, processJobForGraphDisplay } from "./react-flow/processJobForGraphDisplay";
 import { SearchNode } from "./SearchNode";
 
 export const GraphDisplay: React.FC<{
@@ -15,7 +15,7 @@ export const GraphDisplay: React.FC<{
 
   const nodeTypes = useMemo(
     () => ({
-      displayNode: (data: NodeProps<AssetAdministrationShellDescriptor>) => <DisplayNode data={data} job={job} />,
+      displayNode: (data: NodeProps<ExtendedShellDescriptor>) => <DisplayNode data={data} job={job} />,
     }),
     [],
   );

@@ -7,6 +7,7 @@ import { Handle, NodeProps, Position } from "reactflow";
 import { AssetAdministrationShellDescriptor, Jobs, SubmodelDescriptor } from "../../../../../generated/jobsApi";
 
 import { NodeDetailDialog } from "./NodeDetailDialog";
+import { ExtendedShellDescriptor } from "./react-flow/processJobForGraphDisplay";
 import { SubmodelDetailCard } from "./submodelDetailCard";
 
 const getSortedSubModelDescriptions = (shell: AssetAdministrationShellDescriptor) => {
@@ -23,7 +24,7 @@ const getSortedSubModelDescriptions = (shell: AssetAdministrationShellDescriptor
 };
 
 export const DisplayNode: React.FC<{
-  data: NodeProps<AssetAdministrationShellDescriptor>;
+  data: NodeProps<ExtendedShellDescriptor>;
   job: Jobs;
 }> = ({ data, job }) => {
   const { spacing } = useTheme();
@@ -32,6 +33,7 @@ export const DisplayNode: React.FC<{
   const [showNodeDialog, setShowNodeDialog] = useState<
     { shell: AssetAdministrationShellDescriptor; aspectId?: string } | undefined
   >();
+
   return (
     <div className="nodrag">
       <NodeDetailDialog showInfo={showNodeDialog} onClose={() => setShowNodeDialog(undefined)} job={job} />
@@ -58,6 +60,7 @@ export const DisplayNode: React.FC<{
                 submodel={n}
                 onClick={() => setShowNodeDialog({ shell, aspectId: n.idShort })}
                 job={job}
+                level={data.data.REACTFLOW_level ?? 0}
               />
             );
           })}

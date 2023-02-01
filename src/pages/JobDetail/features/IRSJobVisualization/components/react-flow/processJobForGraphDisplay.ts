@@ -10,8 +10,8 @@ const getNodeBoxHeight = (shell: AssetAdministrationShellDescriptor): number => 
   const TOTAL_BUTTON_HEIGHT = (shell.submodelDescriptors ?? []).length * ASPECTS_BUTTON_HEIGHT;
   return INFO_BOX_HEIGHT + ASPECTS_TITLE_HEIGHT + TOTAL_BUTTON_HEIGHT;
 };
-
-export type GraphNodeData = Node<AssetAdministrationShellDescriptor>;
+export type ExtendedShellDescriptor = AssetAdministrationShellDescriptor & { REACTFLOW_level?: number };
+export type GraphNodeData = Node<ExtendedShellDescriptor>;
 export type GraphEdgeData = Edge<Relationship>;
 const getNodes = (job: Jobs): GraphNodeData[] => {
   return (job.shells ?? []).map((shell) => {
