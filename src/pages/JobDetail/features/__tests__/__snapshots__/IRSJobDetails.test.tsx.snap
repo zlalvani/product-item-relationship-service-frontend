@@ -94,11 +94,7 @@ exports[`renders the tombstone information 1`] = `
                 <code
                   style="white-space: pre;"
                 >
-                  <span
-                    style="color: rgb(0, 102, 102);"
-                  >
-                    null
-                  </span>
+                  <span />
                 </code>
               </pre>
             </div>
