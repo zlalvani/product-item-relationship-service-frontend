@@ -13,7 +13,6 @@ export const getHeaders = () => ({
 });
 
 export const getJobsApi = () => {
-  console.log(getBaseURL());
   const api = new Api({
     baseUrl: getBaseURL(),
     baseApiParams: {
