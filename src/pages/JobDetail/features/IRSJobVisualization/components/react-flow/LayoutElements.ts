@@ -29,7 +29,7 @@ export const getLayoutedElements = (nodes: GraphNodeData[], edges: GraphEdgeData
       x: nodeWithPosition.x - (node.width ?? 0) / 2,
       y: nodeWithPosition.y - (node.height ?? 0) / 2,
     };
-    node.data.REACTFLOW_level = node.position.y / 345;
+
     return node;
   });
 

@@ -271,7 +271,6 @@ exports[`processes a job and sets positions for the display elements 1`] = `
   "nodes": [
     {
       "data": {
-        "REACTFLOW_level": 0,
         "administration": null,
         "description": [],
         "globalAssetId": {
@@ -383,7 +382,6 @@ exports[`processes a job and sets positions for the display elements 1`] = `
     },
     {
       "data": {
-        "REACTFLOW_level": 1,
         "administration": null,
         "description": [],
         "globalAssetId": {
@@ -495,7 +493,6 @@ exports[`processes a job and sets positions for the display elements 1`] = `
     },
     {
       "data": {
-        "REACTFLOW_level": 1,
         "administration": null,
         "description": [],
         "globalAssetId": {
@@ -607,7 +604,6 @@ exports[`processes a job and sets positions for the display elements 1`] = `
     },
     {
       "data": {
-        "REACTFLOW_level": 1,
         "administration": null,
         "description": [],
         "globalAssetId": {
@@ -719,7 +715,6 @@ exports[`processes a job and sets positions for the display elements 1`] = `
     },
     {
       "data": {
-        "REACTFLOW_level": 2,
         "administration": null,
         "description": [],
         "globalAssetId": {
@@ -831,7 +826,6 @@ exports[`processes a job and sets positions for the display elements 1`] = `
     },
     {
       "data": {
-        "REACTFLOW_level": 2,
         "administration": null,
         "description": [],
         "globalAssetId": {
@@ -943,7 +937,6 @@ exports[`processes a job and sets positions for the display elements 1`] = `
     },
     {
       "data": {
-        "REACTFLOW_level": 2,
         "administration": null,
         "description": [],
         "globalAssetId": {
@@ -1055,7 +1048,6 @@ exports[`processes a job and sets positions for the display elements 1`] = `
     },
     {
       "data": {
-        "REACTFLOW_level": 2,
         "administration": null,
         "description": [],
         "globalAssetId": {
@@ -1167,7 +1159,6 @@ exports[`processes a job and sets positions for the display elements 1`] = `
     },
     {
       "data": {
-        "REACTFLOW_level": 2,
         "administration": null,
         "description": [],
         "globalAssetId": {
@@ -1279,7 +1270,6 @@ exports[`processes a job and sets positions for the display elements 1`] = `
     },
     {
       "data": {
-        "REACTFLOW_level": 3,
         "administration": null,
         "description": [],
         "globalAssetId": {
@@ -1391,7 +1381,6 @@ exports[`processes a job and sets positions for the display elements 1`] = `
     },
     {
       "data": {
-        "REACTFLOW_level": 3,
         "administration": null,
         "description": [],
         "globalAssetId": {
@@ -1503,7 +1492,6 @@ exports[`processes a job and sets positions for the display elements 1`] = `
     },
     {
       "data": {
-        "REACTFLOW_level": 3,
         "administration": null,
         "description": [],
         "globalAssetId": {
@@ -1615,7 +1603,6 @@ exports[`processes a job and sets positions for the display elements 1`] = `
     },
     {
       "data": {
-        "REACTFLOW_level": 3,
         "administration": null,
         "description": [],
         "globalAssetId": {
@@ -1727,7 +1714,6 @@ exports[`processes a job and sets positions for the display elements 1`] = `
     },
     {
       "data": {
-        "REACTFLOW_level": 4,
         "administration": null,
         "description": [],
         "globalAssetId": {

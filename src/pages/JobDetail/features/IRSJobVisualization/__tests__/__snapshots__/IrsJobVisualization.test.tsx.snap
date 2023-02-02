@@ -143,6 +143,27 @@ exports[`renders a basic visualization 1`] = `
             Submit
           </button>
         </div>
+        <div>
+          <span
+            class="MuiSwitch-root MuiSwitch-sizeMedium css-113qkos-MuiSwitch-root"
+          >
+            <span
+              class="MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary css-5ryogn-MuiButtonBase-root-MuiSwitch-switchBase"
+            >
+              <input
+                class="PrivateSwitchBase-input MuiSwitch-input css-1m9pwf3"
+                type="checkbox"
+              />
+              <span
+                class="MuiSwitch-thumb css-jsexje-MuiSwitch-thumb"
+              />
+            </span>
+            <span
+              class="MuiSwitch-track css-1yjjitx-MuiSwitch-track"
+            />
+          </span>
+          ESS Mode
+        </div>
         <div
           style="height: 40vh;"
         >
@@ -223,7 +244,7 @@ exports[`renders a basic visualization 1`] = `
                               class="MuiBox-root css-0"
                             >
                               <button
-                                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedError MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedError MuiButton-sizeSmall MuiButton-containedSizeSmall css-cxm5bq-MuiButtonBase-root-MuiButton-root"
+                                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall css-7xvvqp-MuiButtonBase-root-MuiButton-root"
                                 tabindex="0"
                                 type="button"
                               >
@@ -243,6 +264,52 @@ exports[`renders a basic visualization 1`] = `
                                     />
                                   </svg>
                                 </div>
+                                <span
+                                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                />
+                              </button>
+                            </div>
+                            <div
+                              class="MuiBox-root css-0"
+                            >
+                              <button
+                                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall css-7xvvqp-MuiButtonBase-root-MuiButton-root"
+                                tabindex="0"
+                                type="button"
+                              >
+                                PartAsPlanned
+                                <div
+                                  style="float: right; margin-left: 10px;"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                                    data-testid="SourceIcon"
+                                    focusable="false"
+                                    viewBox="0 0 24 24"
+                                  >
+                                    <path
+                                      d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6 10H6v-2h8v2zm4-4H6v-2h12v2z"
+                                    />
+                                  </svg>
+                                </div>
+                                <span
+                                  class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                                />
+                              </button>
+                            </div>
+                            <div
+                              class="MuiBox-root css-0"
+                            >
+                              <button
+                                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall css-7xvvqp-MuiButtonBase-root-MuiButton-root"
+                                tabindex="0"
+                                type="button"
+                              >
+                                SingleLevelBomAsPlanned
+                                <div
+                                  style="float: right; margin-left: 10px;"
+                                />
                                 <span
                                   class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
                                 />
@@ -304,7 +371,7 @@ exports[`renders a basic visualization 1`] = `
                               class="MuiBox-root css-0"
                             >
                               <button
-                                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedError MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedError MuiButton-sizeSmall MuiButton-containedSizeSmall css-cxm5bq-MuiButtonBase-root-MuiButton-root"
+                                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall css-7xvvqp-MuiButtonBase-root-MuiButton-root"
                                 tabindex="0"
                                 type="button"
                               >
@@ -558,7 +625,7 @@ exports[`renders a basic visualization 1`] = `
                               class="MuiBox-root css-0"
                             >
                               <button
-                                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedWarning MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedWarning MuiButton-sizeSmall MuiButton-containedSizeSmall css-1akf5ju-MuiButtonBase-root-MuiButton-root"
+                                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall css-7xvvqp-MuiButtonBase-root-MuiButton-root"
                                 tabindex="0"
                                 type="button"
                               >
@@ -812,7 +879,7 @@ exports[`renders a basic visualization 1`] = `
                               class="MuiBox-root css-0"
                             >
                               <button
-                                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedError MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedError MuiButton-sizeSmall MuiButton-containedSizeSmall css-cxm5bq-MuiButtonBase-root-MuiButton-root"
+                                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall css-7xvvqp-MuiButtonBase-root-MuiButton-root"
                                 tabindex="0"
                                 type="button"
                               >
@@ -939,7 +1006,7 @@ exports[`renders a basic visualization 1`] = `
                               class="MuiBox-root css-0"
                             >
                               <button
-                                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedError MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedError MuiButton-sizeSmall MuiButton-containedSizeSmall css-cxm5bq-MuiButtonBase-root-MuiButton-root"
+                                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall css-7xvvqp-MuiButtonBase-root-MuiButton-root"
                                 tabindex="0"
                                 type="button"
                               >
@@ -1066,7 +1133,7 @@ exports[`renders a basic visualization 1`] = `
                               class="MuiBox-root css-0"
                             >
                               <button
-                                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedWarning MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedWarning MuiButton-sizeSmall MuiButton-containedSizeSmall css-1akf5ju-MuiButtonBase-root-MuiButton-root"
+                                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall css-7xvvqp-MuiButtonBase-root-MuiButton-root"
                                 tabindex="0"
                                 type="button"
                               >
@@ -1181,7 +1248,7 @@ exports[`renders a basic visualization 1`] = `
                               class="MuiBox-root css-0"
                             >
                               <button
-                                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedWarning MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedWarning MuiButton-sizeSmall MuiButton-containedSizeSmall css-1akf5ju-MuiButtonBase-root-MuiButton-root"
+                                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-root MuiButton-contained MuiButton-containedSuccess MuiButton-sizeSmall MuiButton-containedSizeSmall css-7xvvqp-MuiButtonBase-root-MuiButton-root"
                                 tabindex="0"
                                 type="button"
                               >
