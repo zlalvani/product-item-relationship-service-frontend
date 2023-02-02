@@ -28,6 +28,7 @@ import { Button } from "cx-portal-shared-components";
 
 import uniqueId from "lodash/uniqueId";
 import { Jobs, Submodel, SubmodelDescriptor, Tombstone } from "../../../../../generated/jobsApi";
+import { GraphViewMode } from "./GraphDisplay";
 
 import { getSubModelPayload, getTombstones } from "./SubmodelTombstones";
 
@@ -35,25 +36,25 @@ interface Props {
   submodel: SubmodelDescriptor;
   job: Jobs;
   onClick: () => void;
-  level: number;
+  viewMode: GraphViewMode;
 }
 
-const getButtonColor = (submodel: SubmodelDescriptor, errorCount: number, submodelPayload: Submodel[] = []) => {
-  if (submodel.idShort === "EssIncident") {
-    const colorMap = {
-      yes: "error",
-      no: "success",
-      unknown: "warning",
-    };
-    //TODO: Adjust when backend adds support for this
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    //@ts-ignore
-    const value: "yes" | "no" | "unknown" = submodelPayload[0].payload.supplychain_impacted ?? "yes";
-    return colorMap[value];
-  }
-
+const getButtonColor = (errorCount: number) => {
   if (errorCount > 0) return "error";
   return "success";
+};
+
+const getButtonColorESSMode = (submodelPayload: Submodel[] = []) => {
+  const colorMap = {
+    yes: "error",
+    no: "success",
+    unknown: "warning",
+  };
+  //TODO: Adjust when backend adds support for this
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  //@ts-ignore
+  const value: "yes" | "no" | "unknown" = submodelPayload[0].payload.supplychain_impacted ?? "yes";
+  return colorMap[value];
 };
 
 const AspectIcon: React.FC<{ submodel: SubmodelDescriptor; tombstones: Tombstone[]; submodelPayload: Submodel[] }> = ({
@@ -91,15 +92,20 @@ const AspectIcon: React.FC<{ submodel: SubmodelDescriptor; tombstones: Tombstone
   return <div style={{ float: "right", marginLeft: 10 }}>{icon}</div>;
 };
 
-export const SubmodelDetailCard: React.FC<Props> = ({ submodel, onClick, job, level }) => {
+export const SubmodelDetailCard: React.FC<Props> = ({ submodel, onClick, job, viewMode }) => {
   const tombstones = getTombstones(submodel, job);
   const submodelPayload = getSubModelPayload(submodel.identification ?? "", job);
 
-  if (!tombstones || !submodelPayload || (level === 0 && submodel.idShort !== "EssIncident")) {
+  if (!tombstones || !submodelPayload || (viewMode === "ess" && submodel.idShort !== "EssIncident")) {
     return null;
   }
 
-  const buttonColor = getButtonColor(submodel, tombstones.length, submodelPayload);
+  let buttonColor;
+  if (viewMode === "ess") {
+    buttonColor = getButtonColorESSMode(submodelPayload);
+  } else {
+    buttonColor = getButtonColor(tombstones.length);
+  }
 
   return (
     <Box>

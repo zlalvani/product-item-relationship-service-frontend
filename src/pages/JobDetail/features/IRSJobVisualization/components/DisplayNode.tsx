@@ -5,9 +5,9 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Handle, NodeProps, Position } from "reactflow";
 import { AssetAdministrationShellDescriptor, Jobs, SubmodelDescriptor } from "../../../../../generated/jobsApi";
+import { GraphViewMode } from "./GraphDisplay";
 
 import { NodeDetailDialog } from "./NodeDetailDialog";
-import { ExtendedShellDescriptor } from "./react-flow/processJobForGraphDisplay";
 import { SubmodelDetailCard } from "./submodelDetailCard";
 
 const getSortedSubModelDescriptions = (shell: AssetAdministrationShellDescriptor) => {
@@ -24,9 +24,10 @@ const getSortedSubModelDescriptions = (shell: AssetAdministrationShellDescriptor
 };
 
 export const DisplayNode: React.FC<{
-  data: NodeProps<ExtendedShellDescriptor>;
+  data: NodeProps<AssetAdministrationShellDescriptor>;
   job: Jobs;
-}> = ({ data, job }) => {
+  viewMode: GraphViewMode;
+}> = ({ data, job, viewMode }) => {
   const { spacing } = useTheme();
   const { t } = useTranslation();
   const shell = data.data;
@@ -60,7 +61,7 @@ export const DisplayNode: React.FC<{
                 submodel={n}
                 onClick={() => setShowNodeDialog({ shell, aspectId: n.idShort })}
                 job={job}
-                level={data.data.REACTFLOW_level ?? 0}
+                viewMode={viewMode}
               />
             );
           })}
