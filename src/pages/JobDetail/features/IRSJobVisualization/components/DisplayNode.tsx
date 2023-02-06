@@ -3,9 +3,10 @@ import { Box, useTheme } from "@mui/material";
 import { uniqueId } from "lodash";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Handle, NodeProps, Position } from "reactflow";
+import { NodeProps } from "reactflow";
 import { AssetAdministrationShellDescriptor, Jobs, SubmodelDescriptor } from "../../../../../generated/jobsApi";
 import { GraphViewMode } from "./GraphDisplay";
+import { NodeContainer } from "./react-flow/NodeContainer";
 
 import { NodeDetailDialog } from "./NodeDetailDialog";
 import { SubmodelDetailCard } from "./submodelDetailCard";
@@ -36,49 +37,38 @@ export const DisplayNode: React.FC<{
   >();
 
   return (
-    <div className="nodrag">
+    <NodeContainer>
       <NodeDetailDialog showInfo={showNodeDialog} onClose={() => setShowNodeDialog(undefined)} job={job} />
-      <Handle type="target" position={Position.Top} draggable={false} />
-      <NodeStyles>
-        <ClickableDiv onClick={() => setShowNodeDialog({ shell })}>
-          <p>{shell.idShort}</p>
-          <p>{data.id}</p>
-        </ClickableDiv>
-        <Box
-          sx={{
-            display: "grid",
-            gap: spacing(1, 3),
-            gridTemplateColumns: `repeat(1, 1fr)`,
-            marginLeft: 0.5,
-          }}
-        >
-          <div style={{ textAlign: "left", margin: 5 }}>{t("content.irs.visualization.nodeAspectsTitle")}</div>
-          {getSortedSubModelDescriptions(shell).map((n: SubmodelDescriptor) => {
-            //Todo: Check for errors and add them to the object
-            return (
-              <SubmodelDetailCard
-                key={uniqueId(n.identification)}
-                submodel={n}
-                onClick={() => setShowNodeDialog({ shell, aspectId: n.idShort })}
-                job={job}
-                viewMode={viewMode}
-              />
-            );
-          })}
-        </Box>
-      </NodeStyles>
-      <Handle type="source" position={Position.Bottom} id="a" draggable={false} />
-    </div>
+
+      <ClickableDiv onClick={() => setShowNodeDialog({ shell })}>
+        <p>{shell.idShort}</p>
+        <p>{data.id}</p>
+      </ClickableDiv>
+      <Box
+        sx={{
+          display: "grid",
+          gap: spacing(1, 3),
+          gridTemplateColumns: `repeat(1, 1fr)`,
+          marginLeft: 0.5,
+        }}
+      >
+        <div style={{ textAlign: "left", margin: 5 }}>{t("content.irs.visualization.nodeAspectsTitle")}</div>
+        {getSortedSubModelDescriptions(shell).map((n: SubmodelDescriptor) => {
+          //Todo: Check for errors and add them to the object
+          return (
+            <SubmodelDetailCard
+              key={uniqueId(n.identification)}
+              submodel={n}
+              onClick={() => setShowNodeDialog({ shell, aspectId: n.idShort })}
+              job={job}
+              viewMode={viewMode}
+            />
+          );
+        })}
+      </Box>
+    </NodeContainer>
   );
 };
-
-const NodeStyles = styled.div`
-  fill: white;
-  border: 1px solid black;
-  background-color: white;
-  padding: 0.5rem;
-  width: 300px;
-`;
 
 const ClickableDiv = styled.div`
   cursor: pointer;
