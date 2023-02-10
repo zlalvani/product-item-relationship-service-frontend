@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
-import { useKeycloak } from "@react-keycloak/web";
 import { Outlet, useNavigate, useParams } from "react-router-dom";
 import { PrivateHeader } from "../../components/layout/Header/PrivateHeader";
+import { useCustomKeycloak } from "../../lib/keycloak";
 import { useServerEnv } from "../../utils/ServerEnv";
 import { getCurrentEnvironment } from "../../utils/sessionStorageHandling";
 
@@ -12,11 +12,11 @@ import { getCurrentEnvironment } from "../../utils/sessionStorageHandling";
  * @returns React.ReactNode
  */
 export const PublicRoot: React.FC = () => {
-  const { keycloak } = useKeycloak();
+  const { authenticated } = useCustomKeycloak();
   const navigate = useNavigate();
   const serverEnv = getCurrentEnvironment();
 
-  if (keycloak.authenticated && serverEnv !== null) {
+  if (authenticated && serverEnv !== null) {
     navigate(`${serverEnv}/dashboard`);
   }
 
@@ -47,15 +47,15 @@ const ServerEnvHelper: React.FC = () => {
  * @returns React.ReactNode
  */
 export const PrivateRoot: React.FC = () => {
-  const { keycloak } = useKeycloak();
+  const { authenticated } = useCustomKeycloak();
   const navigate = useNavigate();
 
-  if (keycloak.authenticated === undefined) {
+  if (authenticated === undefined) {
     // This is used so first render will not display elements of the dashboard and will not trigger network requests.
     return null;
   }
 
-  if (keycloak.authenticated === false) {
+  if (authenticated === false) {
     navigate("/");
   }
 

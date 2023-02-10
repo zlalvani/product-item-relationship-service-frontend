@@ -1,6 +1,7 @@
-import { ReactKeycloakProvider } from "@react-keycloak/web";
+import { ReactKeycloakProvider, useKeycloak } from "@react-keycloak/web";
 import Keycloak from "keycloak-js";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { serverConfig } from "../utils/serverConfig";
 import { useServerEnv } from "../utils/ServerEnv";
 
@@ -20,4 +21,31 @@ export const KeyCloakProvider: React.FC<{ children: React.ReactNode }> = ({ chil
       {children}
     </ReactKeycloakProvider>
   );
+};
+
+let customAuthStatus = false;
+
+/**
+ * This is a custom keycloak handler that is used to circumvent communication with
+ * @returns
+ */
+export const useCustomKeycloak = () => {
+  const { serverEnv } = useServerEnv();
+  const { keycloak } = useKeycloak();
+  const navigate = useNavigate();
+
+  if (serverEnv === "DEMO") {
+    return {
+      authenticated: customAuthStatus,
+      logout: () => {
+        customAuthStatus = false;
+      },
+      login: () => {
+        //TODO: Add Handling of Post Request
+        customAuthStatus = true;
+        navigate(`${serverEnv}/dashboard`);
+      },
+    };
+  }
+  return { authenticated: keycloak.authenticated, logout: keycloak.logout, login: keycloak.login };
 };
