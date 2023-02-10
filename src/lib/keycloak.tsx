@@ -24,6 +24,7 @@ export const KeyCloakProvider: React.FC<{ children: React.ReactNode }> = ({ chil
 };
 
 let customAuthStatus = false;
+export let localAuthToken = "";
 
 /**
  * This is a custom keycloak handler that is used to circumvent communication with
@@ -34,18 +35,41 @@ export const useCustomKeycloak = () => {
   const { keycloak } = useKeycloak();
   const navigate = useNavigate();
 
-  if (serverEnv === "DEMO") {
+  if (["DEMO", "LOCAL"].includes(serverEnv)) {
     return {
       authenticated: customAuthStatus,
       logout: () => {
         customAuthStatus = false;
+        localAuthToken = "";
       },
-      login: () => {
-        //TODO: Add Handling of Post Request
+      login: async () => {
         customAuthStatus = true;
-        navigate(`${serverEnv}/dashboard`);
+        if (serverEnv === "LOCAL") {
+          customAuthStatus = await localGetTokenRequest();
+        }
+        if (customAuthStatus) navigate(`${serverEnv}/dashboard`);
       },
     };
   }
   return { authenticated: keycloak.authenticated, logout: keycloak.logout, login: keycloak.login };
+};
+
+/**
+ * This is used to retrieve a auth token in a local environment.
+ * This should not be used for any other serverEnvironment
+ *
+ * @returns
+ */
+const localGetTokenRequest = async () => {
+  const url = import.meta.env[`VITE_SERVER_LOCAL_KEYCLOAK_URL`];
+  try {
+    //TODO: Add actual authentication headers here
+    const response = await fetch(url, {
+      method: "POST",
+    });
+    localAuthToken = await response.json();
+    return true;
+  } catch (e) {
+    return false;
+  }
 };
