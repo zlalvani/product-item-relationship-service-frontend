@@ -36,6 +36,7 @@ export const useCustomKeycloak = () => {
   const navigate = useNavigate();
 
   if (["DEMO", "LOCAL"].includes(serverEnv)) {
+    console.log("serverEnv: " + serverEnv);
     return {
       authenticated: customAuthStatus,
       logout: () => {
@@ -61,13 +62,30 @@ export const useCustomKeycloak = () => {
  * @returns
  */
 const localGetTokenRequest = async () => {
-  const url = import.meta.env[`VITE_SERVER_LOCAL_KEYCLOAK_URL`];
+  console.log("localGetTokenRequest");
+  const url = import.meta.env[`VITE_SERVER_DEMO_KEYCLOAK_URL`];
+
+  const data = new URLSearchParams();
+  data.append("grant_type", import.meta.env[`VITE_SERVER_LOCAL_GRANT_TYPE`]);
+  data.append("scope", import.meta.env[`VITE_SERVER_LOCAL_SCOPE`]);
+  data.append("client_id", import.meta.env[`VITE_SERVER_LOCAL_CLIENT_ID`]);
+  data.append("client_secret", import.meta.env[`VITE_SERVER_LOCAL_CLIENT_SECRET`]);
+
   try {
     //TODO: Add actual authentication headers here
     const response = await fetch(url, {
       method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+        "Access-Control-Allow-Origin": "http://localhost:4011",
+        "Access-Control-Allow-Credentials": "true",
+      },
+      body: data,
     });
-    localAuthToken = await response.json();
+
+    const tokenResponse = await response.json();
+
+    localAuthToken = tokenResponse["access_token"];
     return true;
   } catch (e) {
     return false;
