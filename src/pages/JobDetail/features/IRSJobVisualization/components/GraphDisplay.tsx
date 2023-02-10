@@ -1,3 +1,4 @@
+import styled from "@emotion/styled";
 import { useMemo, useState } from "react";
 import ReactFlow, { Background, Controls, Edge, MiniMap, NodeProps, ReactFlowProvider } from "reactflow";
 import "reactflow/dist/style.css";
@@ -31,7 +32,7 @@ export const GraphDisplay: React.FC<{
   return (
     <ReactFlowProvider>
       <SearchNode />
-      <div>
+      <LeftAlignDiv>
         <IOSSwitch
           sx={{ m: 1 }}
           onChange={(event) => {
@@ -39,7 +40,7 @@ export const GraphDisplay: React.FC<{
           }}
         />
         {"ESS Mode"}
-      </div>
+      </LeftAlignDiv>
       <div style={{ height: fullscreen ? "75vh" : "40vh" }}>
         <ReactFlow
           nodeTypes={nodeTypes}
@@ -64,3 +65,10 @@ export const GraphDisplay: React.FC<{
     </ReactFlowProvider>
   );
 };
+
+const LeftAlignDiv = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0 1rem;
+`;

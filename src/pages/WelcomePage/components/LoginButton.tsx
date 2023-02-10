@@ -1,6 +1,6 @@
-import { useKeycloak } from "@react-keycloak/web";
 import { Button } from "cx-portal-shared-components";
 import { useTranslation } from "react-i18next";
+import { useCustomKeycloak } from "../../../lib/keycloak";
 import { getCurrentEnvironment } from "../../../utils/sessionStorageHandling";
 
 /**
@@ -10,15 +10,15 @@ import { getCurrentEnvironment } from "../../../utils/sessionStorageHandling";
  * @returns React.Component
  */
 export const LoginButton: React.FC = () => {
-  const { keycloak } = useKeycloak();
+  const { login, logout, authenticated } = useCustomKeycloak();
   const { t } = useTranslation();
 
   const clickHandler = async () => {
-    if (keycloak.authenticated) {
-      await keycloak.logout();
+    if (authenticated) {
+      await logout();
     }
     const serverEnv = getCurrentEnvironment();
-    await keycloak.login({ redirectUri: `${window.location.origin}/${serverEnv}/dashboard` });
+    await login({ redirectUri: `${window.location.origin}/${serverEnv}/dashboard` });
   };
 
   return (

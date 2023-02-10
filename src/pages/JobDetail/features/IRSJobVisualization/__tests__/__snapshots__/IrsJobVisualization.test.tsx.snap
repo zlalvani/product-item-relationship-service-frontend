@@ -40,7 +40,7 @@ exports[`renders a basic visualization 1`] = `
           </button>
         </div>
         <div
-          class="css-5m6tqh"
+          class="css-afl00b"
         >
           <div
             class="MuiAutocomplete-root MuiAutocomplete-hasClearIcon MuiAutocomplete-hasPopupIcon css-oarg8b-MuiAutocomplete-root"
@@ -134,16 +134,22 @@ exports[`renders a basic visualization 1`] = `
               </div>
             </div>
           </div>
-          <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeSmall MuiButton-containedSizeSmall Mui-disabled MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeSmall MuiButton-containedSizeSmall css-9aa3p4-MuiButtonBase-root-MuiButton-root"
-            disabled=""
-            tabindex="-1"
-            type="button"
+          <div
+            class="css-17qyic4"
           >
-            Submit
-          </button>
+            <button
+              class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeSmall MuiButton-containedSizeSmall Mui-disabled MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeSmall MuiButton-containedSizeSmall css-9aa3p4-MuiButtonBase-root-MuiButton-root"
+              disabled=""
+              tabindex="-1"
+              type="button"
+            >
+              Submit
+            </button>
+          </div>
         </div>
-        <div>
+        <div
+          class="css-1aiuyd0"
+        >
           <span
             class="MuiSwitch-root MuiSwitch-sizeMedium css-113qkos-MuiSwitch-root"
           >

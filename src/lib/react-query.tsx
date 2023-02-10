@@ -1,14 +1,14 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import React from "react";
 
-export const queryClient = new QueryClient();
+export let queryClient = new QueryClient();
 
 export const ReactQueryClientProvider: React.FC<{ children?: React.ReactNode }> = ({ children }) => {
   return <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>;
 };
 
 export const ReactQueryTestClientProvider: React.FC<{ children?: React.ReactNode }> = ({ children }) => {
-  const testClient = new QueryClient({
+  queryClient = new QueryClient({
     defaultOptions: {
       queries: {
         retry: false,
@@ -25,7 +25,7 @@ export const ReactQueryTestClientProvider: React.FC<{ children?: React.ReactNode
           : console.error,
     },
   });
-  return <QueryClientProvider client={testClient}>{children}</QueryClientProvider>;
+  return <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>;
 };
 
 export { useQuery } from "@tanstack/react-query";

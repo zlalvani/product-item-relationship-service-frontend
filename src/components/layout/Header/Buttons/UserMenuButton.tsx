@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
-import { useKeycloak } from "@react-keycloak/web";
 import { UserAvatar, UserMenu, UserNav } from "cx-portal-shared-components";
 import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import { useCustomKeycloak } from "../../../../lib/keycloak";
 import { getUserInfo } from "../../../../services/queries/user";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 
@@ -11,7 +11,7 @@ import { LanguageSwitcher } from "./LanguageSwitcher";
  * @returns React component
  */
 export const UserMenuButton: React.FC = () => {
-  const { keycloak } = useKeycloak();
+  const { logout } = useCustomKeycloak();
   const avatar = useRef<HTMLDivElement>(null);
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -43,7 +43,7 @@ export const UserMenuButton: React.FC = () => {
               title: "Logout",
               to: "/",
               onClick: async () => {
-                await keycloak.logout();
+                await logout();
               },
             },
           ]}

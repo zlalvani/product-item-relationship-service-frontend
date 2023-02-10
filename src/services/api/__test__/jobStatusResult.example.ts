@@ -33,4 +33,4 @@ export const JobListResponseSuccess: PageResult = {
   pageNumber: 0,
   pageSize: 20,
   totalElements: JobStatusResultSuccess.length,
-};
+} as const;

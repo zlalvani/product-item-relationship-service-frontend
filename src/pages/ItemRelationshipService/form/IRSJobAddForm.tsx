@@ -25,7 +25,7 @@ export const IRSJobAddForm = () => {
     globalAssetId: "urn:uuid:d387fa8e-603c-42bd-98c3-4d87fef8d2bb",
   };
 
-  const defaultFormFieldValues = {
+  const defaultFormFieldValues: DefaultFormFieldValuesType = {
     RequestBodyValues: JSON.stringify(testJob, null, 2),
   };
 
@@ -40,21 +40,17 @@ export const IRSJobAddForm = () => {
     mode: "onChange",
   });
 
-  const handleConfirm = async (formValues: DefaultFormFieldValuesType) => {
-    try {
-      const formData = JSON.parse(formValues.RequestBodyValues) as RegisterJob;
-      createJob(formData);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   const onFormSubmit = async () => {
     const validateFields = await trigger(["RequestBodyValues"]);
 
     if (validateFields) {
       const formValues = getValues();
-      handleConfirm(formValues);
+      try {
+        const formData = JSON.parse(formValues.RequestBodyValues) as RegisterJob;
+        createJob(formData);
+      } catch (error) {
+        console.log(error);
+      }
     }
   };
 
