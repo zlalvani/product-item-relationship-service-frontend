@@ -63,7 +63,7 @@ export const useCustomKeycloak = () => {
  */
 const localGetTokenRequest = async () => {
   console.log("localGetTokenRequest");
-  const url = import.meta.env[`VITE_SERVER_DEMO_KEYCLOAK_URL`];
+  const url = import.meta.env[`VITE_SERVER_LOCAL_KEYCLOAK_URL`];
 
   const data = new URLSearchParams();
   data.append("grant_type", import.meta.env[`VITE_SERVER_LOCAL_GRANT_TYPE`]);
@@ -71,13 +71,13 @@ const localGetTokenRequest = async () => {
   data.append("client_id", import.meta.env[`VITE_SERVER_LOCAL_CLIENT_ID`]);
   data.append("client_secret", import.meta.env[`VITE_SERVER_LOCAL_CLIENT_SECRET`]);
 
+  console.log("Calling url: " + url);
   try {
     //TODO: Add actual authentication headers here
     const response = await fetch(url, {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
-        "Access-Control-Allow-Origin": "http://localhost:4011",
         "Access-Control-Allow-Credentials": "true",
       },
       body: data,
@@ -86,6 +86,7 @@ const localGetTokenRequest = async () => {
     const tokenResponse = await response.json();
 
     localAuthToken = tokenResponse["access_token"];
+    console.log("localAuthToken: " + localAuthToken);
     return true;
   } catch (e) {
     return false;
