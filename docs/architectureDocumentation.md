@@ -27,9 +27,6 @@
   - [x] [Whitebox overall system](#whitebox-overall-system)
   - [x] [Level 1](#level-1)
   - [x] [IRS API](#references)
-- [x] [Runtime view](#runtime-view)
-  - [x] [Overall](#overall)
-  - [x] [Scenario 1: Create a job](#scenario-1-find-a-job)
 - [x] [Deployment view](#deployment-view) still unclear whole topic
   - [x] [Local deployment](#local-deployment)
   - [x] [View Levels](#view-levels)
@@ -57,27 +54,24 @@ This chapter gives you an overview about the goals of the service, in which cont
 
 ### What is the Item Relationship Service Debugging View?
 
-The IRS-DV is a:
+The Item Relationship Service Debugging View (IRS-DV) is a web-based tool that allows you to inspect IRS jobs to identify errors and faults. It leverages an API endpoint to retrieve and display the tree structures of data assets in a recursive manner across the Catena-X network.
+Moreover, the IRS-DV serves as a reference implementation and a prototype, providing a foundation for the development of other applications.
 
-- Web-frontend to visualize an IRS Job to detect errors and failures in the job
-- Uses API endpoint to retrieve the tree structures in a recursive way, which data assets are distributed throughout the Catena-X network
-- Reference implementation
+### Key Features
 
-### Substantial Features
-
-- provide a top-down BoM asBuilt tree structure along the submodel "AssemblyPartRelationship"
-- usage of IRS Jobs endpoint for communicating with the Catena-X network
+- Displays a top-down BoM tree structure based on the "AssemblyPartRelationship" submodel.
+- Utilizes the IRS Jobs endpoint to interact with the Catena-X network.
 
 ## Quality goals
 
 The following table entries define overall IRS-DV quality goals. The order of the topics do not resolve in a priority of the quality goals.
 
-| Quality goal                  | Motivation and description                                                                                                                                                                                        |
-| ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| running reference application | The IRS-DV is built to visualize completed IRS-Jobs. The IRS-DV release scope aims to build a running solution to display a job as a tree of nodes, with an highlight on failing nodes.                           |
-| cloud agnostic solution       | The IRS-DV is built as reference architecture and able to run on different cloud solutions. It uses helm charts, terraform and a abstracts the storage, so that it can easily be integrated on different systems. |
-| base security measures        | The IRS-DV is built with a base set of security features. The program can only be used by logging in via Keyclock                                                                                                 |
-| application reliability       | The IRS-DV architecture is set up so that the costumers can rely on reliable data chains                                                                                                                          |
+| Quality Objective               | Reasoning and Explanation                                                                                                                                                                                                |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Robust Reference Implementation | The IRS-DV is designed to visualize completed IRS Jobs. The focus of the IRS-DV release is to build a functional solution that can display a job as a tree of nodes, with emphasis on identifying any failing nodes.     |
+| Cloud-Neutral Design            | The IRS-DV is intended to serve as a reference architecture and be compatible with various cloud solutions. It utilizes helm charts, terraform, and abstracts storage to enable easy integration with different systems. |
+| Adequate Security Measures      | The IRS-DV is equipped with a basic set of security features and requires users to log in through Keycloak to access the program.                                                                                        |
+|                                 |
 
 <br>
 <br>
@@ -87,52 +81,52 @@ The following table entries define overall IRS-DV quality goals. The order of th
 <br>
 <br>
 
-# Architecture constraints
+# Architecture Constraints
 
 ## Technical Constraints
 
-| Name                                                                                                          | Description                                                                                                                                                                                                                                            |
-| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Cloud Agnostic Architecture approach                                                                          | IRS provides a reference application/implementation which is deployable on any cloud ecosystem. There is no vendor lock to any cloud vendor.                                                                                                           |
-| Kubernetes is used for Container Orchestration                                                                | Kubernetes as container orchestration system used for software deployment, scaling and management of the IRS application. This supports our software infrastructure and ensures efficient management and scalability of the IRS reference application. |
-| Docker Container are used to provide a microservice oriented architecture                                     | Deployment made on reliable production ready images. Avoiding repetitive, mundane configuration tasks for container orchestration.                                                                                                                     |
-| Docker Compose is used to define and tune multi container application based on docker container technologies. | Docker container to develop independently of the underlying OS.                                                                                                                                                                                        |
-|                                                                                                               |
+| Constraint                                         | Explanation                                                                                                                                                                                                                            |
+| -------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Cloud-Neutral Design Approach                      | The IRS provides a reference implementation that can be deployed on any cloud platform, avoiding vendor lock-in to a specific cloud provider.                                                                                          |
+| Adoption of Kubernetes for Container Orchestration | The IRS utilizes Kubernetes for container orchestration, software deployment, scaling, and management. This supports the software infrastructure and enables effective management and scalability of the IRS reference implementation. |
 
 ## Organizational Constraints
 
-| Name             | Description                                              | Comment                                           |
-| ---------------- | -------------------------------------------------------- | ------------------------------------------------- |
-| IRS Jobs Service | Provide IRS as a C-X Shared Data Service.                | Multiple target IRS Job services are configurable |
-| Keycloak         | Authentication has to be handled by a keycloak instance. |                                                   |
+| Name             | Description                                                               | Comment                                                         |
+| ---------------- | ------------------------------------------------------------------------- | --------------------------------------------------------------- |
+| IRS Jobs Service | The IRS is provided as a shared data service within the Catena-X network. | Multiple IRS job services can be configured as target services. |
+| Keycloak         | Authentication for the IRS is handled through a Keycloak instance.        |                                                                 |
 
 ## Political constraints
 
-| Name               | Description                                                                                                                                                                                   |
-| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Open Source        | FOSS licenses approved by the eclipse foundation has to be used. It could represent the initial set that the CX community agrees on to regulate the content contribution under FOSS licenses. |
-| Apache License 2.0 | Apache License 2.0 is one of the approved licenses which should be used to respect and guarantee Intellectual property (IP).                                                                  |
-| NodeJs             | Node.js is an open-source, cross-platform JavaScript runtime environment and library for running web applications outside the client's browser                                                |
+| Name                | Description                                                                                                                                                                                       |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Open Source Usage   | The use of Free and Open-Source Software (FOSS) licenses approved by the Eclipse Foundation is mandatory. This ensures that the content contributions are regulated under approved FOSS licenses. |
+| Apache License 2.0  | The Apache License 2.0 must be used to respect and protect intellectual property (IP).                                                                                                            |
+| Node.js Requirement | The IRS application must be developed using Node.js, an open-source, cross-platform JavaScript runtime environment and library for running web applications outside the client's browser.         |
+
+                                                    |
 
 ## Development conventions
 
-| Name                                     | Description                                                                                                                                                                                                                                           |
-| ---------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Architecture documentation               | Architectural documentation of IRS-DV according to ARC42 template.                                                                                                                                                                                    |
-| Coding guidelines                        | ESlint recommended TypeScript format.                                                                                                                                                                                                                 |
-| Module structure                         | React single page application.                                                                                                                                                                                                                        |
-| Code Analysis, Linting and Code Coverage | Consistent style increases readability and maintainability of the code base. Hence, we use analyzers to enforce consistency and style rules. We enforce the code style and rules in the CI to avoid merging code that does not comply with standards. |
+| Name                                     | Description                                                                                                                                                                                                              |
+| ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Architecture documentation               | The IRS-DV has architectural documentation based on the ARC42 template, providing a clear and organized understanding of the system's design.                                                                            |
+| Coding guidelines                        | The code follows recommended TypeScript format as outlined by ESlint to ensure consistency and maintainability.                                                                                                          |
+|                                          |
+| Module structure                         | The IRS-DV uses a React single page application structure.                                                                                                                                                               |
+| Code analysis, linting and code coverage | To maintain the quality and consistency of the code base, code analysis, linting and code coverage are performed. This helps enforce coding standards and prevents the merging of code that does not meet the standards. |
 
 ## Code analysis, linting and code coverage
 
-| Tool       | Scope                                                                                         | Rule                                                          | Configuration (via files / annotations)  |
-| ---------- | --------------------------------------------------------------------------------------------- | ------------------------------------------------------------- | ---------------------------------------- |
-| Vitest     | Test coverage                                                                                 | Fail build on coverage < 80%                                  | vite.config.ts                           |
-| Dependabot | Automated dependency updates built into GitHub. Provided pull requests on dependency updates. | Any dependency update generates a pull request automatically. | .github/dependabot.yml                   |
-| Prettier   | Code formatter                                                                                | Code style for all developers are the same                    | .prettierrc.json                         |
-| ESLINT     | Find and fix problems                                                                         | Find and fix problems with JavaScript code                    | .github/.eslintrc                        |
-| SonaCloud  | CodeSmell and Security Scan                                                                   | Global catena-x configuration.                                |
-| Veracode   | Packages and Security Scan                                                                    | Global catena-x configuration.                                | https://web.analysiscenter.veracode.com/ |
+| Tool       | Scope                                                           | Rule                                                              | Configuration (via files / annotations)  |
+| ---------- | --------------------------------------------------------------- | ----------------------------------------------------------------- | ---------------------------------------- |
+| Vitest     | Test coverage and ensuring build quality                        | Builds will fail if coverage is below 80%                         | vite.config.ts                           |
+| Dependabot | Automated dependency management via pull requests within GitHub | All dependency updates will automatically generate pull requests. | .github/dependabot.yml                   |
+| Prettier   | Code formatting                                                 | Standardizes code style for all developers                        | .prettierrc.json                         |
+| ESLINT     | Identifying and fixing problems in JavaScript code              | Ensures consistent coding practices and rules                     | .github/.eslintrc                        |
+| SonaCloud  | Code quality and security scanning                              | Configured for use across the Catena-X community                  |
+| Veracode   | Package and security scanning                                   | Global Catena-X configuration.                                    | https://web.analysiscenter.veracode.com/ |
 
 <br>
 <br>
@@ -144,19 +138,17 @@ The following table entries define overall IRS-DV quality goals. The order of th
 
 # System scope and context
 
-The IRS-DV acts as a middleware between consumers and manufacturers. This section describes the environment of IRS-DV. Who are its users, and with which other systems does it interact with.
+The IRS-DV is as a viewer of IRS Jobs. This section describes the environment of IRS-DV. Who are its users, and with which other systems does it interact with.
 
 ## Business context
 
-![business context overview](./images/puml-svg/business-context.svg)
+### End User
 
-### Consumer
+The end user is searching for errors in the data chain of an IRS-job, either ongoing or completed. In order to access this data, the end user must obtain valid credentials from the Catena-X IAM system.
 
-The consumer is end user who is searching and looking for a errors in all data chain of the Catena-X network. He need to get valid credentials issued by the Catena-X IAM.
+### IRS Job API
 
-### Catena-X network
-
-The IRS-DV retrieves data from the Catena-X network (using the necessary infrastructure, see Technical Context), aggregates it and provides it back to the consumers. This connection is mandatory. If the Catena-X services are unavailable, the IRS-DV cannot perform any work.
+The IRS-DV retrieves data from the IRS Job API. This connection is mandatory. If the Catena-X services are unavailable, the IRS-DV cannot display any data.
 
 ## Technical context
 
@@ -168,9 +160,10 @@ The IRS-DV retrieves data from the Catena-X network (using the necessary infrast
 
 We use a REST API that is made by IRS team and can be used by any system registered in the Catena-X Keycloak. For communication we use HTTP(S) protocol.
 
-### IRS-DV system
+### IRS-Debugging View
 
-The IRS-DV system is created to search and show all related components of searched element by globalAssetId and other parameters.
+The IRS-DV system is used to list all current and running jobs. It can create new jobs by defining the globalAssetId-parameter and other parameters. In addition, the system presents detailed information on individual jobs in a tree-node structure, making it easy to navigate and locate specific data.
+
 <br>
 <br>
 
@@ -183,34 +176,110 @@ The IRS-DV system is created to search and show all related components of search
 
 ## Introduction
 
-| Quality goal                  | Matching approaches in the solution                                                                                                                                                                       |
-| ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| application reliability       | <ul><li>only data source is the Catena-X network, data is fetched from IRS API</li><li>IRS-DV can be hosted decentralized by every participant by being an open source reference implementation</li></ul> |
-| base security measures        | <ul><li>automatic static and dynamic code analysis tools as part of the pipeline</li></ul>                                                                                                                |
-| cloud agnostic solution       | <ul><li>IRS-DV is provided as a Docker image</li><li>Helm charts assist in deploying the application in any Kubernetes environment</li></ul>                                                              |
-| running reference application | <ul><li>Working application can be used as reference by anyone due to open source publishing </li></ul>                                                                                                   |
+| Quality goal                  | Matching approaches in the solution                                                                                                             |
+| ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| application reliability       | The IRS-DV system can be hosted in a decentralized manner by any participant, with data fetched from the IRS Jobs API.                          |
+| base security measures        | - Static and dynamic code analysis tools are automatically included as part of the pipeline.                                                    |
+|                               |
+| Cloud-agnostic solution       | - The IRS-DV system is available as a Docker image.<br> - Helm charts simplify the deployment of the application in any Kubernetes environment. |
+| Running reference application | The working application is open source, enabling anyone to use it as a reference.                                                               |
 
 ## Technology
 
-The IRS-DV is developed using React framework. This choice was made due to the technical knowledge of the team and the widespread support of the framework.
+The IRS-DV system was developed using the React framework, chosen for its widespread support and the team's technical expertise.
 
-Hosting the application is done using Docker and Kubernetes, which is widely used and vendor-independent regarding the hosting provider (e.g. AWS, Google Cloud, Azure, …​).
+The application is hosted using Docker and Kubernetes, which are widely used and compatible with multiple hosting providers, such as AWS, Google Cloud, and Azure.
 
-Communication is done using HTTP. This is the standard method in the Catena-X landscape and makes the IRS API easy to use.
+React-Query was used to make the REST Api provided by the IRS-Jobs easy to integrate.
+
+
+
+
+### Overview of the dependencies
+
+### Dev Dependencies
+
+Build system Vite (https://vitejs.dev/)
+Testing: ViTest (https://vitest.dev/) + Testing Library (https://testing-library.com/)
+
+### UI Components
+The look and feel of the application is defined by the *Catena-X Components*
+```js
+    "cx-portal-shared-components": "0.10.0", 
+```
+Documentation: https://portal.dev.demo.catena-x.net/_storybook/?path=/story/chip--examples
+
+**Supporting Libraries**
+```js
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@mui/icons-material": "^5.11.0",
+    "@mui/material": "5.11.6",
+    "@mui/x-data-grid": "^5.17.21",
+```
+These libraries were chosen to be consistent with other CatenaX projects.
+
+### Authentication
+For authentication in addition to the base keycloak-js, the react wrapper is needed to provide a simple method to define public and private routes.
+```js
+"@react-keycloak/web": "^3.4.0",
+"keycloak-js": "^20.0.3",
+```
+
+Documentation: https://www.keycloak.org/docs/latest/securing_apps/index.html#_javascript_adapter
+
+This library was chosen to be consistent with other CatenaX projects.
+
+### Network Management
+```js
+"@tanstack/react-query": "^4.23.0",
+```
+https://tanstack.com/query/latest/docs/react/overview
+
+This library was chosen to ensure network management.
+
+### Node Visualization
+```js
+"reactflow": "^11.5.1"
+"dagre": "^0.8.5", (needed to layout the nodes)
+```
+https://reactflow.dev/
+
+This library was chosen as it has several features to ensure that large datasets can be rendered as well. It is easy to extend, and customize the individual nodes in the graph.
+Multiple node layout engines can be used as well. We are currently using the 'dagre' - library as suggested by the reactflow documentation.
+
+### I18n
+```js
+"i18next": "^22.4.9",
+"i18next-browser-languagedetector": "^7.0.1",
+"react-i18next": "^12.1.4",
+```
+This library was chosen to be consistent with other CatenaX projects.
+
+### Routing
+```js
+"react-router-dom": "^6.8.0",
+```
+More Info: https://reactrouter.com/en/main
+
+This library was chosen to be consistent with other CatenaX projects.
+
+### Other
+```js
+"dayjs": "^1.11.7",
+"lodash": "^4.17.21",
+"react-hook-form": "^7.42.1",
+"react-syntax-highlighter": "^15.5.0",
+```
 
 ## Structure
 
-The IRS-DV consists of 3 main views:
+The IRS-DV has three primary views, which include:
 
-1. the IRS API to view/find Jobs (services component)
-2. the job list
-3. the visualization and tombstones blocks
+1. The welcome page that enables users to select the active environment and authenticate.
+2. The overview page that allows users to create or list jobs.
+3. The job detail page that features a tree visualization and tombstone blocks.
 
-IRS-DV search by parameters in IRS API, and collecting fetched data in job list.
-
-The job list is the place where IRS-DV is storing all fetched jobs and hold search history.
-
-The visualization show us/consumer how elements are connected each other, and tombstones show in what level data is missing.
 
 <br>
 <br>
@@ -230,33 +299,18 @@ Full backend services graph you can find at **[IRS team](https://catenax-ng.gith
 
 ### Component diagram
 
-![whitebox overview](./images/puml-svg/whitebox%20overview.svg)
+![whitebox overview](./images/ComponentOverview.png)
 
 ### Component description
 
 | Components          | Description                                                                                      |
 | ------------------- | ------------------------------------------------------------------------------------------------ |
-| IRSSelectServerEnv  | Select server environmental between given servers                                                |
-| IRSJobAddForm       | In this component, you can select settings according to which globalAssetId you are looking for. |
-| IRSJobOverview      | IRS-DV history by search parameters                                                              |
-| IRSJobVisualization | IRS-DV visualization based on search parameters. We show all related nodes.                      |
-| IRSJobTombstones    | IRS-DV cached errors                                                                             |
-| IRSJobStore         | Show all grid for filtered history                                                               |
+| IRSSelectServerEnv  | Select server environment between given servers                                                |
+| IRSJobAddForm       | Form to create a valid create Job request |
+| IRSJobOverview      | Displays a list of  IRS-Jobs                                                            |
+| IRSJobVisualization | The visualization showcases how different elements are connected                      |
 | ErrorPage           | Catch errors(router error and ... ) and show error page                                          |
 
-## Level 1
-
-### Component diagram
-
-![whitebox Level 1](./images/puml-svg/whitebox-level1.svg)
-
-### Component description
-
-| Components         | Description                                                                                                                                              |
-| ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| IRSSelectServerEnv | The IRS-DV you can select between environments you want to find job                                                                                      |
-| IRSJobAddForm      | The IRSJobAddForm is a JSON format with parameters, you can add "aspects", "direction", "globalAssetId" and other parameters. (see full json file below) |
-| IRSJobOverview     | The IRSJobOverview is a component which manages (start, cancel, auto refresh) the jobs, and store them in a table list.                                  |
 
 ## IRS API
 
@@ -264,10 +318,6 @@ Full backend services graph you can find at **[IRS team](https://catenax-ng.gith
 
 The Swagger documentation can be found in the local deployment of the reference application. More information can be found in the GitHub repository: https://github.com/eclipse-tractusx/item-relationship-service/blob/main/README.md
 
-### IRS interaction diagram
-
-![IRS API jobs](./images/puml-svg/irs-api-jobs.svg)
-
 <br>
 <br>
 
@@ -276,33 +326,6 @@ The Swagger documentation can be found in the local deployment of the reference 
 <br>
 <br>
 
-# Runtime view
-
-This section covers the main processes of the IRS-DV.
-
-## Overall
-
-This section describes the overall flow of the IRS-DV.
-
-![IRS flow](./images/puml-svg/irs-dv-flow.svg)
-
-## Scenario 1: Create a job
-
-This section describes what happens when user creates a job.
-
-create job (IAMGE)
-
-### Overview
-
-User run application locally and select environment. After user select environment and login thought Keycloak user can fill parameters to section and search for a job. If job is found, user will saw it in "Job list". If user cancel Job search it will shows in a "Job list". After Job search is completed user will see it in a "Job list" as "COMPLETED" and can open to overview the job.
-
-<br>
-<br>
-
-[Back to top](#)
-
-<br>
-<br>
 
 # Deployment view
 
@@ -416,6 +439,15 @@ TODO: Add info about Helm chart
 
 Although the Docker image can be deployed in various ways, the standard solution are the provided Helm charts, which describe the required components as well.
 
+### Dependencies Upgrade Strategy
+Currently there is no fixed schedule to upgrade the packages. 
+
+#### NOTE
+Currently the package: "@mui/material": "5.10.17" cannot be updated to a newer version.
+A ticket has been opened with the owner of the library https://github.com/mui/material-ui/issues/35773
+
+
+
 ## Operational concepts
 
 ### Configuration - Helm Chart
@@ -463,16 +495,8 @@ Overall the code should be as low complexity as possible. This is ensured by usi
 
 | Term                                | Description                                                                                                                                                                                                                                                                          |
 | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| AAS                                 | Asset Administration Shell (Industry 4.0)                                                                                                                                                                                                                                            |
-| Aspect servers (submodel endpoints) | Companies participating in the interorganizational data exchange provides their data over aspect servers. The so called "submodel-descriptors" in the AAS shells are pointing to these AspectServers which provide the data-assets of the participating these companies in Catena-X. |
-| BoM                                 | Bill of Materials                                                                                                                                                                                                                                                                    |
-| Edge                                | see Traversal Aspect                                                                                                                                                                                                                                                                 |
 | IRS                                 | Item Relationship Service                                                                                                                                                                                                                                                            |
 | IRS-DV                              | Item Relationship service Debugging view                                                                                                                                                                                                                                             |
-| Item Graph                          | The result returned via the IRS. This corresponds to a tree structure in which each node represents a part of a virtual asset.                                                                                                                                                       |
-| MTPDC                               | Formerly known Service Name: Multi Tier Parts Data Chain                                                                                                                                                                                                                             |
-| PRS                                 | Formerly known Service Name: Parts Relationship Name                                                                                                                                                                                                                                 |
-| Traversal Aspect                    | aka Edge: Aspect which the IRS uses for traversal through the data chain. Identified by a parent-child or a child-parent relationship.<br><br>Samples: SingleLevelBomAsPlanned, AssemblyPartRelationship and SingleLevelUsageAsBuilt                                                 |
 
 <br>
 <br>
