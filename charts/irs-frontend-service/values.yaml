@@ -39,14 +39,14 @@ autoscaling:
 registry:
   vite:
     manual:
-      url: 
+      url:
   url:
-    local: 
+    local:
 keycloak:
-  url: 
+  url:
   grand:
-    type: 
-  scope: 
+    type:
+  scope:
   client:
-    id: 
-    secret: 
+    id:
+    secret:
