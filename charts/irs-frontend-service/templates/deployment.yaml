@@ -68,4 +68,3 @@ spec:
             items:
               - key: config.env
                 path: .env
-
