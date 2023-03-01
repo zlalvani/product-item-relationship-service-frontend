@@ -16,13 +16,15 @@ export const IRSJobAddForm = () => {
 
   const { mutate: createJob, isLoading, isError, isSuccess } = useCreateJob();
 
+  const defaultGlobalAssetId = import.meta.env[`VITE_SERVER_DEFAULT_GLOBAL_ASSET_ID`];
+
   const testJob = {
     aspects: ["AssemblyPartRelationship", "SerialPartTypization"],
     bomLifecycle: "asBuilt",
     collectAspects: true,
     direction: "downward",
     depth: 10,
-    globalAssetId: "urn:uuid:d387fa8e-603c-42bd-98c3-4d87fef8d2bb",
+    globalAssetId: defaultGlobalAssetId,
   };
 
   const defaultFormFieldValues: DefaultFormFieldValuesType = {
