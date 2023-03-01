@@ -3,8 +3,8 @@ replicaCount: 1
 
 image:
   repository: ghcr.io/catenax-ng/product-item-relationship-service-frontend
-  pullPolicy: IfNotPresent
-  tag: "main"
+  pullPolicy: Always
+  tag: main
 
 serviceAccount:
   create: true
@@ -36,7 +36,22 @@ autoscaling:
   targetCPUUtilizationPercentage: 80
   targetMemoryUtilizationPercentage: 80
 
+securityContext:
+  allowPrivilegeEscalation: false
+  readOnlyRootFilesystem: true
+  runAsUser: 10001
+  runAsGroup: 10001
+  runAsNonRoot: true
+  seccompProfile:
+    type: RuntimeDefault      
+  capabilities:
+    drop: ["ALL"]
+
 registry:
+  default:
+    global:
+      asset:
+        id:
   vite:
     manual:
       url:
