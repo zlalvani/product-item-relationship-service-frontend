@@ -1,4 +1,4 @@
-FROM node:19-slim as build
+FROM node:19.7.0-slim as build
 
 RUN mkdir -p /opt/app
 WORKDIR /opt/app
@@ -31,3 +31,4 @@ CMD ["npm", "run", "start"]
 # docker run -p 8080:3000 --name irs-frontend product-item-relationship-service-frontend
 # docker tag product-item-relationship-service-frontend ghcr.io/catenax-ng/product-item-relationship-service-frontend
 # docker run -p 3000:3000 product-item-relationship-service-frontend
+# docker run -p 3000:3000 ghcr.io/catenax-ng/product-item-relationship-service-frontend:main
