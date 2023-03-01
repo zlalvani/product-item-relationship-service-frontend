@@ -43,7 +43,7 @@ securityContext:
   runAsGroup: 10001
   runAsNonRoot: true
   seccompProfile:
-    type: RuntimeDefault      
+    type: RuntimeDefault
   capabilities:
     drop: ["ALL"]
 
