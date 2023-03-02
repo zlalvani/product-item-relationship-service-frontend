@@ -21,10 +21,12 @@ COPY ./vitest-setup.js ./vitest-setup.js
 RUN npm run build
 
 # production stage
-FROM nginx:stable-alpine as production-stage
-COPY --from=build-stage /app/dist /usr/share/nginx/html
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+FROM bitnami/nginx:1.22.1 as production-stage
+
+USER 1001
+COPY --from=build-stage /app/dist /opt/bitnami/nginx/html
+ENV NGINX_HTTP_PORT_NUMBER=8080
+EXPOSE 8080
 
 # docker build --no-cache -t product-item-relationship-service-frontend .
 # docker run -p 8080:3000 --name irs-frontend product-item-relationship-service-frontend
