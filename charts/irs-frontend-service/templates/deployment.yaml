@@ -30,7 +30,7 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: default
-              containerPort: 3000
+              containerPort: 8080
               protocol: TCP
           {{- if .Values.livenessProbe.enabled }}
           livenessProbe:
@@ -56,17 +56,8 @@ spec:
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
-            - name: configuration
-              mountPath: /opt/app/.env
-              subPath: .env
             - name: tmp
               mountPath: /tmp
       volumes:
         - name: tmp
           emptyDir: {}
-        - name: configuration
-          configMap:
-            name: {{ .Chart.Name }}
-            items:
-              - key: config.env
-                path: .env
