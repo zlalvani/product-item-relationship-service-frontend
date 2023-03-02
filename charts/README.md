@@ -39,15 +39,16 @@ helm uninstall irs-frontend --namespace irs
 | Name              | Description               | Value                                                         |
 | ----------------- | ------------------------- | ------------------------------------------------------------- |
 | image.repository  | Docker image repository   | ghcr.io/catenax-ng/product-item-relationship-service-frontend |
-| image.tag         | Docker image tag          | main                                                          |
+| image.tag         | Docker image tag          | 1.0.1                                                         |
 
 ### Frontend configuration
 
-| Name                      | Description               | Value                                 |
-| ------------------------- | ------------------------- | ------------------------------------- |
-| registry.url              | IRS registry url          | http://localhost:8080                 |
-| keycloak.url              | Keycloak url              | http://localhost:4011/connect/token   |
-| keycloak.grand.type       | Keycloak grand type       | client_credentials                    |
-| keycloak.scope            | Keycloak scope            | catena-scope                          |
-| keycloak.client.id        | Keycloak client id        | catena-client-id                      |
-| keycloak.client.secret    | Keycloak client secret    | catena-client-secret                  |
+| Name                              | Description               | Value                                         |
+| --------------------------------- | ------------------------- | --------------------------------------------- |
+| registry.url                      | IRS registry url          | http://localhost:8080                         |
+| keycloak.url                      | Keycloak url              | http://localhost:4011/connect/token           |
+| keycloak.grand.type               | Keycloak grand type       | client_credentials                            |
+| keycloak.scope                    | Keycloak scope            | catena-scope                                  |
+| keycloak.client.id                | Keycloak client id        | catena-client-id                              |
+| keycloak.client.secret            | Keycloak client secret    | catena-client-secret                          |
+| registry.default.global.asset.id  | Default global asset id   | urn:uuid:d3c0bf85-d44f-47c5-990d-fec8a36065c6 |
