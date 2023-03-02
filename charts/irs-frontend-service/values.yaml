@@ -4,7 +4,7 @@ replicaCount: 1
 image:
   repository: ghcr.io/catenax-ng/product-item-relationship-service-frontend
   pullPolicy: Always
-  tag: main
+  tag: 1.0.1
 
 serviceAccount:
   create: true
@@ -38,9 +38,6 @@ autoscaling:
 
 securityContext:
   allowPrivilegeEscalation: false
-  readOnlyRootFilesystem: true
-  runAsUser: 10001
-  runAsGroup: 10001
   runAsNonRoot: true
   seccompProfile:
     type: RuntimeDefault
