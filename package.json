@@ -1,6 +1,5 @@
 {
   "scripts": {
-    "prepare": "husky install",
     "start": "vite",
     "dev": "vite",
     "build": "tsc && vite build",
