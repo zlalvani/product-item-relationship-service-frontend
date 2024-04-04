@@ -6,7 +6,9 @@ import { JobAPI } from "../api/JobAPI";
 
 export const useFetchJobById = ({ id }: { id: string }, refetchInterval: false | number = false) => {
   const serverEnv = getCurrentEnvironment();
-  return useQuery(["jobs", serverEnv, id], () => JobAPI.fetchJobById(id), {
+  return useQuery({
+    queryKey: ["jobs", serverEnv, id],
+    queryFn: () => JobAPI.fetchJobById(id),
     refetchInterval: refetchInterval,
   });
 };
