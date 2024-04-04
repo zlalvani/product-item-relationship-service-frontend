@@ -14,16 +14,7 @@ export const ReactQueryTestClientProvider: React.FC<{ children?: React.ReactNode
         retry: false,
       },
     },
-    logger: {
-      log: console.log,
-      warn: console.warn,
-      error:
-        process.env.NODE_ENV === "test"
-          ? () => {
-              return undefined;
-            }
-          : console.error,
-    },
+// Removed logger configuration as it's not a recognized property in QueryClientConfig.
   });
   return <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>;
 };
