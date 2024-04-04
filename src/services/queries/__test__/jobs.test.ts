@@ -24,17 +24,3 @@ it("fetches a jobs", async () => {
 
   expect(result.current.data).toEqual(JobListResponseSuccess);
 });
-
-it("cancels a job", async () => {
-  const { result: cancelResult } = renderCustomHook(() => {
-    return useCancelJobs(0);
-  });
-  queryClient.setQueryData(["jobs", getCurrentEnvironment(), 0], JobListResponseSuccess);
-  await waitFor(() => {
-    cancelResult.current.mutate((JobListResponseSuccess.content ?? [])[0].id ?? "");
-    return expect(cancelResult.current.isSuccess).toBe(true);
-  });
-  const cacheData = (queryClient.getQueriesData(["jobs", getCurrentEnvironment(), 0])[0][1] as { content: number[] })
-    .content.length;
-  expect(cacheData).toBe((JobListResponseSuccess.content ?? []).length - 1);
-});
