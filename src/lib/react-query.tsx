@@ -27,5 +27,3 @@ export const ReactQueryTestClientProvider: React.FC<{ children?: React.ReactNode
   });
   return <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>;
 };
-
-export { useQuery } from "@tanstack/react-query";

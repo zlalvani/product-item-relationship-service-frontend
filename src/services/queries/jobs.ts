@@ -1,6 +1,7 @@
 import { useMutation } from "@tanstack/react-query";
 import { PageResult, RegisterJob } from "../../generated/jobsApi";
-import { queryClient, useQuery } from "../../lib/react-query";
+import { queryClient } from "../../lib/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { getCurrentEnvironment } from "../../utils/sessionStorageHandling";
 import { JobAPI } from "../api/JobAPI";
 

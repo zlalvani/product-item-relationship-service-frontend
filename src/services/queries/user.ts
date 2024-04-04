@@ -1,4 +1,4 @@
-import { useQuery } from "../../lib";
+import { useQuery } from "@tanstack/react-query";
 import { keycloak } from "../../lib/keycloak";
 
 export const getUserInfo = () => {
