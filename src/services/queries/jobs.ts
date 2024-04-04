@@ -13,7 +13,7 @@ export const useFetchJobById = ({ id }: { id: string }, refetchInterval: false |
 
 export const useFetchJobs = (page: number, refetchInterval: false | number = false) => {
   const serverEnv = getCurrentEnvironment();
-  return useQuery({ queryKey: ["jobs", serverEnv, page], queryFn: () => JobAPI.fetchJobs(page), options: { refetchInterval } });
+  return useQuery({ queryKey: ["jobs", serverEnv, page], queryFn: () => JobAPI.fetchJobs(page), refetchInterval });
 };
 
 export const useCancelJobs = (page: number) => {
