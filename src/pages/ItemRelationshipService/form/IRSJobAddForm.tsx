@@ -99,7 +99,7 @@ export const IRSJobAddForm = () => {
             color="secondary"
             label={t("content.irs.form.sendButton")}
             loadIndicator="Creating Job ..."
-            loading={status === 'pending'}
+            loading={status === "pending"}
             onClick={onFormSubmit}
             disabled={formHasErrors()}
             onButtonClick={onFormSubmit}

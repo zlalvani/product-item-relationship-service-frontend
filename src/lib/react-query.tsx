@@ -14,7 +14,7 @@ export const ReactQueryTestClientProvider: React.FC<{ children?: React.ReactNode
         retry: false,
       },
     },
-// Removed logger configuration as it's not a recognized property in QueryClientConfig.
+    // Removed logger configuration as it's not a recognized property in QueryClientConfig.
   });
   return <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>;
 };
