@@ -20,7 +20,7 @@ export const JobDetail: React.FC = () => {
   return (
     <>
       {job && <IrsJobVisualization job={job} />}
-      {job.job && <IrsJobDetails job={job.job} />}
+      {job?.job && <IrsJobDetails job={job.job} />}
       <IRSJobTombstones tombstones={job.tombstones ?? []} />
     </>
   );
