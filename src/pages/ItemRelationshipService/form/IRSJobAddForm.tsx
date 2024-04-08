@@ -14,7 +14,7 @@ type DefaultFormFieldValuesType = {
 export const IRSJobAddForm = () => {
   const { t } = useTranslation();
 
-  const { mutate: createJob, isLoading, isError, isSuccess } = useCreateJob();
+  const { mutate: createJob, isError, isSuccess, status } = useCreateJob();
 
   const defaultGlobalAssetId = import.meta.env[`VITE_SERVER_DEFAULT_GLOBAL_ASSET_ID`];
 
@@ -99,7 +99,7 @@ export const IRSJobAddForm = () => {
             color="secondary"
             label={t("content.irs.form.sendButton")}
             loadIndicator="Creating Job ..."
-            loading={isLoading}
+            loading={status === "pending"}
             onClick={onFormSubmit}
             disabled={formHasErrors()}
             onButtonClick={onFormSubmit}

@@ -6,14 +6,16 @@ import { JobAPI } from "../api/JobAPI";
 
 export const useFetchJobById = ({ id }: { id: string }, refetchInterval: false | number = false) => {
   const serverEnv = getCurrentEnvironment();
-  return useQuery(["jobs", serverEnv, id], () => JobAPI.fetchJobById(id), {
-    refetchInterval,
+  return useQuery({
+    queryKey: ["jobs", serverEnv, id],
+    queryFn: () => JobAPI.fetchJobById(id),
+    refetchInterval: refetchInterval,
   });
 };
 
 export const useFetchJobs = (page: number, refetchInterval: false | number = false) => {
   const serverEnv = getCurrentEnvironment();
-  return useQuery(["jobs", serverEnv, page], () => JobAPI.fetchJobs(page), { refetchInterval });
+  return useQuery({ queryKey: ["jobs", serverEnv, page], queryFn: () => JobAPI.fetchJobs(page), refetchInterval });
 };
 
 export const useCancelJobs = (page: number) => {
